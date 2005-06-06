@@ -1,0 +1,54 @@
+/* file:        include/osgToy/MengerSponge
+ * author:      Mike Weiblen 2004-12-21
+ * copyright:   (C) 2004 Michael Weiblen
+ * license:     OpenSceneGraph Public License (OSGPL)
+ * website:     http://mew.cx/osg/
+ * $Id: MengerSponge,v 1.1 2005/06/06 22:10:37 mew Exp $
+ *
+ * see: http://en.wikipedia.org/wiki/Menger_sponge
+ *      http://mathworld.wolfram.com/MengerSponge.html
+*/
+
+#ifndef OSGTOY_MENGERSPONGE
+#define OSGTOY_MENGERSPONGE 1
+
+#include <osg/Geometry>
+
+#include <osgToy/Export>
+
+namespace osgToy {
+
+/** The Menger sponge is a fractal solid of dimension ln20/ln3 (~2.727) */
+
+class OSGTOY_EXPORT MengerSponge : public osg::Geometry
+{
+public:
+    MengerSponge( unsigned int level = 1, float scale = 1.0f );
+    MengerSponge( const MengerSponge&, const osg::CopyOp& copyop=osg::CopyOp::SHALLOW_COPY );
+    META_Object( osgToy, MengerSponge );
+
+    unsigned int getNumQuads() const { return _numQuads; }
+
+protected:
+    virtual ~MengerSponge() {}
+
+private:
+    void addQuad( const osg::Vec3&, const osg::Vec3&, const osg::Vec3&, const osg::Vec3& );
+    void subdivide( int, float, float, float, float, float, float, int );
+    void generate();
+
+    unsigned int        _level;
+    float               _scale;
+    unsigned int        _numQuads;
+
+    osg::Vec3Array*     _vAry;  // temporaries for generate()
+    osg::Vec3Array*     _nAry;
+    osg::Vec4Array*     _cAry;
+};
+
+}
+
+#endif
+
+/* vim: set sw=4 ts=8 et ic ai: */
+/*EOF*/
