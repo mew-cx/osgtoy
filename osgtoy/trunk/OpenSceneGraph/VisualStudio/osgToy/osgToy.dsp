@@ -127,11 +127,19 @@ SOURCE=..\..\src\osgToy\RungeKutta4.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\src\osgToy\SuperShape3D.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\src\osgToy\Version.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\src\osgToy\SuperShape3D.cpp
+SOURCE=..\..\src\osgToy\GlslLint.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\src\osgToy\GlslLintVisitor.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -176,6 +184,14 @@ SOURCE=..\..\include\osgToy\SuperShape3D
 # Begin Source File
 
 SOURCE=..\..\include\osgToy\Version
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\include\osgToy\GlslLint
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\include\osgToy\GlslLintVisitor
 # End Source File
 # End Group
 # Begin Group "Resource Files"
