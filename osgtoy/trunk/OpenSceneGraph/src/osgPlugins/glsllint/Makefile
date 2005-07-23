@@ -1,5 +1,5 @@
 
-TGT = osgdb_faceter.so
+TGT = osgdb_glsllint.so
 
 CXXFLAGS = -fpic -I../../../include
 CXXSRC = $(wildcard *.cpp)
@@ -19,7 +19,7 @@ ${TOYLIB}:
 	make -C ${TOYPATH}
 
 test: ${TGT}
-	osgviewer ../../../data/no_normals.osg.faceter
+	osgviewer ../../../data/glsl_confetti.osg.glsllint
 
 clean:
 	rm -f *.o
