@@ -12,7 +12,7 @@
 */
 
 /* file:        include/osgToy/GlslLint
- * author:      Mike Weiblen http://mew.cx/ 2005-07-22
+ * author:      Mike Weiblen http://mew.cx/ 2005-07-25
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
 */
@@ -26,6 +26,11 @@
 #include <osg/Referenced>
 #include <osg/Shader>
 #include <osgToy/Export>
+
+// This code written to OpenGLCompilerJune082005.zip from
+// http://developer.3Dlabs.com/
+typedef void* ShHandle;   // from glslang/Public/ShaderLang.h
+
 
 namespace osgToy {
 
@@ -52,16 +57,16 @@ public:
     Status compile( osg::Shader::Type type, const std::string& sourceText );
     Status link();
 
+    const std::string& const getInfoLog() { return _infoLog };
+
 protected:
     Options _options;
-    Status _status;
+    std::string _infoLog;
 
-    typedef std::vector<void*> CompilerList;
+    typedef std::vector<ShHandle> CompilerList;
     CompilerList _compilerList;
-    void* _linker;
-    void* _uniformMap;
-
-
+    ShHandle _linker;
+    ShHandle _uniformMap;
 };
 
 }

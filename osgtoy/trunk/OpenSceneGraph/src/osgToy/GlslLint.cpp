@@ -12,21 +12,24 @@
 */
 
 /* file:        src/osgToy/GlslLint.cpp
- * author:      Mike Weiblen http://mew.cx/ 2005-07-22
+ * author:      Mike Weiblen http://mew.cx/ 2005-07-25
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
 */
 
+// This code written to OpenGLCompilerJune082005.zip from
+// http://developer.3Dlabs.com/
 #include <glslang/Include/ShHandle.h>
 #include <glslang/Public/ShaderLang.h>
 
+#include <osg/Notify>
 #include <osgToy/GlslLint>
 
 ///////////////////////////////////////////////////////////////////////////
 // TBuiltInResource represents the OpenGL implementation-dependent limits
 // of the underlying hardware.
-// Since GlslLint doesn't necessarily represent actual hardware, we can use
-// any convenient values.
+// Since GlslLint doesn't necessarily represent actual hardware, choose
+// some convenient values.
 
 static TBuiltInResource g_Resources = {
     32,    // GL_MAX_LIGHTS
@@ -43,7 +46,6 @@ static TBuiltInResource g_Resources = {
     32     // GL_MAX_DRAW_BUFFERS
 };
 
-///////////////////////////////////////////////////////////////////////////
 // ShBindingTable represents the attribute bindings that are input to the
 // linker.  It contains the table that the app would build with
 // glBindAttribLocation().
@@ -59,20 +61,27 @@ static ShBinding g_AttribBindings[] = {
 static ShBindingTable g_BoundAttribTable = { 
         sizeof(g_AttribBindings) / sizeof(ShBinding), g_AttribBindings };
 
+static bool osgToy::GlslLint::g_parserLibraryInitialized = false;
+
 ///////////////////////////////////////////////////////////////////////////
 
-osgToy::GlslLint::GlslLint( Options options ) :
-    _options(options), _status(SUCCESS)
+osgToy::GlslLint::GlslLint( Options options ) : _options(options)
 {
-    ShInitialize();
+    if( ! g_parserLibraryInitialized )
+    {
+        ShInitialize();
+        g_parserLibraryInitialized = true;
+    }
 }
 
 
 osgToy::GlslLint::~GlslLint()
 {
-    for( unsigned int i = 0; i < _compilerList.size(); i++ )
+    while( !_compilerList.empty() )
     {
-        //ShDestruct( compilers[i] );
+        ShHandle compiler = _compilerList.back();
+        _compilerList.pop_back();
+        ShDestruct( compiler );
     }
 
     ShDestruct( _linker );
@@ -80,35 +89,31 @@ osgToy::GlslLint::~GlslLint()
 }
 
 
-osgToy::GlslLint::Status osgToy::GlslLint::compile( osg::Shader::Type type, const std::string& sourceText )
+osgToy::GlslLint::Status
+osgToy::GlslLint::compile( osg::Shader::Type type, const std::string& sourceText )
 {
     EShLanguage lang = (type == osg::Shader::VERTEX) ? EShLangVertex : EShLangFragment;
     int options = (_options == VERBOSE) ?  EDebugOpIntermediate : 0;
 
-    ShHandle cplr = ShConstructCompiler( lang, options );
-    if( !cplr ) return ERR_COMPILER_CTOR;
+    ShHandle compiler = ShConstructCompiler( lang, options );
+    if( !compiler ) return ERR_COMPILER_CTOR;
+    _compilerList.push_back( compiler );
 
     const char* text = sourceText.c_str();
-    int success = ShCompile( cplr, &text, 1, EShOptNone, &g_Resources, options );
+    int success = ShCompile( compiler, &text, 1, EShOptNone, &g_Resources, options );
+    _infoLog = ShGetInfoLog( compiler );
     if( !success ) return ERR_COMPILE;
-
-    _compilerList.push_back( cplr );
-
-    printf( "#### BEGIN COMPILER INFO LOG ####\n" );
-    puts( ShGetInfoLog( cplr ) );
-    printf( "#### END COMPILER INFO LOG ####\n\n" );
 
     return SUCCESS;
 }
 
 
-osgToy::GlslLint::Status osgToy::GlslLint::link()
+osgToy::GlslLint::Status
+osgToy::GlslLint::link()
 {
     int options = (_options == VERBOSE) ?  EDebugOpIntermediate : 0;
 
     if( _compilerList.empty() ) return ERR_LINK;
-
-    //ShHandle compilers[10];
 
     _uniformMap = ShConstructUniformMap();
     if( !_uniformMap ) return ERR_UNIFORM_MAP;
@@ -118,13 +123,11 @@ osgToy::GlslLint::Status osgToy::GlslLint::link()
 
     ShSetFixedAttributeBindings( _linker, &g_BoundAttribTable );
 
-    //int success = ShLink( _linker, compilers, _compilerList.size(), uniformMap, 0, 0 );
-    //THIS ALWAYS FAILS: if( !success ) return ERR_LINK;
-
-    printf( "#### BEGIN LINKER INFO LOG ####\n" );
-    puts( ShGetInfoLog( _linker ) );
-    printf( "#### END LINKER INFO LOG ####\n\n" );
-
+    int success = ShLink( _linker,
+            &_compilerList[0], _compilerList.size(),
+            _uniformMap, 0, 0 );
+    _infoLog = ShGetInfoLog( _linker );
+    //if( !success ) return ERR_LINK;
 
     return SUCCESS;
 }

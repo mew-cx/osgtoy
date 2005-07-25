@@ -12,7 +12,7 @@
 */
 
 /* file:        include/osgToy/GlslLintVisitor
- * author:      Mike Weiblen http://mew.cx/ 2005-07-21
+ * author:      Mike Weiblen http://mew.cx/ 2005-07-25
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
 */
@@ -35,7 +35,7 @@ namespace osgToy {
 
 /** A visitor to traverse an OSG scenegraph, find osg::Shaders containing
   * GLSL code, and test for portability and conformance with the GLSL
-  * specification.
+  * specification using the open-source GLSL parser front-end.
   */
 class OSGTOY_EXPORT GlslLintVisitor : public osg::NodeVisitor
 {
@@ -48,14 +48,13 @@ public:
 
     virtual void apply( const osg::StateSet* stateset );
     virtual void apply( const osg::Program* program );
-    virtual void apply( const osg::Shader* shader );
     virtual void apply( const osg::Uniform* uniform );
 
 protected:
     void pushState();
     void popState();
-    
 
+    osgToy::GlslLint::Options _options;
 };
 
 }

@@ -1,0 +1,2720 @@
+MatrixTransform {
+  UniqueID MatrixTransform_0
+  DataVariance STATIC
+  name "xyz1"
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  referenceFrame RELATIVE
+  Matrix {
+    1 0 0 0
+    0 1 0 0
+    0 0 1 0
+    0 0 0 1
+  }
+  num_children 1
+  LOD {
+    DataVariance DYNAMIC
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    Center 0 0 0
+    Radius -1
+    RangeMode DISTANCE_FROM_EYE_POINT
+    RangeList 2 {
+      0 10
+      10 1000
+    }
+    num_children 2
+    Group {
+      DataVariance STATIC
+      name "high"
+      nodeMask 0xffffffff
+      cullingActive TRUE
+      num_children 3
+      Geode {
+        DataVariance STATIC
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 2
+        Geometry {
+          DataVariance STATIC
+          StateSet {
+            UniqueID StateSet_1
+            DataVariance STATIC
+            rendering_hint DEFAULT_BIN
+            renderBinMode INHERIT
+            GL_CULL_FACE ON
+            GL_LIGHTING OFF
+            CullFace {
+              UniqueID CullFace_2
+              DataVariance STATIC
+              mode BACK
+            }
+          }
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 52
+          {
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              7 5 6 9 8 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              11 14 12 13 10 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              14 13 12 10 11 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              14 12 11 10 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              34 35 36 37 38 32 31 33 34 35
+              36 37 38 32 31 33 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              31 33 34 35 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              124 130 129 128 127 126 125 123 124 130
+              129 128 127 126 125 123 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              125 123 124 130 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              167 166 165 163 164 170 169 168 167 166
+              165 163 164 170 169 168 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              169 168 167 166 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              68 69 70 64 63 65 66 67 68 69
+              70 64 63 65 66 67 
+            }
+            DrawArrays TRIANGLE_STRIP 66 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              151 150 149 147 148 154 153 152 151 150
+              149 147 148 154 153 152 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              153 152 151 150 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              132 138 137 136 135 134 133 131 132 138
+              137 136 135 134 133 131 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              133 131 132 138 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              157 155 156 162 161 160 159 158 157 155
+              156 162 161 160 159 158 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              159 158 157 155 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              30 24 23 25 26 27 28 29 30 24
+              23 25 26 27 28 29 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              28 29 30 24 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              120 121 122 116 115 117 118 119 120 121
+              122 116 115 117 118 119 
+            }
+            DrawArrays TRIANGLE_STRIP 118 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              178 172 171 173 174 175 176 177 178 172
+              171 173 174 175 176 177 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              176 177 178 172 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              140 146 145 144 143 142 141 139 140 146
+              145 144 143 142 141 139 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              141 139 140 146 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              91 93 94 95 96 97 98 92 91 93
+              94 95 96 97 98 92 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              98 92 91 93 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              87 19 90 22 89 21 88 20 87 19
+              90 22 89 21 88 20 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              21 3 20 2 19 1 22 4 21 3
+              20 2 19 1 22 4 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 7
+            {
+              1 2 0 3 4 21 22 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              4 1 0 2 3 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              3 4 0 1 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              88 20 87 19 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              76 77 78 72 71 73 74 75 76 77
+              78 72 71 73 74 75 
+            }
+            DrawArrays TRIANGLE_STRIP 74 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              101 99 100 106 105 104 103 102 101 99
+              100 106 105 104 103 102 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              103 102 101 99 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              52 53 54 48 47 49 50 51 52 53
+              54 48 47 49 50 51 
+            }
+            DrawArrays TRIANGLE_STRIP 50 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              84 85 86 80 79 81 82 83 84 85
+              86 80 79 81 82 83 
+            }
+            DrawArrays TRIANGLE_STRIP 82 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              111 110 109 107 108 114 113 112 111 110
+              109 107 108 114 113 112 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              113 112 111 110 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              58 59 60 61 62 56 55 57 58 59
+              60 61 62 56 55 57 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              55 57 58 59 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              46 40 39 41 42 43 44 45 46 40
+              39 41 42 43 44 45 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              44 45 46 40 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              16 17 6 18 15 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              15 16 6 17 18 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              18 15 6 16 
+            }
+            DrawElementsUShort TRIANGLES 3
+            {
+              7 6 8 
+            }
+          }
+          VertexArray Vec3Array 179
+          {
+            0 1 0
+            0.2 0.75 0
+            0 0.75 -0.2
+            -0.2 0.75 0
+            0 0.75 0.2
+            0.00133331 0.01 0
+            0 0 0
+            0 0.01 -0.00133331
+            -0.00133331 0.01 0
+            0 0.01 0.00133331
+            0 -1 -0.1
+            0.1 -1 0
+            0 -1 0
+            -0.1 -1 0
+            0 -1 0.1
+            0.001 -0.01 0
+            0 -0.01 -0.001
+            -0.001 -0.01 0
+            0 -0.01 0.001
+            0.1 0.75 0
+            0 0.75 -0.1
+            -0.1 0.75 0
+            0 0.75 0.1
+            0.004 0.03 0
+            0.00266663 0.02 0
+            0 0.02 -0.00266663
+            0 0.03 -0.004
+            -0.00266663 0.02 0
+            -0.004 0.03 0
+            0 0.02 0.00266663
+            0 0.03 0.004
+            0.00666672 0.05 0
+            0.0053334 0.04 0
+            0 0.04 -0.00533325
+            0 0.05 -0.00666656
+            -0.0053334 0.04 0
+            -0.00666672 0.05 0
+            0 0.04 0.00533325
+            0 0.05 0.00666656
+            0.02 0.15 0
+            0.0133333 0.1 0
+            0 0.1 -0.0133334
+            0 0.15 -0.02
+            -0.0133333 0.1 0
+            -0.02 0.15 0
+            0 0.1 0.0133334
+            0 0.15 0.02
+            0.0333333 0.25 0
+            0.0266667 0.2 0
+            0 0.2 -0.0266666
+            0 0.25 -0.0333334
+            -0.0266667 0.2 0
+            -0.0333333 0.25 0
+            0 0.2 0.0266666
+            0 0.25 0.0333334
+            0.0466667 0.35 0
+            0.04 0.3 0
+            0 0.3 -0.04
+            0 0.35 -0.0466666
+            -0.04 0.3 0
+            -0.0466667 0.35 0
+            0 0.3 0.04
+            0 0.35 0.0466666
+            0.06 0.45 0
+            0.0533333 0.4 0
+            0 0.4 -0.0533334
+            0 0.45 -0.06
+            -0.0533333 0.4 0
+            -0.06 0.45 0
+            0 0.4 0.0533334
+            0 0.45 0.06
+            0.0733333 0.55 0
+            0.0666667 0.5 0
+            0 0.5 -0.0666666
+            0 0.55 -0.0733334
+            -0.0666667 0.5 0
+            -0.0733333 0.55 0
+            0 0.5 0.0666666
+            0 0.55 0.0733334
+            0.0866667 0.65 0
+            0.08 0.6 0
+            0 0.6 -0.08
+            0 0.65 -0.0866666
+            -0.08 0.6 0
+            -0.0866667 0.65 0
+            0 0.6 0.08
+            0 0.65 0.0866666
+            0.0933333 0.7 0
+            0 0.7 -0.0933334
+            -0.0933333 0.7 0
+            0 0.7 0.0933334
+            0.09 -0.9 0
+            0.095 -0.95 0
+            0 -0.95 -0.095
+            0 -0.9 -0.09
+            -0.095 -0.95 0
+            -0.09 -0.9 0
+            0 -0.95 0.095
+            0 -0.9 0.09
+            0.08 -0.8 0
+            0.085 -0.85 0
+            0 -0.85 -0.085
+            0 -0.8 -0.08
+            -0.085 -0.85 0
+            -0.08 -0.8 0
+            0 -0.85 0.085
+            0 -0.8 0.08
+            0.07 -0.7 0
+            0.075 -0.75 0
+            0 -0.75 -0.075
+            0 -0.7 -0.07
+            -0.075 -0.75 0
+            -0.07 -0.7 0
+            0 -0.75 0.075
+            0 -0.7 0.07
+            0.06 -0.6 0
+            0.065 -0.65 0
+            0 -0.65 -0.065
+            0 -0.6 -0.06
+            -0.065 -0.65 0
+            -0.06 -0.6 0
+            0 -0.65 0.065
+            0 -0.6 0.06
+            0.05 -0.5 0
+            0.055 -0.55 0
+            0 -0.55 -0.055
+            0 -0.5 -0.05
+            -0.055 -0.55 0
+            -0.05 -0.5 0
+            0 -0.55 0.055
+            0 -0.5 0.05
+            0.04 -0.4 0
+            0.045 -0.45 0
+            0 -0.45 -0.045
+            0 -0.4 -0.04
+            -0.045 -0.45 0
+            -0.04 -0.4 0
+            0 -0.45 0.045
+            0 -0.4 0.04
+            0.03 -0.3 0
+            0.035 -0.35 0
+            0 -0.35 -0.035
+            0 -0.3 -0.03
+            -0.035 -0.35 0
+            -0.03 -0.3 0
+            0 -0.35 0.035
+            0 -0.3 0.03
+            0.02 -0.2 0
+            0.025 -0.25 0
+            0 -0.25 -0.025
+            0 -0.2 -0.02
+            -0.025 -0.25 0
+            -0.02 -0.2 0
+            0 -0.25 0.025
+            0 -0.2 0.02
+            0.01 -0.1 0
+            0.015 -0.15 0
+            0 -0.15 -0.015
+            0 -0.1 -0.01
+            -0.015 -0.15 0
+            -0.01 -0.1 0
+            0 -0.15 0.015
+            0 -0.1 0.01
+            0.004 -0.04 0
+            0.005 -0.05 0
+            0 -0.05 -0.005
+            0 -0.04 -0.004
+            -0.005 -0.05 0
+            -0.004 -0.04 0
+            0 -0.05 0.005
+            0 -0.04 0.004
+            0.002 -0.02 0
+            0.003 -0.03 0
+            0 -0.03 -0.003
+            0 -0.02 -0.002
+            -0.003 -0.03 0
+            -0.002 -0.02 0
+            0 -0.03 0.003
+            0 -0.02 0.002
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            0 1 0 1
+          }
+        }
+        Geometry {
+          DataVariance STATIC
+          Use StateSet_1
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 42
+          {
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              2 0 1 7 6 5 4 3 2 0
+              1 7 6 5 4 3 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              4 3 2 0 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              15 9 8 10 11 12 13 14 15 9
+              8 10 11 12 13 14 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              13 14 15 9 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              167 161 160 162 163 164 165 166 167 161
+              160 162 163 164 165 166 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              165 166 167 161 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              157 158 159 153 152 154 155 156 157 158
+              159 153 152 154 155 156 
+            }
+            DrawArrays TRIANGLE_STRIP 155 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              149 150 151 145 144 146 147 148 149 150
+              151 145 144 146 147 148 
+            }
+            DrawArrays TRIANGLE_STRIP 147 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              137 143 142 141 140 139 138 136 137 143
+              142 141 140 139 138 136 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              138 136 137 143 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              129 135 134 133 132 131 130 128 129 135
+              134 133 132 131 130 128 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              130 128 129 135 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              122 120 121 127 126 125 124 123 122 120
+              121 127 126 125 124 123 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              124 123 122 120 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              117 118 119 113 112 114 115 116 117 118
+              119 113 112 114 115 116 
+            }
+            DrawArrays TRIANGLE_STRIP 115 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              108 107 106 104 105 111 110 109 108 107
+              106 104 105 111 110 109 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              110 109 108 107 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              100 99 98 96 97 103 102 101 100 99
+              98 96 97 103 102 101 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              102 101 100 99 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              93 94 95 89 88 90 91 92 93 94
+              95 89 88 90 91 92 
+            }
+            DrawArrays TRIANGLE_STRIP 91 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              85 86 87 81 80 82 83 84 85 86
+              87 81 80 82 83 84 
+            }
+            DrawArrays TRIANGLE_STRIP 83 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              75 76 77 78 79 73 72 74 75 76
+              77 78 79 73 72 74 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              72 74 75 76 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              65 71 70 69 68 67 66 64 65 71
+              70 69 68 67 66 64 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              66 64 65 71 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              63 57 56 58 59 60 61 62 63 57
+              56 58 59 60 61 62 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              61 62 63 57 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              53 54 55 49 48 50 51 52 53 54
+              55 49 48 50 51 52 
+            }
+            DrawArrays TRIANGLE_STRIP 51 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              42 40 41 47 46 45 44 43 42 40
+              41 47 46 45 44 43 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              44 43 42 40 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              34 32 33 39 38 37 36 35 34 32
+              33 39 38 37 36 35 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              36 35 34 32 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              28 27 26 24 25 31 30 29 28 27
+              26 24 25 31 30 29 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              30 29 28 27 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              18 16 17 23 22 21 20 19 18 16
+              17 23 22 21 20 19 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              20 19 18 16 
+            }
+          }
+          VertexArray Vec3Array 168
+          {
+            0.00266663 0.02 0
+            0.00133331 0.01 0
+            0 0.01 -0.00133331
+            0 0.02 -0.00266663
+            -0.00133331 0.01 0
+            -0.00266663 0.02 0
+            0 0.01 0.00133331
+            0 0.02 0.00266663
+            0.0053334 0.04 0
+            0.004 0.03 0
+            0 0.03 -0.004
+            0 0.04 -0.00533325
+            -0.004 0.03 0
+            -0.0053334 0.04 0
+            0 0.03 0.004
+            0 0.04 0.00533325
+            0.0133333 0.1 0
+            0.00666672 0.05 0
+            0 0.05 -0.00666656
+            0 0.1 -0.0133334
+            -0.00666672 0.05 0
+            -0.0133333 0.1 0
+            0 0.05 0.00666656
+            0 0.1 0.0133334
+            0.0266667 0.2 0
+            0.02 0.15 0
+            0 0.15 -0.02
+            0 0.2 -0.0266666
+            -0.02 0.15 0
+            -0.0266667 0.2 0
+            0 0.15 0.02
+            0 0.2 0.0266666
+            0.04 0.3 0
+            0.0333333 0.25 0
+            0 0.25 -0.0333334
+            0 0.3 -0.04
+            -0.0333333 0.25 0
+            -0.04 0.3 0
+            0 0.25 0.0333334
+            0 0.3 0.04
+            0.0533333 0.4 0
+            0.0466667 0.35 0
+            0 0.35 -0.0466666
+            0 0.4 -0.0533334
+            -0.0466667 0.35 0
+            -0.0533333 0.4 0
+            0 0.35 0.0466666
+            0 0.4 0.0533334
+            0.0666667 0.5 0
+            0.06 0.45 0
+            0 0.45 -0.06
+            0 0.5 -0.0666666
+            -0.06 0.45 0
+            -0.0666667 0.5 0
+            0 0.45 0.06
+            0 0.5 0.0666666
+            0.08 0.6 0
+            0.0733333 0.55 0
+            0 0.55 -0.0733334
+            0 0.6 -0.08
+            -0.0733333 0.55 0
+            -0.08 0.6 0
+            0 0.55 0.0733334
+            0 0.6 0.08
+            0.0933333 0.7 0
+            0.0866667 0.65 0
+            0 0.65 -0.0866666
+            0 0.7 -0.0933334
+            -0.0866667 0.65 0
+            -0.0933333 0.7 0
+            0 0.65 0.0866666
+            0 0.7 0.0933334
+            0.095 -0.95 0
+            0.1 -1 0
+            0 -1 -0.1
+            0 -0.95 -0.095
+            -0.1 -1 0
+            -0.095 -0.95 0
+            0 -1 0.1
+            0 -0.95 0.095
+            0.085 -0.85 0
+            0.09 -0.9 0
+            0 -0.9 -0.09
+            0 -0.85 -0.085
+            -0.09 -0.9 0
+            -0.085 -0.85 0
+            0 -0.9 0.09
+            0 -0.85 0.085
+            0.075 -0.75 0
+            0.08 -0.8 0
+            0 -0.8 -0.08
+            0 -0.75 -0.075
+            -0.08 -0.8 0
+            -0.075 -0.75 0
+            0 -0.8 0.08
+            0 -0.75 0.075
+            0.065 -0.65 0
+            0.07 -0.7 0
+            0 -0.7 -0.07
+            0 -0.65 -0.065
+            -0.07 -0.7 0
+            -0.065 -0.65 0
+            0 -0.7 0.07
+            0 -0.65 0.065
+            0.055 -0.55 0
+            0.06 -0.6 0
+            0 -0.6 -0.06
+            0 -0.55 -0.055
+            -0.06 -0.6 0
+            -0.055 -0.55 0
+            0 -0.6 0.06
+            0 -0.55 0.055
+            0.045 -0.45 0
+            0.05 -0.5 0
+            0 -0.5 -0.05
+            0 -0.45 -0.045
+            -0.05 -0.5 0
+            -0.045 -0.45 0
+            0 -0.5 0.05
+            0 -0.45 0.045
+            0.035 -0.35 0
+            0.04 -0.4 0
+            0 -0.4 -0.04
+            0 -0.35 -0.035
+            -0.04 -0.4 0
+            -0.035 -0.35 0
+            0 -0.4 0.04
+            0 -0.35 0.035
+            0.025 -0.25 0
+            0.03 -0.3 0
+            0 -0.3 -0.03
+            0 -0.25 -0.025
+            -0.03 -0.3 0
+            -0.025 -0.25 0
+            0 -0.3 0.03
+            0 -0.25 0.025
+            0.015 -0.15 0
+            0.02 -0.2 0
+            0 -0.2 -0.02
+            0 -0.15 -0.015
+            -0.02 -0.2 0
+            -0.015 -0.15 0
+            0 -0.2 0.02
+            0 -0.15 0.015
+            0.005 -0.05 0
+            0.01 -0.1 0
+            0 -0.1 -0.01
+            0 -0.05 -0.005
+            -0.01 -0.1 0
+            -0.005 -0.05 0
+            0 -0.1 0.01
+            0 -0.05 0.005
+            0.003 -0.03 0
+            0.004 -0.04 0
+            0 -0.04 -0.004
+            0 -0.03 -0.003
+            -0.004 -0.04 0
+            -0.003 -0.03 0
+            0 -0.04 0.004
+            0 -0.03 0.003
+            0.001 -0.01 0
+            0.002 -0.02 0
+            0 -0.02 -0.002
+            0 -0.01 -0.001
+            -0.002 -0.02 0
+            -0.001 -0.01 0
+            0 -0.02 0.002
+            0 -0.01 0.001
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            1 1 1 1
+          }
+        }
+      }
+      Geode {
+        DataVariance STATIC
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 2
+        Geometry {
+          DataVariance STATIC
+          Use StateSet_1
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 52
+          {
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              7 5 6 9 8 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              11 14 12 13 10 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              14 13 12 10 11 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              14 12 11 10 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              34 35 36 37 38 32 31 33 34 35
+              36 37 38 32 31 33 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              31 33 34 35 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              124 130 129 128 127 126 125 123 124 130
+              129 128 127 126 125 123 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              125 123 124 130 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              167 166 165 163 164 170 169 168 167 166
+              165 163 164 170 169 168 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              169 168 167 166 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              68 69 70 64 63 65 66 67 68 69
+              70 64 63 65 66 67 
+            }
+            DrawArrays TRIANGLE_STRIP 66 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              151 150 149 147 148 154 153 152 151 150
+              149 147 148 154 153 152 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              153 152 151 150 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              132 138 137 136 135 134 133 131 132 138
+              137 136 135 134 133 131 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              133 131 132 138 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              157 155 156 162 161 160 159 158 157 155
+              156 162 161 160 159 158 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              159 158 157 155 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              30 24 23 25 26 27 28 29 30 24
+              23 25 26 27 28 29 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              28 29 30 24 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              120 121 122 116 115 117 118 119 120 121
+              122 116 115 117 118 119 
+            }
+            DrawArrays TRIANGLE_STRIP 118 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              178 172 171 173 174 175 176 177 178 172
+              171 173 174 175 176 177 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              176 177 178 172 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              140 146 145 144 143 142 141 139 140 146
+              145 144 143 142 141 139 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              141 139 140 146 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              91 93 94 95 96 97 98 92 91 93
+              94 95 96 97 98 92 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              98 92 91 93 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              87 19 90 22 89 21 88 20 87 19
+              90 22 89 21 88 20 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              21 3 20 2 19 1 22 4 21 3
+              20 2 19 1 22 4 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 7
+            {
+              1 2 0 3 4 21 22 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              4 1 0 2 3 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              3 4 0 1 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              88 20 87 19 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              76 77 78 72 71 73 74 75 76 77
+              78 72 71 73 74 75 
+            }
+            DrawArrays TRIANGLE_STRIP 74 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              101 99 100 106 105 104 103 102 101 99
+              100 106 105 104 103 102 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              103 102 101 99 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              52 53 54 48 47 49 50 51 52 53
+              54 48 47 49 50 51 
+            }
+            DrawArrays TRIANGLE_STRIP 50 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              84 85 86 80 79 81 82 83 84 85
+              86 80 79 81 82 83 
+            }
+            DrawArrays TRIANGLE_STRIP 82 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              111 110 109 107 108 114 113 112 111 110
+              109 107 108 114 113 112 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              113 112 111 110 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              58 59 60 61 62 56 55 57 58 59
+              60 61 62 56 55 57 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              55 57 58 59 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              46 40 39 41 42 43 44 45 46 40
+              39 41 42 43 44 45 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              44 45 46 40 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              16 17 6 18 15 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              15 16 6 17 18 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              18 15 6 16 
+            }
+            DrawElementsUShort TRIANGLES 3
+            {
+              7 6 8 
+            }
+          }
+          VertexArray Vec3Array 179
+          {
+            0 0 1
+            0.2 0 0.75
+            0 0.2 0.75
+            -0.2 0 0.75
+            0 -0.2 0.75
+            0.00133333 0 0.01
+            0 0 0
+            0 0.00133333 0.01
+            -0.00133333 0 0.01
+            0 -0.00133333 0.01
+            0 0.1 -1
+            0.1 0 -1
+            0 0 -1
+            -0.1 0 -1
+            0 -0.1 -1
+            0.001 0 -0.01
+            0 0.001 -0.01
+            -0.001 0 -0.01
+            0 -0.001 -0.01
+            0.1 0 0.75
+            0 0.1 0.75
+            -0.1 0 0.75
+            0 -0.1 0.75
+            0.004 0 0.03
+            0.00266667 0 0.02
+            0 0.00266667 0.02
+            0 0.004 0.03
+            -0.00266667 0 0.02
+            -0.004 0 0.03
+            0 -0.00266667 0.02
+            0 -0.004 0.03
+            0.00666667 0 0.05
+            0.00533333 0 0.04
+            0 0.00533333 0.04
+            0 0.00666667 0.05
+            -0.00533333 0 0.04
+            -0.00666667 0 0.05
+            0 -0.00533333 0.04
+            0 -0.00666667 0.05
+            0.02 0 0.15
+            0.0133333 0 0.1
+            0 0.0133333 0.1
+            0 0.02 0.15
+            -0.0133333 0 0.1
+            -0.02 0 0.15
+            0 -0.0133333 0.1
+            0 -0.02 0.15
+            0.0333333 0 0.25
+            0.0266667 0 0.2
+            0 0.0266667 0.2
+            0 0.0333333 0.25
+            -0.0266667 0 0.2
+            -0.0333333 0 0.25
+            0 -0.0266667 0.2
+            0 -0.0333333 0.25
+            0.0466667 0 0.35
+            0.04 0 0.3
+            0 0.04 0.3
+            0 0.0466667 0.35
+            -0.04 0 0.3
+            -0.0466667 0 0.35
+            0 -0.04 0.3
+            0 -0.0466667 0.35
+            0.06 0 0.45
+            0.0533333 0 0.4
+            0 0.0533333 0.4
+            0 0.06 0.45
+            -0.0533333 0 0.4
+            -0.06 0 0.45
+            0 -0.0533333 0.4
+            0 -0.06 0.45
+            0.0733333 0 0.55
+            0.0666667 0 0.5
+            0 0.0666667 0.5
+            0 0.0733333 0.55
+            -0.0666667 0 0.5
+            -0.0733333 0 0.55
+            0 -0.0666667 0.5
+            0 -0.0733333 0.55
+            0.0866667 0 0.65
+            0.08 0 0.6
+            0 0.08 0.6
+            0 0.0866667 0.65
+            -0.08 0 0.6
+            -0.0866667 0 0.65
+            0 -0.08 0.6
+            0 -0.0866667 0.65
+            0.0933333 0 0.7
+            0 0.0933333 0.7
+            -0.0933333 0 0.7
+            0 -0.0933333 0.7
+            0.09 0 -0.9
+            0.095 0 -0.95
+            0 0.095 -0.95
+            0 0.09 -0.9
+            -0.095 0 -0.95
+            -0.09 0 -0.9
+            0 -0.095 -0.95
+            0 -0.09 -0.9
+            0.08 0 -0.8
+            0.085 0 -0.85
+            0 0.085 -0.85
+            0 0.08 -0.8
+            -0.085 0 -0.85
+            -0.08 0 -0.8
+            0 -0.085 -0.85
+            0 -0.08 -0.8
+            0.07 0 -0.7
+            0.075 0 -0.75
+            0 0.075 -0.75
+            0 0.07 -0.7
+            -0.075 0 -0.75
+            -0.07 0 -0.7
+            0 -0.075 -0.75
+            0 -0.07 -0.7
+            0.06 0 -0.6
+            0.065 0 -0.65
+            0 0.065 -0.65
+            0 0.06 -0.6
+            -0.065 0 -0.65
+            -0.06 0 -0.6
+            0 -0.065 -0.65
+            0 -0.06 -0.6
+            0.05 0 -0.5
+            0.055 0 -0.55
+            0 0.055 -0.55
+            0 0.05 -0.5
+            -0.055 0 -0.55
+            -0.05 0 -0.5
+            0 -0.055 -0.55
+            0 -0.05 -0.5
+            0.04 0 -0.4
+            0.045 0 -0.45
+            0 0.045 -0.45
+            0 0.04 -0.4
+            -0.045 0 -0.45
+            -0.04 0 -0.4
+            0 -0.045 -0.45
+            0 -0.04 -0.4
+            0.03 0 -0.3
+            0.035 0 -0.35
+            0 0.035 -0.35
+            0 0.03 -0.3
+            -0.035 0 -0.35
+            -0.03 0 -0.3
+            0 -0.035 -0.35
+            0 -0.03 -0.3
+            0.02 0 -0.2
+            0.025 0 -0.25
+            0 0.025 -0.25
+            0 0.02 -0.2
+            -0.025 0 -0.25
+            -0.02 0 -0.2
+            0 -0.025 -0.25
+            0 -0.02 -0.2
+            0.01 0 -0.1
+            0.015 0 -0.15
+            0 0.015 -0.15
+            0 0.01 -0.1
+            -0.015 0 -0.15
+            -0.01 0 -0.1
+            0 -0.015 -0.15
+            0 -0.01 -0.1
+            0.004 0 -0.04
+            0.005 0 -0.05
+            0 0.005 -0.05
+            0 0.004 -0.04
+            -0.005 0 -0.05
+            -0.004 0 -0.04
+            0 -0.005 -0.05
+            0 -0.004 -0.04
+            0.002 0 -0.02
+            0.003 0 -0.03
+            0 0.003 -0.03
+            0 0.002 -0.02
+            -0.003 0 -0.03
+            -0.002 0 -0.02
+            0 -0.003 -0.03
+            0 -0.002 -0.02
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            0 0 1 1
+          }
+        }
+        Geometry {
+          DataVariance STATIC
+          Use StateSet_1
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 42
+          {
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              2 0 1 7 6 5 4 3 2 0
+              1 7 6 5 4 3 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              4 3 2 0 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              15 9 8 10 11 12 13 14 15 9
+              8 10 11 12 13 14 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              13 14 15 9 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              167 161 160 162 163 164 165 166 167 161
+              160 162 163 164 165 166 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              165 166 167 161 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              157 158 159 153 152 154 155 156 157 158
+              159 153 152 154 155 156 
+            }
+            DrawArrays TRIANGLE_STRIP 155 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              149 150 151 145 144 146 147 148 149 150
+              151 145 144 146 147 148 
+            }
+            DrawArrays TRIANGLE_STRIP 147 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              137 143 142 141 140 139 138 136 137 143
+              142 141 140 139 138 136 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              138 136 137 143 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              129 135 134 133 132 131 130 128 129 135
+              134 133 132 131 130 128 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              130 128 129 135 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              122 120 121 127 126 125 124 123 122 120
+              121 127 126 125 124 123 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              124 123 122 120 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              117 118 119 113 112 114 115 116 117 118
+              119 113 112 114 115 116 
+            }
+            DrawArrays TRIANGLE_STRIP 115 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              108 107 106 104 105 111 110 109 108 107
+              106 104 105 111 110 109 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              110 109 108 107 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              100 99 98 96 97 103 102 101 100 99
+              98 96 97 103 102 101 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              102 101 100 99 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              93 94 95 89 88 90 91 92 93 94
+              95 89 88 90 91 92 
+            }
+            DrawArrays TRIANGLE_STRIP 91 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              85 86 87 81 80 82 83 84 85 86
+              87 81 80 82 83 84 
+            }
+            DrawArrays TRIANGLE_STRIP 83 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              75 76 77 78 79 73 72 74 75 76
+              77 78 79 73 72 74 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              72 74 75 76 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              65 71 70 69 68 67 66 64 65 71
+              70 69 68 67 66 64 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              66 64 65 71 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              63 57 56 58 59 60 61 62 63 57
+              56 58 59 60 61 62 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              61 62 63 57 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              53 54 55 49 48 50 51 52 53 54
+              55 49 48 50 51 52 
+            }
+            DrawArrays TRIANGLE_STRIP 51 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              42 40 41 47 46 45 44 43 42 40
+              41 47 46 45 44 43 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              44 43 42 40 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              34 32 33 39 38 37 36 35 34 32
+              33 39 38 37 36 35 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              36 35 34 32 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              28 27 26 24 25 31 30 29 28 27
+              26 24 25 31 30 29 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              30 29 28 27 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              18 16 17 23 22 21 20 19 18 16
+              17 23 22 21 20 19 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              20 19 18 16 
+            }
+          }
+          VertexArray Vec3Array 168
+          {
+            0.00266667 0 0.02
+            0.00133333 0 0.01
+            0 0.00133333 0.01
+            0 0.00266667 0.02
+            -0.00133333 0 0.01
+            -0.00266667 0 0.02
+            0 -0.00133333 0.01
+            0 -0.00266667 0.02
+            0.00533333 0 0.04
+            0.004 0 0.03
+            0 0.004 0.03
+            0 0.00533333 0.04
+            -0.004 0 0.03
+            -0.00533333 0 0.04
+            0 -0.004 0.03
+            0 -0.00533333 0.04
+            0.0133333 0 0.1
+            0.00666667 0 0.05
+            0 0.00666667 0.05
+            0 0.0133333 0.1
+            -0.00666667 0 0.05
+            -0.0133333 0 0.1
+            0 -0.00666667 0.05
+            0 -0.0133333 0.1
+            0.0266667 0 0.2
+            0.02 0 0.15
+            0 0.02 0.15
+            0 0.0266667 0.2
+            -0.02 0 0.15
+            -0.0266667 0 0.2
+            0 -0.02 0.15
+            0 -0.0266667 0.2
+            0.04 0 0.3
+            0.0333333 0 0.25
+            0 0.0333333 0.25
+            0 0.04 0.3
+            -0.0333333 0 0.25
+            -0.04 0 0.3
+            0 -0.0333333 0.25
+            0 -0.04 0.3
+            0.0533333 0 0.4
+            0.0466667 0 0.35
+            0 0.0466667 0.35
+            0 0.0533333 0.4
+            -0.0466667 0 0.35
+            -0.0533333 0 0.4
+            0 -0.0466667 0.35
+            0 -0.0533333 0.4
+            0.0666667 0 0.5
+            0.06 0 0.45
+            0 0.06 0.45
+            0 0.0666667 0.5
+            -0.06 0 0.45
+            -0.0666667 0 0.5
+            0 -0.06 0.45
+            0 -0.0666667 0.5
+            0.08 0 0.6
+            0.0733333 0 0.55
+            0 0.0733333 0.55
+            0 0.08 0.6
+            -0.0733333 0 0.55
+            -0.08 0 0.6
+            0 -0.0733333 0.55
+            0 -0.08 0.6
+            0.0933333 0 0.7
+            0.0866667 0 0.65
+            0 0.0866667 0.65
+            0 0.0933333 0.7
+            -0.0866667 0 0.65
+            -0.0933333 0 0.7
+            0 -0.0866667 0.65
+            0 -0.0933333 0.7
+            0.095 0 -0.95
+            0.1 0 -1
+            0 0.1 -1
+            0 0.095 -0.95
+            -0.1 0 -1
+            -0.095 0 -0.95
+            0 -0.1 -1
+            0 -0.095 -0.95
+            0.085 0 -0.85
+            0.09 0 -0.9
+            0 0.09 -0.9
+            0 0.085 -0.85
+            -0.09 0 -0.9
+            -0.085 0 -0.85
+            0 -0.09 -0.9
+            0 -0.085 -0.85
+            0.075 0 -0.75
+            0.08 0 -0.8
+            0 0.08 -0.8
+            0 0.075 -0.75
+            -0.08 0 -0.8
+            -0.075 0 -0.75
+            0 -0.08 -0.8
+            0 -0.075 -0.75
+            0.065 0 -0.65
+            0.07 0 -0.7
+            0 0.07 -0.7
+            0 0.065 -0.65
+            -0.07 0 -0.7
+            -0.065 0 -0.65
+            0 -0.07 -0.7
+            0 -0.065 -0.65
+            0.055 0 -0.55
+            0.06 0 -0.6
+            0 0.06 -0.6
+            0 0.055 -0.55
+            -0.06 0 -0.6
+            -0.055 0 -0.55
+            0 -0.06 -0.6
+            0 -0.055 -0.55
+            0.045 0 -0.45
+            0.05 0 -0.5
+            0 0.05 -0.5
+            0 0.045 -0.45
+            -0.05 0 -0.5
+            -0.045 0 -0.45
+            0 -0.05 -0.5
+            0 -0.045 -0.45
+            0.035 0 -0.35
+            0.04 0 -0.4
+            0 0.04 -0.4
+            0 0.035 -0.35
+            -0.04 0 -0.4
+            -0.035 0 -0.35
+            0 -0.04 -0.4
+            0 -0.035 -0.35
+            0.025 0 -0.25
+            0.03 0 -0.3
+            0 0.03 -0.3
+            0 0.025 -0.25
+            -0.03 0 -0.3
+            -0.025 0 -0.25
+            0 -0.03 -0.3
+            0 -0.025 -0.25
+            0.015 0 -0.15
+            0.02 0 -0.2
+            0 0.02 -0.2
+            0 0.015 -0.15
+            -0.02 0 -0.2
+            -0.015 0 -0.15
+            0 -0.02 -0.2
+            0 -0.015 -0.15
+            0.005 0 -0.05
+            0.01 0 -0.1
+            0 0.01 -0.1
+            0 0.005 -0.05
+            -0.01 0 -0.1
+            -0.005 0 -0.05
+            0 -0.01 -0.1
+            0 -0.005 -0.05
+            0.003 0 -0.03
+            0.004 0 -0.04
+            0 0.004 -0.04
+            0 0.003 -0.03
+            -0.004 0 -0.04
+            -0.003 0 -0.03
+            0 -0.004 -0.04
+            0 -0.003 -0.03
+            0.001 0 -0.01
+            0.002 0 -0.02
+            0 0.002 -0.02
+            0 0.001 -0.01
+            -0.002 0 -0.02
+            -0.001 0 -0.01
+            0 -0.002 -0.02
+            0 -0.001 -0.01
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            1 1 1 1
+          }
+        }
+      }
+      Geode {
+        DataVariance STATIC
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 2
+        Geometry {
+          DataVariance STATIC
+          Use StateSet_1
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 52
+          {
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              7 5 6 9 8 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              11 14 12 13 10 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              14 13 12 10 11 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              14 12 11 10 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              34 35 36 37 38 32 31 33 34 35
+              36 37 38 32 31 33 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              31 33 34 35 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              124 130 129 128 127 126 125 123 124 130
+              129 128 127 126 125 123 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              125 123 124 130 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              167 166 165 163 164 170 169 168 167 166
+              165 163 164 170 169 168 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              169 168 167 166 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              68 69 70 64 63 65 66 67 68 69
+              70 64 63 65 66 67 
+            }
+            DrawArrays TRIANGLE_STRIP 66 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              151 150 149 147 148 154 153 152 151 150
+              149 147 148 154 153 152 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              153 152 151 150 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              132 138 137 136 135 134 133 131 132 138
+              137 136 135 134 133 131 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              133 131 132 138 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              157 155 156 162 161 160 159 158 157 155
+              156 162 161 160 159 158 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              159 158 157 155 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              30 24 23 25 26 27 28 29 30 24
+              23 25 26 27 28 29 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              28 29 30 24 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              120 121 122 116 115 117 118 119 120 121
+              122 116 115 117 118 119 
+            }
+            DrawArrays TRIANGLE_STRIP 118 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              178 172 171 173 174 175 176 177 178 172
+              171 173 174 175 176 177 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              176 177 178 172 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              140 146 145 144 143 142 141 139 140 146
+              145 144 143 142 141 139 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              141 139 140 146 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              91 93 94 95 96 97 98 92 91 93
+              94 95 96 97 98 92 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              98 92 91 93 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              87 19 90 22 89 21 88 20 87 19
+              90 22 89 21 88 20 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              21 3 20 2 19 1 22 4 21 3
+              20 2 19 1 22 4 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 7
+            {
+              1 2 0 3 4 21 22 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              4 1 0 2 3 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              3 4 0 1 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              88 20 87 19 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              76 77 78 72 71 73 74 75 76 77
+              78 72 71 73 74 75 
+            }
+            DrawArrays TRIANGLE_STRIP 74 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              101 99 100 106 105 104 103 102 101 99
+              100 106 105 104 103 102 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              103 102 101 99 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              52 53 54 48 47 49 50 51 52 53
+              54 48 47 49 50 51 
+            }
+            DrawArrays TRIANGLE_STRIP 50 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              84 85 86 80 79 81 82 83 84 85
+              86 80 79 81 82 83 
+            }
+            DrawArrays TRIANGLE_STRIP 82 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              111 110 109 107 108 114 113 112 111 110
+              109 107 108 114 113 112 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              113 112 111 110 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              58 59 60 61 62 56 55 57 58 59
+              60 61 62 56 55 57 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              55 57 58 59 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              46 40 39 41 42 43 44 45 46 40
+              39 41 42 43 44 45 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              44 45 46 40 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              16 17 6 18 15 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 5
+            {
+              15 16 6 17 18 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              18 15 6 16 
+            }
+            DrawElementsUShort TRIANGLES 3
+            {
+              7 6 8 
+            }
+          }
+          VertexArray Vec3Array 179
+          {
+            1 0 0
+            0.75 0 -0.2
+            0.75 0.2 0
+            0.75 0 0.2
+            0.75 -0.2 0
+            0.01 0 -0.00133331
+            0 0 0
+            0.01 0.00133331 0
+            0.01 0 0.00133331
+            0.01 -0.00133331 0
+            -1 0.1 0
+            -1 0 -0.1
+            -1 0 0
+            -1 0 0.1
+            -1 -0.1 0
+            -0.01 0 -0.001
+            -0.01 0.001 0
+            -0.01 0 0.001
+            -0.01 -0.001 0
+            0.75 0 -0.1
+            0.75 0.1 0
+            0.75 0 0.1
+            0.75 -0.1 0
+            0.03 0 -0.004
+            0.02 0 -0.00266663
+            0.02 0.00266663 0
+            0.03 0.004 0
+            0.02 0 0.00266663
+            0.03 0 0.004
+            0.02 -0.00266663 0
+            0.03 -0.004 0
+            0.05 0 -0.00666672
+            0.04 0 -0.0053334
+            0.04 0.00533325 0
+            0.05 0.00666656 0
+            0.04 0 0.0053334
+            0.05 0 0.00666672
+            0.04 -0.00533325 0
+            0.05 -0.00666656 0
+            0.15 0 -0.02
+            0.1 0 -0.0133333
+            0.1 0.0133334 0
+            0.15 0.02 0
+            0.1 0 0.0133333
+            0.15 0 0.02
+            0.1 -0.0133334 0
+            0.15 -0.02 0
+            0.25 0 -0.0333333
+            0.2 0 -0.0266667
+            0.2 0.0266666 0
+            0.25 0.0333334 0
+            0.2 0 0.0266667
+            0.25 0 0.0333333
+            0.2 -0.0266666 0
+            0.25 -0.0333334 0
+            0.35 0 -0.0466667
+            0.3 0 -0.04
+            0.3 0.04 0
+            0.35 0.0466666 0
+            0.3 0 0.04
+            0.35 0 0.0466667
+            0.3 -0.04 0
+            0.35 -0.0466666 0
+            0.45 0 -0.06
+            0.4 0 -0.0533333
+            0.4 0.0533334 0
+            0.45 0.06 0
+            0.4 0 0.0533333
+            0.45 0 0.06
+            0.4 -0.0533334 0
+            0.45 -0.06 0
+            0.55 0 -0.0733333
+            0.5 0 -0.0666667
+            0.5 0.0666666 0
+            0.55 0.0733334 0
+            0.5 0 0.0666667
+            0.55 0 0.0733333
+            0.5 -0.0666666 0
+            0.55 -0.0733334 0
+            0.65 0 -0.0866667
+            0.6 0 -0.08
+            0.6 0.08 0
+            0.65 0.0866666 0
+            0.6 0 0.08
+            0.65 0 0.0866667
+            0.6 -0.08 0
+            0.65 -0.0866666 0
+            0.7 0 -0.0933333
+            0.7 0.0933334 0
+            0.7 0 0.0933333
+            0.7 -0.0933334 0
+            -0.9 0 -0.09
+            -0.95 0 -0.095
+            -0.95 0.095 0
+            -0.9 0.09 0
+            -0.95 0 0.095
+            -0.9 0 0.09
+            -0.95 -0.095 0
+            -0.9 -0.09 0
+            -0.8 0 -0.08
+            -0.85 0 -0.085
+            -0.85 0.085 0
+            -0.8 0.08 0
+            -0.85 0 0.085
+            -0.8 0 0.08
+            -0.85 -0.085 0
+            -0.8 -0.08 0
+            -0.7 0 -0.07
+            -0.75 0 -0.075
+            -0.75 0.075 0
+            -0.7 0.07 0
+            -0.75 0 0.075
+            -0.7 0 0.07
+            -0.75 -0.075 0
+            -0.7 -0.07 0
+            -0.6 0 -0.06
+            -0.65 0 -0.065
+            -0.65 0.065 0
+            -0.6 0.06 0
+            -0.65 0 0.065
+            -0.6 0 0.06
+            -0.65 -0.065 0
+            -0.6 -0.06 0
+            -0.5 0 -0.05
+            -0.55 0 -0.055
+            -0.55 0.055 0
+            -0.5 0.05 0
+            -0.55 0 0.055
+            -0.5 0 0.05
+            -0.55 -0.055 0
+            -0.5 -0.05 0
+            -0.4 0 -0.04
+            -0.45 0 -0.045
+            -0.45 0.045 0
+            -0.4 0.04 0
+            -0.45 0 0.045
+            -0.4 0 0.04
+            -0.45 -0.045 0
+            -0.4 -0.04 0
+            -0.3 0 -0.03
+            -0.35 0 -0.035
+            -0.35 0.035 0
+            -0.3 0.03 0
+            -0.35 0 0.035
+            -0.3 0 0.03
+            -0.35 -0.035 0
+            -0.3 -0.03 0
+            -0.2 0 -0.02
+            -0.25 0 -0.025
+            -0.25 0.025 0
+            -0.2 0.02 0
+            -0.25 0 0.025
+            -0.2 0 0.02
+            -0.25 -0.025 0
+            -0.2 -0.02 0
+            -0.1 0 -0.01
+            -0.15 0 -0.015
+            -0.15 0.015 0
+            -0.1 0.01 0
+            -0.15 0 0.015
+            -0.1 0 0.01
+            -0.15 -0.015 0
+            -0.1 -0.01 0
+            -0.04 0 -0.004
+            -0.05 0 -0.005
+            -0.05 0.005 0
+            -0.04 0.004 0
+            -0.05 0 0.005
+            -0.04 0 0.004
+            -0.05 -0.005 0
+            -0.04 -0.004 0
+            -0.02 0 -0.002
+            -0.03 0 -0.003
+            -0.03 0.003 0
+            -0.02 0.002 0
+            -0.03 0 0.003
+            -0.02 0 0.002
+            -0.03 -0.003 0
+            -0.02 -0.002 0
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            1 0 0 1
+          }
+        }
+        Geometry {
+          DataVariance STATIC
+          Use StateSet_1
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 42
+          {
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              2 0 1 7 6 5 4 3 2 0
+              1 7 6 5 4 3 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              4 3 2 0 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              15 9 8 10 11 12 13 14 15 9
+              8 10 11 12 13 14 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              13 14 15 9 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              167 161 160 162 163 164 165 166 167 161
+              160 162 163 164 165 166 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              165 166 167 161 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              157 158 159 153 152 154 155 156 157 158
+              159 153 152 154 155 156 
+            }
+            DrawArrays TRIANGLE_STRIP 155 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              149 150 151 145 144 146 147 148 149 150
+              151 145 144 146 147 148 
+            }
+            DrawArrays TRIANGLE_STRIP 147 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              137 143 142 141 140 139 138 136 137 143
+              142 141 140 139 138 136 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              138 136 137 143 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              129 135 134 133 132 131 130 128 129 135
+              134 133 132 131 130 128 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              130 128 129 135 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              122 120 121 127 126 125 124 123 122 120
+              121 127 126 125 124 123 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              124 123 122 120 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              117 118 119 113 112 114 115 116 117 118
+              119 113 112 114 115 116 
+            }
+            DrawArrays TRIANGLE_STRIP 115 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              108 107 106 104 105 111 110 109 108 107
+              106 104 105 111 110 109 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              110 109 108 107 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              100 99 98 96 97 103 102 101 100 99
+              98 96 97 103 102 101 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              102 101 100 99 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              93 94 95 89 88 90 91 92 93 94
+              95 89 88 90 91 92 
+            }
+            DrawArrays TRIANGLE_STRIP 91 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              85 86 87 81 80 82 83 84 85 86
+              87 81 80 82 83 84 
+            }
+            DrawArrays TRIANGLE_STRIP 83 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              75 76 77 78 79 73 72 74 75 76
+              77 78 79 73 72 74 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              72 74 75 76 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              65 71 70 69 68 67 66 64 65 71
+              70 69 68 67 66 64 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              66 64 65 71 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              63 57 56 58 59 60 61 62 63 57
+              56 58 59 60 61 62 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              61 62 63 57 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              53 54 55 49 48 50 51 52 53 54
+              55 49 48 50 51 52 
+            }
+            DrawArrays TRIANGLE_STRIP 51 4
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              42 40 41 47 46 45 44 43 42 40
+              41 47 46 45 44 43 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              44 43 42 40 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              34 32 33 39 38 37 36 35 34 32
+              33 39 38 37 36 35 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              36 35 34 32 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              28 27 26 24 25 31 30 29 28 27
+              26 24 25 31 30 29 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              30 29 28 27 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 16
+            {
+              18 16 17 23 22 21 20 19 18 16
+              17 23 22 21 20 19 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              20 19 18 16 
+            }
+          }
+          VertexArray Vec3Array 168
+          {
+            0.02 0 -0.00266663
+            0.01 0 -0.00133331
+            0.01 0.00133331 0
+            0.02 0.00266663 0
+            0.01 0 0.00133331
+            0.02 0 0.00266663
+            0.01 -0.00133331 0
+            0.02 -0.00266663 0
+            0.04 0 -0.0053334
+            0.03 0 -0.004
+            0.03 0.004 0
+            0.04 0.00533325 0
+            0.03 0 0.004
+            0.04 0 0.0053334
+            0.03 -0.004 0
+            0.04 -0.00533325 0
+            0.1 0 -0.0133333
+            0.05 0 -0.00666672
+            0.05 0.00666656 0
+            0.1 0.0133334 0
+            0.05 0 0.00666672
+            0.1 0 0.0133333
+            0.05 -0.00666656 0
+            0.1 -0.0133334 0
+            0.2 0 -0.0266667
+            0.15 0 -0.02
+            0.15 0.02 0
+            0.2 0.0266666 0
+            0.15 0 0.02
+            0.2 0 0.0266667
+            0.15 -0.02 0
+            0.2 -0.0266666 0
+            0.3 0 -0.04
+            0.25 0 -0.0333333
+            0.25 0.0333334 0
+            0.3 0.04 0
+            0.25 0 0.0333333
+            0.3 0 0.04
+            0.25 -0.0333334 0
+            0.3 -0.04 0
+            0.4 0 -0.0533333
+            0.35 0 -0.0466667
+            0.35 0.0466666 0
+            0.4 0.0533334 0
+            0.35 0 0.0466667
+            0.4 0 0.0533333
+            0.35 -0.0466666 0
+            0.4 -0.0533334 0
+            0.5 0 -0.0666667
+            0.45 0 -0.06
+            0.45 0.06 0
+            0.5 0.0666666 0
+            0.45 0 0.06
+            0.5 0 0.0666667
+            0.45 -0.06 0
+            0.5 -0.0666666 0
+            0.6 0 -0.08
+            0.55 0 -0.0733333
+            0.55 0.0733334 0
+            0.6 0.08 0
+            0.55 0 0.0733333
+            0.6 0 0.08
+            0.55 -0.0733334 0
+            0.6 -0.08 0
+            0.7 0 -0.0933333
+            0.65 0 -0.0866667
+            0.65 0.0866666 0
+            0.7 0.0933334 0
+            0.65 0 0.0866667
+            0.7 0 0.0933333
+            0.65 -0.0866666 0
+            0.7 -0.0933334 0
+            -0.95 0 -0.095
+            -1 0 -0.1
+            -1 0.1 0
+            -0.95 0.095 0
+            -1 0 0.1
+            -0.95 0 0.095
+            -1 -0.1 0
+            -0.95 -0.095 0
+            -0.85 0 -0.085
+            -0.9 0 -0.09
+            -0.9 0.09 0
+            -0.85 0.085 0
+            -0.9 0 0.09
+            -0.85 0 0.085
+            -0.9 -0.09 0
+            -0.85 -0.085 0
+            -0.75 0 -0.075
+            -0.8 0 -0.08
+            -0.8 0.08 0
+            -0.75 0.075 0
+            -0.8 0 0.08
+            -0.75 0 0.075
+            -0.8 -0.08 0
+            -0.75 -0.075 0
+            -0.65 0 -0.065
+            -0.7 0 -0.07
+            -0.7 0.07 0
+            -0.65 0.065 0
+            -0.7 0 0.07
+            -0.65 0 0.065
+            -0.7 -0.07 0
+            -0.65 -0.065 0
+            -0.55 0 -0.055
+            -0.6 0 -0.06
+            -0.6 0.06 0
+            -0.55 0.055 0
+            -0.6 0 0.06
+            -0.55 0 0.055
+            -0.6 -0.06 0
+            -0.55 -0.055 0
+            -0.45 0 -0.045
+            -0.5 0 -0.05
+            -0.5 0.05 0
+            -0.45 0.045 0
+            -0.5 0 0.05
+            -0.45 0 0.045
+            -0.5 -0.05 0
+            -0.45 -0.045 0
+            -0.35 0 -0.035
+            -0.4 0 -0.04
+            -0.4 0.04 0
+            -0.35 0.035 0
+            -0.4 0 0.04
+            -0.35 0 0.035
+            -0.4 -0.04 0
+            -0.35 -0.035 0
+            -0.25 0 -0.025
+            -0.3 0 -0.03
+            -0.3 0.03 0
+            -0.25 0.025 0
+            -0.3 0 0.03
+            -0.25 0 0.025
+            -0.3 -0.03 0
+            -0.25 -0.025 0
+            -0.15 0 -0.015
+            -0.2 0 -0.02
+            -0.2 0.02 0
+            -0.15 0.015 0
+            -0.2 0 0.02
+            -0.15 0 0.015
+            -0.2 -0.02 0
+            -0.15 -0.015 0
+            -0.05 0 -0.005
+            -0.1 0 -0.01
+            -0.1 0.01 0
+            -0.05 0.005 0
+            -0.1 0 0.01
+            -0.05 0 0.005
+            -0.1 -0.01 0
+            -0.05 -0.005 0
+            -0.03 0 -0.003
+            -0.04 0 -0.004
+            -0.04 0.004 0
+            -0.03 0.003 0
+            -0.04 0 0.004
+            -0.03 0 0.003
+            -0.04 -0.004 0
+            -0.03 -0.003 0
+            -0.01 0 -0.001
+            -0.02 0 -0.002
+            -0.02 0.002 0
+            -0.01 0.001 0
+            -0.02 0 0.002
+            -0.01 0 0.001
+            -0.02 -0.002 0
+            -0.01 -0.001 0
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            1 1 1 1
+          }
+        }
+      }
+    }
+    Group {
+      DataVariance STATIC
+      name "low"
+      nodeMask 0xffffffff
+      cullingActive TRUE
+      num_children 3
+      Geode {
+        DataVariance STATIC
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 1
+        Geometry {
+          DataVariance STATIC
+          StateSet {
+            UniqueID StateSet_3
+            DataVariance STATIC
+            rendering_hint DEFAULT_BIN
+            renderBinMode INHERIT
+            GL_CULL_FACE ON
+            GL_LIGHTING ON
+            Use CullFace_2
+          }
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 3
+          {
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              35 32 34 33 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              29 30 28 31 
+            }
+            DrawElementsUShort TRIANGLES 36
+            {
+              0 1 2 3 4 5 6 4 7 8
+              9 10 11 12 13 0 14 15 16 17
+              18 19 20 7 19 3 21 11 22 23
+              8 24 25 16 26 27 
+            }
+          }
+          VertexArray Vec3Array 36
+          {
+            0 0 0
+            0 0.1 -1
+            -0.1 0 -1
+            0.2 0 0.75
+            0 0.2 0.75
+            0 0 1
+            0 0 1
+            -0.2 0 0.75
+            0 0 0
+            0.1 0 0.75
+            0 -0.1 0.75
+            0 0 0
+            0 0.1 0.75
+            0.1 0 0.75
+            -0.1 0 0.75
+            0 0.1 0.75
+            0 0 0
+            0 -0.1 0.75
+            -0.1 0 0.75
+            0 -0.2 0.75
+            0 0 1
+            0 0 1
+            0.1 0 -1
+            0 0.1 -1
+            0 -0.1 -1
+            0.1 0 -1
+            -0.1 0 -1
+            0 -0.1 -1
+            0.2 0 0.75
+            0 -0.2 0.75
+            -0.2 0 0.75
+            0 0.2 0.75
+            -0.1 0 -1
+            0 0.1 -1
+            0.1 0 -1
+            0 -0.1 -1
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 36
+          {
+            -0.707058 0.707058 -0.0117047
+            -0.705346 0.705346 0.0705346
+            -0.705346 0.705346 0.0705346
+            0.780869 0 0.624695
+            0 0.780869 0.624695
+            0.358979 0.358979 0.86155
+            -0.358979 0.358979 0.86155
+            -0.780869 0 0.624695
+            0.707058 -0.707058 -0.0117047
+            0.703985 -0.703985 -0.0938646
+            0.703985 -0.703985 -0.0938646
+            0.707058 0.707058 -0.0117047
+            0.703985 0.703985 -0.0938646
+            0.703985 0.703985 -0.0938646
+            -0.703985 0.703985 -0.0938646
+            -0.703985 0.703985 -0.0938646
+            -0.707058 -0.707058 -0.0117047
+            -0.703985 -0.703985 -0.0938646
+            -0.703985 -0.703985 -0.0938646
+            0 -0.780869 0.624695
+            -0.358979 -0.358979 0.86155
+            0.358979 -0.358979 0.86155
+            0.705346 0.705346 0.0705346
+            0.705346 0.705346 0.0705346
+            0.705346 -0.705346 0.0705346
+            0.705346 -0.705346 0.0705346
+            -0.705346 -0.705346 0.0705346
+            -0.705346 -0.705346 0.0705346
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+            0 0 -1
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            0 0 1 1
+          }
+        }
+      }
+      Geode {
+        DataVariance STATIC
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 1
+        Geometry {
+          DataVariance STATIC
+          Use StateSet_3
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 3
+          {
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              35 32 34 33 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              29 30 28 31 
+            }
+            DrawElementsUShort TRIANGLES 36
+            {
+              0 1 2 3 4 5 6 4 7 8
+              9 10 11 12 13 0 14 15 16 17
+              18 19 20 7 19 3 21 11 22 23
+              8 24 25 16 26 27 
+            }
+          }
+          VertexArray Vec3Array 36
+          {
+            0 0 0
+            0 -1 -0.1
+            -0.1 -1 0
+            0.2 0.75 0
+            0 0.75 -0.2
+            0 1 0
+            0 1 0
+            -0.2 0.75 0
+            0 0 0
+            0.1 0.75 0
+            0 0.75 0.1
+            0 0 0
+            0 0.75 -0.1
+            0.1 0.75 0
+            -0.1 0.75 0
+            0 0.75 -0.1
+            0 0 0
+            0 0.75 0.1
+            -0.1 0.75 0
+            0 0.75 0.2
+            0 1 0
+            0 1 0
+            0.1 -1 0
+            0 -1 -0.1
+            0 -1 0.1
+            0.1 -1 0
+            -0.1 -1 0
+            0 -1 0.1
+            0.2 0.75 0
+            0 0.75 0.2
+            -0.2 0.75 0
+            0 0.75 -0.2
+            -0.1 -1 0
+            0 -1 -0.1
+            0.1 -1 0
+            0 -1 0.1
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 36
+          {
+            -0.707058 -0.0117047 -0.707058
+            -0.705346 0.0705345 -0.705346
+            -0.705346 0.0705345 -0.705346
+            0.780869 0.624695 0
+            0 0.624695 -0.780869
+            0.358979 0.86155 -0.358979
+            -0.358979 0.86155 -0.358979
+            -0.780869 0.624695 0
+            0.707058 -0.0117046 0.707058
+            0.703985 -0.0938646 0.703985
+            0.703985 -0.0938646 0.703985
+            0.707058 -0.0117048 -0.707058
+            0.703985 -0.0938648 -0.703985
+            0.703985 -0.0938648 -0.703985
+            -0.703985 -0.0938647 -0.703985
+            -0.703985 -0.0938647 -0.703985
+            -0.707058 -0.0117046 0.707058
+            -0.703985 -0.0938645 0.703985
+            -0.703985 -0.0938645 0.703985
+            0 0.624695 0.780869
+            -0.358979 0.86155 0.358979
+            0.358979 0.86155 0.358979
+            0.705346 0.0705345 -0.705346
+            0.705346 0.0705345 -0.705346
+            0.705346 0.0705346 0.705346
+            0.705346 0.0705346 0.705346
+            -0.705346 0.0705347 0.705346
+            -0.705346 0.0705347 0.705346
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+            0 -1 0
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            0 1 0 1
+          }
+        }
+      }
+      Geode {
+        DataVariance STATIC
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 1
+        Geometry {
+          DataVariance STATIC
+          Use StateSet_3
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 3
+          {
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              35 32 34 33 
+            }
+            DrawElementsUShort TRIANGLE_STRIP 4
+            {
+              29 30 28 31 
+            }
+            DrawElementsUShort TRIANGLES 36
+            {
+              0 1 2 3 4 5 6 4 7 8
+              9 10 11 12 13 0 14 15 16 17
+              18 19 20 7 19 3 21 11 22 23
+              8 24 25 16 26 27 
+            }
+          }
+          VertexArray Vec3Array 36
+          {
+            0 0 0
+            -1 0.1 0
+            -1 0 0.1
+            0.75 0 -0.2
+            0.75 0.2 0
+            1 0 0
+            1 0 0
+            0.75 0 0.2
+            0 0 0
+            0.75 0 -0.1
+            0.75 -0.1 0
+            0 0 0
+            0.75 0.1 0
+            0.75 0 -0.1
+            0.75 0 0.1
+            0.75 0.1 0
+            0 0 0
+            0.75 -0.1 0
+            0.75 0 0.1
+            0.75 -0.2 0
+            1 0 0
+            1 0 0
+            -1 0 -0.1
+            -1 0.1 0
+            -1 -0.1 0
+            -1 0 -0.1
+            -1 0 0.1
+            -1 -0.1 0
+            0.75 0 -0.2
+            0.75 -0.2 0
+            0.75 0 0.2
+            0.75 0.2 0
+            -1 0.1 0
+            -1 0 -0.1
+            -1 -0.1 0
+            -1 0 0.1
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 36
+          {
+            -0.0117047 0.707058 0.707058
+            0.0705346 0.705346 0.705346
+            0.0705346 0.705346 0.705346
+            0.624695 0 -0.780869
+            0.624695 0.780869 0
+            0.86155 0.358979 -0.358979
+            0.86155 0.358979 0.358979
+            0.624695 0 0.780869
+            -0.0117047 -0.707058 -0.707058
+            -0.0938646 -0.703985 -0.703985
+            -0.0938646 -0.703985 -0.703985
+            -0.0117047 0.707058 -0.707058
+            -0.0938646 0.703985 -0.703985
+            -0.0938646 0.703985 -0.703985
+            -0.0938646 0.703985 0.703985
+            -0.0938646 0.703985 0.703985
+            -0.0117047 -0.707058 0.707058
+            -0.0938646 -0.703985 0.703985
+            -0.0938646 -0.703985 0.703985
+            0.624695 -0.780869 0
+            0.86155 -0.358979 0.358979
+            0.86155 -0.358979 -0.358979
+            0.0705346 0.705346 -0.705346
+            0.0705346 0.705346 -0.705346
+            0.0705346 -0.705346 -0.705346
+            0.0705346 -0.705346 -0.705346
+            0.0705346 -0.705346 0.705346
+            0.0705346 -0.705346 0.705346
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            -1 0 0
+            1 0 0
+            1 0 0
+            1 0 0
+            1 0 0
+          }
+          ColorBinding OVERALL
+          ColorArray Vec4Array 1
+          {
+            1 0 0 1
+          }
+        }
+      }
+    }
+  }
+}
