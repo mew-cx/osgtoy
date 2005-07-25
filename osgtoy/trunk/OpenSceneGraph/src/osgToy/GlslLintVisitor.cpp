@@ -12,7 +12,7 @@
 */
 
 /* file:        src/osgToy/GlslLintVisitor.cpp
- * author:      Mike Weiblen http://mew.cx/ 2005-07-22
+ * author:      Mike Weiblen http://mew.cx/ 2005-07-24
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
 */
@@ -23,7 +23,8 @@
 ///////////////////////////////////////////////////////////////////////////
 
 osgToy::GlslLintVisitor::GlslLintVisitor( osgToy::GlslLint::Options options ) :
-    osg::NodeVisitor(osg::NodeVisitor::TRAVERSE_ALL_CHILDREN)
+    osg::NodeVisitor(osg::NodeVisitor::TRAVERSE_ALL_CHILDREN),
+    _options(options)
 {
 }
 
@@ -63,11 +64,6 @@ void osgToy::GlslLintVisitor::apply( const osg::StateSet* stateset )
     for( osg::StateSet::UniformList::const_iterator uitr = uniformList.begin();
             uitr != uniformList.end(); uitr++ )
     {
-        //const std::string& name = uitr->first;
-        //const RefUniformPair& rup = uitr->second;
-        //const osg::Uniform* uniform = rup.first.get();
-        //osg::StateAttribute::OverrideValue override = rup.second;
-
         const osg::Uniform* uniform = uitr->second.first.get();
         apply( uniform );
     }
@@ -101,32 +97,30 @@ void osgToy::GlslLintVisitor::apply( const osg::Program* program )
             << "\" index=" << index << std::endl;
     }
 
+    osg::ref_ptr<osgToy::GlslLint> glsllint = new osgToy::GlslLint( _options );
+
     unsigned int numShaders = program->getNumShaders();
     for( unsigned int i = 0; i < numShaders; i++ )
     {
         const osg::Shader* shader = program->getShader(i);
-        apply( shader );
+        const std::string& name = shader->getName();
+        const osg::Shader::Type type = shader->getType();
+        const std::string& sourceText = shader->getShaderSource();
+
+        //TODO
+        osg::notify(osg::INFO)
+            << "Shader \"" << name
+            << "\" type=" << shader->getTypename()
+            // << " sourceText=\n" << sourceText << "\n"
+            << std::endl;
+
+        bool success = (glsllint->compile( type, sourceText ) == osgToy::GlslLint::SUCCESS);
     }
 
+    bool success = (glsllint->link() == osgToy::GlslLint::SUCCESS);
 }
 
  
-void osgToy::GlslLintVisitor::apply( const osg::Shader* shader )
-{
-    if( !shader ) return;
-
-    const std::string& name = shader->getName();
-    const osg::Shader::Type type = shader->getType();
-    const std::string& sourceText = shader->getShaderSource();
-
-    //TODO
-    osg::notify(osg::INFO)
-        << "Shader \"" << name
-        << "\" type=" << shader->getTypename()
-        << " sourceText=\n" << sourceText << "\n" << std::endl;
-}
-
-
 void osgToy::GlslLintVisitor::apply( const osg::Uniform* uniform )
 {
     if( !uniform ) return;
