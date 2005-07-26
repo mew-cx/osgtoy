@@ -12,13 +12,13 @@
 */
 
 /* file:        src/osgToy/GlslLint.cpp
- * author:      Mike Weiblen http://mew.cx/ 2005-07-25
+ * author:      Mike Weiblen http://mew.cx/ 2005-07-26
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
 */
 
 // This code written to OpenGLCompilerJune082005.zip from
-// http://developer.3Dlabs.com/
+// http://developer.3dlabs.com/downloads/glslcompiler/index.htm
 #include <glslang/Include/ShHandle.h>
 #include <glslang/Public/ShaderLang.h>
 
@@ -112,6 +112,11 @@ osgToy::GlslLint::compile( osg::Shader::Type type, const std::string& sourceText
 osgToy::GlslLint::Status
 osgToy::GlslLint::link()
 {
+    // The upstream compiler front-end only has a minimal stub for the
+    // linker, so it isn't very interesting from a "lint" perspective.
+    // FUTURE: implement a linker for lint to verify the consistancy of
+    // shaders/uniforms/attributes.
+
     int options = (_options == VERBOSE) ?  EDebugOpIntermediate : 0;
     _infoLog = "";
 
