@@ -12,12 +12,13 @@
 */
 
 /* file:        src/osgToy/GlslLintVisitor.cpp
- * author:      Mike Weiblen http://mew.cx/ 2005-07-24
+ * author:      Mike Weiblen http://mew.cx/ 2005-07-25
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
 */
 
-#include <osg/Notify>
+#include <iostream>
+
 #include <osgToy/GlslLintVisitor>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -48,6 +49,8 @@ void osgToy::GlslLintVisitor::apply( osg::Geode& geode )
     for( unsigned int i = 0; i < geode.getNumDrawables(); i++ )
     {
         apply( geode.getDrawable(i)->getStateSet() );
+
+        //FUTURE - at drawable, verify all shader requirements are met.
     }
 
     traverse( geode );
@@ -80,10 +83,6 @@ void osgToy::GlslLintVisitor::apply( const osg::Program* program )
 {
     if( !program ) return;
 
-    const std::string& name = program->getName();
-    osg::notify(osg::INFO)
-        << "\nProgram \"" << name << "\"" << std::endl;
-
     const osg::Program::AttribBindingList& attribList = program->getAttribBindingList();
     for( osg::Program::AttribBindingList::const_iterator aitr = attribList.begin();
             aitr != attribList.end(); aitr++ )
@@ -91,33 +90,61 @@ void osgToy::GlslLintVisitor::apply( const osg::Program* program )
         const std::string& name = aitr->first;
         GLuint index = aitr->second;
 
-        //TODO
-        osg::notify(osg::INFO)
+        //FUTURE - populate attribute table for later shader verification.
+        std::cout
             << "AttributeBinding \"" << name
             << "\" index=" << index << std::endl;
     }
 
+    std::cout << std::endl;
+
     osg::ref_ptr<osgToy::GlslLint> glsllint = new osgToy::GlslLint( _options );
+    int compileFailures = 0;
 
     unsigned int numShaders = program->getNumShaders();
     for( unsigned int i = 0; i < numShaders; i++ )
     {
         const osg::Shader* shader = program->getShader(i);
-        const std::string& name = shader->getName();
         const osg::Shader::Type type = shader->getType();
         const std::string& sourceText = shader->getShaderSource();
 
-        //TODO
-        osg::notify(osg::INFO)
-            << "Shader \"" << name
-            << "\" type=" << shader->getTypename()
-            // << " sourceText=\n" << sourceText << "\n"
-            << std::endl;
-
         bool success = (glsllint->compile( type, sourceText ) == osgToy::GlslLint::SUCCESS);
+
+        std::cout
+            << "Shader \"" << shader->getName() << "\""
+            << " type=" << shader->getTypename()
+            // << " sourceText=\n" << sourceText << "\n"
+            << " compile=" << ((success) ? "OK" : "FAIL");
+        if( !glsllint->infoLogEmpty() )
+            std::cout << " infoLog:\n" << glsllint->getInfoLog();
+        std::cout << std::endl;
+
+        if( !success ) compileFailures++;
     }
 
+#if 0 //[
     bool success = (glsllint->link() == osgToy::GlslLint::SUCCESS);
+
+    std::cout
+        << "Program \"" << program->getName() << "\""
+        << " link=" << ((success) ? "OK" : "FAIL");
+    if( !glsllint->infoLogEmpty() )
+        std::cout << " infoLog:\n" << glsllint->getInfoLog();
+    std::cout << std::endl;
+#else
+    bool success = (compileFailures == 0);
+
+    std::cout
+        << "Program \"" << program->getName() << "\""
+        << " link=" << ((success) ? "OK" : "FAIL");
+    if( !success )
+        std::cout << " infoLog:\n"
+            << "\t" << compileFailures << " of " << program->getNumShaders()
+            << " shaders failed compilation";
+    std::cout << std::endl;
+#endif //]
+
+    std::cout << std::endl;
 }
 
  
@@ -128,10 +155,11 @@ void osgToy::GlslLintVisitor::apply( const osg::Uniform* uniform )
     const std::string& name = uniform->getName();
     const osg::Uniform::Type type = uniform->getType();
 
-    //TODO
-    osg::notify(osg::INFO)
+    //FUTURE - populate uniform table for later shader verification.
+    std::cout
         << "Uniform \"" << name
-        << "\" type=" << uniform->getTypename(type) << std::endl;
+        << "\" type=" << uniform->getTypename(type)
+        << std::endl;
 }
 
 

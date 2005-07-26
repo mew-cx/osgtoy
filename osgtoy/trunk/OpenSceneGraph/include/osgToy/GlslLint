@@ -57,7 +57,8 @@ public:
     Status compile( osg::Shader::Type type, const std::string& sourceText );
     Status link();
 
-    const std::string& const getInfoLog() { return _infoLog };
+    const std::string& getInfoLog() const { return _infoLog; }
+    bool infoLogEmpty() const { return _infoLog.empty(); }
 
 protected:
     Options _options;

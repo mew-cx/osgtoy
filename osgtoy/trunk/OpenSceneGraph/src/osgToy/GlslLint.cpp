@@ -22,7 +22,6 @@
 #include <glslang/Include/ShHandle.h>
 #include <glslang/Public/ShaderLang.h>
 
-#include <osg/Notify>
 #include <osgToy/GlslLint>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -49,7 +48,7 @@ static TBuiltInResource g_Resources = {
 // ShBindingTable represents the attribute bindings that are input to the
 // linker.  It contains the table that the app would build with
 // glBindAttribLocation().
-// Temporarily, since GlslList currently doesn't do anything during linking,
+// FUTURE: since GlslList currently doesn't do anything during linking,
 // we simply contrive some values.
 
 static ShBinding g_AttribBindings[] = {
@@ -61,11 +60,12 @@ static ShBinding g_AttribBindings[] = {
 static ShBindingTable g_BoundAttribTable = { 
         sizeof(g_AttribBindings) / sizeof(ShBinding), g_AttribBindings };
 
-static bool osgToy::GlslLint::g_parserLibraryInitialized = false;
+static bool g_parserLibraryInitialized = false;
 
 ///////////////////////////////////////////////////////////////////////////
 
-osgToy::GlslLint::GlslLint( Options options ) : _options(options)
+osgToy::GlslLint::GlslLint( Options options ) :
+    _options(options), _linker(0), _uniformMap(0)
 {
     if( ! g_parserLibraryInitialized )
     {
@@ -84,16 +84,17 @@ osgToy::GlslLint::~GlslLint()
         ShDestruct( compiler );
     }
 
-    ShDestruct( _linker );
-    ShDestruct( _uniformMap );
+    if( _linker)  ShDestruct( _linker );
+    if( _uniformMap )  ShDestruct( _uniformMap );
 }
 
 
 osgToy::GlslLint::Status
 osgToy::GlslLint::compile( osg::Shader::Type type, const std::string& sourceText )
 {
-    EShLanguage lang = (type == osg::Shader::VERTEX) ? EShLangVertex : EShLangFragment;
     int options = (_options == VERBOSE) ?  EDebugOpIntermediate : 0;
+    EShLanguage lang = (type == osg::Shader::VERTEX) ? EShLangVertex : EShLangFragment;
+    _infoLog = "";
 
     ShHandle compiler = ShConstructCompiler( lang, options );
     if( !compiler ) return ERR_COMPILER_CTOR;
@@ -112,25 +113,24 @@ osgToy::GlslLint::Status
 osgToy::GlslLint::link()
 {
     int options = (_options == VERBOSE) ?  EDebugOpIntermediate : 0;
+    _infoLog = "";
 
     if( _compilerList.empty() ) return ERR_LINK;
 
-    _uniformMap = ShConstructUniformMap();
+    if( !_uniformMap ) _uniformMap = ShConstructUniformMap();
     if( !_uniformMap ) return ERR_UNIFORM_MAP;
 
-    _linker = ShConstructLinker( EShExVertexFragment, options );
+    if( !_linker ) _linker = ShConstructLinker( EShExVertexFragment, options );
     if( !_linker ) return ERR_LINKER_CTOR;
 
     ShSetFixedAttributeBindings( _linker, &g_BoundAttribTable );
 
-    int success = ShLink( _linker,
-            &_compilerList[0], _compilerList.size(),
+    int success = ShLink( _linker, &_compilerList[0], _compilerList.size(),
             _uniformMap, 0, 0 );
     _infoLog = ShGetInfoLog( _linker );
     //if( !success ) return ERR_LINK;
 
     return SUCCESS;
 }
-
 
 // vim: set sw=4 ts=8 et ic ai:

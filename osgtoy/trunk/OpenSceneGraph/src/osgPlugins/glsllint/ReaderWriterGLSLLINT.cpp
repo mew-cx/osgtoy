@@ -11,13 +11,14 @@
 */
 
 /* file:        src/osgPlugins/glsllint/ReaderWriterGLSLLINT.cpp
- * author:      Mike Weiblen http://mew.cx/ 2005-07-21
+ * author:      Mike Weiblen http://mew.cx/ 2005-07-25
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
 */
 
 #include <string>
 #include <sstream>
+#include <iostream>
 
 #include <osg/Notify>
 #include <osg/Node>
@@ -105,14 +106,14 @@ public:
 
         // This is where the pseudoloader does its thing...
 
-osg::notify(osg::INFO) << "\n\n\n==========================================" << std::endl;
-osg::notify(osg::INFO) << "BEGIN GLSLLINT..." << std::endl;
+std::cout << "\n\n\n==========================================" << std::endl;
+std::cout << "[ BEGIN GLSLLINT...\n" << std::endl;
 
         osgToy::GlslLintVisitor lv( lint_options );
         node->accept( lv );
 
-osg::notify(osg::INFO) << "...END GLSLLINT" << std::endl;
-osg::notify(osg::INFO) << "==========================================\n\n\n" << std::endl;
+std::cout << "\n] ...END GLSLLINT" << std::endl;
+std::cout << "==========================================\n\n\n" << std::endl;
 
         return node;
     }
