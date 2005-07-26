@@ -12,7 +12,7 @@
 */
 
 /* file:        src/osgToy/GlslLintVisitor.cpp
- * author:      Mike Weiblen http://mew.cx/ 2005-07-25
+ * author:      Mike Weiblen http://mew.cx/ 2005-07-26
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
 */
@@ -115,7 +115,7 @@ void osgToy::GlslLintVisitor::apply( const osg::Program* program )
             << " type=" << shader->getTypename()
             // << " sourceText=\n" << sourceText << "\n"
             << " compile=" << ((success) ? "OK" : "FAIL");
-        if( !glsllint->infoLogEmpty() )
+        if( !glsllint->getInfoLog().empty() )
             std::cout << " infoLog:\n" << glsllint->getInfoLog();
         std::cout << std::endl;
 
@@ -123,12 +123,14 @@ void osgToy::GlslLintVisitor::apply( const osg::Program* program )
     }
 
 #if 0 //[
+    // see notes in osgToy/GlslLint.cpp
+
     bool success = (glsllint->link() == osgToy::GlslLint::SUCCESS);
 
     std::cout
         << "Program \"" << program->getName() << "\""
         << " link=" << ((success) ? "OK" : "FAIL");
-    if( !glsllint->infoLogEmpty() )
+    if( !glsllint->getInfoLog().empty() )
         std::cout << " infoLog:\n" << glsllint->getInfoLog();
     std::cout << std::endl;
 #else

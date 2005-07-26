@@ -12,7 +12,7 @@
 */
 
 /* file:        include/osgToy/GlslLint
- * author:      Mike Weiblen http://mew.cx/ 2005-07-25
+ * author:      Mike Weiblen http://mew.cx/ 2005-07-26
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
 */
@@ -28,7 +28,7 @@
 #include <osgToy/Export>
 
 // This code written to OpenGLCompilerJune082005.zip from
-// http://developer.3Dlabs.com/
+// http://developer.3dlabs.com/downloads/glslcompiler/index.htm
 typedef void* ShHandle;   // from glslang/Public/ShaderLang.h
 
 
@@ -58,7 +58,6 @@ public:
     Status link();
 
     const std::string& getInfoLog() const { return _infoLog; }
-    bool infoLogEmpty() const { return _infoLog.empty(); }
 
 protected:
     Options _options;
