@@ -12,9 +12,9 @@
 */
 
 /* file:        src/osgToy/GlslLintVisitor.cpp
- * author:      Mike Weiblen http://mew.cx/ 2005-07-26
- * copyright:   (C) 2005 Michael Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
+ * author:      Mike Weiblen
+ * copyright:   (C) 2005 3Dlabs Inc. Ltd.
+ * license:     3Dlabs_license.txt
 */
 
 #include <iostream>
