@@ -1,4 +1,5 @@
 // File: drawtext.frag
+// Author: Mike Weiblen 2005-07-30
 // Copyright (C) 2005  3Dlabs Inc. Ltd.
 // All rights reserved.
 // 
