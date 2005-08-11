@@ -1,6 +1,7 @@
 Group {
   UniqueID Group_0
   DataVariance DYNAMIC
+  name "glsl_dataflag.osg"
   nodeMask 0xffffffff
   cullingActive TRUE
   num_children 1
@@ -22,7 +23,7 @@ Group {
       Uniform {
         DataVariance DYNAMIC
         name "Word"
-        vec4 65 66 67 68
+        vec4 71 76 83 76
       }
       Program {
         DataVariance STATIC
@@ -30,7 +31,7 @@ Group {
         num_shaders 1
         Shader {
           DataVariance DYNAMIC
-          name "drawtext_frag"
+          name "drawtext.frag"
           type FRAGMENT
           code {
             "// File: drawtext.frag"
@@ -212,7 +213,7 @@ Group {
         GL_TEXTURE_2D ON
         Texture2D {
           DataVariance STATIC
-file verasansmono.png
+          file verasansmono.png
           wrap_s CLAMP
           wrap_t CLAMP
           wrap_r CLAMP
