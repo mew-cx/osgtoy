@@ -115,6 +115,10 @@ SOURCE=..\..\src\osgToy\lua_osgToy.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\src\osgToy\MipmapTestImage.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\src\osgToy\MengerSponge.cpp
 # End Source File
 # Begin Source File
@@ -160,6 +164,10 @@ SOURCE=..\..\include\osgToy\LorenzAttractor
 # Begin Source File
 
 SOURCE=..\..\include\osgToy\LuaState
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\include\osgToy\MipmapTestImage
 # End Source File
 # Begin Source File
 
