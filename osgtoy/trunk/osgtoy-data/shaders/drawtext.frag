@@ -1,5 +1,5 @@
 // File: drawtext.frag
-// Author: Mike Weiblen 2005-09-22
+// Author: Mike Weiblen 2005-10-05
 // Copyright (C) 2005  3Dlabs Inc. Ltd.
 // All rights reserved.
 // 
@@ -71,47 +71,38 @@ vec4 readGlyphTexture( vec2 geomTexCoord, int ascii )
 
 ///////////////////////////////////////////////////////////////////////////
 // Return a single ASCII character from the decimal expansion of a float.
+// (change "base" to render as binary, decimal, or hexadecimal)
 
-int Float2Ascii( float val, int index )
+int Float2Ascii( float val, int pos )
 {
-    const int minus_sign = 45;
-    const int decimal_point = 46;
-    const int zero = 48;
+    const float base = 10.;
 
-    // how many cells needed to the left of decimal point?
-    int numCells = 0;
-    if( val < 0.0 ) numCells++;
-    float x = abs( val );
+    if( (pos == 0) && (val < 0.) ) return 45;   // minus sign '-'
+
+    // at which cell position is the radix point?
+    int radixPos = 0;
+    if( val < 0. ) radixPos++;                  // room for minus sign
+    float x = abs(val);
     do {
-        x = floor( x * 0.1 );
-        numCells++;
-    } while( x > 0.0 );
+        x = floor( x / base );
+        radixPos++;
+    } while( x > 0. );
+    if( pos == radixPos ) return 46;            // radix point '.'
 
-    if( (val < 0.0) && (index == 0) ) return minus_sign;
-    if( index == numCells ) return decimal_point;
-
-    int cnt;
-    float s;
-    if( index < numCells )
-    {
-        cnt = numCells - index - 1;
-        s = 0.1;
-    }
-    else
-    {
-        cnt = index - numCells;
-        s = 10.0;
-    }
-
-    x = abs(val);
-    for( int i = 0; i < cnt; i++ ) x *= s;
-    return int(mod(x,10.0)) + zero;
+    float exp = float(pos - radixPos);
+    if( pos < radixPos ) exp++;
+    int digit = int( mod( abs(val) * pow( base, exp ), base ) );
+    //if( digit > 9 ) digit += 39;              // for hexadecimal
+    return digit + 48;                          // add ascii zero '0'
 }
 
 ///////////////////////////////////////////////////////////////////////////
-// Return the ASCII character to be rendered at the given geomTexCoord:
+// Utility functions which, when given a cell position, return a single
+// ASCII character to be rendered in that cell.
+///////////////////////////////////////////////////////////////////////////
+
 // Display each vec4 component as a decimal ASCII string, analogous to
-// printf( "%f", data[cell.y] );
+// printf( "%f", data[cell.y] )
 
 int getFloatCharacter( ivec2 cell, vec4 data )
 {
@@ -119,9 +110,8 @@ int getFloatCharacter( ivec2 cell, vec4 data )
 }
 
 ///////////////////////////////////////////////////////////////////////////
-// Return the ASCII character to be rendered at the given geomTexCoord:
 // Display each vec4 component as a single ASCII character, analogous to
-// printf( "%4c", data[0], data[1], data[2], data[3] );
+// printf( "%4c", data[0], data[1], data[2], data[3] )
 
 int getWordCharacter( ivec2 cell, vec4 data )
 {
@@ -129,17 +119,18 @@ int getWordCharacter( ivec2 cell, vec4 data )
 }
 
 ///////////////////////////////////////////////////////////////////////////
-// The main() function configures what and how to display.
-// TODO: split these main() functions into separate files.
+// The main() function configures what and how to display the desired data.
+// Below are some simple examples, use as you wish.
 ///////////////////////////////////////////////////////////////////////////
+
+// render the vec4 "Word" as 4 ascii characters
 
 #if 0 //[
 
-// File: drawWordVec4.frag
-
+// drawtext.frag external declarations (if necessary)
 ivec2 getCellIndex( vec2 geomTexCoord );
-int getWordCharacter( vec2 geomTexCoord, vec4 data );
 vec4 readGlyphTexture( vec2 geomTexCoord, int ascii );
+int getWordCharacter( ivec2 cell, vec4 data );
 
 uniform vec4 Word;
 
@@ -158,11 +149,12 @@ void main(void)
 
 #if 1 //[
 
-// File: drawFloatVec4.frag
+// render a vec4 as 4 lines of printf-like numeric strings.
 
+// drawtext.frag external declarations (if necessary)
 ivec2 getCellIndex( vec2 geomTexCoord );
-int getFloatCharacter( vec2 geomTexCoord, vec4 data );
 vec4 readGlyphTexture( vec2 geomTexCoord, int ascii );
+int getFloatCharacter( ivec2 cell, vec4 data );
 
 uniform mat4 osg_ViewMatrix;
 uniform int osg_FrameNumber;
