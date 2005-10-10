@@ -1,7 +1,6 @@
 Group {
   UniqueID Group_0
   DataVariance DYNAMIC
-  name "glsl_dataflag.osg"
   nodeMask 0xffffffff
   cullingActive TRUE
   num_children 1
@@ -31,8 +30,8 @@ Group {
         num_shaders 1
         Shader {
           DataVariance DYNAMIC
-          name "drawtext.frag"
           type FRAGMENT
+          name "drawtext.frag"
           code {
             "// File: drawtext.frag"
             "// Author: Mike Weiblen 2005-10-05"
