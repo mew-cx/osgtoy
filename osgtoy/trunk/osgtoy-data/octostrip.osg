@@ -1,3 +1,9 @@
+COMMENT {
+  "$Id: octostrip.osg,v 1.2 2005/10/11 17:37:40 mew Exp $"
+  "A minimal octahedron rendered using a tristrip."
+  "Useful as an alignment fiducial by sighting thru the missing faces."
+}
+
 Group {
   UniqueID Group_0
   DataVariance DYNAMIC

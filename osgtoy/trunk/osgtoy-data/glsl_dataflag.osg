@@ -1,3 +1,13 @@
+COMMENT {
+  "$Id: glsl_dataflag.osg,v 1.8 2005/10/11 17:37:40 mew Exp $"
+  "A demonstration using the drawtext.frag GLSL shader."
+  "The dataflag renders data values as text using GLSL."
+  "Because the text is computed in the fragment shader, the display"
+  "updates automatically without support from the application."
+  "Modify the shader main() function below to select what data to"
+  "display and its formatting."
+}
+
 Group {
   UniqueID Group_0
   DataVariance DYNAMIC
