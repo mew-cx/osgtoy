@@ -1,0 +1,20 @@
+2005-07-30 ================================================================
+
+Includes full source, 3rd party dependencies, and prebuilt win32 binaries
+compatible with the osg0990_setup_2005-05-25.exe installer available from
+http://openscenegraph.org/
+
+As presented at the "Advanced Rendering Techniques Using OpenSceneGraph" 
+class in Los Angeles, July 31 2005.
+
+New features include:
+1) GlslLint, an OpenGL Shading Language sourcecode validation utility using
+   the 3Dlabs GLSL compiler front-end.
+2) glsl_dataflag.osg (and its drawtext.frag shader) to display data from
+   within a GLSL shader
+3) a lua-based file importer, an application of data description using a  
+   scripting language.
+4) a supershape geometry generator, using lua as the "data format".
+5) new .image, .movie, .dem pseudoloaders.
+6) many more .osg example datafiles and test patterns.
+
