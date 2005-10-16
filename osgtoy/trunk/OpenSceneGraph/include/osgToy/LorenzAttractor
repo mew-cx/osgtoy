@@ -2,8 +2,8 @@
  * author:      Mike Weiblen 2005-05-05
  * copyright:   (C) 2004-2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/osg/
- * $Id: LorenzAttractor,v 1.1 2005/06/06 22:10:37 mew Exp $
+ * website:     http://mew.cx/
+ * $Id: LorenzAttractor,v 1.2 2005/10/16 01:50:44 mew Exp $
  *
  * see: http://en.wikipedia.org/wiki/Lorenz_attractor
  *      http://mathworld.wolfram.com/LorenzAttractor.html
@@ -33,27 +33,15 @@ public:
         float b = 28.0f,
         float c = 8.0f/3.0f );
 
-    LorenzAttractor( const LorenzAttractor&, const osg::CopyOp& copyop=osg::CopyOp::SHALLOW_COPY );
-    META_Object( osgToy, LorenzAttractor );
-
     unsigned int getNumPoints() const { return _numPoints; }
 
 protected:
     virtual ~LorenzAttractor() {}
-
-private:
-    void generate();
-
-    unsigned int        _numPoints;
-    float               _deltaT;
-    osg::Vec3           _p0;
-    float               _t0;
-    float               _a, _b, _c;
+    unsigned int _numPoints;
 };
 
 }
 
 #endif
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:
