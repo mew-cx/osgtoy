@@ -1,15 +1,13 @@
 /* file:        src/osgToy/MengerSponge.cpp
- * author:      Mike Weiblen 2004-12-22
+ * author:      Mike Weiblen
  * copyright:   (C) 2004-2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/osg/
- * $Id: MengerSponge.cpp,v 1.1 2005/06/06 22:10:37 mew Exp $
+ * website:     http://mew.cx/
+ * $Id: MengerSponge.cpp,v 1.2 2005/10/16 01:50:45 mew Exp $
 */
 
 #include <osg/Notify>
-
 #include <osgToy/MengerSponge>
-
 
 enum {  // face flags (e.g. "NX" = negative X axis orientation)
     NX = 0x01,
@@ -25,34 +23,34 @@ void osgToy::MengerSponge::addQuad( const osg::Vec3& v0, const osg::Vec3& v1,
 {
     osg::Vec3 normal = (v1-v0) ^ (v3-v0);
     normal.normalize();
+    _nAry->push_back( normal );
 
     _numQuads++;
-    _vAry->push_back( v0 );  _nAry->push_back( normal );
-    _vAry->push_back( v1 );  _nAry->push_back( normal );
-    _vAry->push_back( v2 );  _nAry->push_back( normal );
-    _vAry->push_back( v3 );  _nAry->push_back( normal );
+    _vAry->push_back( v0 );
+    _vAry->push_back( v1 );
+    _vAry->push_back( v2 );
+    _vAry->push_back( v3 );
 }
 
 void osgToy::MengerSponge::subdivide( int level,
     float x0, float x3, float y0, float y3, float z0, float z3, int faces )
 {
-    if( faces == 0 )
-        return;
+    if( faces == 0 ) return;
 
     if( level > 0 )
     {
         // recurse next subdivision level
         level--;
 
-        float xd = (x3 - x0)/3.0f;
+        float xd = (x3 - x0) / 3;
         float x1 = x0 + xd;
         float x2 = x3 - xd;
 
-        float yd = (y3 - y0)/3.0f;
+        float yd = (y3 - y0) / 3;
         float y1 = y0 + yd;
         float y2 = y3 - yd;
 
-        float zd = (z3 - z0)/3.0f;
+        float zd = (z3 - z0) / 3;
         float z1 = z0 + zd;
         float z2 = z3 - zd;
 
@@ -85,7 +83,7 @@ void osgToy::MengerSponge::subdivide( int level,
     }
     else
     {
-        // recursion complete, build face geometry
+        // subdivision complete, build face geometry
 
         if( faces & NX )
             addQuad(
@@ -132,51 +130,30 @@ void osgToy::MengerSponge::subdivide( int level,
 }
 
 
-void osgToy::MengerSponge::generate()
+osgToy::MengerSponge::MengerSponge( unsigned int level, float scale ) :
+    _numQuads(0)
 {
     _vAry = new osg::Vec3Array;
     setVertexArray( _vAry );
 
     _nAry = new osg::Vec3Array;
     setNormalArray( _nAry );
-    setNormalBinding( osg::Geometry::BIND_PER_VERTEX );
+    setNormalBinding( osg::Geometry::BIND_PER_PRIMITIVE );
 
-    _cAry = new osg::Vec4Array;
-    setColorArray( _cAry );
+    osg::Vec4Array* cAry = new osg::Vec4Array;
+    setColorArray( cAry );
     setColorBinding( osg::Geometry::BIND_OVERALL );
-    _cAry->push_back( osg::Vec4( 1, 1, 1, 1 ) );
+    cAry->push_back( osg::Vec4(1,1,1,1) );
 
-    _numQuads = 0;
-    float d = _scale / 2.0f;
-    subdivide( _level, -d, d, -d, d, -d, d, NX|PX|NY|PY|NZ|PZ );
+    float d = scale / 2;
+    subdivide( level, -d, d, -d, d, -d, d, NX|PX|NY|PY|NZ|PZ );
 
     addPrimitiveSet( new osg::DrawArrays( GL_QUADS, 0, _vAry->size() ) );
-    dirtyDisplayList();
-
-    osg::StateSet* sset = getOrCreateStateSet();
-    sset->setMode( GL_LIGHTING, osg::StateAttribute::ON );
 
     osg::notify(osg::INFO)
-            << "Menger sponge level=" << _level
+            << "Menger sponge level=" << level
             << " generated " << getNumQuads() << " quads"
             << std::endl;
-
-    _vAry = _nAry = 0;  // prevent accidental misuse
-    _cAry = 0;
 }
 
-///////////////////////////////////////////////////////////////////////////
-
-osgToy::MengerSponge::MengerSponge( unsigned int level, float scale ) :
-        _level( level ), _scale( scale )
-{
-    generate();
-}
-
-osgToy::MengerSponge::MengerSponge(const MengerSponge& ms, const osg::CopyOp& copyop ) :
-        osg::Geometry( ms, copyop )
-{
-}
-
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:
