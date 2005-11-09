@@ -1,5 +1,5 @@
 osgVRPNviewer/README.txt - Mike Weiblen mew@mew.cx
-$Id 2005-11-01 $
+$Id: README.txt,v 1.3 2005/11/09 08:25:36 mew Exp $
 
 A simple application to demonstrate osgVRPN classes.
 

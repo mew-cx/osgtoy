@@ -13,7 +13,7 @@
  * author:      Mike Weiblen mew@mew.cx
  * copyright:   (C) 2003-2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id 2005-11-08 $
+ * $Id: osgVRPNviewer.cpp,v 1.4 2005/11/09 08:25:36 mew Exp $
  *
  * references:  http://www.openscenegraph.org/
  *              http://www.vrpn.org/
