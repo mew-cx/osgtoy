@@ -15,5 +15,8 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name Core osgGA
     End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Core osgProducer
+    End Project Dependency
 }}}
 
