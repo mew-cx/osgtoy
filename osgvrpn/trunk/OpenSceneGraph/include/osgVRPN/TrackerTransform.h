@@ -1,13 +1,12 @@
-/* file:	include/osgVRPN/TrackerTransform.h
- * author:	Mike Weiblen mew@mew.cx 2003-12-28
- * copyright:	(C) 2003 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:        include/osgVRPN/TrackerTransform.h
+ * author:      Mike Weiblen mew@mew.cx
+ * copyright:   (C) 2003-2005 Michael Weiblen
+ * license:     OpenSceneGraph Public License (OSGPL)
+ * $Id 2005-11-01 $
  *
- * references:	http://www.openscenegraph.org/
- *		http://www.vrpn.org/
- *		http://www.mew.cx/osg/
- *
- * depends:	OSG 0.9.6-2, VRPN 06.04
+ * references:  http://www.openscenegraph.org/
+ *              http://www.vrpn.org/
+ *              http://www.mew.cx/
 */
 
 #ifndef OSG_TRACKERTRANSFORM
@@ -31,9 +30,9 @@ public :
     TrackerTransform( const char* trackerName );
 
     TrackerTransform( const TrackerTransform& xform,
-	    const osg::CopyOp& copyop=osg::CopyOp::SHALLOW_COPY ) :
-		MatrixTransform( xform, copyop ),
-		_tracker( xform._tracker )
+            const osg::CopyOp& copyop=osg::CopyOp::SHALLOW_COPY ) :
+                MatrixTransform( xform, copyop ),
+                _tracker( xform._tracker )
     {}
 
     META_Node( osgVRPN, TrackerTransform );
@@ -45,14 +44,15 @@ public :
     /** Query the Tracker that controls this transform. */
     osg::ref_ptr<Tracker> getTracker() const { return _tracker; }
 
-
-protected:	// methods
+protected:      // methods
     virtual ~TrackerTransform() {}
 
-protected:	// data
+protected:      // data
     osg::ref_ptr<Tracker> _tracker;
 };
 
 }
 
 #endif
+
+// vim: set sw=4 ts=8 et ic ai:

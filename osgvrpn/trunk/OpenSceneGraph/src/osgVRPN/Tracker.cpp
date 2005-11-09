@@ -1,10 +1,10 @@
-/* file:	src/osgVRPN/Tracker.cpp
- * author:	Mike Weiblen mew@mew.cx 2004-04-21
- * copyright:	(C) 2003 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:        src/osgVRPN/Tracker.cpp
+ * author:      Mike Weiblen mew@mew.cx
+ * copyright:   (C) 2003-2005 Michael Weiblen
+ * license:     OpenSceneGraph Public License (OSGPL)
+ * $Id 2005-11-01 $
 */
 
-#include <cassert>
 #include <osg/Notify>
 #include <osgVRPN/Tracker.h>
 
@@ -15,12 +15,10 @@ using namespace osgVRPN;
 
 ///////////////////////////////////////////////////////////////////////////
 
-Tracker::Tracker( const char* trackerName )
+Tracker::Tracker( const char* trackerName ) : _scale(1.0f)
 {
-    _scale = 1.0f;
-
     osg::notify(osg::INFO) << "Tracker: attempting to open VRPN tracker \""
-	    << trackerName << "\"." << std::endl;
+            << trackerName << "\"." << std::endl;
 
     _vrpnTracker = new vrpn_Tracker_Remote( trackerName );
     _vrpnTracker->register_change_handler( this, ChangeHandler );
@@ -36,13 +34,13 @@ Tracker::~Tracker()
 osg::Matrixd Tracker::getMatrix() const
 {
     return osg::Matrixd::rotate( _rotation ) *
-	    osg::Matrixd::translate( _position );
+            osg::Matrixd::translate( _position );
 }
 
 osg::Matrixd Tracker::getInverseMatrix() const
 {
     return osg::Matrixd::translate( -_position ) *
-	    osg::Matrixd::rotate( _rotation.inverse() );
+            osg::Matrixd::rotate( _rotation.inverse() );
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -53,10 +51,7 @@ osg::Matrixd Tracker::getInverseMatrix() const
 
 void Tracker::update()
 {
-    if( _vrpnTracker )
-    {
-	_vrpnTracker->mainloop();
-    }
+    if( _vrpnTracker ) _vrpnTracker->mainloop();
 }
 
 /*static*/ void Tracker::ChangeHandler( void* userdata, const vrpn_TRACKERCB info )
@@ -73,4 +68,4 @@ void Tracker::changeHandler( const vrpn_TRACKERCB* info )
     _rotation.set( info->quat[0], info->quat[1], info->quat[2], info->quat[3] );
 }
 
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:

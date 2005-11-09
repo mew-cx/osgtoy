@@ -1,13 +1,12 @@
-/* file:	include/osgVRPN/Tracker.h
- * author:	Mike Weiblen mew@mew.cx 2003-12-28
- * copyright:	(C) 2003 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:        include/osgVRPN/Tracker.h
+ * author:      Mike Weiblen mew@mew.cx
+ * copyright:   (C) 2003-2005 Michael Weiblen
+ * license:     OpenSceneGraph Public License (OSGPL)
+ * $Id 2005-11-01 $
  *
- * references:	http://www.openscenegraph.org/
- *		http://www.vrpn.org/
- *		http://www.mew.cx/osg/
- *
- * depends:	OSG 0.9.6-2, VRPN 06.04
+ * references:  http://www.openscenegraph.org/
+ *              http://www.vrpn.org/
+ *              http://www.mew.cx/
 */
 
 #ifndef OSGVRPN_TRACKER
@@ -26,7 +25,7 @@ typedef struct _vrpn_TRACKERCB vrpn_TRACKERCB;
 
 namespace osgVRPN {
 
-/** osgVRPN::Tracker is an OSG wrapper for VRPN's vrpn_Tracker_Remote class.  */
+/** osgVRPN::Tracker is an OSG wrapper for VRPN's vrpn_Tracker_Remote class. */
 
 class OSGVRPN_EXPORT Tracker : public osg::Referenced
 {
@@ -47,7 +46,7 @@ public:
     float getScale() const { return _scale; }
 
 
-protected:	// methods
+protected:      // methods
     Tracker();
     Tracker(const Tracker&);
     virtual ~Tracker();
@@ -56,13 +55,15 @@ protected:	// methods
     static void ChangeHandler( void* userdata, const vrpn_TRACKERCB info );
     void changeHandler( const vrpn_TRACKERCB* info );
 
-protected:	// data
-    float			_scale;
-    osg::Vec3			_position;
-    osg::Quat			_rotation;
-    vrpn_Tracker_Remote*	_vrpnTracker;
+protected:      // data
+    float                       _scale;
+    osg::Vec3                   _position;
+    osg::Quat                   _rotation;
+    vrpn_Tracker_Remote*        _vrpnTracker;
 };
 
 }
 
 #endif
+
+// vim: set sw=4 ts=8 et ic ai:

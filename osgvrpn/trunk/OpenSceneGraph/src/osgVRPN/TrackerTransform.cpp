@@ -1,11 +1,10 @@
-/* file:	src/osgVRPN/TrackerTransform.cpp
- * author:	Mike Weiblen mew@mew.cx 2003-12-27
- * copyright:	(C) 2003 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:        src/osgVRPN/TrackerTransform.cpp
+ * author:      Mike Weiblen mew@mew.cx
+ * copyright:   (C) 2003-2005 Michael Weiblen
+ * license:     OpenSceneGraph Public License (OSGPL)
+ * $Id 2005-11-01 $
 */
 
-// #include <cassert>
-#include <osg/Notify>
 #include <osgVRPN/TrackerTransform.h>
 
 using namespace osgVRPN;
@@ -18,18 +17,17 @@ class TrackerUpdateCallback : public osg::NodeCallback
 {
     virtual void operator()( osg::Node* node, osg::NodeVisitor* nv )
     {
-	TrackerTransform* xform = dynamic_cast<TrackerTransform*>( node );
-	osg::ref_ptr<Tracker> tracker = xform->getTracker();
-	if( tracker.valid() )
-	{
-	    tracker->update();
-	    xform->setMatrix( tracker->getMatrix() );
-	}
+        TrackerTransform* xform = dynamic_cast<TrackerTransform*>( node );
+        osg::ref_ptr<Tracker> tracker = xform->getTracker();
+        if( tracker.valid() )
+        {
+            tracker->update();
+            xform->setMatrix( tracker->getMatrix() );
+        }
 
-	traverse(node,nv);
+        traverse(node,nv);
     }
 };
-
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -45,4 +43,4 @@ TrackerTransform::TrackerTransform( const char* trackerName )
     setUpdateCallback( new TrackerUpdateCallback );
 }
 
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:
