@@ -1,23 +1,21 @@
-osgVRPNviewer/README.txt - Mike Weiblen mew@mew.cx - 2003-11-30
+osgVRPNviewer/README.txt - Mike Weiblen mew@mew.cx
+$Id 2005-11-01 $
 
-A simple application to demonstrate osgVRPN.
+A simple application to demonstrate osgVRPN classes.
 
-Before running the app, you must have a vrpn_server running; see the
-VRPN website for details on building and running the VRPN server.
-In this directory is the "vrpn.cfg" server configuration file I used for
-development/testing.  I developed osgVRPN using a Spaceball 2003 6-DOF
-controller mapped as a vrpn_Tracker_AnalogFly tracker emulator.
+For this app to be interesting, you must have a vrpn_server running.
+The RUN_vrpn_server.bat script runs my default development configuration.
+See the VRPN website for details on configuring/running a VRPN server.
 
 To run the app, simply invoke "osgVRPNviewer" with no arguments.
-The scene consists of two pieces of geometry: a plane and a cone.
 
 In the default configuration, the tracker is attached to an
-osgVRPN::TrackerManipulator, so the viewpoint of the scene (both the cone
-and the plane) is controlled by the tracker.
+osgVRPN::TrackerManipulator, so the camera viewpoint is controlled by
+the tracker.
 
-The app may be reconfigured (see #ifdef TRACKER_ON_NODE) to attach
-the tracker to an osgVRPN::TrackerTransform on the cone's subgraph,
-so the cone may be moved independently of the plane.
+The app may be configured (see #define NODE_TRACKER_NAME) to attach the
+tracker to an osgVRPN::TrackerTransform on the central cone, so that cone
+is controlled by the tracker.
 
 
 CREDITS & THANKS
@@ -31,7 +29,7 @@ CREDITS & THANKS
 REFERENCES
 
 http://www.openscenegraph.org/
-http://www.vrpn.org/ or http://www.cs.unc.edu/Research/vrpn/
-http://www.mew.cx/osg/
+http://www.vrpn.org/
+http://www.mew.cx/
 
 #EOF
