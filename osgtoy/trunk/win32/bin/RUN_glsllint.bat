@@ -1,15 +1,14 @@
 @echo off
 title %0
-call SETENV.bat
+call OSG_ENVARS.bat
 
-set OSG_NOTIFY_LEVEL=
-REM set DEBUG=
+set OSG_NOTIFY_LEVEL=INFO
 
-osgviewer%DEBUG% glsl_simple.osg.glsllint
-osgviewer%DEBUG% compactdisc.osg.glsllint
-osgviewer%DEBUG% glsllint_errors.osg.glsllint
+osgviewer glsl_simple.osg.glsllint
+osgviewer compactdisc.osg.glsllint
+osgviewer glsllint_errors.osg.glsllint
 
-osgviewer%DEBUG% -O verbose glsl_simple.osg.glsllint
-osgviewer%DEBUG% -O verbose compactdisc.osg.glsllint
-osgviewer%DEBUG% -O verbose glsllint_errors.osg.glsllint
+osgviewer -O verbose glsl_simple.osg.glsllint
+osgviewer -O verbose compactdisc.osg.glsllint
+osgviewer -O verbose glsllint_errors.osg.glsllint
 
