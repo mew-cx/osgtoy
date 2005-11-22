@@ -1,9 +1,9 @@
 /* file:        include/osgToy/SuperShape3D
- * author:      Mike Weiblen 2005-05-05
+ * author:      Mike Weiblen
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/osg/
- * $Id: SuperShape3D,v 1.1 2005/06/06 22:10:37 mew Exp $
+ * website:     http://mew.cx/
+ * $Id: SuperShape3D,v 1.2 2005/11/22 09:19:00 mew Exp $
  *
  * OSG code derived from Jason McVeigh's OpenSceneGraph Tutorials:
  * http://www.tersesolutions.net/osgt/
@@ -40,31 +40,18 @@ public:
         float ss2_n3 = 0.52,
         int resolution = 200 );
 
-    SuperShape3D( const SuperShape3D&, const osg::CopyOp& copyop=osg::CopyOp::SHALLOW_COPY );
-    META_Object( mySuperShapeApp, SuperShape3D );
-
-protected:
-    virtual ~SuperShape3D() {}
-
 private :
     float SS1( float );
     float SS2( float );
-    void addTriangle( const osg::Vec3&, const osg::Vec3&, const osg::Vec3& );
     void generate();
 
-private :
     float _ss1_m, _ss1_a, _ss1_b, _ss1_n1, _ss1_n2, _ss1_n3;
     float _ss2_m, _ss2_a, _ss2_b, _ss2_n1, _ss2_n2, _ss2_n3;
     int _resolution;
-
-    osg::Vec3Array* _vAry;      // temporaries for generate()
-    osg::Vec3Array* _nAry;
-    osg::Vec4Array* _cAry;
 };
 
 }
 
 #endif
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:
