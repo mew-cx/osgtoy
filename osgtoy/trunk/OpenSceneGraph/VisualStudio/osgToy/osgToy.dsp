@@ -145,6 +145,10 @@ SOURCE=..\..\src\osgToy\GlslLint.cpp
 
 SOURCE=..\..\src\osgToy\GlslLintVisitor.cpp
 # End Source File
+# Begin Source File
+
+SOURCE=..\..\src\osgToy\Polyhedra.cpp
+# End Source File
 # End Group
 # Begin Group "Header Files"
 
@@ -200,6 +204,10 @@ SOURCE=..\..\include\osgToy\GlslLint
 # Begin Source File
 
 SOURCE=..\..\include\osgToy\GlslLintVisitor
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\include\osgToy\Polyhedra
 # End Source File
 # End Group
 # Begin Group "Resource Files"
