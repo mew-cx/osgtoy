@@ -1,14 +1,14 @@
 @echo off
 title %0
-call OSG_ENVARS.bat
 
+set PATH=%OSG_ROOT%\bin;%PATH%
 set OSG_NOTIFY_LEVEL=INFO
 
-osgviewer glsl_simple.osg.glsllint
-osgviewer compactdisc.osg.glsllint
+REM osgviewer glsl_simple.osg.glsllint
+REM osgviewer compactdisc.osg.glsllint
 osgviewer glsllint_errors.osg.glsllint
 
-osgviewer -O verbose glsl_simple.osg.glsllint
-osgviewer -O verbose compactdisc.osg.glsllint
+REM osgviewer -O verbose glsl_simple.osg.glsllint
+REM osgviewer -O verbose compactdisc.osg.glsllint
 osgviewer -O verbose glsllint_errors.osg.glsllint
 
