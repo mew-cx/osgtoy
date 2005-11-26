@@ -1,6 +1,6 @@
 @echo off
 @title %0
-@call OSG_ENVARS.bat
+@set PATH=%OSG_ROOT%\bin;%PATH%
 @cls
 @echo Some examples from osgToy
 @echo Press ESCAPE to advance to the next demo

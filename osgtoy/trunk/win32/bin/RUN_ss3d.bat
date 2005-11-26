@@ -1,6 +1,5 @@
-REM $Id: RUN_ss3d.bat,v 1.2 2005/11/16 17:15:00 mew Exp $
 title %0
-call OSG_ENVARS.bat
+set PATH=%OSG_ROOT%\bin;%PATH%
 
 osgviewer ss3d_5star.lua
 osgviewer ss3d_cube.lua
