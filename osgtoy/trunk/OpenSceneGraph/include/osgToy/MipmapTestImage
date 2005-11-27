@@ -1,15 +1,16 @@
 /* file:        include/osgToy/MipmapTestImage
- * author:      Mike Weiblen 2005-08-25
+ * author:      Mike Weiblen
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/osg/
- * $Id: MipmapTestImage,v 1.1 2005/08/28 04:34:22 mew Exp $
+ * website:     http://mew.cx/
+ * $Id: MipmapTestImage,v 1.2 2005/11/27 02:40:49 mew Exp $
 */
 
 #ifndef OSGTOY_MIPMAPTESTIMAGE
 #define OSGTOY_MIPMAPTESTIMAGE 1
 
 #include <osg/Image>
+#include <osg/Vec4>
 #include <osgToy/Export>
 
 namespace osgToy {
@@ -21,13 +22,13 @@ public:
 
 protected:
     virtual ~MipmapTestImage() {}
+    virtual void setImageData( unsigned char* data, int mipLevel, int s, int t );
 
     int _bytesPerTexel;
     int _numTexels;
-    int _gridSize;
+    int _checkerSize;
     std::vector< unsigned int > _mipmapS;
     std::vector< unsigned int > _mipmapT;
-    static unsigned char s_color[][2][3];
 };
 
 }

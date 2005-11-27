@@ -1,15 +1,44 @@
 /* file:        src/osgToy/MipmapTestImage.cpp
- * author:      Mike Weiblen 2005-08-26
+ * author:      Mike Weiblen
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/osg/
- * $Id: MipmapTestImage.cpp,v 1.1 2005/08/28 04:34:23 mew Exp $
+ * website:     http://mew.cx/
+ * $Id: MipmapTestImage.cpp,v 1.2 2005/11/27 02:40:51 mew Exp $
 */
 
 #include <osgToy/MipmapTestImage>
 
+void
+osgToy::MipmapTestImage::setImageData( unsigned char* data, int mipLevel, int s, int t )
+{
+    static unsigned char colors[][2][3] = {
+    // foreground RGB     background RGB
+        255, 255, 255,       0,   0,   0,
+        255,   0,   0,     255, 255, 255,
+          0, 255, 255,       0,   0,   0,
+          0, 255,   0,     255, 255, 255,
+        255,   0, 255,       0,   0,   0,
+          0,   0, 255,     255, 255, 255,
+        255, 255,   0,       0,   0,   0,
+        255, 255, 255,     255, 255, 255,
+        255,   0,   0,       0,   0,   0,
+          0, 255, 255,     255, 255, 255,
+          0, 255,   0,       0,   0,   0,
+        255,   0, 255,     255, 255, 255,
+          0,   0, 255,       0,   0,   0,
+        255, 255,   0,     255, 255, 255,
+    };
+
+    int q = ( s/_checkerSize + t/_checkerSize + mipLevel ) & 0x01;
+    *data     = colors[mipLevel][q][0];
+    *(data+1) = colors[mipLevel][q][1];
+    *(data+2) = colors[mipLevel][q][2];
+    *(data+3) = 255;
+}
+
+
 osgToy::MipmapTestImage::MipmapTestImage( unsigned int sizeS, unsigned int sizeT ) :
-    _bytesPerTexel(4), _numTexels(0), _gridSize(8)
+    _bytesPerTexel(4), _numTexels(0), _checkerSize(8)
 {
     // compute mipmap sizes & buffer offset
     MipmapDataType mipmapOffset;
@@ -28,41 +57,18 @@ osgToy::MipmapTestImage::MipmapTestImage( unsigned int sizeS, unsigned int sizeT
             new unsigned char[ _bytesPerTexel * _numTexels ], USE_NEW_DELETE);
     setMipmapLevels( mipmapOffset );
 
-    // populate mipmap levels
+    // populate mipmap level colors
     for( unsigned int lvl = 0; lvl < mipmapOffset.size(); ++lvl )
     {
-        unsigned char* ptr = getMipmapData(lvl);
+        unsigned char* data = getMipmapData(lvl);
         for( unsigned int t = 0; t < _mipmapT[lvl]; ++t )
         {
-            for( unsigned int s = 0; s < _mipmapS[lvl]; ++s )
+            for( unsigned int s = 0; s < _mipmapS[lvl]; ++s, data+=_bytesPerTexel )
             {
-                int q = ( s/_gridSize + t/_gridSize + lvl ) & 0x01;
-                *ptr++ = s_color[lvl][q][0];
-                *ptr++ = s_color[lvl][q][1];
-                *ptr++ = s_color[lvl][q][2];
-                *ptr++ = 255;
+                setImageData( data, lvl, s, t );
             }
         }
     }
 }
-
-unsigned char
-osgToy::MipmapTestImage::s_color[][2][3] = {
-// foreground RGB     background RGB
-    255, 255, 255,       0,   0,   0,
-    255,   0,   0,     255, 255, 255,
-      0, 255, 255,       0,   0,   0,
-      0, 255,   0,     255, 255, 255,
-    255,   0, 255,       0,   0,   0,
-      0,   0, 255,     255, 255, 255,
-    255, 255,   0,       0,   0,   0,
-    255, 255, 255,     255, 255, 255,
-    255,   0,   0,       0,   0,   0,
-      0, 255, 255,     255, 255, 255,
-      0, 255,   0,       0,   0,   0,
-    255,   0, 255,     255, 255, 255,
-      0,   0, 255,       0,   0,   0,
-    255, 255,   0,     255, 255, 255,
-};
 
 // vim: set sw=4 ts=8 et ic ai: 
