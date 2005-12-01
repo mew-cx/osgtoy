@@ -1,0 +1,145 @@
+COMMENT {
+  $Id: rhombic_dodecahedron.osg,v 1.1 2005/10/13 17:52:38 mew Exp $
+}
+
+Group {
+  UniqueID Group_0
+  DataVariance DYNAMIC
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_children 1
+  Geode {
+    DataVariance DYNAMIC
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    num_drawables 1
+    Geometry {
+      DataVariance DYNAMIC
+      useDisplayList TRUE
+      useVertexBufferObjects FALSE
+      PrimitiveSets 12
+      {
+        DrawArrays TRIANGLE_STRIP 0 4
+        DrawArrays TRIANGLE_STRIP 4 4
+        DrawArrays TRIANGLE_STRIP 8 4
+        DrawArrays TRIANGLE_STRIP 12 4
+        DrawArrays TRIANGLE_STRIP 16 4
+        DrawArrays TRIANGLE_STRIP 20 4
+        DrawArrays TRIANGLE_STRIP 24 4
+        DrawArrays TRIANGLE_STRIP 28 4
+        DrawArrays TRIANGLE_STRIP 32 4
+        DrawArrays TRIANGLE_STRIP 36 4
+        DrawArrays TRIANGLE_STRIP 40 4
+        DrawArrays TRIANGLE_STRIP 44 4
+      }
+      VertexArray Vec3Array 48
+      {
+        0 2 0
+        1 1 1
+        1 1 -1
+        2 0 0
+        2 0 0
+        1 -1 1
+        1 -1 -1
+        0 -2 0
+        0 -2 0
+        -1 -1 1
+        -1 -1 -1
+        -2 0 0
+        -2 0 0
+        -1 1 1
+        -1 1 -1
+        0 2 0
+        0 0 2
+        1 1 1
+        -1 1 1
+        0 2 0
+        0 2 0
+        1 1 -1
+        -1 1 -1
+        0 0 -2
+        0 0 -2
+        1 -1 -1
+        -1 -1 -1
+        0 -2 0
+        0 -2 0
+        1 -1 1
+        -1 -1 1
+        0 0 2
+        2 0 0
+        1 1 1
+        1 -1 1
+        0 0 2
+        0 0 2
+        -1 1 1
+        -1 -1 1
+        -2 0 0
+        -2 0 0
+        -1 1 -1
+        -1 -1 -1
+        0 0 -2
+        0 0 -2
+        1 1 -1
+        1 -1 -1
+        2 0 0
+      }
+      NormalBinding PER_VERTEX
+      NormalArray Vec3Array 48
+      {
+        0.707107 0.707107 0
+        0.707107 0.707107 0
+        0.707107 0.707107 0
+        0.707107 0.707107 0
+        0.707107 -0.707107 0
+        0.707107 -0.707107 0
+        0.707107 -0.707107 0
+        0.707107 -0.707107 0
+        -0.707107 -0.707107 0
+        -0.707107 -0.707107 0
+        -0.707107 -0.707107 0
+        -0.707107 -0.707107 0
+        -0.707107 0.707107 0
+        -0.707107 0.707107 0
+        -0.707107 0.707107 0
+        -0.707107 0.707107 0
+        0 0.707107 0.707107
+        0 0.707107 0.707107
+        0 0.707107 0.707107
+        0 0.707107 0.707107
+        0 0.707107 -0.707107
+        0 0.707107 -0.707107
+        0 0.707107 -0.707107
+        0 0.707107 -0.707107
+        0 -0.707107 -0.707107
+        0 -0.707107 -0.707107
+        0 -0.707107 -0.707107
+        0 -0.707107 -0.707107
+        0 -0.707107 0.707107
+        0 -0.707107 0.707107
+        0 -0.707107 0.707107
+        0 -0.707107 0.707107
+        0.707107 0 0.707107
+        0.707107 0 0.707107
+        0.707107 0 0.707107
+        0.707107 0 0.707107
+        -0.707107 0 0.707107
+        -0.707107 0 0.707107
+        -0.707107 0 0.707107
+        -0.707107 0 0.707107
+        -0.707107 0 -0.707107
+        -0.707107 0 -0.707107
+        -0.707107 0 -0.707107
+        -0.707107 0 -0.707107
+        0.707107 0 -0.707107
+        0.707107 0 -0.707107
+        0.707107 0 -0.707107
+        0.707107 0 -0.707107
+      }
+      ColorBinding OVERALL
+      ColorArray Vec4Array 1
+      {
+        1 1 1 1
+      }
+    }
+  }
+}
