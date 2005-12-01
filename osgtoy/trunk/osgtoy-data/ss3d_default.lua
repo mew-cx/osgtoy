@@ -1,7 +1,8 @@
+-- construct a SuperShape using the osgToy .lua plugin
 -- see http://astronomy.swin.edu.au/~pbourke/surfaces/supershape3d/
 
 return osgToy.SuperShape3D {
-    name =	"default shape",
+    name =	"a default shape",
     resolution = 200,
     ss1_m =	7,
     ss1_a =	1,

@@ -1,3 +1,4 @@
+-- construct a SuperShape using the osgToy .lua plugin
 -- see http://astronomy.swin.edu.au/~pbourke/surfaces/supershape3d/
 
 return osgToy.SuperShape3D {
