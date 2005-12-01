@@ -1,0 +1,22 @@
+Geode {
+  DataVariance DYNAMIC
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  StateSet {
+    DataVariance STATIC
+    rendering_hint DEFAULT_BIN
+    renderBinMode INHERIT
+  }
+  num_drawables 1
+  ShapeDrawable {
+    DataVariance DYNAMIC
+    Box {
+      DataVariance DYNAMIC
+      Center 0 0 0
+      HalfLengths 0.4 0.4 0.4
+      Rotation 0 0 0 1
+    }
+    useDisplayList TRUE
+    color 0 1 0 1
+  }
+}
