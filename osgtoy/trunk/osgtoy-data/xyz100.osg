@@ -1,12 +1,21 @@
+COMMENT {
+  "$Id: xyz100.osg,v 1.2 2005/12/01 00:57:04 mew Exp $"
+  "An axis alignment and scene measurement tool."
+  "The arm colors RGB correspond to the axis directions XYZ."
+  "The arrowhead points along the positive axis direction."
+  "Each arm extends 100 database units (DBUs) out from the center."
+  "Each of the larger alternating white/colored stripes is 5 units wide;"
+  "near the center, the stripes reduce to 1 unit wide."
+}
+
 Group {
   DataVariance DYNAMIC
-  name "db"
+  name "xyz100"
   nodeMask 0xffffffff
   cullingActive TRUE
   num_children 1
   LOD {
     DataVariance DYNAMIC
-    name "newLOD"
     nodeMask 0xffffffff
     cullingActive TRUE
     Center 0 0 0
