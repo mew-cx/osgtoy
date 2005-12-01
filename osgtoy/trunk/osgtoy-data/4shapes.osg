@@ -14,9 +14,9 @@ Geode {
       Texture2D {
         DataVariance STATIC
         file "R64.png"
-        wrap_s CLAMP
-        wrap_t CLAMP
-        wrap_r CLAMP
+        wrap_s REPEAT
+        wrap_t REPEAT
+        wrap_r REPEAT
         min_filter LINEAR_MIPMAP_LINEAR
         mag_filter LINEAR
         maxAnisotropy 1
