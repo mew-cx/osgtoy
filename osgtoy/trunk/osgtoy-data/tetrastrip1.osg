@@ -17,7 +17,7 @@ Group {
       {
         DrawArrays TRIANGLE_STRIP 0 6
       }
-      VertexArray Vec3Array 6
+      VertexArray UniqueID verts1 Vec3Array 6
       {
         1 1 1
         -1 -1 1
@@ -27,15 +27,7 @@ Group {
         -1 -1 1
       }
       NormalBinding PER_VERTEX
-      NormalArray Vec3Array 6
-      {
-        1 1 1
-        -1 -1 1
-        1 -1 -1
-        -1 1 -1
-        1 1 1
-        -1 -1 1
-      }
+      NormalArray Use verts1
       ColorBinding PER_VERTEX
       ColorArray Vec4Array 6
       {
