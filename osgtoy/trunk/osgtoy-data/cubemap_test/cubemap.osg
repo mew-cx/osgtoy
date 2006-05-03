@@ -45,7 +45,7 @@ Group {
       {
         DrawArrays TRIANGLES 0 24
       }
-      VertexArray Vec3Array 24
+      VertexArray UniqueID verts1 Vec3Array 24
       {
         1 0 0
         0 1 0
@@ -73,65 +73,13 @@ Group {
         0 0 -1
       }
       NormalBinding PER_VERTEX
-      NormalArray Vec3Array 24
-      {
-        1 0 0
-        0 1 0
-        0 0 1
-        0 -1 0
-        1 0 0
-        0 0 1
-        0 1 0
-        -1 0 0
-        0 0 1
-        -1 0 0
-        0 -1 0
-        0 0 1
-        1 0 0
-        0 1 0
-        0 0 -1
-        0 -1 0
-        1 0 0
-        0 0 -1
-        0 1 0
-        -1 0 0
-        0 0 -1
-        -1 0 0
-        0 -1 0
-        0 0 -1
-      }
+      NormalArray Use verts1
       ColorBinding OVERALL
       ColorArray Vec4Array 1
       {
         1 1 1 1
       }
-      TexCoordArray 0 Vec3Array 24
-      {
-        1 0 0
-        0 1 0
-        0 0 1
-        0 -1 0
-        1 0 0
-        0 0 1
-        0 1 0
-        -1 0 0
-        0 0 1
-        -1 0 0
-        0 -1 0
-        0 0 1
-        1 0 0
-        0 1 0
-        0 0 -1
-        0 -1 0
-        1 0 0
-        0 0 -1
-        0 1 0
-        -1 0 0
-        0 0 -1
-        -1 0 0
-        0 -1 0
-        0 0 -1
-      }
+      TexCoordArray 0 Use verts1
     }
   }
 }
