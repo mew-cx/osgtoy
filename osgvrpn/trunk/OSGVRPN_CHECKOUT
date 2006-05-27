@@ -3,8 +3,10 @@
 CVS_RSH=ssh
 export CVS_RSH=ssh
  
-CVSROOT=:ext:mew@cvs.sourceforge.net:/cvsroot/osgtoy
+CVSROOT=:ext:mew@osgtoy.cvs.sourceforge.net:/cvsroot/osgtoy
 export CVSROOT
 
 cvs co osgvrpn
+cd osgvrpn
+cvs update -Pd
 
