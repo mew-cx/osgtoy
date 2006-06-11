@@ -1,0 +1,56 @@
+Geode {
+  DataVariance DYNAMIC
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_drawables 1
+  Geometry {
+    DataVariance DYNAMIC
+    StateSet {
+      DataVariance STATIC
+      rendering_hint DEFAULT_BIN
+      renderBinMode INHERIT
+      GL_LIGHTING OFF
+      LineWidth {
+        DataVariance STATIC
+        width 1
+      }
+    }
+    useDisplayList TRUE
+    useVertexBufferObjects FALSE
+    PrimitiveSets 1
+    {
+      DrawArrays LINES 0 44
+    }
+    VertexArray Vec3Array 44
+    {
+      0 -5 -5 0	5 -5
+      0 -5 -4 0	5 -4
+      0 -5 -3 0	5 -3
+      0 -5 -2 0	5 -2
+      0 -5 -1 0	5 -1
+      0 -5  0 0	5  0
+      0 -5  1 0	5  1
+      0 -5  2 0	5  2
+      0 -5  3 0	5  3
+      0 -5  4 0	5  4
+      0 -5  5 0	5  5
+
+      0 -5 -5 0	-5 5
+      0 -4 -5 0	-4 5
+      0 -3 -5 0	-3 5
+      0 -2 -5 0	-2 5
+      0 -1 -5 0	-1 5
+      0  0 -5 0	 0 5
+      0  1 -5 0	 1 5
+      0  2 -5 0	 2 5
+      0  3 -5 0	 3 5
+      0  4 -5 0	 4 5
+      0  5 -5 0	 5 5
+    }
+    ColorBinding OVERALL
+    ColorArray Vec4Array 1
+    {
+      1 1 1 1
+    }
+  }
+}
