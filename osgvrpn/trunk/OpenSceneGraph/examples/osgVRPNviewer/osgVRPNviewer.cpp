@@ -11,18 +11,20 @@
 
 /* file:        examples/osgVRPNviewer/osgVRPNviewer.cpp
  * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2005 Michael Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: osgVRPNviewer.cpp,v 1.4 2005/11/09 08:25:36 mew Exp $
+ * $Id: osgVRPNviewer.cpp,v 1.5 2006/06/23 17:22:37 mew Exp $
  *
  * references:  http://www.openscenegraph.org/
  *              http://www.vrpn.org/
- *              http://www.mew.cx/
+ *              http://mew.cx/
 */
 
 #include <osg/ShapeDrawable>
 #include <osg/Geode>
 #include <osg/Group>
+#include <osg/Vec3>
+#include <osg/io_utils>
 #include <osg/Texture2D>
 #include <osgDB/ReadFile>
 #include <osgProducer/Viewer>
@@ -43,7 +45,7 @@
 class EventHandler : public osgGA::GUIEventHandler
 {
 public:
-    EventHandler( osg::ref_ptr<osgVRPN::Tracker> tracker ) : _tracker( tracker ) {}
+    EventHandler( osg::ref_ptr<osgVRPN::TrackerBase> tracker ) : _tracker( tracker ) {}
 
     bool handle( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa )
     {
@@ -69,12 +71,12 @@ private:
     void adjustScale( float multiplier )
     {
         if( ! _tracker.valid() ) return;
-        float scale = _tracker->getScale() * multiplier;
+		osg::Vec3 scale = _tracker->getScale() * multiplier;
         _tracker->setScale( scale );
         osg::notify(osg::INFO) << "Tracker scale = " << scale << std::endl;
     }
 
-    osg::ref_ptr<osgVRPN::Tracker> _tracker;
+    osg::ref_ptr<osgVRPN::TrackerBase> _tracker;
 };
 
 ///////////////////////////////////////////////////////////////////////////
@@ -139,7 +141,7 @@ int main( int argc, char **argv )
     unsigned int pos = viewer.addCameraManipulator( trkManip );
     viewer.selectCameraManipulator( pos );
 
-    osg::ref_ptr<osgVRPN::Tracker> tracker = new osgVRPN::Tracker( CAMERA_TRACKER_NAME );
+    osg::ref_ptr<osgVRPN::TrackerBase> tracker = new osgVRPN::Tracker( CAMERA_TRACKER_NAME );
     trkManip->setTracker( tracker );
     trkManip->setAutoComputeHomePosition(false);
     trkManip->setHomeMatrix( osg::Matrix::translate(0,0,10) * osg::Matrixd::rotate(1.2,1,0,0) );
