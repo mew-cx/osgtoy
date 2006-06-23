@@ -1,8 +1,8 @@
 /* file:        src/osgVRPN/TrackerTransform.cpp
  * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2005 Michael Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerTransform.cpp,v 1.3 2005/11/09 08:29:00 mew Exp $
+ * $Id: TrackerTransform.cpp,v 1.4 2006/06/23 17:22:37 mew Exp $
 */
 
 #include <osgVRPN/TrackerTransform.h>
@@ -18,7 +18,7 @@ class TrackerUpdateCallback : public osg::NodeCallback
     virtual void operator()( osg::Node* node, osg::NodeVisitor* nv )
     {
         TrackerTransform* xform = dynamic_cast<TrackerTransform*>( node );
-        osg::ref_ptr<Tracker> tracker = xform->getTracker();
+        osg::ref_ptr<TrackerBase> tracker = xform->getTracker();
         if( tracker.valid() )
         {
             tracker->update();
@@ -31,15 +31,9 @@ class TrackerUpdateCallback : public osg::NodeCallback
 
 ///////////////////////////////////////////////////////////////////////////
 
-TrackerTransform::TrackerTransform( osg::ref_ptr<Tracker> tracker )
+TrackerTransform::TrackerTransform( osg::ref_ptr<TrackerBase> tracker )
 {
     setTracker( tracker );
-    setUpdateCallback( new TrackerUpdateCallback );
-}
-
-TrackerTransform::TrackerTransform( const char* trackerName )
-{
-    setTracker( new Tracker( trackerName ) );
     setUpdateCallback( new TrackerUpdateCallback );
 }
 

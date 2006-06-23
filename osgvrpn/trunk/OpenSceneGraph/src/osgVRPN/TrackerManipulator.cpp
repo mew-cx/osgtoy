@@ -1,26 +1,19 @@
 /* file:        src/osgVRPN/TrackerManipulator.cpp
  * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2005 Michael Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerManipulator.cpp,v 1.3 2005/11/09 08:29:00 mew Exp $
+ * $Id: TrackerManipulator.cpp,v 1.4 2006/06/23 17:22:37 mew Exp $
 */
 
-// #include <cassert>
-#include <osg/Notify>
 #include <osgVRPN/TrackerManipulator.h>
 
 using namespace osgVRPN;
 
 ///////////////////////////////////////////////////////////////////////////
 
-TrackerManipulator::TrackerManipulator( osg::ref_ptr<Tracker> tracker )
+TrackerManipulator::TrackerManipulator( osg::ref_ptr<TrackerBase> tracker )
 {
     setTracker( tracker );
-}
-
-TrackerManipulator::TrackerManipulator( const char* trackerName )
-{
-    setTracker( new Tracker( trackerName ) );
 }
 
 ///////////////////////////////////////////////////////////////////////////

@@ -1,12 +1,12 @@
 /* file:        include/osgVRPN/TrackerManipulator.h
  * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2005 Michael Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerManipulator.h,v 1.3 2005/11/09 08:29:00 mew Exp $
+ * $Id: TrackerManipulator.h,v 1.4 2006/06/23 17:22:37 mew Exp $
  *
  * references:  http://www.openscenegraph.org/
  *              http://www.vrpn.org/
- *              http://www.mew.cx/
+ *              http://mew.cx/
 */
 
 #ifndef OSGVRPN_TRACKERMANIPULATOR
@@ -18,11 +18,11 @@
 #include <osgGA/GUIActionAdapter>
 
 #include <osgVRPN/Export>
-#include <osgVRPN/Tracker.h>
+#include <osgVRPN/TrackerBase.h>
 
 namespace osgVRPN {
 
-/** osgVRPN::TrackerManipulator is a MatrixManipulator that can be controlled by an osgVRPN::Tracker.
+/** osgVRPN::TrackerManipulator is a MatrixManipulator that can be controlled by an osgVRPN::TrackerBase.
 It may be attached to an osgProducer::Viewer as a CameraManipulator
 to control the position of the camera.
 */
@@ -30,7 +30,7 @@ to control the position of the camera.
 class OSGVRPN_EXPORT TrackerManipulator : public osgGA::MatrixManipulator
 {
 public:
-    TrackerManipulator( osg::ref_ptr<Tracker> tracker = 0 );
+    TrackerManipulator( osg::ref_ptr<TrackerBase> tracker = 0 );
     TrackerManipulator( const char* trackerName );
 
     virtual const char* className() const { return "osgVRPN::TrackerManipulator"; }
@@ -71,11 +71,11 @@ public:
     virtual void home( double currentTime );
 
 
-    /** Set the Tracker that controls this manipulator, 0==none */
-    void setTracker( osg::ref_ptr<Tracker> tracker ) { _tracker = tracker; }
+    /** Set the tracker that controls this manipulator, 0==none */
+    void setTracker( osg::ref_ptr<TrackerBase> tracker ) { _tracker = tracker; }
 
-    /** Query the Tracker that controls this manipulator. */
-    osg::ref_ptr<Tracker> getTracker() const { return _tracker; }
+    /** Query the tracker that controls this manipulator. */
+    osg::ref_ptr<TrackerBase> getTracker() const { return _tracker; }
 
 
     /** Process events, return true if handled, false otherwise. */
@@ -86,7 +86,7 @@ protected:      // methods
     virtual ~TrackerManipulator() {}
 
 protected:      // data
-    osg::ref_ptr<Tracker> _tracker;
+    osg::ref_ptr<TrackerBase> _tracker;
     osg::ref_ptr<osg::Node> _node;
     osg::Matrixd _homeMatrix;
 };

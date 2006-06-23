@@ -1,8 +1,8 @@
 /* file:        src/osgVRPN/Tracker.cpp
  * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2005 Michael Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Tracker.cpp,v 1.3 2005/11/09 08:29:00 mew Exp $
+ * $Id: Tracker.cpp,v 1.4 2006/06/23 17:22:37 mew Exp $
 */
 
 #include <osg/Notify>
@@ -15,17 +15,15 @@ using namespace osgVRPN;
 
 ///////////////////////////////////////////////////////////////////////////
 
-Tracker::Tracker( const char* trackerName ) : _scale(1.0f)
+Tracker::Tracker( const char* deviceName ) :
+        _vrpnTracker( new vrpn_Tracker_Remote(deviceName) )
 {
-    osg::notify(osg::INFO) << "Tracker: attempting to open VRPN tracker \""
-            << trackerName << "\"." << std::endl;
-
-    _vrpnTracker = new vrpn_Tracker_Remote( trackerName );
-    _vrpnTracker->register_change_handler( this, ChangeHandler );
+    _vrpnTracker->register_change_handler( this, s_ChangeHandler );
 }
 
 Tracker::~Tracker()
 {
+    _vrpnTracker->unregister_change_handler( this, s_ChangeHandler );
     delete _vrpnTracker;
 }
 
@@ -51,21 +49,20 @@ osg::Matrixd Tracker::getInverseMatrix() const
 
 void Tracker::update()
 {
-    if( _vrpnTracker ) _vrpnTracker->mainloop();
+    _vrpnTracker->mainloop();
 }
 
-/*static*/ void Tracker::ChangeHandler( void* userdata, const vrpn_TRACKERCB info )
+/*static*/ void Tracker::s_ChangeHandler( void* userdata, const vrpn_TRACKERCB info )
 {
-    // userdata contains our "this" pointer
-    static_cast<Tracker*>( userdata )->changeHandler( &info );
+    static_cast<Tracker*>(userdata)->changeHandler( info );
 }
 
-void Tracker::changeHandler( const vrpn_TRACKERCB* info )
+void Tracker::changeHandler( const vrpn_TRACKERCB& info )
 {
-    _position.x() = _scale * info->pos[0];
-    _position.y() = _scale * info->pos[1];
-    _position.z() = _scale * info->pos[2];
-    _rotation.set( info->quat[0], info->quat[1], info->quat[2], info->quat[3] );
+    _position[0] = _scale[0] * info.pos[0];
+    _position[1] = _scale[1] * info.pos[1];
+    _position[2] = _scale[2] * info.pos[2];
+    _rotation.set( info.quat[0], info.quat[1], info.quat[2], info.quat[3] );
 }
 
 // vim: set sw=4 ts=8 et ic ai:

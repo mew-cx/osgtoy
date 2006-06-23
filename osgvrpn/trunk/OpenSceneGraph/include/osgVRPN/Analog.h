@@ -1,22 +1,20 @@
-/* file:	include/osgVRPN/Analog.h
- * author:	Mike Weiblen mew@mew.cx 2003-12-28
- * copyright:	(C) 2003 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:        include/osgVRPN/Analog.h
+ * author:      Mike Weiblen mew@mew.cx
+ * copyright:   (C) 2003-2006 Michael Weiblen
+ * license:     OpenSceneGraph Public License (OSGPL)
+ * $Id: Analog.h,v 1.2 2006/06/23 17:22:37 mew Exp $
  *
- * references:	http://www.openscenegraph.org/
- *		http://www.vrpn.org/
- *		http://www.mew.cx/osg/
- *
- * depends:	OSG 0.9.6-2, VRPN 06.04
+ * references:  http://www.openscenegraph.org/
+ *              http://www.vrpn.org/
+ *              http://mew.cx/
 */
 
 #ifndef OSGVRPN_ANALOG
 #define OSGVRPN_ANALOG 1
 
-#include <osg/Quat>
-#include <osg/Vec3>
-#include <osg/Matrixd>
 #include <osg/Referenced>
+#include <osg/ref_ptr>
+#include <osg/Array>
 
 #include <osgVRPN/Export>
 
@@ -26,43 +24,36 @@ typedef struct _vrpn_ANALOGCB vrpn_ANALOGCB;
 
 namespace osgVRPN {
 
-/** osgVRPN::Analog is an OSG wrapper for VRPN's vrpn_Analog_Remote class.  */
+/** an OSG wrapper for VRPN's vrpn_Analog_Remote class. */
 
 class OSGVRPN_EXPORT Analog : public osg::Referenced
 {
 public:
-    Analog( const char* analogName );
+    Analog( const char* deviceName );
 
-    /** Obtain our associated matrices */
-    virtual osg::Matrixd getMatrix() const;
-    virtual osg::Matrixd getInverseMatrix() const;
-
-    /** Update our state by draining pending messages from the VRPN server */
+    /** Update our state from the device. */
     void update();
 
-    /** Set our position scaling factor */
-    void setScale( float scale ) { _scale = scale; }
+    /** Query a channel value from the Analog */
+    unsigned int getNumChannels() const { return _data->getNumElements(); }
+    float getValue(unsigned int channel) const { return (*_data)[channel]; }
 
-    /** Query our position scaling factor */
-    float getScale() const { return _scale; }
-
-
-protected:	// methods
+protected:      // methods
     Analog();
-    virtual ~Analog();
     Analog(const Analog&);
+    virtual ~Analog();
     const Analog& operator=(const Analog&);
 
-    static void ChangeHandler( void* userdata, const vrpn_ANALOGCB info );
-    void changeHandler( const vrpn_ANALOGCB* info );
+    static void s_ChangeHandler( void* userdata, const vrpn_ANALOGCB info );
+    void changeHandler( const vrpn_ANALOGCB& info );
 
-protected:	// data
-    float			_scale;
-    osg::Vec3			_position;
-    osg::Quat			_rotation;
-    vrpn_Analog_Remote*	_vrpnAnalog;
+protected:      // data
+    vrpn_Analog_Remote* const     _vrpnAnalog;
+    osg::ref_ptr<osg::FloatArray> _data;
 };
 
 }
 
 #endif
+
+// vim: set sw=4 ts=8 et ic ai:
