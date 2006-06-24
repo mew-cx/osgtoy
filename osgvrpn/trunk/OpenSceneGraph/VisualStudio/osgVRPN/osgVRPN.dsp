@@ -99,11 +99,7 @@ SOURCE=..\..\src\osgVRPN\Analog.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\src\osgVRPN\AnalogManipulator.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\src\osgVRPN\AnalogTransform.cpp
+SOURCE=..\..\src\osgVRPN\AnalogTracker.cpp
 # End Source File
 # Begin Source File
 
@@ -131,11 +127,7 @@ SOURCE=..\..\include\osgVRPN\Analog.h
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\include\osgVRPN\AnalogManipulator.h
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\include\osgVRPN\AnalogTransform.h
+SOURCE=..\..\include\osgVRPN\AnalogTracker.h
 # End Source File
 # Begin Source File
 
@@ -144,6 +136,10 @@ SOURCE=..\..\include\osgVRPN\Export
 # Begin Source File
 
 SOURCE=..\..\include\osgVRPN\Tracker.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\include\osgVRPN\TrackerBase.h
 # End Source File
 # Begin Source File
 
