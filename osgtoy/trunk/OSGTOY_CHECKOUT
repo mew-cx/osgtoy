@@ -7,6 +7,4 @@ CVSROOT=:ext:mew@osgtoy.cvs.sourceforge.net:/cvsroot/osgtoy
 export CVSROOT
 
 cvs co osgtoy
-cd osgtoy
-cvs update -Pd
-
+(cd osgtoy; cvs update -Pd)
