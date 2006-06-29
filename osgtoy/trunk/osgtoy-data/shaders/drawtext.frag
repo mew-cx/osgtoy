@@ -1,4 +1,4 @@
-// File: drawtext.frag
+// $Id: drawtext.frag,v 1.6 2006/06/29 06:53:57 mew Exp $
 // Author: Mike Weiblen 2005-10-05
 // Copyright (C) 2005  3Dlabs Inc. Ltd.
 // All rights reserved.
@@ -41,6 +41,11 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 ///////////////////////////////////////////////////////////////////////////
+// Originally developed with:
+// HW: 3Dlabs Wildcat Realizm 100
+// SW: driver 4.05.0837 released 2005-09-14
+///////////////////////////////////////////////////////////////////////////
+
 // Convert geometry texcoord to cell index; i.e.: a character's row/column
 
 uniform vec2 CellSpan;    // number of cells across texture
@@ -127,11 +132,6 @@ int getWordCharacter( ivec2 cell, vec4 data )
 
 #if 0 //[
 
-// drawtext.frag external declarations (if necessary)
-ivec2 getCellIndex( vec2 geomTexCoord );
-vec4 readGlyphTexture( vec2 geomTexCoord, int ascii );
-int getWordCharacter( ivec2 cell, vec4 data );
-
 uniform vec4 Word;
 
 void main(void)
@@ -150,11 +150,6 @@ void main(void)
 #if 1 //[
 
 // render a vec4 as 4 lines of printf-like numeric strings.
-
-// drawtext.frag external declarations (if necessary)
-ivec2 getCellIndex( vec2 geomTexCoord );
-vec4 readGlyphTexture( vec2 geomTexCoord, int ascii );
-int getFloatCharacter( ivec2 cell, vec4 data );
 
 uniform mat4 osg_ViewMatrix;
 uniform int osg_FrameNumber;
