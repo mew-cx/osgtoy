@@ -1,5 +1,5 @@
 COMMENT {
-  "$Id: glsl_dataflag.osg,v 1.9 2006/06/29 06:21:25 mew Exp $"
+  "$Id: glsl_dataflag.osg,v 1.10 2006/06/29 06:53:04 mew Exp $"
   "A demonstration of the drawtext GLSL fragment shader."
   "The dataflag renders glUniform values as text using GLSL."
   "Because the text is computed in the fragment shader, the display"
@@ -25,7 +25,7 @@ Group {
         name "Word"
         type vec4 1 FloatArray 4
         {
-          65 66 100 101
+          79 83 71 33
         }
       }
       Uniform {
