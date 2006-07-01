@@ -2,7 +2,7 @@
  * author:      Mike Weiblen mew@mew.cx
  * copyright:   (C) 2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerBase.h,v 1.1 2006/06/23 17:22:37 mew Exp $
+ * $Id: TrackerBase.h,v 1.2 2006/07/01 20:48:51 mew Exp $
  *
  * references:  http://www.openscenegraph.org/
  *              http://www.vrpn.org/
@@ -25,10 +25,14 @@ namespace osgVRPN {
 class OSGVRPN_EXPORT TrackerBase : public osg::Referenced
 {
 public:
-    TrackerBase() : _scale(1.0f,1.0f,1.0f) {}
+    TrackerBase() : _scale(1.0f,1.0f,1.0f), _enabled(true) {}
+
+    /** Set/query update enable */
+    void setEnable( bool enabled ) { _enabled = enabled; }
+    bool getEnable() const { return _enabled; }
 
     /** Update our state from the device. */
-    virtual void update() = 0;
+    virtual bool update() = 0;
 
     /** Query the tracker's transform matrix */
     virtual osg::Matrixd getMatrix() const = 0;
@@ -44,7 +48,9 @@ protected:      // methods
     const TrackerBase& operator=(const TrackerBase&);
 
 protected:      // data
-    osg::Vec3                   _scale;
+    bool _enabled;
+    bool _updateReceivedEvent;
+    osg::Vec3 _scale;
 };
 
 }

@@ -2,7 +2,7 @@
  * author:      Mike Weiblen mew@mew.cx
  * copyright:   (C) 2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: AnalogTracker.cpp,v 1.1 2006/06/23 17:22:37 mew Exp $
+ * $Id: AnalogTracker.cpp,v 1.2 2006/07/01 20:48:52 mew Exp $
 */
 
 #include <osg/Notify>
@@ -22,15 +22,18 @@ AnalogTracker::~AnalogTracker()
 
 ///////////////////////////////////////////////////////////////////////////
 
-void AnalogTracker::update()
+bool AnalogTracker::update()
 {
+    _updateReceivedEvent = false;
     // update the attached osgVRPN::Analog devices
 #if 0 //[
     _position[0] = _scale[0] * info.pos[0];
     _position[1] = _scale[1] * info.pos[1];
     _position[2] = _scale[2] * info.pos[2];
     _rotation.set( info.quat[0], info.quat[1], info.quat[2], info.quat[3] );
+    if( _enabled ) ...
 #endif //]
+    return _updateReceivedEvent;
 }
 
 ///////////////////////////////////////////////////////////////////////////

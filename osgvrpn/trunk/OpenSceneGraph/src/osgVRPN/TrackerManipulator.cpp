@@ -2,7 +2,7 @@
  * author:      Mike Weiblen mew@mew.cx
  * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerManipulator.cpp,v 1.4 2006/06/23 17:22:37 mew Exp $
+ * $Id: TrackerManipulator.cpp,v 1.5 2006/07/01 20:48:52 mew Exp $
 */
 
 #include <osgVRPN/TrackerManipulator.h>
@@ -115,7 +115,9 @@ bool TrackerManipulator::handle(
     {
         case osgGA::GUIEventAdapter::FRAME:
         {
-            if( _tracker.valid() ) _tracker->update();
+            if( _tracker.valid() )
+                for( bool more=true; more; more=_tracker->update() ) {}
+
             return true;
         }
 

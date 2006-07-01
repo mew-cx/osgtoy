@@ -10,10 +10,11 @@
  *
 */
 
-/* file:	src/osgPlugins/tracker/ReaderWriterTRACKER.cpp
- * author:	Mike Weiblen http://mew.cx/ 2004-11-30
- * copyright:	(C) 2004 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:        src/osgPlugins/tracker/ReaderWriterTRACKER.cpp
+ * author:      Mike Weiblen http://mew.cx/
+ * copyright:   (C) 2004-2006  Mike Weiblen
+ * license:     OpenSceneGraph Public License (OSGPL)
+ * $Id: ReaderWriterTRACKER.cpp,v 1.2 2006/07/01 20:48:52 mew Exp $
 */
 
 #include <osg/Notify>
@@ -43,51 +44,51 @@ public:
 
     virtual bool acceptsExtension(const std::string& extension) const
     { 
-	return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
+        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
     }
 
     virtual ReadResult readNode(const std::string& fileName,
-		const osgDB::ReaderWriter::Options* /*options*/) const
+                const osgDB::ReaderWriter::Options* /*options*/) const
     {
-	std::string ext = osgDB::getLowerCaseFileExtension(fileName);
-	if( !acceptsExtension(ext) )
-	    return ReadResult::FILE_NOT_HANDLED;
+        std::string ext = osgDB::getLowerCaseFileExtension(fileName);
+        if( !acceptsExtension(ext) )
+            return ReadResult::FILE_NOT_HANDLED;
 
-	osg::notify(osg::INFO) << "ReaderWriterTRACKER( \"" << fileName << "\" )" << std::endl;
+        osg::notify(osg::INFO) << "ReaderWriterTRACKER( \"" << fileName << "\" )" << std::endl;
 
-	// strip the pseudo-loader extension
-	std::string tmpName = osgDB::getNameLessExtension( fileName );
+        // strip the pseudo-loader extension
+        std::string tmpName = osgDB::getNameLessExtension( fileName );
 
-	// get the next "extension", which actually the osgVRPN tracker name
-	std::string trkName = osgDB::getFileExtension( tmpName );
-	if( trkName.empty() )
-	{
-	    osg::notify(osg::WARN) << "Missing trkName for " EXTENSION_NAME " pseudo-loader" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // get the next "extension", which actually the osgVRPN tracker name
+        std::string trkName = osgDB::getFileExtension( tmpName );
+        if( trkName.empty() )
+        {
+            osg::notify(osg::WARN) << "Missing trkName for " EXTENSION_NAME " pseudo-loader" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	// strip the trkName "extension", which must leave a sub-filename.
-	std::string subFileName = osgDB::getNameLessExtension( tmpName );
-	if( subFileName == tmpName )
-	{
-	    osg::notify(osg::WARN) << "Missing subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // strip the trkName "extension", which must leave a sub-filename.
+        std::string subFileName = osgDB::getNameLessExtension( tmpName );
+        if( subFileName == tmpName )
+        {
+            osg::notify(osg::WARN) << "Missing subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	// recursively load the subfile.
-	osg::Node *node = osgDB::readNodeFile( subFileName );
-	if( !node )
-	{
-	    // propagate the read failure upwards
-	    osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // recursively load the subfile.
+        osg::Node *node = osgDB::readNodeFile( subFileName );
+        if( !node )
+        {
+            // propagate the read failure upwards
+            osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	osgVRPN::Tracker *tracker = new osgVRPN::Tracker( trkName.c_str() );
-	osgVRPN::TrackerTransform *xform = new osgVRPN::TrackerTransform;
-	xform->setTracker( tracker );
-	xform->addChild( node );
-	return xform;
+        osgVRPN::Tracker *tracker = new osgVRPN::Tracker( trkName.c_str() );
+        osgVRPN::TrackerTransform *xform = new osgVRPN::TrackerTransform;
+        xform->setTracker( tracker );
+        xform->addChild( node );
+        return xform;
     }
 };
 
@@ -95,4 +96,4 @@ public:
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterTRACKER> g_readerWriter_TRACKER_Proxy;
 
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:

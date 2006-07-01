@@ -13,7 +13,7 @@
  * author:      Mike Weiblen mew@mew.cx
  * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: osgVRPNviewer.cpp,v 1.5 2006/06/23 17:22:37 mew Exp $
+ * $Id: osgVRPNviewer.cpp,v 1.6 2006/07/01 20:48:51 mew Exp $
  *
  * references:  http://www.openscenegraph.org/
  *              http://www.vrpn.org/
@@ -71,7 +71,7 @@ private:
     void adjustScale( float multiplier )
     {
         if( ! _tracker.valid() ) return;
-		osg::Vec3 scale = _tracker->getScale() * multiplier;
+                osg::Vec3 scale = _tracker->getScale() * multiplier;
         _tracker->setScale( scale );
         osg::notify(osg::INFO) << "Tracker scale = " << scale << std::endl;
     }
