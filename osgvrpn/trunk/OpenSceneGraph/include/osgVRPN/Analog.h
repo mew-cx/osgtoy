@@ -2,7 +2,7 @@
  * author:      Mike Weiblen mew@mew.cx
  * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Analog.h,v 1.2 2006/06/23 17:22:37 mew Exp $
+ * $Id: Analog.h,v 1.3 2006/07/01 20:48:51 mew Exp $
  *
  * references:  http://www.openscenegraph.org/
  *              http://www.vrpn.org/
@@ -31,8 +31,12 @@ class OSGVRPN_EXPORT Analog : public osg::Referenced
 public:
     Analog( const char* deviceName );
 
+    /** Set/query update enable */
+    void setEnable( bool enabled ) { _enabled = enabled; }
+    bool getEnable() const { return _enabled; }
+
     /** Update our state from the device. */
-    void update();
+    bool update();
 
     /** Query a channel value from the Analog */
     unsigned int getNumChannels() const { return _data->getNumElements(); }
@@ -48,6 +52,8 @@ protected:      // methods
     void changeHandler( const vrpn_ANALOGCB& info );
 
 protected:      // data
+    bool _enabled;
+    bool _updateReceivedEvent;
     vrpn_Analog_Remote* const     _vrpnAnalog;
     osg::ref_ptr<osg::FloatArray> _data;
 };

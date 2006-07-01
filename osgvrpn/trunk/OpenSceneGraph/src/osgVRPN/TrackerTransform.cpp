@@ -2,7 +2,7 @@
  * author:      Mike Weiblen mew@mew.cx
  * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerTransform.cpp,v 1.4 2006/06/23 17:22:37 mew Exp $
+ * $Id: TrackerTransform.cpp,v 1.5 2006/07/01 20:48:52 mew Exp $
 */
 
 #include <osgVRPN/TrackerTransform.h>
@@ -21,7 +21,7 @@ class TrackerUpdateCallback : public osg::NodeCallback
         osg::ref_ptr<TrackerBase> tracker = xform->getTracker();
         if( tracker.valid() )
         {
-            tracker->update();
+            for( bool more=true; more; more=tracker->update() ) {}
             xform->setMatrix( tracker->getMatrix() );
         }
 

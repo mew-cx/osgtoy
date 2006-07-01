@@ -2,7 +2,7 @@
  * author:      Mike Weiblen mew@mew.cx
  * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Tracker.h,v 1.4 2006/06/23 17:22:37 mew Exp $
+ * $Id: Tracker.h,v 1.5 2006/07/01 20:48:51 mew Exp $
  *
  * references:  http://www.openscenegraph.org/
  *              http://www.vrpn.org/
@@ -33,7 +33,7 @@ public:
     Tracker( const char* deviceName );
 
     /** Update our state from the device. */
-    void update();
+    bool update();
 
     /** Query the tracker's transform matrix */
     osg::Matrixd getMatrix() const;

@@ -2,7 +2,7 @@
  * author:      Mike Weiblen mew@mew.cx
  * copyright:   (C) 2003-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerTransform.h,v 1.4 2006/06/23 17:22:37 mew Exp $
+ * $Id: TrackerTransform.h,v 1.5 2006/07/01 20:48:51 mew Exp $
  *
  * references:  http://www.openscenegraph.org/
  *              http://www.vrpn.org/
@@ -19,7 +19,7 @@
 
 namespace osgVRPN {
 
-/** osgVRPN::TrackerTransform is a Transform node that can be controlled by a osgVRPN::TrackerBase.
+/** a Transform node that can be controlled by a osgVRPN::TrackerBase.
 It can be used to control the position of objects in the scene.
 */
 
@@ -34,13 +34,11 @@ public :
                 _tracker( xform._tracker )
     {}
 
-    META_Node( osgVRPN, TrackerTransform );
+    META_Node( osgVRPN, TrackerTransform );     // TODO implications to .osg format??
 
 
-    /** Set the tracker that controls this transform, 0==none */
+    /** Set/get the tracker that controls this transform, 0==none */
     void setTracker( osg::ref_ptr<TrackerBase> tracker ) { _tracker = tracker; }
-
-    /** Query the tracker that controls this transform. */
     osg::ref_ptr<TrackerBase> getTracker() const { return _tracker; }
 
 protected:      // methods
