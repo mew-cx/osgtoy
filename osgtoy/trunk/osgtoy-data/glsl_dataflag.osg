@@ -1,5 +1,5 @@
 COMMENT {
-  "$Id: glsl_dataflag.osg,v 1.10 2006/06/29 06:53:04 mew Exp $"
+  "$Id: glsl_dataflag.osg,v 1.11 2006/07/07 06:41:42 mew Exp $"
   "A demonstration of the drawtext GLSL fragment shader."
   "The dataflag renders glUniform values as text using GLSL."
   "Because the text is computed in the fragment shader, the display"
@@ -52,7 +52,7 @@ Group {
           DataVariance DYNAMIC
           name "drawtext fragment"
           type FRAGMENT
-          file "drawtext4.frag"
+          file "shaders/drawtext4.frag"
         }
       }
       textureUnit 0 {
