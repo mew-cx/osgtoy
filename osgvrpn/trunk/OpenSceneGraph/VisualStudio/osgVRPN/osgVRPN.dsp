@@ -103,6 +103,10 @@ SOURCE=..\..\src\osgVRPN\AnalogTracker.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\src\osgVRPN\Button.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\src\osgVRPN\Tracker.cpp
 # End Source File
 # Begin Source File
@@ -128,6 +132,10 @@ SOURCE=..\..\include\osgVRPN\Analog.h
 # Begin Source File
 
 SOURCE=..\..\include\osgVRPN\AnalogTracker.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\include\osgVRPN\Button.h
 # End Source File
 # Begin Source File
 
