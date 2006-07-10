@@ -1,10 +1,10 @@
-// $Id: Version.cpp,v 1.3 2006/06/23 17:22:37 mew Exp $
+// $Id: Version.cpp,v 1.4 2006/07/10 06:20:34 mew Exp $
 
 #include <osgVRPN/Version>
 
 const char* osgVRPNGetVersion()
 {
-    return "0.3.0";
+    return "0.3.1";
 }
 
 

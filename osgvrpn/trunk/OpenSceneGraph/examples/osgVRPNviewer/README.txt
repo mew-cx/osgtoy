@@ -1,5 +1,5 @@
 osgVRPNviewer/README.txt - Mike Weiblen mew@mew.cx
-$Id: README.txt,v 1.3 2005/11/09 08:25:36 mew Exp $
+$Id: README.txt,v 1.4 2006/07/10 06:20:34 mew Exp $
 
 A simple application to demonstrate osgVRPN classes.
 
@@ -13,9 +13,9 @@ In the default configuration, the tracker is attached to an
 osgVRPN::TrackerManipulator, so the camera viewpoint is controlled by
 the tracker.
 
-The app may be configured (see #define NODE_TRACKER_NAME) to attach the
-tracker to an osgVRPN::TrackerTransform on the central cone, so that cone
-is controlled by the tracker.
+The app may be configured to attach the tracker to an osgVRPN::TrackerTransform
+on the central cone, so that cone is controlled by the tracker (see the use*
+booleans near the top of osgVRPNviewer.cpp)
 
 
 CREDITS & THANKS
@@ -28,8 +28,9 @@ CREDITS & THANKS
 
 REFERENCES
 
-http://www.openscenegraph.org/
-http://www.vrpn.org/
-http://www.mew.cx/
+http://openscenegraph.org/
+http://vrpn.org/ or http://www.cs.unc.edu/Research/vrpn/
+http://mew.cx/osg/
+http://sourceforge.net/projects/osgtoy   <-- CVS tree is here
 
 #EOF
