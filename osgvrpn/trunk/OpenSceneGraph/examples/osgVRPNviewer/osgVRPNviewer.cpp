@@ -10,14 +10,10 @@
 */
 
 /* file:        examples/osgVRPNviewer/osgVRPNviewer.cpp
- * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2006 Michael Weiblen
+ * author:      Mike Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: osgVRPNviewer.cpp,v 1.6 2006/07/01 20:48:51 mew Exp $
- *
- * references:  http://www.openscenegraph.org/
- *              http://www.vrpn.org/
- *              http://mew.cx/
+ * $Id: osgVRPNviewer.cpp,v 1.7 2006/07/10 06:24:35 mew Exp $
 */
 
 #include <osg/ShapeDrawable>
@@ -30,17 +26,16 @@
 #include <osgProducer/Viewer>
 
 #include "osgVRPN/Tracker.h"
+#include "osgVRPN/AnalogTracker.h"
 #include "osgVRPN/TrackerTransform.h"
 #include "osgVRPN/TrackerManipulator.h"
 
-
-// enable this macro to attach a Tracker to the camera's manipulator
-#define CAMERA_TRACKER_NAME "Tracker0@localhost"
-
-// enable this macro to attach a Tracker to a scenegraph transform node
-//#define NODE_TRACKER_NAME "Tracker0@localhost"
+static bool useTrackerTransform = false;
+static bool useTrackerManipulator = true;
+static bool useAnalogTracker = false;
 
 ///////////////////////////////////////////////////////////////////////////
+// camera manipulator's ui event handler (for keypresses etc)
 
 class EventHandler : public osgGA::GUIEventHandler
 {
@@ -71,8 +66,8 @@ private:
     void adjustScale( float multiplier )
     {
         if( ! _tracker.valid() ) return;
-                osg::Vec3 scale = _tracker->getScale() * multiplier;
-        _tracker->setScale( scale );
+        osg::Vec3 scale = _tracker->getTranslationScale() * multiplier;
+        _tracker->setTranslationScale( scale );
         osg::notify(osg::INFO) << "Tracker scale = " << scale << std::endl;
     }
 
@@ -81,20 +76,83 @@ private:
 
 ///////////////////////////////////////////////////////////////////////////
 
-osg::Node* buildScene( osgProducer::Viewer* viewer )
+static osgVRPN::TrackerBase* createTracker( const char* deviceName )
+{
+    return new osgVRPN::Tracker( deviceName );
+}
+
+static osgVRPN::TrackerBase* createAnalogTracker( const char* deviceName )
+{
+    osgVRPN::AnalogTracker* trk = new osgVRPN::AnalogTracker();
+
+    trk->setAnalogDevice( new osgVRPN::Analog( deviceName ) );
+    trk->setTranslateChannelX(0);
+    trk->setTranslateChannelY(1);
+    trk->setTranslateChannelZ(2);
+    trk->setRotateChannelX(3);
+    trk->setRotateChannelY(4);
+    trk->setRotateChannelZ(5);
+    trk->setTranslationScale(osg::Vec3(50,50,50));
+    trk->setRotationScale(osg::Vec3(5,5,5));
+
+    trk->setButtonDevice( new osgVRPN::Button( deviceName ) );
+    trk->setResetButton(0);
+
+    return trk;
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+static void createTrackerManipulator( osgProducer::Viewer& viewer )
+{
+    osgVRPN::TrackerBase* tracker;
+    if( useAnalogTracker )
+        tracker = createAnalogTracker( "Spaceball0@localhost" );
+    else
+        tracker = createTracker( "Tracker0@localhost" );
+
+    osgVRPN::TrackerManipulator* manip = new osgVRPN::TrackerManipulator();
+    unsigned int pos = viewer.addCameraManipulator( manip );
+    viewer.selectCameraManipulator( pos );
+    viewer.getEventHandlerList().push_front( new EventHandler( tracker ) );
+
+    manip->setTracker( tracker );
+    manip->setAutoComputeHomePosition(false);
+    manip->setHomeMatrix( osg::Matrix::translate(0,0,10) * osg::Matrixd::rotate(1.2,1,0,0) );
+}
+
+static osgVRPN::TrackerTransform* createTrackerTransform()
+{
+    osgVRPN::TrackerBase* tracker;
+    if( useAnalogTracker )
+        tracker = createAnalogTracker( "Spaceball0@localhost" );
+    else
+        tracker = createTracker( "Tracker0@localhost" );
+
+    osgVRPN::TrackerTransform* trkXform = new osgVRPN::TrackerTransform;
+    trkXform->setTracker( tracker );
+    return trkXform;
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+osg::Node* buildScene( osgProducer::Viewer& viewer )
 {
     osg::Group* scene = new osg::Group;
 
     osg::Geode* geode = new osg::Geode;
     geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,0,0),1,2)));
-#if defined(NODE_TRACKER_NAME)
-    osgVRPN::TrackerTransform* trkXform = new osgVRPN::TrackerTransform;
-    trkXform->setTracker( new osgVRPN::Tracker( NODE_TRACKER_NAME ) );
-    trkXform->addChild( geode );
-    scene->addChild( trkXform );
-#else
-    scene->addChild( geode );
-#endif
+
+    if( useTrackerTransform )
+    {
+        osgVRPN::TrackerTransform* xform = createTrackerTransform();
+        xform->addChild( geode );
+        scene->addChild( xform );
+    }
+    else
+    {
+        scene->addChild( geode );
+    }
 
     geode = new osg::Geode;
     geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,0,-2),100,100,0.1)));
@@ -136,27 +194,19 @@ int main( int argc, char **argv )
         return 1;
     }
 
-#if defined(CAMERA_TRACKER_NAME)
-    osgVRPN::TrackerManipulator* trkManip = new osgVRPN::TrackerManipulator();
-    unsigned int pos = viewer.addCameraManipulator( trkManip );
-    viewer.selectCameraManipulator( pos );
+    if( useTrackerManipulator )
+    {
+        createTrackerManipulator( viewer );
+    }
 
-    osg::ref_ptr<osgVRPN::TrackerBase> tracker = new osgVRPN::Tracker( CAMERA_TRACKER_NAME );
-    trkManip->setTracker( tracker );
-    trkManip->setAutoComputeHomePosition(false);
-    trkManip->setHomeMatrix( osg::Matrix::translate(0,0,10) * osg::Matrixd::rotate(1.2,1,0,0) );
-
-    viewer.getEventHandlerList().push_front( new EventHandler( tracker ) );
-#endif
-
-    viewer.setSceneData( buildScene( &viewer ) );
+    viewer.setSceneData( buildScene( viewer ) );
     viewer.realize();
     while( !viewer.done() )
     {
         viewer.sync();
         viewer.update();
 
-        {   // handy diagnostic: set clearcolor based on view orientation
+        {   // orientation helper: set clearcolor based on view orientation
             osg::Vec3 eye, center, up;
             viewer.getViewMatrix().getLookAt( eye, center, up );
             osg::Vec3 dirColor( center - eye );
