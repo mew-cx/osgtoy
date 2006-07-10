@@ -1,11 +1,10 @@
 /* file:        src/osgVRPN/Tracker.cpp
- * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2006 Michael Weiblen
+ * author:      Mike Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Tracker.cpp,v 1.5 2006/07/01 20:48:52 mew Exp $
+ * $Id 2006-07-08$
 */
 
-#include <osg/Notify>
 #include <osgVRPN/Tracker.h>
 
 #define VRPN_CLIENT_ONLY
@@ -47,11 +46,9 @@ osg::Matrixd Tracker::getInverseMatrix() const
 // from the VRPN server.
 // For each message received, VRPN will invoke the s_ChangeHandler() callback.
 
-bool Tracker::update()
+void Tracker::update()
 {
-    _updateReceivedEvent = false;
-    if( _enabled ) _vrpnTracker->mainloop();        // TODO does this drain?
-    return _updateReceivedEvent;
+    if( _enabled ) _vrpnTracker->mainloop();
 }
 
 /*static*/ void Tracker::s_ChangeHandler( void* userdata, const vrpn_TRACKERCB info )
@@ -61,12 +58,12 @@ bool Tracker::update()
 
 void Tracker::changeHandler( const vrpn_TRACKERCB& info )
 {
-    _position[0] = _scale[0] * info.pos[0];
-    _position[1] = _scale[1] * info.pos[1];
-    _position[2] = _scale[2] * info.pos[2];
+    _position[0] = _transScale[0] * info.pos[0];
+    _position[1] = _transScale[1] * info.pos[1];
+    _position[2] = _transScale[2] * info.pos[2];
     _rotation.set( info.quat[0], info.quat[1], info.quat[2], info.quat[3] );
 
-    _updateReceivedEvent = true;
+    ++_eventCounter;
 }
 
 // vim: set sw=4 ts=8 et ic ai:
