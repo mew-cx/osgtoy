@@ -1,12 +1,8 @@
 /* file:        include/osgVRPN/TrackerBase.h
- * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2006 Michael Weiblen
+ * author:      Mike Weiblen
+ * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerBase.h,v 1.2 2006/07/01 20:48:51 mew Exp $
- *
- * references:  http://www.openscenegraph.org/
- *              http://www.vrpn.org/
- *              http://mew.cx/
+ * $Id: TrackerBase.h,v 1.3 2006/07/10 06:16:27 mew Exp $
 */
 
 #ifndef OSGVRPN_TRACKERBASE
@@ -20,37 +16,41 @@
 
 namespace osgVRPN {
 
-/** a base class for osgVRPN trackers */
+/** a base class for things that look like osgVRPN::Trackers */
 
 class OSGVRPN_EXPORT TrackerBase : public osg::Referenced
 {
 public:
-    TrackerBase() : _scale(1.0f,1.0f,1.0f), _enabled(true) {}
+    TrackerBase() : _enabled(true), _eventCounter(0), _transScale(1,1,1) {}
 
-    /** Set/query update enable */
-    void setEnable( bool enabled ) { _enabled = enabled; }
-    bool getEnable() const { return _enabled; }
+    /** Set/get update enable flag */
+    void setEnable( bool enabled ) {_enabled = enabled;}
+    bool getEnable() const {return _enabled;}
 
     /** Update our state from the device. */
-    virtual bool update() = 0;
+    virtual void update() = 0;
 
-    /** Query the tracker's transform matrix */
+    void clearEventCounter() {_eventCounter = 0;}
+    unsigned int getEventCounter() const {return _eventCounter;}
+
+    /** Get the tracker's transform matrix */
     virtual osg::Matrixd getMatrix() const = 0;
     virtual osg::Matrixd getInverseMatrix() const = 0;
 
-    /** Set/query position scaling factor */
-    void setScale( osg::Vec3& scale ) { _scale = scale; }
-    osg::Vec3 getScale() const { return _scale; }
+    /** Set/get translation scaling factor */
+    void setTranslationScale( osg::Vec3& ts ) { _transScale = ts; }
+    osg::Vec3 getTranslationScale() const { return _transScale; }
 
 protected:      // methods
+    virtual ~TrackerBase() {}
+
     TrackerBase(const TrackerBase&);
-    virtual ~TrackerBase() {};
     const TrackerBase& operator=(const TrackerBase&);
 
 protected:      // data
     bool _enabled;
-    bool _updateReceivedEvent;
-    osg::Vec3 _scale;
+    unsigned int _eventCounter;
+    osg::Vec3 _transScale;
 };
 
 }
