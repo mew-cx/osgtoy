@@ -1,12 +1,8 @@
 /* file:        include/osgVRPN/Analog.h
- * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2006 Michael Weiblen
+ * author:      Mike Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Analog.h,v 1.3 2006/07/01 20:48:51 mew Exp $
- *
- * references:  http://www.openscenegraph.org/
- *              http://www.vrpn.org/
- *              http://mew.cx/
+ * $Id 2006-07-08$
 */
 
 #ifndef OSGVRPN_ANALOG
@@ -31,21 +27,25 @@ class OSGVRPN_EXPORT Analog : public osg::Referenced
 public:
     Analog( const char* deviceName );
 
-    /** Set/query update enable */
+    /** Set/get update enable flag */
     void setEnable( bool enabled ) { _enabled = enabled; }
     bool getEnable() const { return _enabled; }
 
     /** Update our state from the device. */
-    bool update();
+    void update();
+
+    void clearEventCounter() {_eventCounter = 0;}
+    unsigned int getEventCounter() const {return _eventCounter;}
 
     /** Query a channel value from the Analog */
     unsigned int getNumChannels() const { return _data->getNumElements(); }
     float getValue(unsigned int channel) const { return (*_data)[channel]; }
 
 protected:      // methods
+    ~Analog();
+
     Analog();
     Analog(const Analog&);
-    virtual ~Analog();
     const Analog& operator=(const Analog&);
 
     static void s_ChangeHandler( void* userdata, const vrpn_ANALOGCB info );
@@ -53,8 +53,8 @@ protected:      // methods
 
 protected:      // data
     bool _enabled;
-    bool _updateReceivedEvent;
-    vrpn_Analog_Remote* const     _vrpnAnalog;
+    unsigned int _eventCounter;
+    vrpn_Analog_Remote* const _vrpnAnalog;
     osg::ref_ptr<osg::FloatArray> _data;
 };
 
