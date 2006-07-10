@@ -1,21 +1,17 @@
 /* file:        include/osgVRPN/TrackerTransform.h
- * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2006 Michael Weiblen
+ * author:      Mike Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerTransform.h,v 1.5 2006/07/01 20:48:51 mew Exp $
- *
- * references:  http://www.openscenegraph.org/
- *              http://www.vrpn.org/
- *              http://mew.cx/
+ * $Id: TrackerTransform.h,v 1.6 2006/07/10 06:22:32 mew Exp $
 */
 
 #ifndef OSG_TRACKERTRANSFORM
 #define OSG_TRACKERTRANSFORM 1
 
 #include <osg/MatrixTransform>
+#include <osgVRPN/TrackerBase.h>
 
 #include <osgVRPN/Export>
-#include <osgVRPN/TrackerBase.h>
 
 namespace osgVRPN {
 
@@ -34,15 +30,14 @@ public :
                 _tracker( xform._tracker )
     {}
 
-    META_Node( osgVRPN, TrackerTransform );     // TODO implications to .osg format??
-
+    META_Node( osgVRPN, TrackerTransform );
 
     /** Set/get the tracker that controls this transform, 0==none */
     void setTracker( osg::ref_ptr<TrackerBase> tracker ) { _tracker = tracker; }
     osg::ref_ptr<TrackerBase> getTracker() const { return _tracker; }
 
 protected:      // methods
-    virtual ~TrackerTransform() {}
+    ~TrackerTransform() {}
 
 protected:      // data
     osg::ref_ptr<TrackerBase> _tracker;
