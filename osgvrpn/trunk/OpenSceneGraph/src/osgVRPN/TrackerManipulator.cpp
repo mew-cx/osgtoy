@@ -1,8 +1,8 @@
 /* file:        src/osgVRPN/TrackerManipulator.cpp
- * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2006 Michael Weiblen
+ * author:      Mike Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerManipulator.cpp,v 1.5 2006/07/01 20:48:52 mew Exp $
+ * $Id: TrackerManipulator.cpp,v 1.6 2006/07/10 06:22:32 mew Exp $
 */
 
 #include <osgVRPN/TrackerManipulator.h>
@@ -103,26 +103,17 @@ void TrackerManipulator::home( double currentTime )
 }
 
 ///////////////////////////////////////////////////////////////////////////
-// Handle "input events".
-// VRPN traffic doesn't cause OSG input events, so we depend on the
-// GUIEventAdapter::FRAME event to ensure we get called often enough to
-// process VRPN messages.
+// Handle "input events":
+// VRPN doesn't generate OSG input events, so we use osgGA's FRAME event
+// to ensure we get called often enough to process any VRPN messages.
 
 bool TrackerManipulator::handle(
         const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& )
 {
-    switch( ea.getEventType() )
+    if( ea.getEventType() == osgGA::GUIEventAdapter::FRAME )
     {
-        case osgGA::GUIEventAdapter::FRAME:
-        {
-            if( _tracker.valid() )
-                for( bool more=true; more; more=_tracker->update() ) {}
-
-            return true;
-        }
-
-        default:
-            break;
+        if( _tracker.valid() ) _tracker->update();
+        return true;
     }
 
     return false;

@@ -1,24 +1,21 @@
 /* file:        include/osgVRPN/TrackerManipulator.h
- * author:      Mike Weiblen mew@mew.cx
- * copyright:   (C) 2003-2006 Michael Weiblen
+ * author:      Mike Weiblen
+ * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerManipulator.h,v 1.5 2006/07/01 20:48:51 mew Exp $
- *
- * references:  http://www.openscenegraph.org/
- *              http://www.vrpn.org/
- *              http://mew.cx/
+ * $Id: TrackerManipulator.h,v 1.6 2006/07/10 06:22:32 mew Exp $
 */
 
 #ifndef OSGVRPN_TRACKERMANIPULATOR
 #define OSGVRPN_TRACKERMANIPULATOR 1
 
+#include <osg/ref_ptr>
 #include <osg/Matrixd>
 #include <osgGA/MatrixManipulator>
 #include <osgGA/GUIEventAdapter>
 #include <osgGA/GUIActionAdapter>
+#include <osgVRPN/TrackerBase.h>
 
 #include <osgVRPN/Export>
-#include <osgVRPN/TrackerBase.h>
 
 namespace osgVRPN {
 
@@ -33,31 +30,28 @@ public:
     TrackerManipulator( osg::ref_ptr<TrackerBase> tracker = 0 );
     TrackerManipulator( const char* trackerName );
 
-    virtual const char* className() const { return "osgVRPN::TrackerManipulator"; }
-
+    const char* className() const { return "osgVRPN::TrackerManipulator"; }
 
     /** Set the position of this manipulator
     (stubbed-out, not meaningful for this device) */
-    virtual void setByMatrix(const osg::Matrixd& matrix) {}
-    virtual void setByInverseMatrix(const osg::Matrixd& matrix) {}
+    void setByMatrix(const osg::Matrixd& matrix) {}
+    void setByInverseMatrix(const osg::Matrixd& matrix) {}
 
     /** Query the position of this manipulator. */
-    virtual osg::Matrixd getMatrix() const;
-    virtual osg::Matrixd getInverseMatrix() const;
-
+    osg::Matrixd getMatrix() const;
+    osg::Matrixd getInverseMatrix() const;
 
     /** Set/get the Node that determines this manipulator's origin */
-    virtual void setNode(osg::Node*);
-    virtual osg::Node* getNode() { return _node.get(); }
-    virtual const osg::Node* getNode() const { return _node.get(); }
-
+    void setNode(osg::Node*);
+    osg::Node* getNode() { return _node.get(); }
+    const osg::Node* getNode() const { return _node.get(); }
 
     /** Set/get the home matrix. */
     void setHomeMatrix(const osg::Matrixd& matrix) {_homeMatrix = matrix;}
     osg::Matrixd getHomeMatrix() const {return _homeMatrix;}
 
     /** Compute a reasonable default home matrix. */
-    virtual void computeHomeMatrix();
+    void computeHomeMatrix();
 
     // FUTURE
     void setHomePosition(const osg::Vec3d& eye, const osg::Vec3d& center, const osg::Vec3d& up, bool autoComputeHomePosition=false);
@@ -65,21 +59,18 @@ public:
     void computeHomePosition();
 
     /** Move the camera to the default matrix. */
-    virtual void home( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& us );
-    virtual void home( double currentTime );
-
+    void home( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& us );
+    void home( double currentTime );
 
     /** Set/get the tracker that controls this manipulator, 0==none */
     void setTracker( osg::ref_ptr<TrackerBase> tracker ) { _tracker = tracker; }
     osg::ref_ptr<TrackerBase> getTracker() const { return _tracker; }
 
-
     /** Process events, return true if handled, false otherwise. */
-    virtual bool handle( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& us );
-
+    bool handle( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& us );
 
 protected:      // methods
-    virtual ~TrackerManipulator() {}
+    ~TrackerManipulator() {}
 
 protected:      // data
     osg::ref_ptr<TrackerBase> _tracker;
