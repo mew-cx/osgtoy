@@ -2,16 +2,17 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: AnalogTracker.h,v 1.4 2006/07/15 17:28:35 mew Exp $
+ * $Id: AnalogTracker.h,v 1.5 2006/07/15 23:54:58 mew Exp $
 */
-
-// TODO use this as baseclass for a camera-aligned AnalogTracker?
 
 #ifndef OSGVRPN_ANALOGTRACKER
 #define OSGVRPN_ANALOGTRACKER 1
 
+#include <osg/ref_ptr>
 #include <osg/Vec3>
 #include <osg/Matrixd>
+#include <osgProducer/Viewer>
+
 #include <osgVRPN/TrackerBase.h>
 #include <osgVRPN/Analog.h>
 #include <osgVRPN/Button.h>
@@ -30,7 +31,7 @@ public:
     /** Update our state from the device. */
     void update();
 
-    void reset() {_matrix.makeIdentity();}
+    void reset() { _matrix.makeIdentity(); }
 
     /** Query the tracker's transform matrix */
     const osg::Matrixd getMatrix() const {return _matrix;}
@@ -51,6 +52,9 @@ public:
     void setRotationScale( osg::Vec3& rs ) { _rotScale = rs; }
     const osg::Vec3& getRotationScale() const { return _rotScale; }
 
+    /** Set the viewer that this Tracker will be relative to */
+    void setViewer( osgProducer::Viewer* viewer ) { _viewer = viewer; }
+
 protected:      // methods
     ~AnalogTracker() {}
 
@@ -65,6 +69,8 @@ protected:      // data
     bool _previousResetButtonState;
 
     osg::Matrixd _matrix;
+
+    osgProducer::Viewer* _viewer;
 
 private:        // uncopyable
     AnalogTracker(const AnalogTracker&);
