@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Tracker.cpp,v 1.7 2006/07/15 17:28:35 mew Exp $
+ * $Id: Tracker.cpp,v 1.8 2006/07/15 23:54:58 mew Exp $
 */
 
 #include <osgVRPN/Tracker.h>
@@ -28,13 +28,13 @@ Tracker::~Tracker()
 
 ///////////////////////////////////////////////////////////////////////////
 
-osg::Matrixd Tracker::getMatrix() const
+const osg::Matrixd Tracker::getMatrix() const
 {
     return osg::Matrixd::rotate( _rotation ) *
             osg::Matrixd::translate( _position );
 }
 
-osg::Matrixd Tracker::getInverseMatrix() const
+const osg::Matrixd Tracker::getInverseMatrix() const
 {
     return osg::Matrixd::translate( -_position ) *
             osg::Matrixd::rotate( _rotation.inverse() );

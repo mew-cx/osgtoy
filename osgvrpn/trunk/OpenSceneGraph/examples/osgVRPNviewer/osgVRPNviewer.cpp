@@ -9,11 +9,11 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 
-/* file:        examples/osgVRPNviewer/osgVRPNviewer.cpp
- * author:      Mike Weiblen
- * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
- * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: osgVRPNviewer.cpp,v 1.8 2006/07/15 17:28:35 mew Exp $
+/* file:      examples/osgVRPNviewer/osgVRPNviewer.cpp
+ * author:    Mike Weiblen
+ * copyright: (C) 2003-2006 Michael Weiblen http://mew.cx/
+ * license:   OpenSceneGraph Public License (OSGPL)
+ * $Id: osgVRPNviewer.cpp,v 1.9 2006/07/15 23:54:58 mew Exp $
 */
 
 #include <osg/ShapeDrawable>
@@ -25,14 +25,15 @@
 #include <osgDB/ReadFile>
 #include <osgProducer/Viewer>
 
+#include <osgVRPN/TrackerBase.h>
 #include <osgVRPN/Tracker.h>
 #include <osgVRPN/AnalogTracker.h>
 #include <osgVRPN/TrackerTransform.h>
 #include <osgVRPN/TrackerManipulator.h>
 
-static bool gUseTrackerTransform = false;
-static bool gUseTrackerManipulator = true;
-static bool gUseAnalogTracker = false;
+static bool gUseTrackerManipulator(true);
+static bool gUseTrackerTransform( ! gUseTrackerManipulator );
+static bool gUseAnalogTracker(false);
 
 ///////////////////////////////////////////////////////////////////////////
 // camera manipulator's ui event handler (for keypresses etc)
@@ -42,7 +43,7 @@ class AppKeyHandler : public osgGA::GUIEventHandler
 public:
     AppKeyHandler( osg::ref_ptr<osgVRPN::TrackerBase> tracker ) : _tracker( tracker ) {}
 
-    bool handle( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa )
+    bool handle( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& )
     {
         if( ea.getEventType() != osgGA::GUIEventAdapter::KEYDOWN ) return false;
 
@@ -102,7 +103,7 @@ static osgVRPN::TrackerBase* createAnalogTracker( const char* deviceName )
 
 ///////////////////////////////////////////////////////////////////////////
 
-osg::Node* buildScene( osgProducer::Viewer&, TrackerBase* tracker )
+osg::Node* buildScene( osgProducer::Viewer&, osgVRPN::TrackerBase* tracker )
 {
     osg::Group* scene( new osg::Group );
 
@@ -166,7 +167,7 @@ int main( int argc, char *argv[] )
         return 1;
     }
 
-    osgVRPN::TrackerBase* tracker = 0;
+    osgVRPN::TrackerBase* tracker(0);
     if( gUseAnalogTracker )
         tracker = createAnalogTracker( "Spaceball0@localhost" );
     else
@@ -191,7 +192,7 @@ int main( int argc, char *argv[] )
         viewer.sync();
         viewer.update();
 
-        {   // orientation helper: set clearcolor based on view orientation
+        {   // quick hint: set clearcolor based on view orientation
             osg::Vec3 eye, center, up;
             viewer.getViewMatrix().getLookAt( eye, center, up );
             osg::Vec3 dirColor( center - eye );

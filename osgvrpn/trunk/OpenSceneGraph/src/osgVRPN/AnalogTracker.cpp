@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: AnalogTracker.cpp,v 1.4 2006/07/15 17:28:35 mew Exp $
+ * $Id: AnalogTracker.cpp,v 1.5 2006/07/15 23:54:58 mew Exp $
 */
 
 #include <osgVRPN/AnalogTracker.h>
@@ -18,7 +18,8 @@ AnalogTracker::AnalogTracker() :
         _chRX(-1), _chRY(-1), _chRZ(-1),
         _rotScale(1,1,1),
         _buttonDevice(0),
-        _resetButton(-1), _previousResetButtonState(false)
+        _resetButton(-1), _previousResetButtonState(false),
+        _viewer(0)
 {
     reset();
 }
@@ -47,8 +48,15 @@ void AnalogTracker::update()
         if( _chRY >= 0 ) qy.makeRotate( _rotScale[1] * ana.getValue(_chRY), osg::Vec3(0,1,0) );
         if( _chRZ >= 0 ) qz.makeRotate( _rotScale[2] * ana.getValue(_chRZ), osg::Vec3(0,0,1) );
 
-        _matrix = osg::Matrixd::translate(pos) * osg::Matrixd::rotate(qx*qy*qz) * _matrix;
+        osg::Matrixd trkMat( osg::Matrixd::translate(pos) * osg::Matrixd::rotate(qx*qy*qz) );
 
+        if( _viewer )
+        {
+            // TODO: transform tracker matrix to viewer coordinate system
+            osg::notify(osg::WARN) << "osgVRPN::AnalogTracker does not support viewer-relative mode yet!!!" << std::endl;
+        }
+
+        _matrix.preMult( trkMat );
         _eventCounter += ana.getEventCounter();
     }
 
