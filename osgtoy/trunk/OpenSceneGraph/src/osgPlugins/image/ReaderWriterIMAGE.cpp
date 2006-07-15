@@ -10,10 +10,11 @@
  *
 */
 
-/* file:	src/osgPlugins/image/ReaderWriterIMAGE.cpp
- * author:	Mike Weiblen http://mew.cx/ 2005-04-22
- * copyright:	(C) 2005 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:      src/osgPlugins/image/ReaderWriterIMAGE.cpp
+ * author:    Mike Weiblen
+ * copyright: (C) 2005-2006 Michael Weiblen http://mew.cx/
+ * license:   OpenSceneGraph Public License (OSGPL)
+ * $Id: ReaderWriterIMAGE.cpp,v 1.2 2006/07/15 23:57:43 mew Exp $
 */
 
 #include <osg/Notify>
@@ -42,45 +43,43 @@ class ReaderWriterIMAGE : public osgDB::ReaderWriter
 public:
     ReaderWriterIMAGE() { }
     
-    virtual const char* className() const { return "image pseudo-loader"; }
+    const char* className() const { return "image pseudo-loader"; }
 
-    virtual bool acceptsExtension(const std::string& extension) const
+    bool acceptsExtension(const std::string& extension) const
     { 
-	return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
+        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
     }
 
-    virtual ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
+    ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
     {
-	std::string ext = osgDB::getLowerCaseFileExtension(fileName);
-	if( !acceptsExtension(ext) )
-	    return ReadResult::FILE_NOT_HANDLED;
+        std::string ext( osgDB::getLowerCaseFileExtension(fileName) );
+        if( !acceptsExtension(ext) )
+            return ReadResult::FILE_NOT_HANDLED;
 
-	osg::notify(osg::INFO) << "ReaderWriterIMAGE( \"" << fileName << "\" )" << std::endl;
+        osg::notify(osg::INFO) << "ReaderWriterIMAGE( \"" << fileName << "\" )" << std::endl;
 
-	// strip the pseudo-loader extension, which must leave a sub-filename.
-	std::string subFileName = osgDB::getNameLessExtension( fileName );
-	if( subFileName == fileName )
-	{
-	    osg::notify(osg::WARN) << "Missing subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // strip the pseudo-loader extension, which must leave a sub-filename.
+        std::string subFileName( osgDB::getNameLessExtension( fileName ) );
+        if( subFileName == fileName )
+        {
+            osg::notify(osg::WARN) << "Missing subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	// recursively load the subfile.
-        osg::Image* image = readImageFile(subFileName.c_str(), options);
+        // recursively load the subfile.
+        osg::Image* image( readImageFile(subFileName.c_str(), options) );
         if (!image)
-	{
-	    // propagate the read failure upwards
-	    osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        {
+            // propagate the read failure upwards
+            osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	return osg::createGeodeForImage(image);
+        return osg::createGeodeForImage(image);
     }
 };
-
 
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterIMAGE> g_readerWriter_IMAGE_Proxy;
 
-/*EOF*/
-
+// vim: set sw=4 ts=8 et ic ai:

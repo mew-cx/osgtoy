@@ -10,10 +10,11 @@
  *
 */
 
-/* file:	src/osgPlugins/globe/ReaderWriterGLOBE.cpp
- * author:	Mike Weiblen http://mew.cx/ 2004-11-27
- * copyright:	(C) 2004 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:      src/osgPlugins/globe/ReaderWriterGLOBE.cpp
+ * author:    Mike Weiblen
+ * copyright: (C) 2004-2006 Michael Weiblen http://mew.cx/
+ * license:   OpenSceneGraph Public License (OSGPL)
+ * $Id: ReaderWriterGLOBE.cpp,v 1.2 2006/07/15 23:57:42 mew Exp $
 */
 
 #include <osg/Notify>
@@ -42,8 +43,8 @@
  *
  * Usage: <imagefile.ext>.<radius>.globe
  * where:
- *	<imagefile.ext> = an image filename.
- *	<radius> = radius for the globe.
+ *      <imagefile.ext> = an image filename.
+ *      <radius> = radius for the globe.
  *
  * example: osgviewer land_shallow_topo_2048.jpg.10.globe
  */
@@ -53,78 +54,77 @@ class ReaderWriterGLOBE : public osgDB::ReaderWriter
 public:
     ReaderWriterGLOBE() { }
     
-    virtual const char* className() const { return "globe pseudo-loader"; }
+    const char* className() const { return "globe pseudo-loader"; }
 
-    virtual bool acceptsExtension(const std::string& extension) const
+    bool acceptsExtension(const std::string& extension) const
     { 
-	return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
+        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
     }
 
-    virtual ReadResult readNode(const std::string& fileName,
-		const osgDB::ReaderWriter::Options* /*options*/) const
+    ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* /*options*/) const
     {
-	std::string ext = osgDB::getLowerCaseFileExtension(fileName);
-	if( !acceptsExtension(ext) )
-	    return ReadResult::FILE_NOT_HANDLED;
+        std::string ext( osgDB::getLowerCaseFileExtension(fileName) );
+        if( !acceptsExtension(ext) )
+            return ReadResult::FILE_NOT_HANDLED;
 
-	osg::notify(osg::INFO) << "ReaderWriterGLOBE( \"" << fileName << "\" )" << std::endl;
+        osg::notify(osg::INFO) << "ReaderWriterGLOBE( \"" << fileName << "\" )" << std::endl;
 
-	// strip the ".globe" pseudo-loader extension
-	std::string tmpName = osgDB::getNameLessExtension( fileName );
+        // strip the ".globe" pseudo-loader extension
+        std::string tmpName( osgDB::getNameLessExtension(fileName) );
 
-	// get the next "extension", which actually contains the globe radius parameter
-	std::string params = osgDB::getFileExtension( tmpName );
-	if( params.empty() )
-	{
-	    osg::notify(osg::WARN) << "Missing parameters for " EXTENSION_NAME " pseudo-loader" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // get the next "extension", which actually contains the globe radius parameter
+        std::string params( osgDB::getFileExtension(tmpName) );
+        if( params.empty() )
+        {
+            osg::notify(osg::WARN) << "Missing parameters for " EXTENSION_NAME " pseudo-loader" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	// strip the "params extension", which must leave an image subfilename.
-	std::string subFileName = osgDB::getNameLessExtension( tmpName );
-	if( subFileName.empty() || subFileName == tmpName )
-	{
-	    osg::notify(osg::WARN) << "Missing image subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // strip the "params extension", which must leave an image subfilename.
+        std::string subFileName( osgDB::getNameLessExtension(tmpName) );
+        if( subFileName.empty() || subFileName == tmpName )
+        {
+            osg::notify(osg::WARN) << "Missing image subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	osg::notify(osg::INFO) << EXTENSION_NAME " params = \"" << params << "\"" << std::endl;
+        osg::notify(osg::INFO) << EXTENSION_NAME " params = \"" << params << "\"" << std::endl;
 
-	int radius;
-	int count = sscanf( params.c_str(), "%d", &radius );
-	if( count != 1 )
-	{
-	    osg::notify(osg::WARN) << "Bad parameters for " EXTENSION_NAME " pseudo-loader: \"" << params << "\"" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        int radius;
+        int count( sscanf( params.c_str(), "%d", &radius ) );
+        if( count != 1 )
+        {
+            osg::notify(osg::WARN) << "Bad parameters for " EXTENSION_NAME " pseudo-loader: \"" << params << "\"" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	// recursively load the image subfile.
-	osg::Image *image = osgDB::readImageFile( subFileName );
-	if( !image )
-	{
-	    // propagate the read failure upwards
-	    osg::notify(osg::WARN) << "Image file \"" << subFileName << "\" could not be loaded" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // recursively load the image subfile.
+        osg::Image *image( osgDB::readImageFile(subFileName) );
+        if( !image )
+        {
+            // propagate the read failure upwards
+            osg::notify(osg::WARN) << "Image file \"" << subFileName << "\" could not be loaded" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	// create an osg::Sphere for the globe geometry
-	osg::Geode* geode = new osg::Geode();
-	geode->addDrawable(new osg::ShapeDrawable(new osg::Sphere(osg::Vec3(0,0,0), radius)));
+        // create an osg::Sphere for the globe geometry
+        osg::Geode* geode( new osg::Geode() );
+        geode->addDrawable(new osg::ShapeDrawable(new osg::Sphere(osg::Vec3(0,0,0), radius)));
 
-	// apply the image as a texture to the globe
-	osg::Texture2D* tex2d = new osg::Texture2D;
-	tex2d->setImage( image );
-	tex2d->setWrap( osg::Texture::WRAP_S, osg::Texture::REPEAT );
-	tex2d->setWrap( osg::Texture::WRAP_T, osg::Texture::REPEAT );
+        // apply the image as a texture to the globe
+        osg::Texture2D* tex2d( new osg::Texture2D );
+        tex2d->setImage( image );
+        tex2d->setWrap( osg::Texture::WRAP_S, osg::Texture::REPEAT );
+        tex2d->setWrap( osg::Texture::WRAP_T, osg::Texture::REPEAT );
 
-	osg::StateSet* stateset = geode->getOrCreateStateSet();
-	stateset->setTextureAttributeAndModes( 0, tex2d, osg::StateAttribute::ON );
+        osg::StateSet* stateset( geode->getOrCreateStateSet() );
+        stateset->setTextureAttributeAndModes( 0, tex2d, osg::StateAttribute::ON );
 
-	return geode;
+        return geode;
     }
 };
-
 
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterGLOBE> g_readerWriter_GLOBE_Proxy;
 
+// vim: set sw=4 ts=8 et ic ai:

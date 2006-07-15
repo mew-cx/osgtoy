@@ -10,12 +10,11 @@
  *
 */
 
-/* file:        src/osgPlugins/lorenz/ReaderWriterLORENZ.cpp
- * author:      Mike Weiblen 2005-05-03
- * copyright:   (C) 2004-2005 Michael Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/osg/
- * $Id: ReaderWriterLORENZ.cpp,v 1.1 2005/06/06 22:10:37 mew Exp $
+/* file:      src/osgPlugins/lorenz/ReaderWriterLORENZ.cpp
+ * author:    Mike Weiblen
+ * copyright: (C) 2004-2006 Michael Weiblen http://mew.cx/
+ * license:   OpenSceneGraph Public License (OSGPL)
+ * $Id: ReaderWriterLORENZ.cpp,v 1.2 2006/07/15 23:57:43 mew Exp $
 */
 
 #include <stdio.h>
@@ -48,17 +47,16 @@ class ReaderWriterLORENZ : public osgDB::ReaderWriter
 {
 public:
     ReaderWriterLORENZ() {}
-    virtual ~ReaderWriterLORENZ() {}
+    ~ReaderWriterLORENZ() {}
     
-    virtual const char* className() const { return "Lorenz attractor pseudo-loader"; }
+    const char* className() const { return "Lorenz attractor pseudo-loader"; }
 
-    virtual bool acceptsExtension(const std::string& extension) const
+    bool acceptsExtension(const std::string& extension) const
     {
         return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
     }
 
-    virtual ReadResult readNode( const std::string&,
-                const osgDB::ReaderWriter::Options* ) const;
+    ReadResult readNode( const std::string&, const osgDB::ReaderWriter::Options* ) const;
 };
 
 ///////////////////////////////////////////////////////////////////////////
@@ -67,19 +65,19 @@ osgDB::ReaderWriter::ReadResult
 ReaderWriterLORENZ::readNode( const std::string& fileName,
                 const osgDB::ReaderWriter::Options* options ) const
 {
-    std::string ext = osgDB::getLowerCaseFileExtension(fileName);
+    std::string ext( osgDB::getLowerCaseFileExtension(fileName) );
     if( !acceptsExtension(ext) )
         return ReadResult::FILE_NOT_HANDLED;
 
     osg::notify(osg::INFO) << "ReaderWriterLORENZ( \"" << fileName << "\" )" << std::endl;
 
     // strip the pseudo-loader extension, leaving the parameter string
-    std::string params = osgDB::getNameLessExtension( fileName );
+    std::string params( osgDB::getNameLessExtension(fileName) );
 
     osg::notify(osg::INFO) << EXTENSION_NAME " params = \"" << params << "\"" << std::endl;
 
     int numPoints;
-    int count = sscanf( params.c_str(), "%d", &numPoints );
+    int count( sscanf( params.c_str(), "%d", &numPoints ) );
     if( count != 1 )
     {
         osg::notify(osg::WARN)
@@ -88,14 +86,12 @@ ReaderWriterLORENZ::readNode( const std::string& fileName,
         return ReadResult::FILE_NOT_HANDLED;
     }
 
-    osg::Geode* geode = new osg::Geode;
+    osg::Geode* geode( new osg::Geode );
     geode->addDrawable( new osgToy::LorenzAttractor( numPoints ) );
     return geode;
 }
 
-
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterLORENZ> g_readerWriter_LORENZ_Proxy;
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:

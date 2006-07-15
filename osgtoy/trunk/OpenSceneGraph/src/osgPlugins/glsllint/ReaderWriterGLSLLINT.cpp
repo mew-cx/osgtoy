@@ -10,10 +10,12 @@
  *
 */
 
-/* file:        src/osgPlugins/glsllint/ReaderWriterGLSLLINT.cpp
- * author:      Mike Weiblen
- * copyright:   (C) 2005 3Dlabs Inc. Ltd.
- * license:     3Dlabs_license.txt
+/* file:      src/osgPlugins/glsllint/ReaderWriterGLSLLINT.cpp
+ * author:    Mike Weiblen
+ * copyright: (C) 2006 Michael Weiblen http://mew.cx/
+ *            (C) 2005 3Dlabs Inc. Ltd.
+ * license:   3Dlabs_license.txt
+ * $Id: ReaderWriterGLSLLINT.cpp,v 1.4 2006/07/15 23:57:42 mew Exp $
 */
 
 #include <string>
@@ -48,22 +50,21 @@
 class ReaderWriterGLSLLINT : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterGLSLLINT()
-    { }
+    ReaderWriterGLSLLINT() {}
     
-    virtual const char* className() const { return "GlslLintVisitor pseudo-loader"; }
+    const char* className() const { return "GlslLintVisitor pseudo-loader"; }
 
-    virtual bool acceptsExtension(const std::string& extension) const
+    bool acceptsExtension(const std::string& extension) const
     { 
         return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
     }
 
-    virtual ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* rw_options) const
+    ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* rw_options) const
     {
-        std::string ext = osgDB::getLowerCaseFileExtension(fileName);
+        std::string ext( osgDB::getLowerCaseFileExtension(fileName) );
         if( !acceptsExtension(ext) )  return ReadResult::FILE_NOT_HANDLED;
 
-        osgToy::GlslLint::Options lint_options = osgToy::GlslLint::NONE;
+        osgToy::GlslLint::Options lint_options( osgToy::GlslLint::NONE );
         if( rw_options )
         {
             std::istringstream iss( rw_options->getOptionString() );
@@ -87,7 +88,7 @@ public:
         osg::notify(osg::INFO) << "ReaderWriterGLSLLINT( \"" << fileName << "\" )" << std::endl;
 
         // strip the pseudo-loader extension
-        std::string subFileName = osgDB::getNameLessExtension( fileName );
+        std::string subFileName( osgDB::getNameLessExtension(fileName) );
         if( subFileName == fileName )
         {
             osg::notify(osg::WARN) << "Missing subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
@@ -95,7 +96,7 @@ public:
         }
 
         // recursively load the subfile.
-        osg::Node *node = osgDB::readNodeFile( subFileName );
+        osg::Node *node( osgDB::readNodeFile(subFileName) );
         if( !node )
         {
             // propagate the read failure upwards
@@ -118,7 +119,6 @@ std::cout << "==========================================\n\n\n" << std::endl;
         return node;
     }
 };
-
 
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterGLSLLINT> g_readerWriter_GLSLLINT_Proxy;
