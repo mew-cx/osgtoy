@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id 2006-07-08$
+ * $Id: Analog.h,v 1.5 2006/07/15 17:28:35 mew Exp $
 */
 
 #ifndef OSGVRPN_ANALOG
@@ -39,14 +39,10 @@ public:
 
     /** Query a channel value from the Analog */
     unsigned int getNumChannels() const { return _data->getNumElements(); }
-    float getValue(unsigned int channel) const { return (*_data)[channel]; }
+    float getValue(unsigned int channel) const { return _data->at(channel); }
 
 protected:      // methods
     ~Analog();
-
-    Analog();
-    Analog(const Analog&);
-    const Analog& operator=(const Analog&);
 
     static void s_ChangeHandler( void* userdata, const vrpn_ANALOGCB info );
     void changeHandler( const vrpn_ANALOGCB& info );
@@ -56,6 +52,10 @@ protected:      // data
     unsigned int _eventCounter;
     vrpn_Analog_Remote* const _vrpnAnalog;
     osg::ref_ptr<osg::FloatArray> _data;
+
+private:        // uncopyable
+    Analog(const Analog&);
+    Analog& operator=(const Analog&);
 };
 
 }

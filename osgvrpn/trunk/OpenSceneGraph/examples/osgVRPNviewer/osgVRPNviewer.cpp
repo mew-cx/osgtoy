@@ -13,7 +13,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: osgVRPNviewer.cpp,v 1.7 2006/07/10 06:24:35 mew Exp $
+ * $Id: osgVRPNviewer.cpp,v 1.8 2006/07/15 17:28:35 mew Exp $
 */
 
 #include <osg/ShapeDrawable>
@@ -25,22 +25,22 @@
 #include <osgDB/ReadFile>
 #include <osgProducer/Viewer>
 
-#include "osgVRPN/Tracker.h"
-#include "osgVRPN/AnalogTracker.h"
-#include "osgVRPN/TrackerTransform.h"
-#include "osgVRPN/TrackerManipulator.h"
+#include <osgVRPN/Tracker.h>
+#include <osgVRPN/AnalogTracker.h>
+#include <osgVRPN/TrackerTransform.h>
+#include <osgVRPN/TrackerManipulator.h>
 
-static bool useTrackerTransform = false;
-static bool useTrackerManipulator = true;
-static bool useAnalogTracker = false;
+static bool gUseTrackerTransform = false;
+static bool gUseTrackerManipulator = true;
+static bool gUseAnalogTracker = false;
 
 ///////////////////////////////////////////////////////////////////////////
 // camera manipulator's ui event handler (for keypresses etc)
 
-class EventHandler : public osgGA::GUIEventHandler
+class AppKeyHandler : public osgGA::GUIEventHandler
 {
 public:
-    EventHandler( osg::ref_ptr<osgVRPN::TrackerBase> tracker ) : _tracker( tracker ) {}
+    AppKeyHandler( osg::ref_ptr<osgVRPN::TrackerBase> tracker ) : _tracker( tracker ) {}
 
     bool handle( const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa )
     {
@@ -50,15 +50,14 @@ public:
         {
             case osgGA::GUIEventAdapter::KEY_Up:
                 adjustScale( 1.1f );
-                break;
+                return true;
 
             case osgGA::GUIEventAdapter::KEY_Down:
                 adjustScale( 1.0f / 1.1f );
-                break;
+                return true;
 
             default: break;
         }
-
         return false;
     }
 
@@ -83,7 +82,7 @@ static osgVRPN::TrackerBase* createTracker( const char* deviceName )
 
 static osgVRPN::TrackerBase* createAnalogTracker( const char* deviceName )
 {
-    osgVRPN::AnalogTracker* trk = new osgVRPN::AnalogTracker();
+    osgVRPN::AnalogTracker* trk( new osgVRPN::AnalogTracker() );
 
     trk->setAnalogDevice( new osgVRPN::Analog( deviceName ) );
     trk->setTranslateChannelX(0);
@@ -103,82 +102,55 @@ static osgVRPN::TrackerBase* createAnalogTracker( const char* deviceName )
 
 ///////////////////////////////////////////////////////////////////////////
 
-static void createTrackerManipulator( osgProducer::Viewer& viewer )
+osg::Node* buildScene( osgProducer::Viewer&, TrackerBase* tracker )
 {
-    osgVRPN::TrackerBase* tracker;
-    if( useAnalogTracker )
-        tracker = createAnalogTracker( "Spaceball0@localhost" );
-    else
-        tracker = createTracker( "Tracker0@localhost" );
+    osg::Group* scene( new osg::Group );
 
-    osgVRPN::TrackerManipulator* manip = new osgVRPN::TrackerManipulator();
-    unsigned int pos = viewer.addCameraManipulator( manip );
-    viewer.selectCameraManipulator( pos );
-    viewer.getEventHandlerList().push_front( new EventHandler( tracker ) );
-
-    manip->setTracker( tracker );
-    manip->setAutoComputeHomePosition(false);
-    manip->setHomeMatrix( osg::Matrix::translate(0,0,10) * osg::Matrixd::rotate(1.2,1,0,0) );
-}
-
-static osgVRPN::TrackerTransform* createTrackerTransform()
-{
-    osgVRPN::TrackerBase* tracker;
-    if( useAnalogTracker )
-        tracker = createAnalogTracker( "Spaceball0@localhost" );
-    else
-        tracker = createTracker( "Tracker0@localhost" );
-
-    osgVRPN::TrackerTransform* trkXform = new osgVRPN::TrackerTransform;
-    trkXform->setTracker( tracker );
-    return trkXform;
-}
-
-///////////////////////////////////////////////////////////////////////////
-
-osg::Node* buildScene( osgProducer::Viewer& viewer )
-{
-    osg::Group* scene = new osg::Group;
-
-    osg::Geode* geode = new osg::Geode;
-    geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,0,0),1,2)));
-
-    if( useTrackerTransform )
     {
-        osgVRPN::TrackerTransform* xform = createTrackerTransform();
-        xform->addChild( geode );
-        scene->addChild( xform );
+        osg::Geode* geode( new osg::Geode );
+        geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,0,0),1,2)));
+
+        if( gUseTrackerTransform )
+        {
+            osgVRPN::TrackerTransform* xform( new osgVRPN::TrackerTransform(tracker) );
+            xform->addChild( geode );
+            scene->addChild( xform );
+        }
+        else
+        {
+            scene->addChild( geode );
+        }
     }
-    else
+
     {
+        osg::Geode* geode( new osg::Geode );
+        geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,0,-2),100,100,0.1)));
+        osg::Texture2D* tex0( new osg::Texture2D );
+        tex0->setImage( osgDB::readImageFile( "Images/lz.rgb" ) );
+        geode->getOrCreateStateSet()->setTextureAttributeAndModes( 0, tex0, osg::StateAttribute::ON );
         scene->addChild( geode );
     }
 
-    geode = new osg::Geode;
-    geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,0,-2),100,100,0.1)));
-    osg::Texture2D* tex0 = new osg::Texture2D;
-    tex0->setImage( osgDB::readImageFile( "Images/lz.rgb" ) );
-    geode->getOrCreateStateSet()->setTextureAttributeAndModes( 0, tex0, osg::StateAttribute::ON );
-    scene->addChild( geode );
-
-    geode = new osg::Geode;
-    geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,0,0),3,3,0.1)));
-    geode->addDrawable(new osg::ShapeDrawable(new osg::Sphere(osg::Vec3(40,0,0),5)));
-    geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,40,0),2,9)));
-    geode->addDrawable(new osg::ShapeDrawable(new osg::Cylinder(osg::Vec3(-40,0,0),3,7)));
-    geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,-40,0),7,7,7)));
-    scene->addChild( geode );
+    {
+        osg::Geode* geode( new osg::Geode );
+        geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,0,0),3,3,0.1)));
+        geode->addDrawable(new osg::ShapeDrawable(new osg::Sphere(osg::Vec3(40,0,0),5)));
+        geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,40,0),2,9)));
+        geode->addDrawable(new osg::ShapeDrawable(new osg::Cylinder(osg::Vec3(-40,0,0),3,7)));
+        geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,-40,0),7,7,7)));
+        scene->addChild( geode );
+    }
 
     return scene;
 }
 
 ///////////////////////////////////////////////////////////////////////////
 
-int main( int argc, char **argv )
+int main( int argc, char *argv[] )
 {
     osg::ArgumentParser args( &argc, argv );
     args.getApplicationUsage()->setApplicationName( args.getApplicationName() );
-    args.getApplicationUsage()->setDescription(args.getApplicationName()+" demonstrates osgVRPN trackers");
+    args.getApplicationUsage()->setDescription(args.getApplicationName()+" demonstrates osgVRPN");
     args.getApplicationUsage()->setCommandLineUsage(args.getApplicationName()+" [options]");
     args.getApplicationUsage()->addCommandLineOption("-h or --help","Display this information");
     args.getApplicationUsage()->addKeyboardMouseBinding( "upArrow", "increase tracker scale" );
@@ -194,12 +166,25 @@ int main( int argc, char **argv )
         return 1;
     }
 
-    if( useTrackerManipulator )
+    osgVRPN::TrackerBase* tracker = 0;
+    if( gUseAnalogTracker )
+        tracker = createAnalogTracker( "Spaceball0@localhost" );
+    else
+        tracker = createTracker( "Tracker0@localhost" );
+
+    viewer.getEventHandlerList().push_front( new AppKeyHandler( tracker ) );
+
+    if( gUseTrackerManipulator )
     {
-        createTrackerManipulator( viewer );
+        osgVRPN::TrackerManipulator* manip( new osgVRPN::TrackerManipulator(tracker) );
+        unsigned int pos( viewer.addCameraManipulator(manip) );
+        viewer.selectCameraManipulator( pos );
+
+        manip->setAutoComputeHomePosition(false);
+        manip->setHomeMatrix( osg::Matrix::translate(0,0,10) * osg::Matrixd::rotate(1.2,1,0,0) );
     }
 
-    viewer.setSceneData( buildScene( viewer ) );
+    viewer.setSceneData( buildScene( viewer, tracker ) );
     viewer.realize();
     while( !viewer.done() )
     {

@@ -1,5 +1,5 @@
 osgVRPNviewer/README.txt - Mike Weiblen mew@mew.cx
-$Id: README.txt,v 1.4 2006/07/10 06:20:34 mew Exp $
+$Id: README.txt,v 1.5 2006/07/15 17:28:34 mew Exp $
 
 A simple application to demonstrate osgVRPN classes.
 
@@ -14,7 +14,7 @@ osgVRPN::TrackerManipulator, so the camera viewpoint is controlled by
 the tracker.
 
 The app may be configured to attach the tracker to an osgVRPN::TrackerTransform
-on the central cone, so that cone is controlled by the tracker (see the use*
+on the central cone, so that cone is controlled by the tracker (see the gUse*
 booleans near the top of osgVRPNviewer.cpp)
 
 

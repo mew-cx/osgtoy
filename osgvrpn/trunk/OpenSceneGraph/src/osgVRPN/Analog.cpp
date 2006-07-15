@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id 2006-07-08$
+ * $Id: Analog.cpp,v 1.5 2006/07/15 17:28:35 mew Exp $
 */
 
 #include <osgVRPN/Analog.h>
@@ -46,9 +46,8 @@ void Analog::update()
 
 void Analog::changeHandler( const vrpn_ANALOGCB& info )
 {
-    _data->erase( _data->begin(), _data->end() ); // preserves capacity(); clear() does not
-    _data->reserve( info.num_channel );
-    for( int i = 0; i < info.num_channel; ++i ) _data->push_back( info.channel[i] );
+    _data->resize( info.num_channel );
+    for( int i = 0; i < info.num_channel; ++i ) _data[i] = info.channel[i];
     ++_eventCounter;
 }
 

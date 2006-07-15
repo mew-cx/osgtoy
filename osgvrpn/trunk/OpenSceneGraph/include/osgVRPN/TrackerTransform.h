@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerTransform.h,v 1.6 2006/07/10 06:22:32 mew Exp $
+ * $Id: TrackerTransform.h,v 1.7 2006/07/15 17:28:35 mew Exp $
 */
 
 #ifndef OSG_TRACKERTRANSFORM
@@ -15,8 +15,8 @@
 
 namespace osgVRPN {
 
-/** a Transform node that can be controlled by a osgVRPN::TrackerBase.
-It can be used to control the position of objects in the scene.
+/** a Transform node controlled by a osgVRPN::TrackerBase.
+It can be used to control the position of a node in the scene.
 */
 
 class OSGVRPN_EXPORT TrackerTransform : public osg::MatrixTransform

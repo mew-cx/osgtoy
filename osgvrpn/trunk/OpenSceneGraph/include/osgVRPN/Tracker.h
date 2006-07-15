@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Tracker.h,v 1.6 2006/07/10 06:19:02 mew Exp $
+ * $Id: Tracker.h,v 1.7 2006/07/15 17:28:35 mew Exp $
 */
 
 #ifndef OSGVRPN_TRACKER
@@ -32,15 +32,11 @@ public:
     void update();
 
     /** Query the tracker's transform matrix */
-    osg::Matrixd getMatrix() const;
-    osg::Matrixd getInverseMatrix() const;
+    const osg::Matrixd getMatrix() const;
+    const osg::Matrixd getInverseMatrix() const;
 
 protected:      // methods
     ~Tracker();
-
-    Tracker();
-    Tracker(const Tracker&);
-    const Tracker& operator=(const Tracker&);
 
     static void s_ChangeHandler( void* userdata, const vrpn_TRACKERCB info );
     void changeHandler( const vrpn_TRACKERCB& info );
@@ -49,6 +45,10 @@ protected:      // data
     vrpn_Tracker_Remote* const  _vrpnTracker;
     osg::Vec3 _position;
     osg::Quat _rotation;
+
+private:        // uncopyable
+    Tracker(const Tracker&);
+    Tracker& operator=(const Tracker&);
 };
 
 }

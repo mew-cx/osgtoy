@@ -2,24 +2,24 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerTransform.cpp,v 1.6 2006/07/10 06:22:32 mew Exp $
+ * $Id: TrackerTransform.cpp,v 1.7 2006/07/15 17:28:35 mew Exp $
 */
 
 #include <osgVRPN/TrackerTransform.h>
 
 using namespace osgVRPN;
 
-// TODO add a feature to rotate the Tracker into the view orientation.
-
 ///////////////////////////////////////////////////////////////////////////
+
+namespace {
 
 class TrackerUpdateCallback : public osg::NodeCallback
 {
     virtual void operator()( osg::Node* node, osg::NodeVisitor* nv )
     {
-        TrackerTransform* xform = dynamic_cast<TrackerTransform*>( node );
-        osg::ref_ptr<TrackerBase> tracker = xform->getTracker();
-        if( tracker.valid() )
+        TrackerTransform* xform( dynamic_cast<TrackerTransform*>(node) );
+        TrackerBase* tracker( xform->getTracker().get() );
+        if( tracker )
         {
             tracker->update();
             xform->setMatrix( tracker->getMatrix() );
@@ -28,6 +28,8 @@ class TrackerUpdateCallback : public osg::NodeCallback
         traverse(node,nv);
     }
 };
+
+}
 
 ///////////////////////////////////////////////////////////////////////////
 
