@@ -1,6 +1,10 @@
 @echo off
 title %0
 
+REM glsllint examines GLSL source code for correctness.
+REM The glsllint_errors.osg file contains _intentional_ errors,
+REM specifically to be detected by glsllint.
+
 set PATH=%OSG_ROOT%\bin;%PATH%
 set OSG_NOTIFY_LEVEL=INFO
 
