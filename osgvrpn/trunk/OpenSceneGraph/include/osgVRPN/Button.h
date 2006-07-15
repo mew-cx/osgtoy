@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id 2006-07-08$
+ * $Id: Button.h,v 1.2 2006/07/15 17:28:35 mew Exp $
 */
 
 #ifndef OSGVRPN_BUTTON
@@ -37,14 +37,10 @@ public:
     unsigned int getEventCounter() const {return _eventCounter;}
 
     /** Get state of a button */
-    bool getButtonState( int button ) const;
+    bool getButtonState( int buttonId ) const;
 
 protected:      // methods
     ~Button();
-
-    Button();
-    Button(const Button&);
-    const Button& operator=(const Button&);
 
     static void s_ChangeHandler( void* userdata, const vrpn_BUTTONCB info );
     void changeHandler( const vrpn_BUTTONCB& info );
@@ -56,6 +52,10 @@ protected:      // data
 
     typedef std::map<int,bool> ButtonStateMap;
     ButtonStateMap _buttonStates;
+
+private:        // uncopyable
+    Button(const Button&);
+    Button& operator=(const Button&);
 };
 
 }

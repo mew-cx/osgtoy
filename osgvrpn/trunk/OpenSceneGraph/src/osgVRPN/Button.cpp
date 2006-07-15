@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id 2006-07-08$
+ * $Id: Button.cpp,v 1.2 2006/07/15 17:28:35 mew Exp $
 */
 
 #include <osgVRPN/Button.h>
@@ -29,9 +29,9 @@ Button::~Button()
 
 ///////////////////////////////////////////////////////////////////////////
 
-bool Button::getButtonState( int button ) const
+bool Button::getButtonState( int buttonId ) const
 {
-    ButtonStateMap::const_iterator itr = _buttonStates.find( button );
+    ButtonStateMap::const_iterator itr = _buttonStates.find( buttonId );
     return (itr!=_buttonStates.end()) ? itr->second : false;
 }
 
@@ -53,9 +53,9 @@ void Button::update()
 
 void Button::changeHandler( const vrpn_BUTTONCB& info )
 {
-    int button = info.button;
+    int buttonId = info.button;
     bool state = (info.state == VRPN_BUTTON_ON);
-    _buttonStates[button] = state;
+    _buttonStates[buttonId] = state;
     ++_eventCounter;
 }
 

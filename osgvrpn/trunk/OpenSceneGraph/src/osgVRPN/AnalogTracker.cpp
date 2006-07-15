@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id 2006-07-08 $
+ * $Id: AnalogTracker.cpp,v 1.4 2006/07/15 17:28:35 mew Exp $
 */
 
 #include <osgVRPN/AnalogTracker.h>
@@ -18,7 +18,7 @@ AnalogTracker::AnalogTracker() :
         _chRX(-1), _chRY(-1), _chRZ(-1),
         _rotScale(1,1,1),
         _buttonDevice(0),
-        _resetButton(-1), _previousResetState(false)
+        _resetButton(-1), _previousResetButtonState(false)
 {
     reset();
 }
@@ -54,9 +54,9 @@ void AnalogTracker::update()
 
     if( _buttonDevice.valid() && _buttonDevice->getEventCounter() > 0 )
     {
-        bool currentResetState = _buttonDevice->getButtonState( _resetButton );
-        if( currentResetState && !_previousResetState ) reset();
-        _previousResetState = currentResetState;
+        bool currentResetButtonState = _buttonDevice->getButtonState( _resetButton );
+        if( currentResetButtonState && !_previousResetButtonState ) reset();
+        _previousResetButtonState = currentResetButtonState;
 
         _eventCounter += _buttonDevice->getEventCounter();
     }

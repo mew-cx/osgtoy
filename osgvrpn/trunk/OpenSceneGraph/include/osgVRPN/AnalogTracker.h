@@ -2,8 +2,10 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id 2006-07-08 $
+ * $Id: AnalogTracker.h,v 1.4 2006/07/15 17:28:35 mew Exp $
 */
+
+// TODO use this as baseclass for a camera-aligned AnalogTracker?
 
 #ifndef OSGVRPN_ANALOGTRACKER
 #define OSGVRPN_ANALOGTRACKER 1
@@ -31,8 +33,8 @@ public:
     void reset() {_matrix.makeIdentity();}
 
     /** Query the tracker's transform matrix */
-    osg::Matrixd getMatrix() const {return _matrix;}
-    osg::Matrixd getInverseMatrix() const {return osg::Matrixd::inverse(_matrix);}
+    const osg::Matrixd getMatrix() const {return _matrix;}
+    const osg::Matrixd getInverseMatrix() const {return osg::Matrixd::inverse(_matrix);}
 
     void setAnalogDevice( Analog* aDevice ) {_analogDevice = aDevice;}
     void setTranslateChannelX( int chan ) {_chTX = chan;}
@@ -42,18 +44,15 @@ public:
     void setRotateChannelY( int chan )    {_chRY = chan;}
     void setRotateChannelZ( int chan )    {_chRZ = chan;}
 
-    /** Set/get rotation scaling factor */
-    void setRotationScale( osg::Vec3& rs ) { _rotScale = rs; }
-    osg::Vec3 getRotationScale() const { return _rotScale; }
-
     void setButtonDevice( Button* bDevice ) {_buttonDevice = bDevice;}
     void setResetButton( int button ) {_resetButton = button;}
 
+    /** Set/get rotation scaling factor */
+    void setRotationScale( osg::Vec3& rs ) { _rotScale = rs; }
+    const osg::Vec3& getRotationScale() const { return _rotScale; }
+
 protected:      // methods
     ~AnalogTracker() {}
-
-    AnalogTracker(const AnalogTracker&);
-    const AnalogTracker& operator=(const AnalogTracker&);
 
 protected:      // data
     osg::ref_ptr<Analog> _analogDevice;
@@ -63,9 +62,13 @@ protected:      // data
 
     osg::ref_ptr<Button> _buttonDevice;
     int _resetButton;
-    bool _previousResetState;
+    bool _previousResetButtonState;
 
     osg::Matrixd _matrix;
+
+private:        // uncopyable
+    AnalogTracker(const AnalogTracker&);
+    AnalogTracker& operator=(const AnalogTracker&);
 };
 
 }

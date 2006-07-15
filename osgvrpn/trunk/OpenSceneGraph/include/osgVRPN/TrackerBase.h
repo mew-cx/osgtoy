@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerBase.h,v 1.3 2006/07/10 06:16:27 mew Exp $
+ * $Id: TrackerBase.h,v 1.4 2006/07/15 17:28:35 mew Exp $
 */
 
 #ifndef OSGVRPN_TRACKERBASE
@@ -16,7 +16,7 @@
 
 namespace osgVRPN {
 
-/** a base class for things that look like osgVRPN::Trackers */
+/** an osgVRPN base class for things that look like 6DOF trackers */
 
 class OSGVRPN_EXPORT TrackerBase : public osg::Referenced
 {
@@ -34,23 +34,24 @@ public:
     unsigned int getEventCounter() const {return _eventCounter;}
 
     /** Get the tracker's transform matrix */
-    virtual osg::Matrixd getMatrix() const = 0;
-    virtual osg::Matrixd getInverseMatrix() const = 0;
+    virtual const osg::Matrixd getMatrix() const = 0;
+    virtual const osg::Matrixd getInverseMatrix() const = 0;
 
     /** Set/get translation scaling factor */
     void setTranslationScale( osg::Vec3& ts ) { _transScale = ts; }
-    osg::Vec3 getTranslationScale() const { return _transScale; }
+    const osg::Vec3& getTranslationScale() const { return _transScale; }
 
 protected:      // methods
     virtual ~TrackerBase() {}
-
-    TrackerBase(const TrackerBase&);
-    const TrackerBase& operator=(const TrackerBase&);
 
 protected:      // data
     bool _enabled;
     unsigned int _eventCounter;
     osg::Vec3 _transScale;
+
+private:        // uncopyable
+    TrackerBase(const TrackerBase&);
+    TrackerBase& operator=(const TrackerBase&);
 };
 
 }

@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerManipulator.h,v 1.6 2006/07/10 06:22:32 mew Exp $
+ * $Id: TrackerManipulator.h,v 1.7 2006/07/15 17:28:35 mew Exp $
 */
 
 #ifndef OSGVRPN_TRACKERMANIPULATOR
@@ -19,7 +19,7 @@
 
 namespace osgVRPN {
 
-/** a MatrixManipulator that can be controlled by an osgVRPN::TrackerBase.
+/** a MatrixManipulator controlled by an osgVRPN::TrackerBase.
 It may be attached to an osgProducer::Viewer as a CameraManipulator
 to control the position of the camera.
 */
@@ -28,18 +28,17 @@ class OSGVRPN_EXPORT TrackerManipulator : public osgGA::MatrixManipulator
 {
 public:
     TrackerManipulator( osg::ref_ptr<TrackerBase> tracker = 0 );
-    TrackerManipulator( const char* trackerName );
 
     const char* className() const { return "osgVRPN::TrackerManipulator"; }
 
     /** Set the position of this manipulator
-    (stubbed-out, not meaningful for this device) */
+    (not meaningful, this manipulator is read-only) */
     void setByMatrix(const osg::Matrixd& matrix) {}
     void setByInverseMatrix(const osg::Matrixd& matrix) {}
 
     /** Query the position of this manipulator. */
-    osg::Matrixd getMatrix() const;
-    osg::Matrixd getInverseMatrix() const;
+    const osg::Matrixd getMatrix() const;
+    const osg::Matrixd getInverseMatrix() const;
 
     /** Set/get the Node that determines this manipulator's origin */
     void setNode(osg::Node*);
