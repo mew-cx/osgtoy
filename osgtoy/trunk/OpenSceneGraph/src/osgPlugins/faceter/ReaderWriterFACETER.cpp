@@ -10,10 +10,11 @@
  *
 */
 
-/* file:	src/osgPlugins/faceter/ReaderWriterFACETER.cpp
- * author:	Mike Weiblen http://mew.cx/ 2004-12-22
- * copyright:	(C) 2004 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:      src/osgPlugins/faceter/ReaderWriterFACETER.cpp
+ * author:    Mike Weiblen
+ * copyright: (C) 2004-2006 Michael Weiblen http://mew.cx/
+ * license:   OpenSceneGraph Public License (OSGPL)
+ * $Id: ReaderWriterFACETER.cpp,v 1.2 2006/07/15 23:57:41 mew Exp $
 */
 
 #include <osg/Notify>
@@ -37,7 +38,7 @@
  *
  * Usage: <modelfile.ext>.faceter
  * where:
- *	<modelfile.ext> = an model filename.
+ *      <modelfile.ext> = an model filename.
  *
  * example: osgviewer vase.osg.faceter
  */
@@ -47,51 +48,49 @@ class ReaderWriterFACETER : public osgDB::ReaderWriter
 public:
     ReaderWriterFACETER() { }
     
-    virtual const char* className() const { return "FacetingVisitor pseudo-loader"; }
+    const char* className() const { return "FacetingVisitor pseudo-loader"; }
 
-    virtual bool acceptsExtension(const std::string& extension) const
+    bool acceptsExtension(const std::string& extension) const
     { 
-	return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
+        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
     }
 
-    virtual ReadResult readNode(const std::string& fileName,
-		const osgDB::ReaderWriter::Options* /*options*/) const
+    ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* /*options*/) const
     {
-	std::string ext = osgDB::getLowerCaseFileExtension(fileName);
-	if( !acceptsExtension(ext) )
-	    return ReadResult::FILE_NOT_HANDLED;
+        std::string ext( osgDB::getLowerCaseFileExtension(fileName) );
+        if( !acceptsExtension(ext) )
+            return ReadResult::FILE_NOT_HANDLED;
 
-	osg::notify(osg::INFO) << "ReaderWriterFACETER( \"" << fileName << "\" )" << std::endl;
+        osg::notify(osg::INFO) << "ReaderWriterFACETER( \"" << fileName << "\" )" << std::endl;
 
-	// strip the pseudo-loader extension
-	std::string subFileName = osgDB::getNameLessExtension( fileName );
-	if( subFileName == fileName )
-	{
-	    osg::notify(osg::WARN) << "Missing subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // strip the pseudo-loader extension
+        std::string subFileName( osgDB::getNameLessExtension(fileName) );
+        if( subFileName == fileName )
+        {
+            osg::notify(osg::WARN) << "Missing subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	// recursively load the subfile.
-	osg::Node *node = osgDB::readNodeFile( subFileName );
-	if( !node )
-	{
-	    // propagate the read failure upwards
-	    osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // recursively load the subfile.
+        osg::Node *node( osgDB::readNodeFile(subFileName) );
+        if( !node )
+        {
+            // propagate the read failure upwards
+            osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	osgToy::FacetingVisitor fv;
-	node->accept( fv );
+        osgToy::FacetingVisitor fv;
+        node->accept( fv );
 
-	osg::StateSet* sset = node->getOrCreateStateSet();
-	sset->setMode( GL_LIGHTING, osg::StateAttribute::ON | osg::StateAttribute::OVERRIDE );
+        osg::StateSet* sset( node->getOrCreateStateSet() );
+        sset->setMode( GL_LIGHTING, osg::StateAttribute::ON | osg::StateAttribute::OVERRIDE );
 
-	return node;
+        return node;
     }
 };
-
 
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterFACETER> g_readerWriter_FACETER_Proxy;
 
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:

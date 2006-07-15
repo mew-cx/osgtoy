@@ -10,10 +10,11 @@
  *
 */
 
-/* file:	src/osgPlugins/drawnorm/ReaderWriterDRAWNORM.cpp
- * author:	Mike Weiblen http://mew.cx/ 2004-12-22
- * copyright:	(C) 2004 Michael Weiblen
- * license:	OpenSceneGraph Public License (OSGPL)
+/* file:        src/osgPlugins/drawnorm/ReaderWriterDRAWNORM.cpp
+ * author:      Mike Weiblen
+ * copyright:   (C) 2004-2006 Michael Weiblen http://mew.cx/
+ * license:     OpenSceneGraph Public License (OSGPL)
+ * $Id: ReaderWriterDRAWNORM.cpp,v 1.2 2006/07/15 23:57:41 mew Exp $
 */
 
 #include <stdio.h>
@@ -41,50 +42,47 @@ class ReaderWriterDRAWNORM : public osgDB::ReaderWriter
 public:
     ReaderWriterDRAWNORM() { }
     
-    virtual const char* className() const { return "drawnorm pseudo-loader"; }
+    const char* className() const { return "drawnorm pseudo-loader"; }
 
-    virtual bool acceptsExtension(const std::string& extension) const
+    bool acceptsExtension(const std::string& extension) const
     { 
-	return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
+        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
     }
 
-    virtual ReadResult readNode(const std::string& fileName,
-		const osgDB::ReaderWriter::Options* options) const
+    ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
     {
-	std::string ext = osgDB::getLowerCaseFileExtension(fileName);
-	if( !acceptsExtension(ext) )
-	    return ReadResult::FILE_NOT_HANDLED;
+        std::string ext( osgDB::getLowerCaseFileExtension(fileName) );
+        if( !acceptsExtension(ext) )
+            return ReadResult::FILE_NOT_HANDLED;
 
-	osg::notify(osg::INFO) << "ReaderWriterDRAWNORM( \"" << fileName << "\" )" << std::endl;
+        osg::notify(osg::INFO) << "ReaderWriterDRAWNORM( \"" << fileName << "\" )" << std::endl;
 
-	// strip the pseudo-loader extension
-	std::string subFileName = osgDB::getNameLessExtension( fileName );
+        // strip the pseudo-loader extension
+        std::string subFileName( osgDB::getNameLessExtension(fileName) );
 
-	// recursively load the subfile.
-	osg::Node *node = osgDB::readNodeFile( subFileName, options );
-	if( !node )
-	{
-	    // propagate the read failure upwards
-	    osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
+        // recursively load the subfile.
+        osg::Node *node( osgDB::readNodeFile( subFileName, options ) );
+        if( !node )
+        {
+            // propagate the read failure upwards
+            osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
+            return ReadResult::FILE_NOT_HANDLED;
+        }
 
-	osg::Group* group = new osg::Group;
-	group->addChild( node );
+        osg::Group* group( new osg::Group );
+        group->addChild( node );
 
-	//osgToy::SurfaceNormals* sn = new osgToy::SurfaceNormals( node );
-	//group->addChild( sn );
+        //osgToy::SurfaceNormals* sn = new osgToy::SurfaceNormals( node );
+        //group->addChild( sn );
 
-	osgToy::VertexNormals*  vn = new osgToy::VertexNormals( node );
-	group->addChild( vn );
+        osgToy::VertexNormals*  vn( new osgToy::VertexNormals(node) );
+        group->addChild( vn );
 
-	return group;
+        return group;
     }
 };
-
 
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterDRAWNORM> g_readerWriter_DRAWNORM_Proxy;
 
-/* vim: set sw=4 ts=8 ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:

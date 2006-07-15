@@ -10,12 +10,11 @@
  *
 */
 
-/* file:        src/osgPlugins/lua/ReaderWriterLUA.cpp
- * author:      Mike Weiblen 2005-05-09
- * copyright:   (C) 2004-2005 Michael Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/osg/
- * $Id: ReaderWriterLUA.cpp,v 1.1 2005/06/06 22:10:37 mew Exp $
+/* file:      src/osgPlugins/lua/ReaderWriterLUA.cpp
+ * author:    Mike Weiblen
+ * copyright: (C) 2004-2006 Michael Weiblen http://mew.cx/
+ * license:   OpenSceneGraph Public License (OSGPL)
+ * $Id: ReaderWriterLUA.cpp,v 1.2 2006/07/15 23:57:43 mew Exp $
 */
 
 #include <stdio.h>
@@ -49,23 +48,22 @@ class ReaderWriterLUA : public osgDB::ReaderWriter
 {
 public:
     ReaderWriterLUA() {}
-    virtual ~ReaderWriterLUA() {}
+    ~ReaderWriterLUA() {}
     
-    virtual const char* className() const { return "lua script loader"; };
+    const char* className() const { return "lua script loader"; };
 
-    virtual bool acceptsExtension(const std::string& extension) const
+    bool acceptsExtension(const std::string& extension) const
     {
         return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
     }
 
-    virtual ReadResult readNode( const std::string& fileStr,
-                const osgDB::ReaderWriter::Options* options ) const
+    ReadResult readNode( const std::string& fileStr, const osgDB::ReaderWriter::Options* options ) const
     {
-        std::string ext = osgDB::getLowerCaseFileExtension( fileStr );
+        std::string ext( osgDB::getLowerCaseFileExtension(fileStr) );
         if( !acceptsExtension(ext) )
             return ReadResult::FILE_NOT_HANDLED;
 
-        std::string fileName = osgDB::findDataFile( fileStr, options );
+        std::string fileName( osgDB::findDataFile( fileStr, options ) );
         if( fileName.empty() )
             return ReadResult::FILE_NOT_FOUND;
 
@@ -80,7 +78,7 @@ public:
             return 0;
         }
 
-        osg::Node* node = 0;
+        osg::Node* node(0);
 
         if( ! lua_islightuserdata(L,-1) )
         {
@@ -98,5 +96,4 @@ public:
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterLUA> g_readerWriter_LUA_Proxy;
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:
