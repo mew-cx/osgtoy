@@ -14,7 +14,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2004-2006  Mike Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterTRACKER.cpp,v 1.3 2006/07/15 17:28:35 mew Exp $
+ * $Id: ReaderWriterTRACKER.cpp,v 1.4 2006/07/16 00:00:06 mew Exp $
 */
 
 #include <osg/Notify>
@@ -50,17 +50,17 @@ public:
     ReadResult readNode(const std::string& fileName,
                 const osgDB::ReaderWriter::Options* /*options*/) const
     {
-        std::string ext = osgDB::getLowerCaseFileExtension(fileName);
+        std::string ext( osgDB::getLowerCaseFileExtension(fileName) );
         if( !acceptsExtension(ext) )
             return ReadResult::FILE_NOT_HANDLED;
 
         osg::notify(osg::INFO) << "ReaderWriterTRACKER( \"" << fileName << "\" )" << std::endl;
 
         // strip the pseudo-loader extension
-        std::string tmpName = osgDB::getNameLessExtension( fileName );
+        std::string tmpName( osgDB::getNameLessExtension(fileName) );
 
         // get the next "extension", which actually the osgVRPN tracker name
-        std::string trkName = osgDB::getFileExtension( tmpName );
+        std::string trkName( osgDB::getFileExtension(tmpName) );
         if( trkName.empty() )
         {
             osg::notify(osg::WARN) << "Missing trkName for " EXTENSION_NAME " pseudo-loader" << std::endl;
@@ -68,7 +68,7 @@ public:
         }
 
         // strip the trkName "extension", which must leave a sub-filename.
-        std::string subFileName = osgDB::getNameLessExtension( tmpName );
+        std::string subFileName( osgDB::getNameLessExtension(tmpName) );
         if( subFileName == tmpName )
         {
             osg::notify(osg::WARN) << "Missing subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
@@ -76,7 +76,7 @@ public:
         }
 
         // recursively load the subfile.
-        osg::Node *node = osgDB::readNodeFile( subFileName );
+        osg::Node *node( osgDB::readNodeFile(subFileName) );
         if( !node )
         {
             // propagate the read failure upwards
@@ -84,16 +84,17 @@ public:
             return ReadResult::FILE_NOT_HANDLED;
         }
 
-        // TODO option to select the kind of Tracker?
+        osgVRPN::TrackerBase* tracker(0);
 
-        osgVRPN::TrackerBase* tracker = 0;
+        // TODO option to select the kind of Tracker?
         tracker = new osgVRPN::Tracker( trkName.c_str() );
+        //tracker = new osgVRPN::AnalogTracker( trkName.c_str() );
+
         osgVRPN::TrackerTransform *xform( new osgVRPN::TrackerTransform(tracker) );
         xform->addChild( node );
         return xform;
     }
 };
-
 
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterTRACKER> g_readerWriter_TRACKER_Proxy;
