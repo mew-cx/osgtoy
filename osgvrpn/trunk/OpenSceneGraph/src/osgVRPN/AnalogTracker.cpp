@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: AnalogTracker.cpp,v 1.5 2006/07/15 23:54:58 mew Exp $
+ * $Id: AnalogTracker.cpp,v 1.6 2006/07/17 11:20:58 mew Exp $
 */
 
 #include <osgVRPN/AnalogTracker.h>
@@ -52,8 +52,11 @@ void AnalogTracker::update()
 
         if( _viewer )
         {
-            // TODO: transform tracker matrix to viewer coordinate system
-            osg::notify(osg::WARN) << "osgVRPN::AnalogTracker does not support viewer-relative mode yet!!!" << std::endl;
+            osg::notify(osg::WARN) << "osgVRPN::AnalogTracker does not support viewer-relative mode yet" << std::endl;
+            // TODO: transform tracker matrix to viewer coordinate system; notes:
+            //osg::Vec3 eye, center, up;
+            //_viewer->getViewMatrix().getLookAt( eye, center, up );
+            //trkMat.postMult( _viewer->getViewMatrix() );
         }
 
         _matrix.preMult( trkMat );
