@@ -13,7 +13,7 @@
  * author:    Mike Weiblen
  * copyright: (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: osgVRPNviewer.cpp,v 1.9 2006/07/15 23:54:58 mew Exp $
+ * $Id: osgVRPNviewer.cpp,v 1.10 2006/07/17 11:19:28 mew Exp $
 */
 
 #include <osg/ShapeDrawable>
@@ -33,7 +33,32 @@
 
 static bool gUseTrackerManipulator(true);
 static bool gUseTrackerTransform( ! gUseTrackerManipulator );
+
+///////////////////////////////////////////////////////////////////////////
+
 static bool gUseAnalogTracker(false);
+
+static osgVRPN::TrackerBase* myTrackerFactory( osgProducer::Viewer* viewer )
+{
+    if( ! gUseAnalogTracker )
+        return new osgVRPN::Tracker( "Tracker0@localhost" );
+
+    const char* deviceName( "Spaceball0@localhost" );
+    osgVRPN::AnalogTracker* trk( new osgVRPN::AnalogTracker() );
+    trk->setViewer( viewer );
+    trk->setAnalogDevice( new osgVRPN::Analog( deviceName ) );
+    trk->setTranslateChannelX(0);
+    trk->setTranslateChannelY(1);
+    trk->setTranslateChannelZ(2);
+    trk->setRotateChannelX(3);
+    trk->setRotateChannelY(4);
+    trk->setRotateChannelZ(5);
+    trk->setTranslationScale(osg::Vec3(50,50,50));
+    trk->setRotationScale(osg::Vec3(5,5,5));
+    trk->setButtonDevice( new osgVRPN::Button( deviceName ) );
+    trk->setResetButton(0);
+    return trk;
+}
 
 ///////////////////////////////////////////////////////////////////////////
 // camera manipulator's ui event handler (for keypresses etc)
@@ -76,69 +101,36 @@ private:
 
 ///////////////////////////////////////////////////////////////////////////
 
-static osgVRPN::TrackerBase* createTracker( const char* deviceName )
-{
-    return new osgVRPN::Tracker( deviceName );
-}
-
-static osgVRPN::TrackerBase* createAnalogTracker( const char* deviceName )
-{
-    osgVRPN::AnalogTracker* trk( new osgVRPN::AnalogTracker() );
-
-    trk->setAnalogDevice( new osgVRPN::Analog( deviceName ) );
-    trk->setTranslateChannelX(0);
-    trk->setTranslateChannelY(1);
-    trk->setTranslateChannelZ(2);
-    trk->setRotateChannelX(3);
-    trk->setRotateChannelY(4);
-    trk->setRotateChannelZ(5);
-    trk->setTranslationScale(osg::Vec3(50,50,50));
-    trk->setRotationScale(osg::Vec3(5,5,5));
-
-    trk->setButtonDevice( new osgVRPN::Button( deviceName ) );
-    trk->setResetButton(0);
-
-    return trk;
-}
-
-///////////////////////////////////////////////////////////////////////////
-
-osg::Node* buildScene( osgProducer::Viewer&, osgVRPN::TrackerBase* tracker )
+osg::Node* buildScene( osgVRPN::TrackerBase* tracker )
 {
     osg::Group* scene( new osg::Group );
+    osg::Geode* geode(0);
 
+    geode = new osg::Geode;
+    geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,0,-2),100,100,0.1)));
+    osg::Texture2D* tex0( new osg::Texture2D );
+    tex0->setImage( osgDB::readImageFile( "Images/lz.rgb" ) );
+    geode->getOrCreateStateSet()->setTextureAttributeAndModes( 0, tex0, osg::StateAttribute::ON );
+    scene->addChild( geode );
+
+    geode = new osg::Geode;
+    geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,0,0),3,3,0.1)));
+    geode->addDrawable(new osg::ShapeDrawable(new osg::Sphere(osg::Vec3(40,0,0),5)));
+    geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,40,0),2,9)));
+    geode->addDrawable(new osg::ShapeDrawable(new osg::Cylinder(osg::Vec3(-40,0,0),3,7)));
+    geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,-40,0),7,7,7)));
+    scene->addChild( geode );
+
+    geode = new osg::Geode;
+    geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,0,0),1,2)));
+    if( gUseTrackerTransform )
     {
-        osg::Geode* geode( new osg::Geode );
-        geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,0,0),1,2)));
-
-        if( gUseTrackerTransform )
-        {
-            osgVRPN::TrackerTransform* xform( new osgVRPN::TrackerTransform(tracker) );
-            xform->addChild( geode );
-            scene->addChild( xform );
-        }
-        else
-        {
-            scene->addChild( geode );
-        }
+        osgVRPN::TrackerTransform* xform( new osgVRPN::TrackerTransform(tracker) );
+        xform->addChild( geode );
+        scene->addChild( xform );
     }
-
+    else
     {
-        osg::Geode* geode( new osg::Geode );
-        geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,0,-2),100,100,0.1)));
-        osg::Texture2D* tex0( new osg::Texture2D );
-        tex0->setImage( osgDB::readImageFile( "Images/lz.rgb" ) );
-        geode->getOrCreateStateSet()->setTextureAttributeAndModes( 0, tex0, osg::StateAttribute::ON );
-        scene->addChild( geode );
-    }
-
-    {
-        osg::Geode* geode( new osg::Geode );
-        geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,0,0),3,3,0.1)));
-        geode->addDrawable(new osg::ShapeDrawable(new osg::Sphere(osg::Vec3(40,0,0),5)));
-        geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,40,0),2,9)));
-        geode->addDrawable(new osg::ShapeDrawable(new osg::Cylinder(osg::Vec3(-40,0,0),3,7)));
-        geode->addDrawable(new osg::ShapeDrawable(new osg::Box(osg::Vec3(0,-40,0),7,7,7)));
         scene->addChild( geode );
     }
 
@@ -167,12 +159,7 @@ int main( int argc, char *argv[] )
         return 1;
     }
 
-    osgVRPN::TrackerBase* tracker(0);
-    if( gUseAnalogTracker )
-        tracker = createAnalogTracker( "Spaceball0@localhost" );
-    else
-        tracker = createTracker( "Tracker0@localhost" );
-
+    osgVRPN::TrackerBase* tracker( myTrackerFactory( 0 /*&viewer*/ ) );
     viewer.getEventHandlerList().push_front( new AppKeyHandler( tracker ) );
 
     if( gUseTrackerManipulator )
@@ -185,14 +172,14 @@ int main( int argc, char *argv[] )
         manip->setHomeMatrix( osg::Matrix::translate(0,0,10) * osg::Matrixd::rotate(1.2,1,0,0) );
     }
 
-    viewer.setSceneData( buildScene( viewer, tracker ) );
+    viewer.setSceneData( buildScene( tracker ) );
     viewer.realize();
     while( !viewer.done() )
     {
         viewer.sync();
         viewer.update();
 
-        {   // quick hint: set clearcolor based on view orientation
+        {   // set clearcolor based on view orientation
             osg::Vec3 eye, center, up;
             viewer.getViewMatrix().getLookAt( eye, center, up );
             osg::Vec3 dirColor( center - eye );
