@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerTransform.h,v 1.7 2006/07/15 17:28:35 mew Exp $
+ * $Id: TrackerTransform.h,v 1.8 2006/07/17 11:20:22 mew Exp $
 */
 
 #ifndef OSG_TRACKERTRANSFORM
@@ -30,7 +30,7 @@ public :
                 _tracker( xform._tracker )
     {}
 
-    META_Node( osgVRPN, TrackerTransform );
+    //FUTURE META_Node( osgVRPN, TrackerTransform );
 
     /** Set/get the tracker that controls this transform, 0==none */
     void setTracker( osg::ref_ptr<TrackerBase> tracker ) { _tracker = tracker; }
