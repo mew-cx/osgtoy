@@ -13,7 +13,7 @@
  * author:    Mike Weiblen
  * copyright: (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: osgVRPNviewer.cpp,v 1.10 2006/07/17 11:19:28 mew Exp $
+ * $Id: osgVRPNviewer.cpp,v 1.11 2006/08/09 02:10:58 mew Exp $
 */
 
 #include <osg/ShapeDrawable>
@@ -24,15 +24,13 @@
 #include <osg/Texture2D>
 #include <osgDB/ReadFile>
 #include <osgProducer/Viewer>
+#include <osgUtil/Optimizer>
 
 #include <osgVRPN/TrackerBase.h>
 #include <osgVRPN/Tracker.h>
 #include <osgVRPN/AnalogTracker.h>
 #include <osgVRPN/TrackerTransform.h>
 #include <osgVRPN/TrackerManipulator.h>
-
-static bool gUseTrackerManipulator(true);
-static bool gUseTrackerTransform( ! gUseTrackerManipulator );
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -101,7 +99,7 @@ private:
 
 ///////////////////////////////////////////////////////////////////////////
 
-osg::Node* buildScene( osgVRPN::TrackerBase* tracker )
+osg::Node* buildTestScene( osgVRPN::TrackerBase* tracker, bool useTrackerTransform )
 {
     osg::Group* scene( new osg::Group );
     osg::Geode* geode(0);
@@ -123,7 +121,7 @@ osg::Node* buildScene( osgVRPN::TrackerBase* tracker )
 
     geode = new osg::Geode;
     geode->addDrawable(new osg::ShapeDrawable(new osg::Cone(osg::Vec3(0,0,0),1,2)));
-    if( gUseTrackerTransform )
+    if( useTrackerTransform )
     {
         osgVRPN::TrackerTransform* xform( new osgVRPN::TrackerTransform(tracker) );
         xform->addChild( geode );
@@ -138,6 +136,9 @@ osg::Node* buildScene( osgVRPN::TrackerBase* tracker )
 }
 
 ///////////////////////////////////////////////////////////////////////////
+
+static bool gUseTrackerManipulator(true);
+static bool gUseTrackerTransform( !gUseTrackerManipulator );
 
 int main( int argc, char *argv[] )
 {
@@ -162,6 +163,24 @@ int main( int argc, char *argv[] )
     osgVRPN::TrackerBase* tracker( myTrackerFactory( 0 /*&viewer*/ ) );
     viewer.getEventHandlerList().push_front( new AppKeyHandler( tracker ) );
 
+    osg::Node* theScene(0);
+    if( args.argc() > 1 )
+    {
+        theScene = osgDB::readNodeFiles(args);
+        if( !theScene ) 
+        {
+            std::cout << args.getApplicationName() <<": No data loaded" << std::endl;
+            return 1;
+        }
+
+        //osgUtil::Optimizer optimizer;
+        //optimizer.optimize( theScene );
+    }
+    else
+    {
+        theScene = buildTestScene( tracker, gUseTrackerTransform );
+    }
+
     if( gUseTrackerManipulator )
     {
         osgVRPN::TrackerManipulator* manip( new osgVRPN::TrackerManipulator(tracker) );
@@ -169,16 +188,22 @@ int main( int argc, char *argv[] )
         viewer.selectCameraManipulator( pos );
 
         manip->setAutoComputeHomePosition(false);
-        manip->setHomeMatrix( osg::Matrix::translate(0,0,10) * osg::Matrixd::rotate(1.2,1,0,0) );
+        //manip->setHomeMatrix( osg::Matrix::translate(0,0,10) * osg::Matrixd::rotate(1.2,1,0,0) );
+{
+    const osg::BoundingSphere& bs = theScene->getBound();
+    manip->setHomeMatrix( osg::Matrix::translate(0,0,1.5*bs._radius) * osg::Matrixd::rotate(1.2,1,0,0) );
+}
+
     }
 
-    viewer.setSceneData( buildScene( tracker ) );
+    viewer.setSceneData( theScene );
     viewer.realize();
     while( !viewer.done() )
     {
         viewer.sync();
         viewer.update();
 
+        if( 1 )
         {   // set clearcolor based on view orientation
             osg::Vec3 eye, center, up;
             viewer.getViewMatrix().getLookAt( eye, center, up );
