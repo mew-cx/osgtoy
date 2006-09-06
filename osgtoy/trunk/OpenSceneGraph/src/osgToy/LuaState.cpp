@@ -3,7 +3,7 @@
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/osg/
- * $Id: LuaState.cpp,v 1.1 2005/06/06 22:10:37 mew Exp $
+ * $Id: LuaState.cpp,v 1.2 2006/09/06 04:16:55 mew Exp $
 */
 
 #include <osgToy/LuaState>
@@ -25,24 +25,19 @@ osgToy::LuaState::LuaState() :
 {
     if( !_luaState ) throw "lua_open() failed";
 
-    static const luaL_reg libs[] = {
-        { "base",       luaopen_base },
-        { "table",      luaopen_table },
-        { "io",         luaopen_io },
-        { "string",     luaopen_string },
-        { "math",       luaopen_math },
-        { "loadlib",    luaopen_loadlib },
-        { "debug",      luaopen_debug },
+    luaL_openlibs( _luaState );
 
+    static const luaL_Reg libs[] = {
         { "osg",        luaopen_osg },
         { "osgToy",     luaopen_osgToy },
         { 0, 0 }
     };
 
-    for( const luaL_reg* lib = libs; lib->func; ++lib )
+    for( const luaL_Reg* lib = libs; lib->func; ++lib )
     {
-        lib->func( _luaState );
-        lua_settop( _luaState, 0 );     // discard any results
+        lua_pushcfunction( _luaState, lib->func );
+        lua_pushstring( _luaState, lib->name );
+        lua_call( _luaState, 1, 0 );
     }
 }
 
@@ -51,5 +46,4 @@ osgToy::LuaState::~LuaState()
     lua_close( _luaState );
 }
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:
