@@ -15,6 +15,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2005 3Dlabs Inc. Ltd.
  * license:     3Dlabs_license.txt
+ * $Id: GlslLintVisitor.cpp,v 1.6 2006/09/11 06:24:05 mew Exp $
 */
 
 #include <iostream>

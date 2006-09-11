@@ -3,7 +3,7 @@
  * copyright:   (C) 2004-2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/osg/
- * $Id: RungeKutta4.cpp,v 1.1 2005/06/06 22:10:38 mew Exp $
+ * $Id: RungeKutta4.cpp,v 1.2 2006/09/11 06:24:05 mew Exp $
 */
 
 #include <osgToy/RungeKutta4>
@@ -19,5 +19,4 @@ void osgToy::RungeKutta4::advance( float h )
     _t += h;
 }
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:

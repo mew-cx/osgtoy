@@ -1,9 +1,9 @@
 /* file:        src/osgToy/LuaState.cpp
  * author:      Mike Weiblen 2005-05-08
- * copyright:   (C) 2005 Michael Weiblen
+ * copyright:   (C) 2005-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/osg/
- * $Id: LuaState.cpp,v 1.2 2006/09/06 04:16:55 mew Exp $
+ * $Id: LuaState.cpp,v 1.3 2006/09/11 06:24:05 mew Exp $
 */
 
 #include <osgToy/LuaState>
