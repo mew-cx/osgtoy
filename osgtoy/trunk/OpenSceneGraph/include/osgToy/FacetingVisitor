@@ -11,7 +11,7 @@
  * OpenSceneGraph Public License for more details.
 */
 
-// mew 2004-12-20
+// $Id: FacetingVisitor,v 1.2 2006/09/11 06:24:04 mew Exp $
 
 #ifndef OSGTOY_FACETINGVISITOR
 #define OSGTOY_FACETINGVISITOR 1
@@ -45,5 +45,4 @@ public:
 
 #endif
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:

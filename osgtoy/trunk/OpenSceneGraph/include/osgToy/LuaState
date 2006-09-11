@@ -1,9 +1,9 @@
 /* file:        include/osgToy/LuaState
  * author:      Mike Weiblen 2005-05-08
- * copyright:   (C) 2005 Michael Weiblen
+ * copyright:   (C) 2005-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/osg/
- * $Id: LuaState,v 1.1 2005/06/06 22:10:37 mew Exp $
+ * $Id: LuaState,v 1.2 2006/09/11 06:24:04 mew Exp $
  *
  * see: http://lua.org/
 */
@@ -32,5 +32,4 @@ private:
 
 #endif
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:

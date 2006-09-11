@@ -1,9 +1,9 @@
 /* file:        src/osgToy/lua_osgToy.cpp
  * author:      Mike Weiblen 2005-05-08
- * copyright:   (C) 2005 Michael Weiblen
+ * copyright:   (C) 2005-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/osg/
- * $Id: lua_osgToy.cpp,v 1.1 2005/06/06 22:10:37 mew Exp $
+ * $Id: lua_osgToy.cpp,v 1.2 2006/09/11 06:24:05 mew Exp $
 */
 
 #include <osg/Node>
@@ -119,5 +119,4 @@ int luaopen_osgToy( lua_State* L )
     return 1;     // the library's table on the stack
 }
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:

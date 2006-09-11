@@ -13,6 +13,7 @@
 
 // mew 2004-12-21
 // derived from osgUtil::SmoothingVisitor.cpp
+// $Id: FacetingVisitor.cpp,v 1.2 2006/09/11 06:24:05 mew Exp $
 
 #include <osg/TriangleIndexFunctor>
 
@@ -110,5 +111,4 @@ void osgToy::FacetingVisitor::apply(osg::Geode& geode)
     }
 }
 
-/* vim: set sw=4 ts=8 et ic ai: */
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:
