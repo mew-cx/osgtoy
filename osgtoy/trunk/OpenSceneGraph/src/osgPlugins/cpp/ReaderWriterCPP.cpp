@@ -14,7 +14,7 @@
  * author:    Mike Weiblen http://mew.cx/
  * copyright: (C) 2007 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id 2007-02-03 $
+ * $Id: ReaderWriterCPP.cpp,v 1.2 2007/02/17 04:42:00 mew Exp $
 */
 
 #include <osg/Notify>
@@ -46,6 +46,10 @@ public:
         {
             fout << image;
             return WriteResult::FILE_SAVED;
+        }
+        catch( const std::exception& e )
+        {
+            osg::notify(osg::WARN) << EXTENSION_NAME << " plugin: writing osg::Image caught exception: " << e.what() << std::endl;
         }
         catch( ... )
         {
