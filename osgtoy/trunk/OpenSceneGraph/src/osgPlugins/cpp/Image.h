@@ -2,7 +2,7 @@
  * author:    Mike Weiblen http://mew.cx/
  * copyright: (C) 2007 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id 2007-02-03 $
+ * $Id: Image.h,v 1.2 2007/02/17 04:41:44 mew Exp $
 */
 
 #ifndef OSGPLUGIN_CPP_IMAGE_H
