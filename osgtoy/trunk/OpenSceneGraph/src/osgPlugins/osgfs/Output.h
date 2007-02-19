@@ -15,7 +15,7 @@
  * author:    Mike Weiblen http://mew.cx/
  * copyright: (C) 2007 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: Output.h,v 1.1 2007/02/18 22:21:59 mew Exp $
+ * $Id: Output.h,v 1.2 2007/02/19 15:16:16 mew Exp $
 */
 
 #ifndef OSGFS_OUTPUT
@@ -71,7 +71,12 @@ class Output : public osgDB::Output  // formerly public std::ofstream
         void moveOut();
         
         virtual bool writeObject(const osg::Object& obj);
-        
+#endif
+        virtual void writeBeginObject( const char* name );
+        virtual void writeEndObject();
+        virtual void writeUseID( const char* id );
+        virtual void writeUniqueID( const char* id );
+#if 0
 
         bool getUniqueIDForObject(const osg::Object* obj,std::string& uniqueID);
         bool createUniqueIDForObject(const osg::Object* obj,std::string& uniqueID);
