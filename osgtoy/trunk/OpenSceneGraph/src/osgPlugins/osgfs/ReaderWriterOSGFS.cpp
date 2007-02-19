@@ -14,7 +14,7 @@
  * author:    Mike Weiblen http://mew.cx/
  * copyright: (C) 2007 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterOSGFS.cpp,v 1.1 2007/02/18 22:21:59 mew Exp $
+ * $Id: ReaderWriterOSGFS.cpp,v 1.2 2007/02/19 15:15:45 mew Exp $
 */
 
 #include <sstream>
@@ -30,6 +30,8 @@
 #include "Input.h"
 #include "Output.h"
 
+#define EXTENSION_NAME "osgfs"
+
 using namespace osg;
 using namespace osgDB;
 
@@ -40,7 +42,7 @@ class OSGFSReaderWriter : public ReaderWriter
 
         virtual bool acceptsExtension(const std::string& extension) const
         {
-            return equalCaseInsensitive(extension,"osgfs");
+            return equalCaseInsensitive( extension, EXTENSION_NAME );
         }
 
         virtual ReadResult readObject(const std::string& fileName, const Options* opt) const { return readNode(fileName, opt); }
@@ -141,7 +143,6 @@ class OSGFSReaderWriter : public ReaderWriter
             if (fout)
             {
                 setPrecision(fout,options);
-
                 fout.writeObject(obj);
                 fout.close();
                 return WriteResult::FILE_SAVED;
@@ -160,7 +161,6 @@ class OSGFSReaderWriter : public ReaderWriter
             if (fout)
             {
                 setPrecision(foutput,options);
-
                 foutput.writeObject(obj);
                 return WriteResult::FILE_SAVED;
             }
@@ -170,41 +170,13 @@ class OSGFSReaderWriter : public ReaderWriter
 
         virtual WriteResult writeNode(const Node& node,const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
         {
-            std::string ext = getFileExtension(fileName);
-            if (!acceptsExtension(ext)) return WriteResult::FILE_NOT_HANDLED;
-
-
-            plugin_osgfs::Output fout(fileName.c_str());
-            fout.setOptions(options);
-            if (fout)
-            {
-                setPrecision(fout,options);
-
-                fout.writeObject(node);
-                fout.close();
-                return WriteResult::FILE_SAVED;
-            }
-            return WriteResult("Unable to open file for output");
+            return writeObject( node, fileName, options );
         }
 
         virtual WriteResult writeNode(const Node& node,std::ostream& fout, const osgDB::ReaderWriter::Options* options) const
         {
-            plugin_osgfs::Output foutput;
-            foutput.setOptions(options);
-
-            std::ios &fios = foutput;
-            fios.rdbuf(fout.rdbuf());
-
-            if (fout)
-            {
-                setPrecision(foutput,options);
-
-                foutput.writeObject(node);
-                return WriteResult::FILE_SAVED;
-            }
-            return WriteResult("Unable to write to output stream");
+            return writeObject( node, fout, options );
         }
-
 };
 
 // now register with Registry to instantiate the above reader/writer.
