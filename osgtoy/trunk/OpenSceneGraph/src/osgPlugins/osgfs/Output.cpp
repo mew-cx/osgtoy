@@ -15,7 +15,7 @@
  * author:    Mike Weiblen http://mew.cx/
  * copyright: (C) 2007 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: Output.cpp,v 1.1 2007/02/18 22:21:59 mew Exp $
+ * $Id: Output.cpp,v 1.2 2007/02/19 15:16:16 mew Exp $
 */
 
 #include <osgDB/Registry>
@@ -116,7 +116,29 @@ bool Output::writeObject(const osg::Object& obj)
 {
     return Registry::instance()->writeObject(obj,*this);
 }
+#endif
 
+void Output::writeBeginObject( const char* name )
+{
+    indent() << name << " { /*BEGIN*/" << std::endl;
+}
+
+void Output::writeEndObject()
+{
+    indent() << "} /*END*/" << std::endl;
+}
+
+void Output::writeUseID( const char* id )
+{
+    indent() << "Use " << id << " /*USE*/" << std::endl;
+}
+
+void Output::writeUniqueID( const char* id )
+{
+    indent() << "UniqueID " << id << " /*UNIQUEID*/" << std::endl;
+}
+
+#if 0
 bool Output::getUniqueIDForObject(const osg::Object* obj,std::string& uniqueID)
 {
     UniqueIDToLabelMapping::iterator fitr = _objectToUniqueIDMap.find(obj);
