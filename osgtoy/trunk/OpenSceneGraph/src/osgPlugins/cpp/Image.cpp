@@ -2,64 +2,50 @@
  * author:    Mike Weiblen http://mew.cx/
  * copyright: (C) 2007 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: Image.cpp,v 1.2 2007/02/17 04:41:44 mew Exp $
+ * $Id: Image.cpp,v 1.3 2007/02/23 16:26:55 mew Exp $
 */
 
 #include "Image.h"
 
-#if 1 //[
-
-osg::Image* makeOsgImage(
-    const int width,
-    const int height,
-    const int depth,
-    const GLint internalFormat,
-    const GLenum pixelFormat,
-    const GLenum dataType,
-    const unsigned int packing,
-    const unsigned int pixBits,
-    const unsigned int numMips,
-    const unsigned int* mipData,
-    const unsigned int numBytes,
-    const unsigned char* pixBytes )
+#if 1
+osg::Image* MakeImage()
 {
+#include "test.cpp"
+#ifdef ARGS_OSG_SETIMAGE
     osg::Image* img( new osg::Image );
+    img->setImage( ARGS_OSG_SETIMAGE );
 
-    img->setImage( width, height, depth, internalFormat, pixelFormat,
-            dataType, const_cast<unsigned char*>(pixBytes),
-            osg::Image::USE_NEW_DELETE, packing );
+    //glTexImage2D( ARGS_GL_TEXIMAGE2D );
 
-    if( numMips && mipData )
+    if( NUMMIPS && MIPDATA )
     {
-        osg::Image::MipmapDataType mipmapData( numMips );
-        for( unsigned int i=0; i<numMips; ++i ) mipmapData[i] = mipData[i];
+        osg::Image::MipmapDataType mipmapData( NUMMIPS );
+        for( unsigned int i=0; i<NUMMIPS; ++i ) mipmapData[i] = MIPDATA[i];
         img->setMipmapLevels( mipmapData );
     }
     return img;
-}
-
-
-osg::Image* MakeImage()
-{
-#include "z.cpp"
-#ifdef MAKE_IMAGE
-    return MAKE_IMAGE(makeOsgImage);
-#undef MAKE_IMAGE
 #else
 //#error "missing image?"
     return 0;
 #endif
 }
-
-#endif //]
+#endif
 
 
 std::ostream& cpp::operator<< (std::ostream& fout, const osg::Image& img )
 {
-    fout << "#define MAKE_IMAGE(func) "
-        "func(WIDTH,HEIGHT,DEPTH,INTERNALFORMAT,PIXELFORMAT,DATATYPE,"
-        "PACKING,PIXBITS,NUMMIPS,MIPDATA,NUMBYTES,PIXBYTES)" << std::endl;
+    fout << "// DO NOT EDIT -- generated with osgdb_cpp plugin -- http://mew.cx/\n" << std::endl;
 
+    fout << "#define ARGS_OSG_SETIMAGE "
+        "WIDTH,HEIGHT,DEPTH,INTERNALFORMAT,PIXELFORMAT,DATATYPE,"
+        "const_cast<unsigned char*>(PIXDATA),"
+        "osg::Image::USE_NEW_DELETE,PACKING\n" << std::endl;
+
+    fout << "#define ARGS_GL_TEXIMAGE2D "
+        "GL_TEXTURE_2D,0,INTERNALFORMAT,WIDTH,HEIGHT,0,"
+        "PIXELFORMAT,DATATYPE,PIXDATA\n" << std::endl;
+
+    fout << "const char* NAME = \""  << img.getName() << "\";" << std::endl;
     fout << "const int WIDTH = "  << img.s() << ";" << std::endl;
     fout << "const int HEIGHT = " << img.t() << ";" << std::endl;
     fout << "const int DEPTH = "  << img.r() << ";" << std::endl;
@@ -89,18 +75,18 @@ std::ostream& cpp::operator<< (std::ostream& fout, const osg::Image& img )
     {
         const unsigned int numBytes( img.getTotalSizeInBytesIncludingMipmaps() );
         fout << "const unsigned int NUMBYTES = " << numBytes << ";" << std::endl;
-        fout << "const unsigned char PIXBYTES[NUMBYTES] = { " << std::hex;
+        fout << "const unsigned char PIXDATA[NUMBYTES] = { ";
         for( unsigned int i=0; i < numBytes; ++i )
         {
-            if( !(i%16) ) fout << std::endl << "\t";  // arbitrary linebreaks
-            fout << "0x" << (unsigned int)data[i] << ",";
+            if( !(i%16) ) fout << "\n\t";    // occasional linebreaks
+            fout << (unsigned int)data[i] << ",";
         }
-        fout << std::endl << std::dec << "};" << std::endl;
+        fout << "\n};" << std::endl;
     }
     else
     {
         fout << "const unsigned int NUMBYTES = 0;" << std::endl;
-        fout << "const unsigned char* PIXBYTES = 0;" << std::endl;
+        fout << "const unsigned char* PIXDATA = 0;" << std::endl;
     }
 
     return fout;
