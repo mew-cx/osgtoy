@@ -26,16 +26,19 @@ int main( int argc, char *argv[] )
         args.getApplicationUsage()->write(std::cout,osg::ApplicationUsage::COMMAND_LINE_OPTION);
         return 1;
     }
+
     const std::string fileNameIn( args[1] );
     const std::string fileNameOut( args[2] );
 
-    osg::ref_ptr<osg::Image> img = osgDB::readImageFile( fileNameIn );
+    osg::ref_ptr<osg::Image> img( osgDB::readImageFile( fileNameIn ) );
     if( !img.valid() )
     {
         osg::notify(osg::WARN) << "cant read file " << fileNameIn << std::endl;
         return 1;
     }
-    else if( !osgDB::writeImageFile( *img, fileNameOut ) )
+
+    img->setName( fileNameIn );
+    if( !osgDB::writeImageFile( *img, fileNameOut ) )
     {
         osg::notify(osg::WARN) << "cant write file " << fileNameOut << std::endl;
         return 2;
