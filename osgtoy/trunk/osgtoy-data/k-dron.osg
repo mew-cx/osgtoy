@@ -1,5 +1,5 @@
 COMMENT {
-  "$Id: k-dron.osg,v 1.1 2007/03/18 02:20:07 mew Exp $"
+  "$Id: k-dron.osg,v 1.2 2007/03/18 04:52:19 mew Exp $"
   "see http://www.k-dron.com/"
 }
 
@@ -10,6 +10,9 @@ Geode {
   num_drawables 1
   Geometry {
     DataVariance DYNAMIC
+    StateSet {
+      GL_CULL_FACE ON
+    }
     useDisplayList TRUE
     useVertexBufferObjects FALSE
     PrimitiveSets 1
@@ -21,7 +24,7 @@ Geode {
         15 15 16 13 17 18 19 20 21 22
         23 24 25 26 27 28 29 30 31 31
         32 29 33 34 36 34 35 36 36 37
-        33 
+        33
       }
     }
     VertexArray Vec3Array 38
