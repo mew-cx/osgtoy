@@ -1,36 +1,10 @@
 /* file:      src/osgPlugins/hpp/Image.cpp
- * author:    Mike Weiblen
  * copyright: (C) 2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: Image.cpp,v 1.4 2007/03/18 05:38:08 mew Exp $
+ * $Id: Image.cpp,v 1.5 2007/03/18 23:51:04 mew Exp $
 */
 
 #include "Image.h"
-
-#if 1
-osg::Image* MakeImage()
-{
-#include "test.hpp"
-#ifdef ARGS_OSG_SETIMAGE
-    osg::Image* img( new osg::Image );
-    img->setImage( ARGS_OSG_SETIMAGE );
-
-    //glTexImage2D( ARGS_GL_TEXIMAGE2D );
-
-    if( NUM_MIP_LEVELS && MIP_OFFSET )
-    {
-        osg::Image::MipmapDataType mipmapData( NUM_MIP_LEVELS );
-        for( unsigned int i=0; i<NUM_MIP_LEVELS; ++i ) mipmapData[i] = MIP_OFFSET[i];
-        img->setMipmapLevels( mipmapData );
-    }
-    return img;
-#else
-//#error "missing image?"
-    return 0;
-#endif
-}
-#endif
-
 
 static const char* enumToStr( GLenum glenum )
 {
@@ -57,19 +31,9 @@ static const char* enumToStr( GLenum glenum )
     return "???";
 }
 
-
 std::ostream& hpp::operator<< (std::ostream& fout, const osg::Image& img )
 {
-    fout << "// DO NOT EDIT -- generated with osgdb_hpp plugin -- http://mew.cx/" << std::endl;
-
-//    fout << "#define ARGS_OSG_SETIMAGE "
-//        "WIDTH,HEIGHT,DEPTH,INTERNAL_FORMAT,PIXEL_FORMAT,DATATYPE,"
-//        "const_cast<unsigned char*>(PIXEL_DATA),"
-//        "osg::Image::USE_NEW_DELETE,PACKING\n" << std::endl;
-
-//    fout << "#define ARGS_GL_TEXIMAGE2D "
-//        "GL_TEXTURE_2D,0,INTERNAL_FORMAT,WIDTH,HEIGHT,0,"
-//        "PIXEL_FORMAT,DATATYPE,PIXEL_DATA\n" << std::endl;
+    fout << "// DO NOT EDIT : OpenGL image data generated with osgdb_hpp plugin -- http://mew.cx/" << std::endl;
 
     fout << "static const char* NAME = \""  << img.getName() << "\";" << std::endl;
     fout << "static const int WIDTH = "  << img.s() << ";" << std::endl;
@@ -87,8 +51,8 @@ std::ostream& hpp::operator<< (std::ostream& fout, const osg::Image& img )
     fout << "static const unsigned int NUM_MIP_LEVELS = " << numMips << ";" << std::endl;
     if( numMips )
     {
-        fout << "static const unsigned int MIP_OFFSET[] = { ";
-        for( int i=0; i < numMips; ++i ) fout << mipmapData[i] << ",";
+        fout << "static const unsigned int MIP_OFFSET[NUM_MIP_LEVELS] = { ";
+        for( int i=0; i < numMips; ++i )   fout << mipmapData[i] << ",";
         fout << "};" << std::endl;
     }
     else
@@ -104,7 +68,7 @@ std::ostream& hpp::operator<< (std::ostream& fout, const osg::Image& img )
         fout << "static const unsigned char PIXEL_DATA[TOTAL_NUM_BYTES] = { ";
         for( unsigned int i=0; i < numBytes; ++i )
         {
-            if( !(i%16) ) fout << "\n\t";    // occasional linebreaks
+            if( !(i%16) ) fout << "\n\t";    // occasional linebreak
             fout << (unsigned int)data[i] << ",";
         }
         fout << "\n};" << std::endl;
