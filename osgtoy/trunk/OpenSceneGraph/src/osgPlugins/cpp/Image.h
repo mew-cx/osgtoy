@@ -1,8 +1,7 @@
 /* file:      src/osgPlugins/hpp/Image.h
- * author:    Mike Weiblen
  * copyright: (C) 2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: Image.h,v 1.3 2007/03/18 05:36:12 mew Exp $
+ * $Id: Image.h,v 1.4 2007/03/18 23:51:04 mew Exp $
 */
 
 #ifndef OSGPLUGIN_HPP_IMAGE_H

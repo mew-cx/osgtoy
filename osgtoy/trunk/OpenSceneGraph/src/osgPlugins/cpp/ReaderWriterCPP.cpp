@@ -11,10 +11,9 @@
 */
 
 /* file:      src/osgPlugins/hpp/ReaderWriterHPP.cpp
- * author:    Mike Weiblen
  * copyright: (C) 2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterCPP.cpp,v 1.3 2007/03/18 05:36:12 mew Exp $
+ * $Id: ReaderWriterCPP.cpp,v 1.4 2007/03/18 23:51:04 mew Exp $
 */
 
 #include <osg/Notify>
