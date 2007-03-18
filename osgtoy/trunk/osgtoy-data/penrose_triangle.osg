@@ -1,5 +1,5 @@
 COMMENT {
-  $Id: penrose_triangle.osg,v 1.3 2005/10/11 17:37:40 mew Exp $
+  $Id: penrose_triangle.osg,v 1.4 2007/03/18 04:56:15 mew Exp $
   "The impossible triangle of Reutersvard and Penrose"
   "See http://www.cs.technion.ac.il/~gershon/EscherForReal/"
 }

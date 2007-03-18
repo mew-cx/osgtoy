@@ -1,5 +1,5 @@
 COMMENT {
-  "$Id: octostrip.osg,v 1.4 2006/05/03 08:32:49 mew Exp $"
+  "$Id: octostrip.osg,v 1.5 2007/03/18 04:56:15 mew Exp $"
   "A minimal octahedron rendered using a tristrip."
   "Useful as an alignment fiducial by sighting thru the missing faces."
 }
