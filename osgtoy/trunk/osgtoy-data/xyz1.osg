@@ -1,5 +1,5 @@
 COMMENT {
-  "$Id: xyz1.osg,v 1.3 2005/12/01 00:57:04 mew Exp $"
+  "$Id: xyz1.osg,v 1.4 2007/03/18 04:56:15 mew Exp $"
   "An axis alignment and scene measurement tool."
   "The arm colors RGB correspond to the axis directions XYZ."
   "The arrowhead points along the positive axis direction."
