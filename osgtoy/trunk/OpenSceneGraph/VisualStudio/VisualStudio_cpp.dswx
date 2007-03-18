@@ -1,7 +1,7 @@
 
 ###############################################################################
 
-Project: "osgPlugin cpp"=.\osgPlugins\cpp\cpp.dsp - Package Owner=<4>
+Project: "osgPlugin hpp"=.\osgPlugins\cpp\cpp.dsp - Package Owner=<4>
 
 Package=<5>
 {{{

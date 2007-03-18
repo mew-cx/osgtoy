@@ -1,27 +1,27 @@
-# Microsoft Developer Studio Project File - Name="osgPlugin cpp" - Package Owner=<4>
+# Microsoft Developer Studio Project File - Name="osgPlugin hpp" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** DO NOT EDIT **
 
 # TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
 # TARGTYPE "Win32 (x86) Static Library" 0x0104
 
-CFG=osgPlugin cpp - Win32 Release
+CFG=osgPlugin hpp - Win32 Release
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
-!MESSAGE NMAKE /f "cpp.mak".
+!MESSAGE NMAKE /f "hpp.mak".
 !MESSAGE 
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "cpp.mak" CFG="osgPlugin cpp - Win32 Release"
+!MESSAGE NMAKE /f "hpp.mak" CFG="osgPlugin hpp - Win32 Release"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
-!MESSAGE "osgPlugin cpp - Win32 Release" (based on "Win32 (x86) Dynamic-Link Library")
-!MESSAGE "osgPlugin cpp - Win32 Debug" (based on "Win32 (x86) Dynamic-Link Library")
-!MESSAGE "osgPlugin cpp - Win32 Release Static" (based on "Win32 (x86) Static Library")
-!MESSAGE "osgPlugin cpp - Win32 Debug Static" (based on "Win32 (x86) Static Library")
+!MESSAGE "osgPlugin hpp - Win32 Release" (based on "Win32 (x86) Dynamic-Link Library")
+!MESSAGE "osgPlugin hpp - Win32 Debug" (based on "Win32 (x86) Dynamic-Link Library")
+!MESSAGE "osgPlugin hpp - Win32 Release Static" (based on "Win32 (x86) Static Library")
+!MESSAGE "osgPlugin hpp - Win32 Debug Static" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -32,7 +32,7 @@ CPP=cl.exe
 MTL=midl.exe
 RSC=rc.exe
 
-!IF  "$(CFG)" == "osgPlugin cpp - Win32 Release"
+!IF  "$(CFG)" == "osgPlugin hpp - Win32 Release"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 0
@@ -57,10 +57,10 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 OpenThreadsWin32.lib /nologo /dll /debug /machine:I386 /nodefaultlib:"LIBC" /out:"$(OutDir)/osgdb_cpp.dll" /implib:"../../../lib/$(PlatformName)/osgdb_cpp.lib" /libpath:"../../../lib/$(PlatformName)" /libpath:"../../../../OpenThreads/lib/$(PlatformName)" /libpath:"../../../../Producer/lib/$(PlatformName)" /libpath:"../../../../3rdParty/lib/$(PlatformName)" /libpath:"../../../../3rdParty/lib"
+# ADD LINK32 OpenThreadsWin32.lib /nologo /dll /debug /machine:I386 /nodefaultlib:"LIBC" /out:"$(OutDir)/osgdb_hpp.dll" /implib:"../../../lib/$(PlatformName)/osgdb_hpp.lib" /libpath:"../../../lib/$(PlatformName)" /libpath:"../../../../OpenThreads/lib/$(PlatformName)" /libpath:"../../../../Producer/lib/$(PlatformName)" /libpath:"../../../../3rdParty/lib/$(PlatformName)" /libpath:"../../../../3rdParty/lib"
 # SUBTRACT LINK32 /nodefaultlib
 
-!ELSEIF  "$(CFG)" == "osgPlugin cpp - Win32 Debug"
+!ELSEIF  "$(CFG)" == "osgPlugin hpp - Win32 Debug"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 1
@@ -85,10 +85,10 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 OpenThreadsWin32d.lib /nologo /dll /debug /machine:I386 /nodefaultlib:"LIBC" /out:"$(OutDir)/osgdb_cppD.dll" /pdbtype:sept /implib:"../../../lib/$(PlatformName)/osgdb_cppD.lib" /libpath:"../../../lib/$(PlatformName)" /libpath:"../../../../OpenThreads/lib/$(PlatformName)" /libpath:"../../../../Producer/lib/$(PlatformName)" /libpath:"../../../../3rdParty/lib/$(PlatformName)" /libpath:"../../../../3rdParty/lib"
+# ADD LINK32 OpenThreadsWin32d.lib /nologo /dll /debug /machine:I386 /nodefaultlib:"LIBC" /out:"$(OutDir)/osgdb_hppD.dll" /pdbtype:sept /implib:"../../../lib/$(PlatformName)/osgdb_hppD.lib" /libpath:"../../../lib/$(PlatformName)" /libpath:"../../../../OpenThreads/lib/$(PlatformName)" /libpath:"../../../../Producer/lib/$(PlatformName)" /libpath:"../../../../3rdParty/lib/$(PlatformName)" /libpath:"../../../../3rdParty/lib"
 # SUBTRACT LINK32 /nodefaultlib
 
-!ELSEIF  "$(CFG)" == "osgPlugin cpp - Win32 Release Static"
+!ELSEIF  "$(CFG)" == "osgPlugin hpp - Win32 Release Static"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 0
@@ -113,10 +113,10 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
-# ADD LIB32 /nodefaultlib /nologo /out:"$(OutDir)/osgdb_cpp_s.lib"
+# ADD LIB32 /nodefaultlib /nologo /out:"$(OutDir)/osgdb_hpp_s.lib"
 # SUBTRACT LIB32 /nodefaultlib
 
-!ELSEIF  "$(CFG)" == "osgPlugin cpp - Win32 Debug Static"
+!ELSEIF  "$(CFG)" == "osgPlugin hpp - Win32 Debug Static"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 1
@@ -141,17 +141,17 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
-# ADD LIB32 /nodefaultlib /nologo /out:"$(OutDir)/osgdb_cppD_s.lib"
+# ADD LIB32 /nodefaultlib /nologo /out:"$(OutDir)/osgdb_hppD_s.lib"
 # SUBTRACT LIB32 /nodefaultlib
 
 !ENDIF 
 
 # Begin Target
 
-# Name "osgPlugin cpp - Win32 Release"
-# Name "osgPlugin cpp - Win32 Debug"
-# Name "osgPlugin cpp - Win32 Release Static"
-# Name "osgPlugin cpp - Win32 Debug Static"
+# Name "osgPlugin hpp - Win32 Release"
+# Name "osgPlugin hpp - Win32 Debug"
+# Name "osgPlugin hpp - Win32 Release Static"
+# Name "osgPlugin hpp - Win32 Debug Static"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
