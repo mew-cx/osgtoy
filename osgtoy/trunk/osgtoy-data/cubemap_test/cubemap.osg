@@ -1,3 +1,7 @@
+COMMENT {
+  "$Id: cubemap.osg,v 1.4 2007/03/18 05:12:49 mew Exp $"
+}
+
 Group {
   DataVariance STATIC
   nodeMask 0xffffffff
