@@ -10,11 +10,11 @@
  *
 */
 
-/* file:      src/osgPlugins/cpp/ReaderWriterCPP.cpp
- * author:    Mike Weiblen http://mew.cx/
- * copyright: (C) 2007 Michael Weiblen
+/* file:      src/osgPlugins/hpp/ReaderWriterHPP.cpp
+ * author:    Mike Weiblen
+ * copyright: (C) 2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterCPP.cpp,v 1.2 2007/02/17 04:42:00 mew Exp $
+ * $Id: ReaderWriterCPP.cpp,v 1.3 2007/03/18 05:36:12 mew Exp $
 */
 
 #include <osg/Notify>
@@ -24,16 +24,16 @@
 
 #include "Image.h"
 
-#define EXTENSION_NAME "cpp"
+#define EXTENSION_NAME "hpp"
 
-using namespace cpp;
+using namespace hpp;
 
-class ReaderWriterCPP : public osgDB::ReaderWriter
+class ReaderWriterHPP : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterCPP() {}
+    ReaderWriterHPP() {}
     
-    virtual const char* className() const { return "CPP source writer"; }
+    virtual const char* className() const { return "HPP source writer"; }
 
     virtual bool acceptsExtension(const std::string& extension) const
     { 
@@ -71,6 +71,6 @@ public:
 };
 
 // Add ourself to the Registry to instantiate the reader/writer.
-osgDB::RegisterReaderWriterProxy<ReaderWriterCPP> g_readerWriter_CPP_Proxy;
+osgDB::RegisterReaderWriterProxy<ReaderWriterHPP> g_readerWriter_HPP_Proxy;
 
 // vim: set sw=4 ts=8 et ic ai:
