@@ -1,17 +1,17 @@
-/* file:      src/osgPlugins/cpp/Image.cpp
- * author:    Mike Weiblen http://mew.cx/
- * copyright: (C) 2007 Michael Weiblen
+/* file:      src/osgPlugins/hpp/Image.h
+ * author:    Mike Weiblen
+ * copyright: (C) 2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: Image.h,v 1.2 2007/02/17 04:41:44 mew Exp $
+ * $Id: Image.h,v 1.3 2007/03/18 05:36:12 mew Exp $
 */
 
-#ifndef OSGPLUGIN_CPP_IMAGE_H
-#define OSGPLUGIN_CPP_IMAGE_H
+#ifndef OSGPLUGIN_HPP_IMAGE_H
+#define OSGPLUGIN_HPP_IMAGE_H
 
 #include <iostream>
 #include <osg/Image>
 
-namespace cpp
+namespace hpp
 {
 
 std::ostream& operator << (std::ostream& fout, const osg::Image& img );
