@@ -1,3 +1,7 @@
+COMMENT {
+  "$Id: octahedron.osg,v 1.2 2007/03/18 05:02:25 mew Exp $"
+}
+
 Geode {
   UniqueID Geode_0
   DataVariance DYNAMIC
@@ -6,6 +10,9 @@ Geode {
   num_drawables 1
   Geometry {
     DataVariance DYNAMIC
+    StateSet {
+      GL_CULL_FACE ON
+    }
     useDisplayList TRUE
     useVertexBufferObjects FALSE
     PrimitiveSets 1
