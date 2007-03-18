@@ -1,3 +1,7 @@
+COMMENT {
+  "$Id: glsllint_errors.osg,v 1.2 2007/03/18 05:01:37 mew Exp $"
+}
+
 Group {
   UniqueID Group_0
   DataVariance DYNAMIC
