@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2005-2007 Michael Weiblen  http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: superviewer.cpp,v 1.1 2007/02/17 05:00:57 mew Exp $
+ * $Id: superviewer.cpp,v 1.2 2007/04/15 13:27:51 mew Exp $
 */
 
 /* TODOs
@@ -47,7 +47,7 @@
 // from osgmultiplecameras
 
 #define ENABLE_REAR_VIEW 0
-#ifdef ENABLE_REAR_VIEW //[
+#if ENABLE_REAR_VIEW //[
 osg::Node* createRearView(osg::Node* subgraph, const osg::Vec4& clearColour)
 {
     osg::CameraNode* camera = new osg::CameraNode;
@@ -73,8 +73,8 @@ osg::Node* createRearView(osg::Node* subgraph, const osg::Vec4& clearColour)
 ///////////////////////////////////////////////////////////////////////////
 // from osghud
 
-#define ENABLE_HUD 0
-#ifdef ENABLE_HUD //[
+#define ENABLE_HUD 1
+#if ENABLE_HUD //[
 osg::Node* createHUD()
 {
     osg::Geode* geode = new osg::Geode();
@@ -95,6 +95,8 @@ osg::Node* createHUD()
         geode->addDrawable( text );
     }
 
+    // frame behind text
+#if 0
     {
         osg::BoundingBox bb;
         for(unsigned int i=0;i<geode->getNumDrawables();++i)
@@ -130,6 +132,7 @@ osg::Node* createHUD()
 
         geode->addDrawable( geom );
     }
+#endif
 
     osg::CameraNode* camera = new osg::CameraNode;
     camera->setProjectionMatrix( osg::Matrix::ortho2D(0,1280,0,1024) );
@@ -387,14 +390,14 @@ int main( int argc, char **argv )
 
     viewer.getEventHandlerList().push_front( new svUtil::EventHandler );
 
-#ifdef ENABLE_REAR_VIEW //[
+#if ENABLE_REAR_VIEW //[
     osg::Group* group = new osg::Group;
     group->addChild( scene );
     group->addChild( createRearView( scene, viewer.getClearColor() ) );
     scene = group;
 #endif //]
 
-#ifdef ENABLE_HUD //[
+#if ENABLE_HUD //[
     scene->addChild( createHUD() );
 #endif //]
 
