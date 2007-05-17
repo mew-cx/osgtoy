@@ -1,37 +1,35 @@
 REM $Id$
-REM configure the environment for OSG development
-REM you will want to ensure/adjust this is to your liking
+REM configure the environment for development, adjust to your liking
 
-REM default settings ======================================================
+REM defaults ==============================================================
 
 set PROJECT=osgdvl
-
 set ROOTDIR=%CD%
 set USRTMP=C:\_tmp
-if "%VS80COMNTOOLS%"=="" (
-set VS80COMNTOOLS=NO_VS8_INSTALLED
-)
-set VSIDE="%VS80COMNTOOLS%..\IDE\devenv.exe"
 
-REM host-specific settings ================================================
+set VSIDE="VS_NOT_FOUND"
+if NOT "%VS80COMNTOOLS%"=="" (
+set VSIDE="%VS80COMNTOOLS%..\IDE\devenv.exe"
+)
+
+REM host-specific overrides ===============================================
 
 if %COMPUTERNAME%==GLOW (
 set USRTMP=E:\_tmp
 set VSIDE="%VS71COMNTOOLS%..\IDE\devenv.exe"
 )
 
-REM other settings ========================================================
+REM project settings ======================================================
 
 set BUILDDIR=%USRTMP%\%PROJECT%_build
 set INSTALLDIR=%USRTMP%\%PROJECT%_install
-
 set SOLUTION=%BUILDDIR%\%PROJECT%.sln
 
 REM OSG runtime settings ==================================================
 
-set OSG_NOTIFY_LEVEL=INFO
-
 set DEBUG=D
+
+set OSG_NOTIFY_LEVEL=INFO
 
 REM set OSG_GL_EXTENSION_DISABLE=GL_SGIS_generate_mipmap
 
@@ -42,16 +40,12 @@ REM executable paths ======================================================
 
 set PATH=%ROOTDIR%\3rdParty\bin;%PATH%
 
-set PATH=%BUILDDIR%\bin\debug;%PATH%
-set PATH=%BUILDDIR%\lib\debug;%PATH%
-set PATH=%BUILDDIR%\lib\osgPlugins\debug;%PATH%
+set PATH=%BUILDDIR%\OpenSceneGraph\bin\debug;%PATH%
+set PATH=%BUILDDIR%\OpenSceneGraph\lib\debug;%PATH%
+set PATH=%BUILDDIR%\OpenSceneGraph\lib\osgPlugins\debug;%PATH%
+
 REM set PATH=%INSTALLDIR%\bin;%PATH%
 REM set PATH=%INSTALLDIR%\share\OpenSceneGraph\bin;%PATH%
-
-REM set TCL84_ROOT=C:\Tcl
-REM set PATH=%TCL84_ROOT%\bin;%PATH%
-
-REM set PATH=%ROOTDIR%\osgEphemeris\bin;%PATH%
 
 REM data paths ============================================================
 
@@ -68,6 +62,8 @@ set X=%ROOTDIR%\osgToy\osgtoy-data
 set OSG_FILE_PATH=%X%;%OSG_FILE_PATH%
 set OSG_FILE_PATH=%X%\Images;%OSG_FILE_PATH%
 set OSG_FILE_PATH=%X%\shaders;%OSG_FILE_PATH%
+
+set X=
 
 REM show current configuration for review =================================
 REM set
