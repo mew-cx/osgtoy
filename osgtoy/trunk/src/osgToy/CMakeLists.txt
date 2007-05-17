@@ -8,13 +8,19 @@ ENDIF(DYNAMIC_OPENSCENEGRAPH)
 SET(LIB_NAME osgToy)
 SET(HEADER_PATH ${osgToy_SOURCE_DIR}/include/${LIB_NAME})
 SET(LIB_PUBLIC_HEADERS
-    ${HEADER_PATH}/Analog.h
-    ${HEADER_PATH}/AnalogTracker.h
-    ${HEADER_PATH}/Button.h
-    ${HEADER_PATH}/Tracker.h
-    ${HEADER_PATH}/TrackerBase.h
-    ${HEADER_PATH}/TrackerManipulator.h
-    ${HEADER_PATH}/TrackerTransform.h
+    ${HEADER_PATH}/Export
+    ${HEADER_PATH}/FacetingVisitor
+    ${HEADER_PATH}/GlslLint
+    ${HEADER_PATH}/GlslLintVisitor
+    ${HEADER_PATH}/LorenzAttractor
+    ${HEADER_PATH}/LuaState
+    ${HEADER_PATH}/MengerSponge
+    ${HEADER_PATH}/MipmapTestImage
+    ${HEADER_PATH}/Normals
+    ${HEADER_PATH}/Polyhedra
+    ${HEADER_PATH}/RungeKutta4
+    ${HEADER_PATH}/SuperShape3D
+    ${HEADER_PATH}/Version
 )
 
 
