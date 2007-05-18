@@ -1,0 +1,912 @@
+
+diff -r -c 0/quat/quatlib.dsp 1/quat/quatlib.dsp
+*** 0/quat/quatlib.dsp	Tue Jun  4 11:53:52 2002
+--- 1/quat/quatlib.dsp	Wed Apr 27 18:10:30 2005
+***************
+*** 64,70 ****
+  # PROP Intermediate_Dir "pc_win32\Debug"
+  # PROP Target_Dir ""
+  # ADD BASE CPP /nologo /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /YX /FD /c
+  # ADD BASE RSC /l 0x409
+  # ADD RSC /l 0x409
+  BSC32=bscmake.exe
+--- 64,70 ----
+  # PROP Intermediate_Dir "pc_win32\Debug"
+  # PROP Target_Dir ""
+  # ADD BASE CPP /nologo /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /YX /FD /c
+  # ADD BASE RSC /l 0x409
+  # ADD RSC /l 0x409
+  BSC32=bscmake.exe
+***************
+*** 72,78 ****
+  # ADD BSC32 /nologo
+  LIB32=link.exe -lib
+  # ADD BASE LIB32 /nologo
+! # ADD LIB32 /nologo /out:"pc_win32\Debug\quat.lib"
+  
+  !ENDIF 
+  
+--- 72,78 ----
+  # ADD BSC32 /nologo
+  LIB32=link.exe -lib
+  # ADD BASE LIB32 /nologo
+! # ADD LIB32 /nologo /out:"pc_win32\Debug\quatD.lib"
+  
+  !ENDIF 
+  
+
+diff -r -c 0/vrpn/client_src/directx_sound_client/directx_sound_client.dsp 1/vrpn/client_src/directx_sound_client/directx_sound_client.dsp
+*** 0/vrpn/client_src/directx_sound_client/directx_sound_client.dsp	Thu Jul 24 09:50:10 2003
+--- 1/vrpn/client_src/directx_sound_client/directx_sound_client.dsp	Wed Apr 27 18:09:06 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ  /c
+! # ADD CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ  /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ  /c
+! # ADD CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ  /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/forcedevice_test_client.dsp 1/vrpn/client_src/forcedevice_test_client.dsp
+*** 0/vrpn/client_src/forcedevice_test_client.dsp	Thu Jul 22 14:40:33 2004
+--- 1/vrpn/client_src/forcedevice_test_client.dsp	Wed Apr 27 18:09:44 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/printcereal.dsp 1/vrpn/client_src/printcereal.dsp
+*** 0/vrpn/client_src/printcereal.dsp	Fri Dec  6 12:12:09 2002
+--- 1/vrpn/client_src/printcereal.dsp	Wed Apr 27 18:09:48 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "../pc_win32/client_src/printcereal/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I "..\\" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "../pc_win32/client_src/printcereal/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "..\\" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/printvals.dsp 1/vrpn/client_src/printvals.dsp
+*** 0/vrpn/client_src/printvals.dsp	Fri Dec  6 12:12:09 2002
+--- 1/vrpn/client_src/printvals.dsp	Wed Apr 27 18:09:52 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "../pc_win32/client_src/printvals/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /GX /Zi /Od /I ".." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "../pc_win32/client_src/printvals/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /GX /Z7 /Od /I ".." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/setrouter.dsp 1/vrpn/client_src/setrouter.dsp
+*** 0/vrpn/client_src/setrouter.dsp	Fri Dec  6 12:12:09 2002
+--- 1/vrpn/client_src/setrouter.dsp	Wed Apr 27 18:09:56 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "../pc_win32/client_src/setrouter/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "../pc_win32/client_src/setrouter/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/sphere_client.dsp 1/vrpn/client_src/sphere_client.dsp
+*** 0/vrpn/client_src/sphere_client.dsp	Fri Sep 26 18:54:46 2003
+--- 1/vrpn/client_src/sphere_client.dsp	Wed Apr 27 18:09:58 2005
+***************
+*** 65,72 ****
+  # PROP Intermediate_Dir "../pc_win32/client_src/setrouter/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 65,72 ----
+  # PROP Intermediate_Dir "../pc_win32/client_src/setrouter/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/test_tempimager.dsp 1/vrpn/client_src/test_tempimager.dsp
+*** 0/vrpn/client_src/test_tempimager.dsp	Mon May  5 12:41:47 2003
+--- 1/vrpn/client_src/test_tempimager.dsp	Wed Apr 27 18:10:02 2005
+***************
+*** 65,72 ****
+  # PROP Intermediate_Dir "../pc_win32/server_src/test_tempimager/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\\" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 65,72 ----
+  # PROP Intermediate_Dir "../pc_win32/server_src/test_tempimager/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "..\\" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/test_zaber.dsp 1/vrpn/client_src/test_zaber.dsp
+*** 0/vrpn/client_src/test_zaber.dsp	Mon May  5 12:41:47 2003
+--- 1/vrpn/client_src/test_zaber.dsp	Wed Apr 27 18:10:06 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "../pc_win32/client_src/test_Zaber/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I ".." /I "..\..\quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "../pc_win32/client_src/test_Zaber/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /I "..\..\quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/testimager_client.dsp 1/vrpn/client_src/testimager_client.dsp
+*** 0/vrpn/client_src/testimager_client.dsp	Sun Nov 24 13:05:57 2002
+--- 1/vrpn/client_src/testimager_client.dsp	Wed Apr 27 18:10:08 2005
+***************
+*** 65,72 ****
+  # PROP Intermediate_Dir "../pc_win32/client_src/testimager_client/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../" /I "../../glut/" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 65,72 ----
+  # PROP Intermediate_Dir "../pc_win32/client_src/testimager_client/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "../" /I "../../glut/" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/tracker_to_poser.dsp 1/vrpn/client_src/tracker_to_poser.dsp
+*** 0/vrpn/client_src/tracker_to_poser.dsp	Sat May 22 06:56:19 2004
+--- 1/vrpn/client_src/tracker_to_poser.dsp	Wed Apr 27 18:10:12 2005
+***************
+*** 64,71 ****
+  # PROP Output_Dir "Debug"
+  # PROP Intermediate_Dir "Debug"
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ  /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../../quat" /I "../" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Output_Dir "Debug"
+  # PROP Intermediate_Dir "Debug"
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ  /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "../../quat" /I "../" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/vrpn_Router_Client_GUI.dsp 1/vrpn/client_src/vrpn_Router_Client_GUI.dsp
+*** 0/vrpn/client_src/vrpn_Router_Client_GUI.dsp	Fri Dec  6 12:12:09 2002
+--- 1/vrpn/client_src/vrpn_Router_Client_GUI.dsp	Wed Apr 27 18:10:18 2005
+***************
+*** 65,72 ****
+  # PROP Intermediate_Dir "../pc_win32/client_src/vrpn_Router_Client_GUI/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /I "../../external/pc_win32/include/" /I "F:\taylorr\Personal\Work\consulting\DisneyQuest\glut" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 65,72 ----
+  # PROP Intermediate_Dir "../pc_win32/client_src/vrpn_Router_Client_GUI/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /I "../../external/pc_win32/include/" /I "F:\taylorr\Personal\Work\consulting\DisneyQuest\glut" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/client_src/vrpn_print_devices.dsp 1/vrpn/client_src/vrpn_print_devices.dsp
+*** 0/vrpn/client_src/vrpn_print_devices.dsp	Wed Apr  7 08:33:03 2004
+--- 1/vrpn/client_src/vrpn_print_devices.dsp	Wed Apr 27 22:06:16 2005
+***************
+*** 65,72 ****
+  # PROP Intermediate_Dir "../pc_win32/client_src/vrpn_print_devices/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 65,72 ----
+  # PROP Intermediate_Dir "../pc_win32/client_src/vrpn_print_devices/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /GX /Z7 /Od /I ".." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+***************
+*** 74,80 ****
+  # ADD BSC32 /nologo
+  LINK32=link.exe
+  # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+! # ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib wsock32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+  
+  !ENDIF 
+  
+--- 74,80 ----
+  # ADD BSC32 /nologo
+  LINK32=link.exe
+  # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+! # ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib wsock32.lib /nologo /subsystem:console /debug /machine:I386 /out:"../pc_win32/client_src/vrpn_print_devices/Debug/vrpn_print_devicesD.exe" /pdbtype:sept
+  
+  !ENDIF 
+  
+
+diff -r -c 0/vrpn/java_vrpn/java_vrpn.dsp 1/vrpn/java_vrpn/java_vrpn.dsp
+*** 0/vrpn/java_vrpn/java_vrpn.dsp	Fri May  9 17:15:28 2003
+--- 1/vrpn/java_vrpn/java_vrpn.dsp	Wed Apr 27 18:12:14 2005
+***************
+*** 41,47 ****
+  # PROP Output_Dir "Release"
+  # PROP Intermediate_Dir "Release"
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "JAVA_VRPN_EXPORTS" /YX /FD /c
+  # ADD CPP /nologo /MD /W3 /GX /O2 /I "C:\Program Files\Java\j2sdk1.4.0\include" /I ".." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "JAVA_VRPN_EXPORTS" /YX /FD /c
+  # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+  # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+--- 41,47 ----
+  # PROP Output_Dir "Release"
+  # PROP Intermediate_Dir "Release"
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "JAVA_VRPN_EXPORTS" /YX /FD /c
+  # ADD CPP /nologo /MD /W3 /GX /O2 /I "C:\Program Files\Java\j2sdk1.4.0\include" /I ".." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "JAVA_VRPN_EXPORTS" /YX /FD /c
+  # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+  # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+***************
+*** 67,74 ****
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "JAVA_VRPN_EXPORTS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "C:\Program Files\Java\j2sdk1.4.0\include" /I ".." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "JAVA_VRPN_EXPORTS" /FR /YX /FD /GZ /c
+  # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+--- 67,74 ----
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "JAVA_VRPN_EXPORTS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "C:\Program Files\Java\j2sdk1.4.0\include" /I ".." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "JAVA_VRPN_EXPORTS" /FR /YX /FD /GZ /c
+  # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+
+diff -r -c 0/vrpn/server_src/aureal_sound_server/aureal_sound_server.dsp 1/vrpn/server_src/aureal_sound_server/aureal_sound_server.dsp
+*** 0/vrpn/server_src/aureal_sound_server/aureal_sound_server.dsp	Wed Feb  7 21:49:57 2001
+--- 1/vrpn/server_src/aureal_sound_server/aureal_sound_server.dsp	Wed Apr 27 18:11:56 2005
+***************
+*** 42,48 ****
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+  # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MT /W3 /GX /O2 /I "../.." /I "e:/public/quat" /I "c:/Program Files/Aureal/A3D 3.0 SDK/sdk/inc" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+  # ADD BASE RSC /l 0x409 /d "NDEBUG"
+  # ADD RSC /l 0x409 /d "NDEBUG"
+  BSC32=bscmake.exe
+--- 42,48 ----
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+  # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MD /W3 /GX /O2 /I "../.." /I "e:/public/quat" /I "c:/Program Files/Aureal/A3D 3.0 SDK/sdk/inc" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+  # ADD BASE RSC /l 0x409 /d "NDEBUG"
+  # ADD RSC /l 0x409 /d "NDEBUG"
+  BSC32=bscmake.exe
+***************
+*** 66,73 ****
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../.." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 66,73 ----
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "../.." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/ausim_sound_server/ausim_sound_server.dsp 1/vrpn/server_src/ausim_sound_server/ausim_sound_server.dsp
+*** 0/vrpn/server_src/ausim_sound_server/ausim_sound_server.dsp	Tue Aug 19 11:43:50 2003
+--- 1/vrpn/server_src/ausim_sound_server/ausim_sound_server.dsp	Wed Apr 27 18:13:22 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /ML /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/client_and_server.dsp 1/vrpn/server_src/client_and_server.dsp
+*** 0/vrpn/server_src/client_and_server.dsp	Fri Dec  6 12:12:31 2002
+--- 1/vrpn/server_src/client_and_server.dsp	Wed Apr 27 18:09:10 2005
+***************
+*** 65,72 ****
+  # PROP Intermediate_Dir "../pc_win32/server_src/client_and_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /I "..\..\quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 65,72 ----
+  # PROP Intermediate_Dir "../pc_win32/server_src/client_and_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /I "..\..\quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/daq_server.dsp 1/vrpn/server_src/daq_server.dsp
+*** 0/vrpn/server_src/daq_server.dsp	Mon May  5 12:42:05 2003
+--- 1/vrpn/server_src/daq_server.dsp	Wed Apr 27 18:09:14 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "../pc_win32/server_src/daq_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /I "..\..\quat" /I "..\..\external\pc_win32\NIDAQ\Include" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "../pc_win32/server_src/daq_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /I "..\..\quat" /I "..\..\external\pc_win32\NIDAQ\Include" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/directXFF_server.dsp 1/vrpn/server_src/directXFF_server.dsp
+*** 0/vrpn/server_src/directXFF_server.dsp	Tue Jan 21 09:38:28 2003
+--- 1/vrpn/server_src/directXFF_server.dsp	Wed Apr 27 18:09:18 2005
+***************
+*** 66,73 ****
+  # PROP Intermediate_Dir "../pc_win32/server_src/directXFF_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I "..\..\quat" /I ".." /I "../../external/pc_win32/include/ghost-stl" /I "../../external/pc_win32/include/ghost3.1" /D "VRPN_USE_DIRECTINPUT" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /Fr /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 66,73 ----
+  # PROP Intermediate_Dir "../pc_win32/server_src/directXFF_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "..\..\quat" /I ".." /I "../../external/pc_win32/include/ghost-stl" /I "../../external/pc_win32/include/ghost3.1" /D "VRPN_USE_DIRECTINPUT" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /Fr /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/directx_sound_server/directx_sound_server.dsp 1/vrpn/server_src/directx_sound_server/directx_sound_server.dsp
+*** 0/vrpn/server_src/directx_sound_server/directx_sound_server.dsp	Thu Jul 24 09:50:19 2003
+--- 1/vrpn/server_src/directx_sound_server/directx_sound_server.dsp	Wed Apr 27 18:08:52 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/miles_sound_server/v5.0/sound_server.dsp 1/vrpn/server_src/miles_sound_server/v5.0/sound_server.dsp
+*** 0/vrpn/server_src/miles_sound_server/v5.0/sound_server.dsp	Thu Nov 11 08:47:12 1999
+--- 1/vrpn/server_src/miles_sound_server/v5.0/sound_server.dsp	Wed Apr 27 18:08:08 2005
+***************
+*** 67,74 ****
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../../.." /I "../../quat" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /YX /FD /D /GZ /c
+  # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+--- 67,74 ----
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "../../.." /I "../../quat" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /YX /FD /D /GZ /c
+  # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+
+diff -r -c 0/vrpn/server_src/miles_sound_server/v6.0/sound_server.dsp 1/vrpn/server_src/miles_sound_server/v6.0/sound_server.dsp
+*** 0/vrpn/server_src/miles_sound_server/v6.0/sound_server.dsp	Wed Dec  1 10:07:20 1999
+--- 1/vrpn/server_src/miles_sound_server/v6.0/sound_server.dsp	Wed Apr 27 18:08:04 2005
+***************
+*** 67,74 ****
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../../.." /I "../../quat" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /YX /FD /D /GZ /c
+  # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+--- 67,74 ----
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "../../.." /I "../../quat" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /YX /FD /D /GZ /c
+  # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+
+diff -r -c 0/vrpn/server_src/quat/quat.dsp 1/vrpn/server_src/quat/quat.dsp
+*** 0/vrpn/server_src/quat/quat.dsp	Tue Apr  4 15:22:55 2000
+--- 1/vrpn/server_src/quat/quat.dsp	Wed Apr 27 18:08:48 2005
+***************
+*** 41,47 ****
+  # PROP Intermediate_Dir "Release"
+  # PROP Target_Dir ""
+  # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
+! # ADD CPP /nologo /W3 /GX /O2 /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409
+  # ADD RSC /l 0x409
+  BSC32=bscmake.exe
+--- 41,47 ----
+  # PROP Intermediate_Dir "Release"
+  # PROP Target_Dir ""
+  # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
+! # ADD CPP /nologo /MD /W3 /GX /O2 /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409
+  # ADD RSC /l 0x409
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/sierra_router_server/sierra_router_server.dsp 1/vrpn/server_src/sierra_router_server/sierra_router_server.dsp
+*** 0/vrpn/server_src/sierra_router_server/sierra_router_server.dsp	Fri Dec  6 12:13:06 2002
+--- 1/vrpn/server_src/sierra_router_server/sierra_router_server.dsp	Wed Apr 27 18:08:44 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "../../pc_win32/server_src/sierra_router_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I "../.." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "../../pc_win32/server_src/sierra_router_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "../.." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/test_analogfly.dsp 1/vrpn/server_src/test_analogfly.dsp
+*** 0/vrpn/server_src/test_analogfly.dsp	Tue Apr  1 08:21:25 2003
+--- 1/vrpn/server_src/test_analogfly.dsp	Wed Apr 27 18:09:22 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "../pc_win32/server_src/test_analogfly/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /I "../../quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "../pc_win32/server_src/test_analogfly/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /I "../../quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/test_radamec_spi.dsp 1/vrpn/server_src/test_radamec_spi.dsp
+*** 0/vrpn/server_src/test_radamec_spi.dsp	Fri Dec  6 12:12:31 2002
+--- 1/vrpn/server_src/test_radamec_spi.dsp	Wed Apr 27 18:09:24 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "../pc_win32/server_src/test_radamec_spi/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /I "..\..\quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "../pc_win32/server_src/test_radamec_spi/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /I "..\..\quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/test_vrpn.dsp 1/vrpn/server_src/test_vrpn.dsp
+*** 0/vrpn/server_src/test_vrpn.dsp	Fri Dec  6 12:12:31 2002
+--- 1/vrpn/server_src/test_vrpn.dsp	Wed Apr 27 18:09:28 2005
+***************
+*** 65,72 ****
+  # PROP Intermediate_Dir "../pc_win32/server_src/test_vrpn/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /I "..\..\quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 65,72 ----
+  # PROP Intermediate_Dir "../pc_win32/server_src/test_vrpn/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I ".." /I "..\..\quat" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /c /Tp
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/server_src/timecode_generator_server/timecode_generator.dsp 1/vrpn/server_src/timecode_generator_server/timecode_generator.dsp
+*** 0/vrpn/server_src/timecode_generator_server/timecode_generator.dsp	Fri Dec  6 12:13:22 2002
+--- 1/vrpn/server_src/timecode_generator_server/timecode_generator.dsp	Wed Apr 27 22:06:16 2005
+***************
+*** 63,70 ****
+  # PROP Output_Dir "../../pc_win32/server_src/timecode_generator/Debug"
+  # PROP Intermediate_Dir "../../pc_win32/server_src/timecode_generator/Debug"
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I "..\.." /I "../../../Adrienne/AEC_DLL" /D "_LIB" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 63,70 ----
+  # PROP Output_Dir "../../pc_win32/server_src/timecode_generator/Debug"
+  # PROP Intermediate_Dir "../../pc_win32/server_src/timecode_generator/Debug"
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /GX /Z7 /Od /I "..\.." /I "../../../Adrienne/AEC_DLL" /D "_LIB" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+***************
+*** 72,78 ****
+  # ADD BSC32 /nologo
+  LIB32=link.exe -lib
+  # ADD BASE LIB32 /nologo
+! # ADD LIB32 /nologo
+  
+  !ENDIF 
+  
+--- 72,78 ----
+  # ADD BSC32 /nologo
+  LIB32=link.exe -lib
+  # ADD BASE LIB32 /nologo
+! # ADD LIB32 /nologo /out:"../../pc_win32/server_src/timecode_generator/Debug\timecode_generatorD.lib"
+  
+  !ENDIF 
+  
+
+diff -r -c 0/vrpn/server_src/vrpn_phantom.dsp 1/vrpn/server_src/vrpn_phantom.dsp
+*** 0/vrpn/server_src/vrpn_phantom.dsp	Thu Aug  5 13:01:50 2004
+--- 1/vrpn/server_src/vrpn_phantom.dsp	Wed Apr 27 18:09:32 2005
+***************
+*** 63,70 ****
+  # PROP Output_Dir "../pc_win32/server_src/Debug"
+  # PROP Intermediate_Dir "../pc_win32/server_src/Debug"
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I "D:\Program Files\SensAble\GHOST\v4.0\include" /I "D:\Program Files\SensAble\GHOST\v4.0\external\stl" /I "C:/Program Files/SensAble/3DTouch/include" /I "C:/Program Files/SensAble/3DTouch/utilities/include" /I "D:/Program Files/SensAble/3DTouch/include" /I "D:/Program Files/SensAble/3DTouch/utilities/include" /I "../../quat" /I "../" /I "./" /D "_LIB" /D "_DEBUG" /D "_MBCS" /D "WIN32" /YX /FD /GZ /TP /c
+  # SUBTRACT CPP /Fr
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+--- 63,70 ----
+  # PROP Output_Dir "../pc_win32/server_src/Debug"
+  # PROP Intermediate_Dir "../pc_win32/server_src/Debug"
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "D:\Program Files\SensAble\GHOST\v4.0\include" /I "D:\Program Files\SensAble\GHOST\v4.0\external\stl" /I "C:/Program Files/SensAble/3DTouch/include" /I "C:/Program Files/SensAble/3DTouch/utilities/include" /I "D:/Program Files/SensAble/3DTouch/include" /I "D:/Program Files/SensAble/3DTouch/utilities/include" /I "../../quat" /I "../" /I "./" /D "_LIB" /D "_DEBUG" /D "_MBCS" /D "WIN32" /YX /FD /GZ /TP /c
+  # SUBTRACT CPP /Fr
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+
+diff -r -c 0/vrpn/server_src/vrpn_server.dsp 1/vrpn/server_src/vrpn_server.dsp
+*** 0/vrpn/server_src/vrpn_server.dsp	Thu Aug  5 13:01:50 2004
+--- 1/vrpn/server_src/vrpn_server.dsp	Wed Apr 27 22:06:16 2005
+***************
+*** 65,72 ****
+  # PROP Intermediate_Dir "../pc_win32/server_src/vrpn_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /GX /Zi /Od /I "../../Adrienne/AEC_DLL" /I "D:\Program Files\SensAble\GHOST\v4.0\include" /I "D:\Program Files\SensAble\GHOST\v4.0\external\stl" /I "C:\Program Files\National Instruments\NI-DAQ\Include" /I "D:\Program Files\National Instruments\NI-DAQ\Include" /I "D:/Program Files/SensAble/3DTouch/include" /I "D:/Program Files/SensAble/3DTouch/utilities/include" /I "C:/Program Files/SensAble/3DTouch/include" /I "C:/Program Files/SensAble/3DTouch/utilities/include" /I "../../isense" /I ".." /I "../../quat" /I "../../Dtrack" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /TP /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 65,72 ----
+  # PROP Intermediate_Dir "../pc_win32/server_src/vrpn_server/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /GX /Z7 /Od /I "../../Adrienne/AEC_DLL" /I "D:\Program Files\SensAble\GHOST\v4.0\include" /I "D:\Program Files\SensAble\GHOST\v4.0\external\stl" /I "C:\Program Files\National Instruments\NI-DAQ\Include" /I "D:\Program Files\National Instruments\NI-DAQ\Include" /I "D:/Program Files/SensAble/3DTouch/include" /I "D:/Program Files/SensAble/3DTouch/utilities/include" /I "C:/Program Files/SensAble/3DTouch/include" /I "C:/Program Files/SensAble/3DTouch/utilities/include" /I "../../isense" /I ".." /I "../../quat" /I "../../Dtrack" /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /TP /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+***************
+*** 74,80 ****
+  # ADD BSC32 /nologo
+  LINK32=link.exe
+  # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+! # ADD LINK32 user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib wsock32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+  
+  !ENDIF 
+  
+--- 74,80 ----
+  # ADD BSC32 /nologo
+  LINK32=link.exe
+  # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
+! # ADD LINK32 user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib wsock32.lib /nologo /subsystem:console /debug /machine:I386 /out:"../pc_win32/server_src/vrpn_server/Debug/vrpn_serverD.exe" /pdbtype:sept
+  
+  !ENDIF 
+  
+
+diff -r -c 0/vrpn/time_test.dsp 1/vrpn/time_test.dsp
+*** 0/vrpn/time_test.dsp	Fri Sep 26 18:54:34 2003
+--- 1/vrpn/time_test.dsp	Wed Apr 27 18:10:22 2005
+***************
+*** 66,73 ****
+  # PROP Intermediate_Dir "pc_win32/time_test/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /TP /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 66,73 ----
+  # PROP Intermediate_Dir "pc_win32/time_test/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /TP /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/util/gen_rpc/test_gen_rpc.dsp 1/vrpn/util/gen_rpc/test_gen_rpc.dsp
+*** 0/vrpn/util/gen_rpc/test_gen_rpc.dsp	Sun Mar 21 18:05:53 2004
+--- 1/vrpn/util/gen_rpc/test_gen_rpc.dsp	Wed Apr 27 18:11:42 2005
+***************
+*** 41,48 ****
+  # PROP Intermediate_Dir "../../pc_win32/util/test_gen_rpc/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I "../.." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /TP /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 41,48 ----
+  # PROP Intermediate_Dir "../../pc_win32/util/test_gen_rpc/Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "../.." /D "_CONSOLE" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /GZ /TP /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+***************
+*** 66,72 ****
+  # PROP Intermediate_Dir "../../pc_win32/util/test_gen_rpc/Release"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "../.." /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "WIN32" /D "$(VRPN_COMPILE_DEF)" /YX /FD /GZ /TP /c
+  # ADD CPP /nologo /MD /W3 /GX /O2 /I "../.." /D "_CONSOLE" /D "NDEBUG" /D "_MBCS" /D "WIN32" /YX /FD /TP /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+--- 66,72 ----
+  # PROP Intermediate_Dir "../../pc_win32/util/test_gen_rpc/Release"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /MDd /W3 /Gm /GX /Od /I "../.." /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "WIN32" /D "$(VRPN_COMPILE_DEF)" /YX /FD /GZ /TP /c
+  # ADD CPP /nologo /MD /W3 /GX /O2 /I "../.." /D "_CONSOLE" /D "NDEBUG" /D "_MBCS" /D "WIN32" /YX /FD /TP /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+
+diff -r -c 0/vrpn/util/printStream/vrpn_streamPrint.dsp 1/vrpn/util/printStream/vrpn_streamPrint.dsp
+*** 0/vrpn/util/printStream/vrpn_streamPrint.dsp	Fri Dec 19 14:24:29 2003
+--- 1/vrpn/util/printStream/vrpn_streamPrint.dsp	Wed Apr 27 18:08:10 2005
+***************
+*** 64,71 ****
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../../" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+--- 64,71 ----
+  # PROP Intermediate_Dir "Debug"
+  # PROP Ignore_Export_Lib 0
+  # PROP Target_Dir ""
+! # ADD BASE CPP /nologo /W3 /Gm /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
+! # ADD CPP /nologo /MDd /W3 /Gm /GX /Z7 /Od /I "../../" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c
+  # ADD BASE RSC /l 0x409 /d "_DEBUG"
+  # ADD RSC /l 0x409 /d "_DEBUG"
+  BSC32=bscmake.exe
+
+diff -r -c 0/vrpn/vrpn.dsp 1/vrpn/vrpn.dsp
+*** 0/vrpn/vrpn.dsp	Thu Aug  5 13:01:35 2004
+--- 1/vrpn/vrpn.dsp	Wed Apr 27 22:06:16 2005
+***************
+*** 64,70 ****
+  # PROP Intermediate_Dir "pc_win32/Debug"
+  # PROP Target_Dir ""
+  # ADD BASE CPP /nologo /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /GX /Zi /Od /I "../quat" /I "../isense" /I "../Dtrack" /I "C:\Program Files\National Instruments\NI-DAQ\Include" /I "D:\Program Files\National Instruments\NI-DAQ\Include" /D "_LIB" /D "_WINDOWS" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /TP /c
+  # ADD BASE RSC /l 0x409
+  # ADD RSC /l 0x409
+  BSC32=bscmake.exe
+--- 64,70 ----
+  # PROP Intermediate_Dir "pc_win32/Debug"
+  # PROP Target_Dir ""
+  # ADD BASE CPP /nologo /W3 /GX /Z7 /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
+! # ADD CPP /nologo /MDd /W3 /GX /Z7 /Od /I "../quat" /I "../isense" /I "../Dtrack" /I "C:\Program Files\National Instruments\NI-DAQ\Include" /I "D:\Program Files\National Instruments\NI-DAQ\Include" /D "_LIB" /D "_WINDOWS" /D "_DEBUG" /D "_MBCS" /D "WIN32" /FR /YX /FD /TP /c
+  # ADD BASE RSC /l 0x409
+  # ADD RSC /l 0x409
+  BSC32=bscmake.exe
+***************
+*** 72,78 ****
+  # ADD BSC32 /nologo
+  LIB32=link.exe -lib
+  # ADD BASE LIB32 /nologo
+! # ADD LIB32 /nologo
+  
+  !ENDIF 
+  
+--- 72,78 ----
+  # ADD BSC32 /nologo
+  LIB32=link.exe -lib
+  # ADD BASE LIB32 /nologo
+! # ADD LIB32 /nologo /out:"pc_win32/Debug\vrpnD.lib"
+  
+  !ENDIF 
+  
