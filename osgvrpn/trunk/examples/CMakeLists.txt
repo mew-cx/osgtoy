@@ -9,6 +9,9 @@ SET(TARGET_COMMON_LIBRARIES
 	osgGA
 	osgViewer 
 	osgText 
+	osgVRPN
 )
 
 ADD_SUBDIRECTORY(osgVRPNviewer)
+
+# vim: set sw=4 ts=8 et ic ai:

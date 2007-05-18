@@ -1,3 +1,6 @@
+#TODO FIND_DEPENDENCY( VRPN vrpn.h vrpn ${OSG_3RDPARTY_BIN} "D")
+
+INCLUDE_DIRECTORIES( ${VRPN_INCLUDE_DIR} )
 
 IF   (DYNAMIC_OPENSCENEGRAPH)
     ADD_DEFINITIONS(-DOSGVRPN_LIBRARY)
@@ -16,7 +19,6 @@ SET(LIB_PUBLIC_HEADERS
     ${HEADER_PATH}/TrackerManipulator.h
     ${HEADER_PATH}/TrackerTransform.h
 )
-
 
 # FIXME: For OS X, need flag for Framework or dylib
 ADD_LIBRARY(${LIB_NAME}
