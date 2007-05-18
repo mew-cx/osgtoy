@@ -38,12 +38,15 @@ REM set OSG_OPTIMIZER="FLATTEN_STATIC_TRANSFORMS CHECK_GEOMETRY"
 
 REM executable paths ======================================================
 
+REM pre-built binaries
 set PATH=%ROOTDIR%\3rdParty\bin;%PATH%
 
+REM locally-built binaries
 set PATH=%BUILDDIR%\OpenSceneGraph\bin\debug;%PATH%
 set PATH=%BUILDDIR%\OpenSceneGraph\lib\debug;%PATH%
 set PATH=%BUILDDIR%\OpenSceneGraph\lib\osgPlugins\debug;%PATH%
 
+REM locally-installed binaries
 REM set PATH=%INSTALLDIR%\bin;%PATH%
 REM set PATH=%INSTALLDIR%\share\OpenSceneGraph\bin;%PATH%
 
@@ -58,7 +61,7 @@ set OSG_FILE_PATH=%X%;%OSG_FILE_PATH%
 set OSG_FILE_PATH=%X%\Images;%OSG_FILE_PATH%
 set OSG_FILE_PATH=%X%\fonts;%OSG_FILE_PATH%
 
-set X=%ROOTDIR%\osgToy\osgtoy-data
+set X=%DATADIR%\osgtoy-data
 set OSG_FILE_PATH=%X%;%OSG_FILE_PATH%
 set OSG_FILE_PATH=%X%\Images;%OSG_FILE_PATH%
 set OSG_FILE_PATH=%X%\shaders;%OSG_FILE_PATH%
