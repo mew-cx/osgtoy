@@ -3,7 +3,7 @@ REM configure the environment for development, adjust to your liking
 
 REM defaults ==============================================================
 
-set PROJECT=osgdvl
+set PROJECT=osgtoydvl
 set ROOTDIR=%CD%
 set USRTMP=C:\_tmp
 
