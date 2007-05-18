@@ -1,1 +1,0 @@
-http://developer.3dlabs.com/downloads/glslcompiler/OpenGLCompilerSept202005.zip
