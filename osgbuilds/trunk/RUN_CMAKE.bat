@@ -1,4 +1,12 @@
-@echo off
+REM @echo off
 call SETENV.bat
 title %0
+
+REM TODO make these work:
+set CMAKE_SOURCEDIR=%ROOTDIR%
+set CMAKE_BUILDIR=%BUILDDIR%
+set BUILD_OSG_EXAMPLES=ON
+set BUILD_OSG_WRAPPERS=ON
+set CMAKE_INSTALL_PREFIX=%INSTALLDIR%
+
 %CMAKE%
