@@ -3,7 +3,8 @@ REM configure the environment for development, adjust to your liking
 
 REM defaults ==============================================================
 
-set PROJECT=osgtoydvl
+set PROJECT=osg196
+
 set ROOTDIR=%CD%
 set USRTMP=C:\_tmp
 
@@ -12,17 +13,19 @@ if NOT "%VS80COMNTOOLS%"=="" (
 set VSIDE="%VS80COMNTOOLS%..\IDE\devenv.exe"
 )
 
+set CMAKE="C:\Program Files\CMake 2.4\bin\CMakeSetup.exe"
+
 REM host-specific overrides ===============================================
 
 if %COMPUTERNAME%==GLOW (
 set USRTMP=E:\_tmp
 set VSIDE="%VS71COMNTOOLS%..\IDE\devenv.exe"
+set CMAKE="E:\progfiles\CMake_2.4.6\bin\CMakeSetup.exe"
 )
-
 REM project settings ======================================================
 
-set BUILDDIR=%USRTMP%\%PROJECT%_build
-set INSTALLDIR=%USRTMP%\%PROJECT%_install
+set BUILDDIR=%USRTMP%\%PROJECT%_BUILD
+set INSTALLDIR=%USRTMP%\%PROJECT%_INSTALL
 set SOLUTION=%BUILDDIR%\%PROJECT%.sln
 
 REM OSG runtime settings ==================================================
