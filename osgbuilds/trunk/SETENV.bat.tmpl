@@ -1,13 +1,13 @@
 REM $Id$
-REM This "SETENV.bat.tmpl" is a template for creating your own
-REM locally-tuned SETENV.bat.
+REM Copy "SETENV.bat.tmpl" to "SETENV.bat" and customize as necessary.
 
 REM defaults ==============================================================
 
 set PROJECT=osg196
+set BLDCONFIG=Release
 
 set ROOTDIR=%CD%
-set USRTMP=C:\_tmp\%PROJECT%
+set USRTMP=C:\_tmp
 
 set VSIDE="VS_NOT_FOUND"
 if NOT "%VS80COMNTOOLS%"=="" (
@@ -23,12 +23,13 @@ set USRTMP=E:\_tmp
 set VSIDE="%VS71COMNTOOLS%..\IDE\devenv.exe"
 set CMAKE="E:\progfiles\CMake_2.4.6\bin\cmake.exe"
 )
+
 REM project settings ======================================================
 
-set BUILDDIR=%USRTMP%\BUILD
+set BUILDDIR=%USRTMP%\BUILD_%PROJECT%_%BLDCONFIG%
 set SOLUTION=%BUILDDIR%\%PROJECT%.sln
 
-set INSTALLDIR=%USRTMP%\INSTALL
+set INSTALLDIR=%USRTMP%\INSTALL_%PROJECT%_%BLDCONFIG%
 
 REM OSG runtime settings ==================================================
 
@@ -46,7 +47,7 @@ REM executable paths ======================================================
 REM pre-built binaries
 set PATH=%ROOTDIR%\3rdParty\bin;%PATH%
 
-REM locally-built binaries
+REM built binaries
 set PATH=%BUILDDIR%\OpenSceneGraph\bin\debug;%PATH%
 set PATH=%BUILDDIR%\OpenSceneGraph\lib\debug;%PATH%
 set PATH=%BUILDDIR%\OpenSceneGraph\lib\osgPlugins\debug;%PATH%
@@ -57,7 +58,7 @@ REM set PATH=%BUILDDIR%\osgToy\lib\debug;%PATH%
 REM set PATH=%BUILDDIR%\osgVRPN\bin\debug;%PATH%
 REM set PATH=%BUILDDIR%\osgVRPN\lib\debug;%PATH%
 
-REM locally-installed binaries
+REM installed binaries
 REM set PATH=%INSTALLDIR%\bin;%PATH%
 REM set PATH=%INSTALLDIR%\share\OpenSceneGraph\bin;%PATH%
 
