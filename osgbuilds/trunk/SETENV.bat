@@ -1,10 +1,13 @@
 REM $Id$
-REM Copy "SETENV.bat.tmpl" to "SETENV.bat" and customize as necessary.
+REM Copy "SETENV.bat.tmpl" to "SETENV.bat" and customize as desired.
 
-REM defaults ==============================================================
+REM basic configuration ===================================================
 
 set PROJECT=osg196
-set BLDCONFIG=Release
+set BUILDCFG=Debug
+set DEBUG=D
+
+REM defaults ==============================================================
 
 set ROOTDIR=%CD%
 set USRTMP=C:\_tmp
@@ -18,6 +21,7 @@ set CMAKE="C:\Program Files\CMake 2.4\bin\cmake.exe"
 
 REM host-specific overrides ===============================================
 
+REM glow.mew.cx
 if %COMPUTERNAME%==GLOW (
 set USRTMP=E:\_tmp
 set VSIDE="%VS71COMNTOOLS%..\IDE\devenv.exe"
@@ -26,14 +30,13 @@ set CMAKE="E:\progfiles\CMake_2.4.6\bin\cmake.exe"
 
 REM project settings ======================================================
 
-set BUILDDIR=%USRTMP%\BUILD_%PROJECT%_%BLDCONFIG%
+set BUILDDIR=%USRTMP%\%PROJECT%_BUILD
 set SOLUTION=%BUILDDIR%\%PROJECT%.sln
 
-set INSTALLDIR=%USRTMP%\INSTALL_%PROJECT%_%BLDCONFIG%
+set INSTALLDIR=%USRTMP%\%PROJECT%_INSTALL_%BUILDCFG%
 
 REM OSG runtime settings ==================================================
 
-set DEBUG=D
 
 set OSG_NOTIFY_LEVEL=INFO
 
@@ -48,15 +51,13 @@ REM pre-built binaries
 set PATH=%ROOTDIR%\3rdParty\bin;%PATH%
 
 REM built binaries
-set PATH=%BUILDDIR%\OpenSceneGraph\bin\debug;%PATH%
-set PATH=%BUILDDIR%\OpenSceneGraph\lib\debug;%PATH%
-set PATH=%BUILDDIR%\OpenSceneGraph\lib\osgPlugins\debug;%PATH%
-
-REM set PATH=%BUILDDIR%\osgToy\bin\debug;%PATH%
-REM set PATH=%BUILDDIR%\osgToy\lib\debug;%PATH%
-
-REM set PATH=%BUILDDIR%\osgVRPN\bin\debug;%PATH%
-REM set PATH=%BUILDDIR%\osgVRPN\lib\debug;%PATH%
+set PATH=%BUILDDIR%\OpenSceneGraph\bin\%BUILDCFG%;%PATH%
+set PATH=%BUILDDIR%\OpenSceneGraph\lib\%BUILDCFG%;%PATH%
+set PATH=%BUILDDIR%\OpenSceneGraph\lib\osgPlugins\%BUILDCFG%;%PATH%
+REM set PATH=%BUILDDIR%\osgToy\bin\%BUILDCFG%;%PATH%
+REM set PATH=%BUILDDIR%\osgToy\lib\%BUILDCFG%;%PATH%
+REM set PATH=%BUILDDIR%\osgVRPN\bin\%BUILDCFG%;%PATH%
+REM set PATH=%BUILDDIR%\osgVRPN\lib\%BUILDCFG%;%PATH%
 
 REM installed binaries
 REM set PATH=%INSTALLDIR%\bin;%PATH%
