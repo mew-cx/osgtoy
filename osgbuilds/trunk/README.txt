@@ -12,5 +12,5 @@ $Id$
 places to change project name:
 1) svn:external
 2) SETENV.bat
-3) CMakeLists.txt
+3) (FIXED) CMakeLists.txt
 

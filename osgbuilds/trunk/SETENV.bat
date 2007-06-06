@@ -3,9 +3,13 @@ REM Copy "SETENV.bat.tmpl" to "SETENV.bat" and customize as desired.
 
 REM basic configuration ===================================================
 
-set PROJECT=osg196
-set BUILDCFG=Debug
-set DEBUG=D
+set PROJECT=osg197
+
+REM set BUILDCFG=Debug
+REM set DEBUG=D
+
+set BUILDCFG=Release
+set DEBUG=
 
 REM defaults ==============================================================
 
@@ -14,7 +18,7 @@ set USRTMP=C:\_tmp
 
 set VSIDE="VS_NOT_FOUND"
 if NOT "%VS80COMNTOOLS%"=="" (
-set VSIDE="%VS80COMNTOOLS%..\IDE\devenv.exe"
+    set VSIDE="%VS80COMNTOOLS%..\IDE\devenv.exe"
 )
 
 set CMAKE="C:\Program Files\CMake 2.4\bin\cmake.exe"
@@ -23,9 +27,9 @@ REM host-specific overrides ===============================================
 
 REM glow.mew.cx
 if %COMPUTERNAME%==GLOW (
-set USRTMP=E:\_tmp
-set VSIDE="%VS71COMNTOOLS%..\IDE\devenv.exe"
-set CMAKE="E:\progfiles\CMake_2.4.6\bin\cmake.exe"
+    set USRTMP=E:\_tmp
+    set VSIDE="%VS71COMNTOOLS%..\IDE\devenv.exe"
+    set CMAKE="E:\progfiles\CMake_2.4.6\bin\cmake.exe"
 )
 
 REM project settings ======================================================
