@@ -1,7 +1,7 @@
 # $Id$
 
 # ensure PROJECT name matches OSG version
-PROJECT( osg196 )
+PROJECT( $ENV{PROJECT} )
 
 ADD_SUBDIRECTORY( OpenSceneGraph )
 #ADD_SUBDIRECTORY( osgToy )
