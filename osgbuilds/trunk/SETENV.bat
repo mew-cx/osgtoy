@@ -3,7 +3,7 @@ REM Copy "SETENV.bat.tmpl" to "SETENV.bat" and customize as desired.
 
 REM basic configuration ===================================================
 
-set PROJECT=osg197
+set PROJECT=osgTRUNK
 
 REM set BUILDCFG=Debug
 REM set DEBUG=D
