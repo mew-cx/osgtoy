@@ -2,17 +2,14 @@
 title %0
 call SETENV.bat
 
-echo START
-date /t
-time /t
-echo .
-
-echo Running full VisualStudio batch build:
+echo Running VisualStudio batch build, please wait...
 echo solution = %SOLUTION%
 echo buildconfig = %BUILDCFG%
+date /t
+time /t
+
 %VSIDE% /build %BUILDCFG% /project INSTALL %SOLUTION%
 
-echo .
 echo DONE
 date /t
 time /t
