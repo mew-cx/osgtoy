@@ -55,17 +55,18 @@ REM pre-built binaries
 set PATH=%ROOTDIR%\3rdParty\bin;%PATH%
 
 REM built binaries
-set PATH=%BUILDDIR%\OpenSceneGraph\bin\%BUILDCFG%;%PATH%
-set PATH=%BUILDDIR%\OpenSceneGraph\lib\%BUILDCFG%;%PATH%
-set PATH=%BUILDDIR%\OpenSceneGraph\lib\osgPlugins\%BUILDCFG%;%PATH%
+REM set PATH=%BUILDDIR%\OpenSceneGraph\bin\%BUILDCFG%;%PATH%
+REM set PATH=%BUILDDIR%\OpenSceneGraph\lib\%BUILDCFG%;%PATH%
+REM set PATH=%BUILDDIR%\OpenSceneGraph\lib\osgPlugins\%BUILDCFG%;%PATH%
 REM set PATH=%BUILDDIR%\osgToy\bin\%BUILDCFG%;%PATH%
 REM set PATH=%BUILDDIR%\osgToy\lib\%BUILDCFG%;%PATH%
 REM set PATH=%BUILDDIR%\osgVRPN\bin\%BUILDCFG%;%PATH%
 REM set PATH=%BUILDDIR%\osgVRPN\lib\%BUILDCFG%;%PATH%
 
 REM installed binaries
-REM set PATH=%INSTALLDIR%\bin;%PATH%
-REM set PATH=%INSTALLDIR%\share\OpenSceneGraph\bin;%PATH%
+set PATH=%INSTALLDIR%\bin;%PATH%
+set PATH=%INSTALLDIR%\share\OpenSceneGraph\bin;%PATH%
+set OSG_PLUGINGS=osgPlugins=1.9.8
 
 REM data paths ============================================================
 
