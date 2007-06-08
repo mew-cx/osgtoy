@@ -1,12 +1,12 @@
-; Inno Setup 5.1.5 definition for OpenSceneGraph (http://www.innosetup.com/)
+; Inno Setup 5.1.12 definition for OpenSceneGraph (http://www.innosetup.com/)
 ; Mike Weiblen http://mew.cx/
 
 [Setup]
 AppName=OpenSceneGraph
-AppVerName=OpenSceneGraph 1.2 2006-09-13
-OutputBaseFilename=osg1.2_setup_2006-09-13
-VersionInfoTextVersion=1.2
-VersionInfoVersion=1.2.0.1
+AppVerName=OpenSceneGraph 1.9.x 2007-06-07
+OutputBaseFilename=osg1.9.x_setup_2007-06-07
+VersionInfoTextVersion=1.9
+VersionInfoVersion=1.9.8.0
 AppPublisher=http://mew.cx/
 AppPublisherURL=http://mew.cx/osg/
 DefaultDirName={pf}\OpenSceneGraph
@@ -49,24 +49,18 @@ Source: "osgsrc.zip"; DestDir: "{app}"; Flags: ignoreversion
 Source: "win32\URLs\*"; DestDir: "{app}\URLs"; Flags: ignoreversion recursesubdirs
 
 ; doc
-Source: "OpenThreads\AUTHORS.txt";               DestDir: "{app}\doc\OpenThreads";    Flags: ignoreversion
-Source: "OpenThreads\COPYING.txt";               DestDir: "{app}\doc\OpenThreads";    Flags: ignoreversion
-Source: "OpenThreads\README.txt";                DestDir: "{app}\doc\OpenThreads";    Flags: ignoreversion
-Source: "Producer\LICENSE.txt";                  DestDir: "{app}\doc\Producer";       Flags: ignoreversion
-Source: "Producer\README.txt";                   DestDir: "{app}\doc\Producer";       Flags: ignoreversion
 Source: "OpenSceneGraph\AUTHORS.txt";            DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
 Source: "OpenSceneGraph\LICENSE.txt";            DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
 Source: "OpenSceneGraph\NEWS.txt";               DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
 Source: "OpenSceneGraph\README.txt";             DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
 ;Source: "OpenSceneGraph\doc\ProgrammingGuide\*"; DestDir: "{app}\doc\OpenSceneGraph\ProgrammingGuide"; Flags: ignoreversion
-Source: "OpenSceneGraph\README_osgToy.txt";      DestDir: "{app}\doc"; Flags: ignoreversion
-Source: "OpenSceneGraph\3Dlabs_license.txt";     DestDir: "{app}\doc"; Flags: ignoreversion
+Source: "osgToy\README_osgToy.txt";      DestDir: "{app}\doc\osgToy"; Flags: ignoreversion
+Source: "osgToy\3Dlabs_license.txt";     DestDir: "{app}\doc\osgToy"; Flags: ignoreversion
 Source: "3rdParty\README_3rdParty.txt";          DestDir: "{app}\doc"; Flags: ignoreversion
 
 ; include
 Source: "3rdParty\include\*"; Excludes: "CVS"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
-Source: "OpenThreads\include\OpenThreads\*"; Excludes: "CVS"; DestDir: "{app}\include\OpenThreads"; Flags: ignoreversion recursesubdirs
-Source: "Producer\include\Producer\*"; Excludes: "CVS"; DestDir: "{app}\include\Producer"; Flags: ignoreversion recursesubdirs
+Source: "OpenSceneGraph\include\OpenThreads\*"; Excludes: "CVS"; DestDir: "{app}\include\OpenThreads"; Flags: ignoreversion recursesubdirs
 
 Source: "OpenSceneGraph\include\osg\*"; Excludes: "CVS"; DestDir: "{app}\include\osg"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgDB\*"; Excludes: "CVS"; DestDir: "{app}\include\osgDB"; Flags: ignoreversion recursesubdirs
@@ -74,7 +68,6 @@ Source: "OpenSceneGraph\include\osgFX\*"; Excludes: "CVS"; DestDir: "{app}\inclu
 Source: "OpenSceneGraph\include\osgGA\*"; Excludes: "CVS"; DestDir: "{app}\include\osgGA"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgIntrospection\*"; Excludes: "CVS"; DestDir: "{app}\include\osgIntrospection"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgParticle\*"; Excludes: "CVS"; DestDir: "{app}\include\osgParticle"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgProducer\*"; Excludes: "CVS"; DestDir: "{app}\include\osgProducer"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgSim\*"; Excludes: "CVS"; DestDir: "{app}\include\osgSim"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgTerrain\*"; Excludes: "CVS"; DestDir: "{app}\include\osgTerrain"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgText\*"; Excludes: "CVS"; DestDir: "{app}\include\osgText"; Flags: ignoreversion recursesubdirs
@@ -87,16 +80,12 @@ Source: "OpenSceneGraph\include\osgVRPN\*"; Excludes: "CVS"; DestDir: "{app}\inc
 ; bin
 Source: "win32\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion
 Source: "3rdParty\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion
-Source: "OpenThreads\bin\win32\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
-Source: "Producer\bin\win32\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 Source: "OpenSceneGraph\bin\win32\*.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
 Source: "OpenSceneGraph\bin\win32\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 
 
 ; lib
 Source: "3rdParty\lib\*.lib"; Excludes: "CVS"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
-Source: "OpenThreads\lib\win32\*.lib"; Excludes: "CVS"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
-Source: "Producer\lib\win32\*.lib"; Excludes: "CVS"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\lib\win32\*.lib"; Excludes: "CVS"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
 
 
@@ -111,8 +100,6 @@ Source: "osgtoy-data\Images\stars2048_yalecyl1.txt"; Excludes: "CVS"; DestDir: "
 Source: "osgtoy-data\Images\verasansmono.png"; Excludes: "CVS"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
 Source: "osgtoy-data\Images\R64.png"; Excludes: "CVS"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
 Source: "osgtoy-data\Images\X32.png"; Excludes: "CVS"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
-Source: "osgtoy-data\Producer\1win.cfg"; Excludes: "CVS"; DestDir: "{app}\data\Producer"; Flags: ignoreversion recursesubdirs
-Source: "osgtoy-data\Producer\2win.cfg"; Excludes: "CVS"; DestDir: "{app}\data\Producer"; Flags: ignoreversion recursesubdirs
 Source: "osgtoy-data\shaders\drawtext.frag"; Excludes: "CVS"; DestDir: "{app}\data\shaders"; Flags: ignoreversion recursesubdirs
 Source: "osgtoy-data\shaders\drawtext4.frag"; Excludes: "CVS"; DestDir: "{app}\data\shaders"; Flags: ignoreversion recursesubdirs
 Source: "osgtoy-data\4shapes.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
@@ -167,7 +154,6 @@ Name: "{group}\URLs\OpenThreads"; Filename: "{app}\URLs\openthreads.url"
 Name: "{group}\URLs\osgToy"; Filename: "{app}\URLs\osgtoy.url"
 Name: "{group}\URLs\osg-users archives"; Filename: "{app}\URLs\osg-users_archives.url"
 Name: "{group}\URLs\osg-users mailing list"; Filename: "{app}\URLs\osg-users_info.url"
-Name: "{group}\URLs\Producer"; Filename: "{app}\URLs\producer.url"
 Name: "{group}\URLs\VRPN"; Filename: "{app}\URLs\vrpn.url"
 
 Name: "{group}\Demos\osganimate"; Filename: "{app}\bin\osganimate.exe"; WorkingDir: "{app}\bin"
