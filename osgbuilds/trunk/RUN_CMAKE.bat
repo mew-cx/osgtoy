@@ -2,9 +2,9 @@
 title %0
 call SETENV.bat
 
-echo Running CMake, please wait...
 date /t
 time /t
+echo Running CMake, please wait...
 
 if not exist %BUILDDIR% mkdir %BUILDDIR%
 cd %BUILDDIR%
