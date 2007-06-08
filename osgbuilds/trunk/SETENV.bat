@@ -3,7 +3,7 @@ REM Copy "SETENV.bat.tmpl" to "SETENV.bat" and customize as desired.
 
 REM basic configuration ===================================================
 
-set PROJECT=osgTRUNK
+set PROJECT=osg
 
 REM set BUILDCFG=Debug
 REM set DEBUG=D
@@ -14,7 +14,6 @@ set DEBUG=
 REM defaults ==============================================================
 
 set ROOTDIR=%CD%
-set USRTMP=C:\_tmp
 
 set VSIDE="VS_NOT_FOUND"
 if NOT "%VS80COMNTOOLS%"=="" (
@@ -27,17 +26,16 @@ REM host-specific overrides ===============================================
 
 REM glow.mew.cx
 if %COMPUTERNAME%==GLOW (
-    set USRTMP=E:\_tmp
     set VSIDE="%VS71COMNTOOLS%..\IDE\devenv.exe"
     set CMAKE="E:\progfiles\CMake_2.4.6\bin\cmake.exe"
 )
 
 REM project settings ======================================================
 
-set BUILDDIR=%USRTMP%\%PROJECT%_BUILD
+set BUILDDIR=%ROOTDIR%\_%PROJECT%_BUILD
 set SOLUTION=%BUILDDIR%\%PROJECT%.sln
 
-set INSTALLDIR=%USRTMP%\%PROJECT%_INSTALL_%BUILDCFG%
+set INSTALLDIR=%ROOTDIR%\_%PROJECT%_INSTALL_%BUILDCFG%
 
 REM OSG runtime settings ==================================================
 
@@ -66,7 +64,6 @@ REM set PATH=%BUILDDIR%\osgVRPN\lib\%BUILDCFG%;%PATH%
 REM installed binaries
 set PATH=%INSTALLDIR%\bin;%PATH%
 set PATH=%INSTALLDIR%\share\OpenSceneGraph\bin;%PATH%
-set OSG_PLUGINGS=osgPlugins=1.9.8
 
 REM data paths ============================================================
 
