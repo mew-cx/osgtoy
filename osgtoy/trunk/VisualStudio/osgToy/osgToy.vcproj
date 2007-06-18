@@ -40,7 +40,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="glslfeD.lib liblua51D.lib OpenThreadsWin32d.lib opengl32.lib glu32.lib"
+				AdditionalDependencies="glslfeD.lib liblua51D.lib OpenThreadsd.lib opengl32.lib glu32.lib"
 				OutputFile="$(OutDir)/osgToyD.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
@@ -89,7 +89,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/vmg /Zm200 "
 				Optimization="0"
-				AdditionalIncludeDirectories="../../include,../../../OpenThreads/include,../../../Producer/include,../../../3rdParty/include"
+				AdditionalIncludeDirectories="../../include;&quot;$(INSTALLDIR)/include&quot;;../../../3rdParty/include"
 				PreprocessorDefinitions="OSG_LIBRARY_STATIC;OT_LIBRARY_STATIC;PR_LIBRARY_STATIC;_WINDOWS;WIN32;_DEBUG;_CRT_SECURE_NO_DEPRECATE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -212,7 +212,7 @@
 				AdditionalOptions="/Zm200 "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="../../include,../../../OpenThreads/include,../../../Producer/include,../../../3rdParty/include"
+				AdditionalIncludeDirectories="../../include;&quot;$(INSTALLDIR)/include&quot;;../../../3rdParty/include"
 				PreprocessorDefinitions="NDEBUG;OSG_LIBRARY_STATIC;OT_LIBRARY_STATIC;PR_LIBRARY_STATIC;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE"
 				StringPooling="TRUE"
 				RuntimeLibrary="0"

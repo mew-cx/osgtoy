@@ -22,7 +22,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/vmg"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../../include,../../../../OpenThreads/include,../../../../Producer/include,../../../../3rdParty/include"
+				AdditionalIncludeDirectories="../../../include;&quot;$(INSTALLDIR)/include&quot;;../../../../3rdParty/include"
 				PreprocessorDefinitions="_WINDOWS;_USRDLL;WIN32;_DEBUG;_CRT_SECURE_NO_DEPRECATE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -40,7 +40,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OpenThreadsWin32d.lib"
+				AdditionalDependencies="OpenThreadsd.lib"
 				OutputFile="$(OutDir)/osgdb_glsllintD.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
@@ -109,7 +109,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OpenThreadsWin32.lib"
+				AdditionalDependencies="OpenThreads.lib"
 				OutputFile="$(OutDir)/osgdb_glsllint.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
@@ -160,7 +160,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/vmg"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../../include,../../../../OpenThreads/include,../../../../Producer/include,../../../../3rdParty/include"
+				AdditionalIncludeDirectories="../../../include;&quot;$(INSTALLDIR)/include&quot;;../../../../3rdParty/include"
 				PreprocessorDefinitions="_WINDOWS;OSG_LIBRARY_STATIC;OT_LIBRARY_STATIC;PR_LIBRARY_STATIC;WIN32;_DEBUG;_CRT_SECURE_NO_DEPRECATE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -213,7 +213,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="../../../include,../../../../OpenThreads/include,../../../../Producer/include,../../../../3rdParty/include"
+				AdditionalIncludeDirectories="../../../include;&quot;$(INSTALLDIR)/include&quot;;../../../../3rdParty/include"
 				PreprocessorDefinitions="WIN32;OSG_LIBRARY_STATIC;OT_LIBRARY_STATIC;PR_LIBRARY_STATIC;NDEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE"
 				StringPooling="TRUE"
 				RuntimeLibrary="0"
