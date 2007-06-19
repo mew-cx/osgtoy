@@ -5,7 +5,7 @@ This is a full-featured runtime package of OpenSceneGraph binaries, 3rdParty
 dependency libraries, sample data, plus several additional extensions beyond
 the core OSG.
 
-It was built using Microsoft VisualStudio.net 2003 v7.1 on WindowsXP SP2.
+It was built using Microsoft VisualStudio.net 2003 v7.1 SP1 on WindowsXP SP2.
 To keep this installer compact, only Release binaries are included.
 
 The OSG website is http://www.openscenegraph.org/
