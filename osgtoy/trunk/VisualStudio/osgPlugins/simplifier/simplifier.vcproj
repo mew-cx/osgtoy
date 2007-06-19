@@ -215,7 +215,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OpenThreads.lib"
+				AdditionalDependencies="osgUtil.lib osgDB.lib osg.lib OpenThreads.lib"
 				OutputFile="$(OutDir)/osgdb_simplifier.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"

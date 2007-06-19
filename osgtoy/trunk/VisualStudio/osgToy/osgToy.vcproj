@@ -40,7 +40,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="glslfeD.lib liblua51D.lib OpenThreadsd.lib opengl32.lib glu32.lib"
+				AdditionalDependencies="osgDBd.lib osgd.lib glslfeD.lib liblua51D.lib OpenThreadsd.lib opengl32.lib glu32.lib"
 				OutputFile="$(OutDir)/osgToyD.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
@@ -161,7 +161,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="glslfe.lib liblua51.lib OpenThreads.lib opengl32.lib glu32.lib"
+				AdditionalDependencies="osgDB.lib osg.lib glslfe.lib liblua51.lib OpenThreads.lib opengl32.lib glu32.lib"
 				OutputFile="$(OutDir)/osgToy.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
