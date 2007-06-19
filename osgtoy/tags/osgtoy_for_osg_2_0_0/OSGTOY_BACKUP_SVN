@@ -1,0 +1,10 @@
+#! /bin/sh -x
+
+NAME=osgtoy_svn_backup_`date +%Y-%m-%d`
+
+mkdir ${NAME}
+cd ${NAME}
+rsync -av osgtoy.svn.sourceforge.net::svn/osgtoy/* .
+cd ..
+zip -r ${NAME}.zip ${NAME}
+rm -rf ${NAME}

@@ -1,0 +1,212 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "Core osgToy"=.\osgToy\osgToy.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "osgPlugin dem"=.\osgPlugins\dem\dem.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin drawnorm"=.\osgPlugins\drawnorm\drawnorm.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin faceter"=.\osgPlugins\faceter\faceter.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin globe"=.\osgPlugins\globe\globe.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin glsllint"=.\osgPlugins\glsllint\glsllint.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin image"=.\osgPlugins\image\image.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin lorenz"=.\osgPlugins\lorenz\lorenz.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin lua"=.\osgPlugins\lua\lua.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin simplifier"=.\osgPlugins\simplifier\simplifier.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin smoother"=.\osgPlugins\smoother\smoother.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin spin"=.\osgPlugins\spin\spin.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+
+###############################################################################
+
+Project: "osgPlugin sponge"=.\osgPlugins\sponge\sponge.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Core osgToy
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
