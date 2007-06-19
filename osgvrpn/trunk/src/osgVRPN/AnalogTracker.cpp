@@ -7,6 +7,7 @@
 
 #include <osgVRPN/AnalogTracker.h>
 #include <osg/Quat>
+#include <osg/Notify>
 
 using namespace osgVRPN;
 
