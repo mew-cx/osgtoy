@@ -6,7 +6,7 @@
 AppName=OpenSceneGraph
 AppVerName=OpenSceneGraph 2.0.0 vs7.1 2007-06-19
 OutputBaseFilename=osg2.0.0_vs71_setup_2007-06-19
-VersionInfoTextVersion=2.0.0_vs71
+VersionInfoTextVersion=2.0.0-r7001_vs71
 VersionInfoVersion=2.0.0.7001
 AppPublisher=http://mew.cx/
 AppPublisherURL=http://mew.cx/osg/
@@ -62,7 +62,6 @@ Source: "3rdParty\README_3rdParty.txt";          DestDir: "{app}\doc"; Flags: ig
 ; include
 Source: "3rdParty\include\*"; Excludes: "CVS"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\OpenThreads\*"; Excludes: "CVS"; DestDir: "{app}\include\OpenThreads"; Flags: ignoreversion recursesubdirs
-
 Source: "OpenSceneGraph\include\osg\*"; Excludes: "CVS"; DestDir: "{app}\include\osg"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgDB\*"; Excludes: "CVS"; DestDir: "{app}\include\osgDB"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgFX\*"; Excludes: "CVS"; DestDir: "{app}\include\osgFX"; Flags: ignoreversion recursesubdirs
@@ -73,7 +72,6 @@ Source: "OpenSceneGraph\include\osgSim\*"; Excludes: "CVS"; DestDir: "{app}\incl
 Source: "OpenSceneGraph\include\osgTerrain\*"; Excludes: "CVS"; DestDir: "{app}\include\osgTerrain"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgText\*"; Excludes: "CVS"; DestDir: "{app}\include\osgText"; Flags: ignoreversion recursesubdirs
 Source: "OpenSceneGraph\include\osgUtil\*"; Excludes: "CVS"; DestDir: "{app}\include\osgUtil"; Flags: ignoreversion recursesubdirs
-
 Source: "osgToy\include\osgToy\*"; Excludes: "CVS"; DestDir: "{app}\include\osgToy"; Flags: ignoreversion recursesubdirs
 Source: "osgVRPN\include\osgVRPN\*"; Excludes: "CVS"; DestDir: "{app}\include\osgVRPN"; Flags: ignoreversion recursesubdirs
 
@@ -84,11 +82,15 @@ Source: "3rdParty\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion
 Source: "_osg_INSTALL_Release\bin\*.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
 Source: "_osg_INSTALL_Release\bin\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 Source: "_osg_INSTALL_Release\share\OpenSceneGraph\bin\*.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
+Source: "osgToy\bin\win32\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
+Source: "osgVRPN\bin\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 
 
 ; lib
 Source: "3rdParty\lib\*.lib"; Excludes: "CVS"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
 Source: "_osg_INSTALL_Release\lib\*.lib"; Excludes: "CVS"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
+Source: "osgToy\lib\win32\*.lib"; DestDir: "{app}\bin"; Flags: ignoreversion
+Source: "osgVRPN\lib\*.lib"; DestDir: "{app}\bin"; Flags: ignoreversion
 
 
 ; data
@@ -143,13 +145,13 @@ Source: "data\osgtoy-data\xyz100.osg"; Excludes: "CVS"; DestDir: "{app}\data"; F
 Name: "{userdesktop}\osgLogo";  Filename: "{app}\bin\osglogo.exe";  IconFilename: "{app}\osg.ico"; WorkingDir: "{app}\bin"; Tasks: desktopicon
 Name: "{userdesktop}\osgShell"; Filename: "{app}\bin\osgShell.bat"; IconFilename: "{app}\osg.ico"; WorkingDir: "%OSG_ROOT%\bin"; Tasks: desktopicon
 
-Name: "{group}\Uninstall OpenSceneGraph 1.9.x -r6913 vs7.1 2007-06-08 "; Filename: "{uninstallexe}"
+Name: "{group}\Uninstall OpenSceneGraph 2.0.0 vs7.1 2007-06-19" ; Filename: "{uninstallexe}"
 Name: "{group}\View README.txt"; Filename: "{app}\README.txt";
 Name: "{group}\View OSG Program Files folder"; Filename: "{app}"
 Name: "{group}\View OSG Start Menu folder"; Filename: "{group}"
 Name: "{group}\osgShell"; Filename: "{app}\bin\osgShell.bat"; IconFilename: "{app}\osg.ico"; WorkingDir: "%OSG_ROOT%\bin"
 
-Name: "{group}\URLs\Browse CVS"; Filename: "{app}\URLs\browse_cvs.url"
+Name: "{group}\URLs\Browse SVN"; Filename: "{app}\URLs\browse_svn.url"
 Name: "{group}\URLs\mew.cx"; Filename: "{app}\URLs\mew_cx_osg.url"
 Name: "{group}\URLs\OpenSceneGraph"; Filename: "{app}\URLs\openscenegraph.url"
 Name: "{group}\URLs\OpenThreads"; Filename: "{app}\URLs\openthreads.url"
