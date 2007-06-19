@@ -4,10 +4,10 @@
 
 [Setup]
 AppName=OpenSceneGraph
-AppVerName=OpenSceneGraph 1.9.x -r6913 vs7.1 2007-06-08
-OutputBaseFilename=osg1.9.x-r6913_vs71_setup_2007-06-08b
-VersionInfoTextVersion=1.9.x-r6913_vs71
-VersionInfoVersion=1.9.8.6913
+AppVerName=OpenSceneGraph 2.0.0 vs7.1 2007-06-19
+OutputBaseFilename=osg2.0.0_vs71_setup_2007-06-19
+VersionInfoTextVersion=2.0.0_vs71
+VersionInfoVersion=2.0.0.7001
 AppPublisher=http://mew.cx/
 AppPublisherURL=http://mew.cx/osg/
 DefaultDirName={pf}\OpenSceneGraph
