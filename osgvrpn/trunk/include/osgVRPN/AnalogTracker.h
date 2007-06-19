@@ -11,7 +11,10 @@
 #include <osg/ref_ptr>
 #include <osg/Vec3>
 #include <osg/Matrixd>
-#include <osgProducer/Viewer>
+//#include <osgProducer/Viewer>
+namespace osgProducer {
+class Viewer;
+}
 
 #include <osgVRPN/TrackerBase.h>
 #include <osgVRPN/Analog.h>
