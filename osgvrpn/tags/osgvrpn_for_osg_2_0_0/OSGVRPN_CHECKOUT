@@ -1,0 +1,10 @@
+#! /bin/sh -x
+
+CVS_RSH=ssh
+export CVS_RSH=ssh
+ 
+CVSROOT=:ext:mew@osgtoy.cvs.sourceforge.net:/cvsroot/osgtoy
+export CVSROOT
+
+cvs co osgvrpn
+(cd osgvrpn; cvs update -Pd)
