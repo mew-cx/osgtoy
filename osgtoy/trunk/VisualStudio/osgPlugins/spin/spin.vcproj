@@ -162,7 +162,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OpenThreads.lib"
+				AdditionalDependencies="osgUtil.lib osgDB.lib osg.lib OpenThreads.lib"
 				OutputFile="$(OutDir)/osgdb_spin.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"

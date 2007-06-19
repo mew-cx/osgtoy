@@ -93,7 +93,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OpenThreads.lib"
+				AdditionalDependencies="osgDB.lib osg.lib OpenThreads.lib"
 				OutputFile="$(OutDir)/osgdb_image.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
