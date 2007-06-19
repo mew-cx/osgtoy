@@ -19,13 +19,4 @@ del 3rdParty\lib\libungifD.lib
 del 3rdParty\lib\vrpnD.lib
 del 3rdParty\lib\zlibD.lib
 
-del         3rdParty\include\collada-dom\dae.h
-del         3rdParty\include\collada-dom\dom.h
-rmdir /s /q 3rdParty\include\collada-dom\1.4
-rmdir /s /q 3rdParty\include\collada-dom\dae
-rmdir /s /q 3rdParty\include\collada-dom\modules
-
-del OpenSceneGraph\lib\win32\osgdb_*.lib
-del OpenSceneGraph\lib\win32\osgwrapper_*.lib
-
 pause
