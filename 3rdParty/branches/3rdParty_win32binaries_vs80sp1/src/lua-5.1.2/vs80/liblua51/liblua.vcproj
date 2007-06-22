@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="liblua51"
-	ProjectGUID="{72E46155-075D-4D54-ADF0-53D57282D047}"
+	ProjectGUID="{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}"
 	RootNamespace="liblua51"
 	>
 	<Platforms>
