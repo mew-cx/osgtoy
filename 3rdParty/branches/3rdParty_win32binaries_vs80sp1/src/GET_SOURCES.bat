@@ -5,10 +5,11 @@ set WGET=c:\mew\bin\wget
 %WGET% http://www.zlib.net/zlib123.zip
 %WGET% http://downloads.sourceforge.net/libpng/lpng1218.zip
 %WGET% ftp://ftp.simtel.net/pub/simtelnet/msdos/graphics/jpegsr6.zip
+%WGET% http://www.lua.org/ftp/lua-5.1.2.tar.gz
 %WGET% http://downloads.sourceforge.net/libungif/libungif-4.1.4.tar.gz
+
 %WGET% http://downloads.sourceforge.net/freetype/ft234.zip
 %WGET% http://www.xmission.com/~nate/glut/glut-3.7.6-src.zip
-%WGET% http://www.lua.org/ftp/lua-5.1.2.tar.gz
 
 %WGET% ftp://ftp.remotesensing.org/pub/libtiff/tiff-3.8.2.zip
 %WGET% ftp://ftp.remotesensing.org/proj/proj-4.5.0.zip
