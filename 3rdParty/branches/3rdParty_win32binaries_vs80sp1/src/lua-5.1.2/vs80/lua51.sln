@@ -1,0 +1,40 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "lua\lua.vcproj", "{E3C2AB98-275F-44B0-A162-C1AF84AB2DAB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72E46155-075D-4D54-ADF0-53D57282D047} = {72E46155-075D-4D54-ADF0-53D57282D047}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "liblua51", "liblua51\liblua.vcproj", "{72E46155-075D-4D54-ADF0-53D57282D047}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug_dynamic = Debug_dynamic
+		Debug_static = Debug_static
+		Release_dynamic = Release_dynamic
+		Release_static = Release_static
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E3C2AB98-275F-44B0-A162-C1AF84AB2DAB}.Debug_dynamic.ActiveCfg = Debug_dynamic|Win32
+		{E3C2AB98-275F-44B0-A162-C1AF84AB2DAB}.Debug_dynamic.Build.0 = Debug_dynamic|Win32
+		{E3C2AB98-275F-44B0-A162-C1AF84AB2DAB}.Debug_static.ActiveCfg = Debug_static|Win32
+		{E3C2AB98-275F-44B0-A162-C1AF84AB2DAB}.Debug_static.Build.0 = Debug_static|Win32
+		{E3C2AB98-275F-44B0-A162-C1AF84AB2DAB}.Release_dynamic.ActiveCfg = Release_dynamic|Win32
+		{E3C2AB98-275F-44B0-A162-C1AF84AB2DAB}.Release_dynamic.Build.0 = Release_dynamic|Win32
+		{E3C2AB98-275F-44B0-A162-C1AF84AB2DAB}.Release_static.ActiveCfg = Release_static|Win32
+		{E3C2AB98-275F-44B0-A162-C1AF84AB2DAB}.Release_static.Build.0 = Release_static|Win32
+		{72E46155-075D-4D54-ADF0-53D57282D047}.Debug_dynamic.ActiveCfg = Debug_dynamic|Win32
+		{72E46155-075D-4D54-ADF0-53D57282D047}.Debug_dynamic.Build.0 = Debug_dynamic|Win32
+		{72E46155-075D-4D54-ADF0-53D57282D047}.Debug_static.ActiveCfg = Debug_static|Win32
+		{72E46155-075D-4D54-ADF0-53D57282D047}.Debug_static.Build.0 = Debug_static|Win32
+		{72E46155-075D-4D54-ADF0-53D57282D047}.Release_dynamic.ActiveCfg = Release_dynamic|Win32
+		{72E46155-075D-4D54-ADF0-53D57282D047}.Release_dynamic.Build.0 = Release_dynamic|Win32
+		{72E46155-075D-4D54-ADF0-53D57282D047}.Release_static.ActiveCfg = Release_static|Win32
+		{72E46155-075D-4D54-ADF0-53D57282D047}.Release_static.Build.0 = Release_static|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
