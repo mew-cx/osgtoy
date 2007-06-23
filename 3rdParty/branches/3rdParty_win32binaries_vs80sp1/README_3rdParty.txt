@@ -8,6 +8,6 @@ with minimal modifications to the makefiles/projectfiles for consistent
 use of the "multi-threaded DLL" (ie /MD and /MDd) versions of the
 VisualStudio C++ runtime libraries.
 
-A list of the exact upstream source archives can be found in the
-src\GET_SOURCES.bat script.
+The list of exact upstream source packages can be found in the
+src\PACKAGE_VERSIONS.bat script.
 
