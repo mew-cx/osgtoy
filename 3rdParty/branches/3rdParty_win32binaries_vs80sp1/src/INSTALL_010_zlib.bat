@@ -10,11 +10,13 @@ exit
 )
 
 if NOT EXIST foo (
-echo ERROR zlib is built as part of libpng.
-echo rerun this script after building libpng.
+echo ERROR zlib will be built as part of libpng.
+echo build libpng first, then rerun this script.
 pause
 exit
 )
+
+echo TODO do copy here
 
 echo OK zlib installed
 pause
