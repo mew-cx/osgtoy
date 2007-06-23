@@ -1,10 +1,9 @@
 @echo off
-
 call PACKAGE_VERSIONS.bat
 
 set SRCDIR=%CD%\%DIR_ZLIB%
 
-if NOT EXIST %SRCDIR% (
+if NOT EXIST %SRCDIR%\zlib.h (
 echo ERROR %PKG_ZLIB% must be unpacked to %SRCDIR%
 pause
 exit
@@ -17,5 +16,5 @@ pause
 exit
 )
 
-echo OK zlib successfully installed
+echo OK zlib installed
 pause
