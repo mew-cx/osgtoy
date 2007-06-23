@@ -1,10 +1,14 @@
 @echo off
+call PACKAGE_VERSIONS.bat
 
-set SRC=C:\Program Files\Microsoft Visual Studio 8\VC\redist\x86
-set DST=%CD%\..\bin
+if NOT EXIST "%DIR_REDIST%" (
+echo ERROR VisualStudio 8.0 2005 redistributables not found
+pause
+exit
+)
 
-copy "%SRC%\Microsoft.VC80.CRT\*" %DST%
-copy "%SRC%\Microsoft.VC80.MFC\*" %DST%
+copy "%DIR_REDIST_CRT%\*" %BIN_DIR%
+copy "%DIR_REDIST_MFC%\*" %BIN_DIR%
 
 echo OK vs80_redist installed
 pause
