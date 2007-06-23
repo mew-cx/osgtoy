@@ -1,5 +1,4 @@
-REM fetch upstream source packages from the 'net
-
+@echo off
 call PACKAGE_VERSIONS.bat
 
 set WGET=c:\mew\bin\wget
@@ -17,4 +16,5 @@ set WGET=c:\mew\bin\wget
 %WGET% %URL_PROJ%
 %WGET% %URL_GDAL%
 
+echo OK all source packages downloaded
 pause
