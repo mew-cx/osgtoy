@@ -1,13 +1,14 @@
 REM list of exact 3rdParty source packages
-REM mew 2007-06-23
+REM mew 2007-06-27
 
-REM where build products are installed...
-set BIN_DIR=%CD%\..\bin
-set INC_DIR=%CD%\..\include
-set LIB_DIR=%CD%\..\lib
+REM where products will be installed...
+set INSTALL_ROOT=%CD%\..
+set INSTALL_BIN=%INSTALL_ROOT%\bin
+set INSTALL_INC=%INSTALL_ROOT%\include
+set INSTALL_LIB=%INSTALL_ROOT%\lib
 
 
-REM list of source packages...
+REM the upstream sources...
 
 set DIR_REDIST=C:\Program Files\Microsoft Visual Studio 8\VC\redist\x86
 set DIR_REDIST_CRT=%DIR_REDIST%\Microsoft.VC80.CRT
@@ -25,22 +26,20 @@ set DIR_JPEG=jpeg-6b
 set PKG_JPEG=jpegsr6.zip
 set URL_JPEG=ftp://ftp.simtel.net/pub/simtelnet/msdos/graphics/%PKG_JPEG%
 
-REM ------------------------------
-
-set DIR_LUA=
-set PKG_LUA=lua-5.1.2.tar.gz
+set DIR_LUA=lua-5.1.2
+set PKG_LUA=%DIR_LUA%.tar.gz
 set URL_LUA=http://www.lua.org/ftp/%PKG_LUA%
 
-set DIR_UNGIF=
-set PKG_UNGIF=libungif-4.1.4.tar.gz
+set DIR_UNGIF=libungif-4.1.4
+set PKG_UNGIF=%DIR_UNGIF%.tar.gz
 set URL_UNGIF=http://downloads.sourceforge.net/libungif/%PKG_UNGIF%
 
-set DIR_FREETYPE=
+set DIR_FREETYPE=freetype-2.3.4
 set PKG_FREETYPE=ft234.zip
 set URL_FREETYPE=http://downloads.sourceforge.net/freetype/%PKG_FREETYPE%
 
-set DIR_GLUT=
-set PKG_GLUT=glut-3.7.6-src.zip
+set DIR_GLUT=glut-3.7.6
+set PKG_GLUT=%DIR_GLUT%-src.zip
 set URL_GLUT=http://www.xmission.com/~nate/glut/%PKG_GLUT%
 
 REM ------------------------------
