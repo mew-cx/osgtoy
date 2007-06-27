@@ -16,5 +16,5 @@ set WGET=c:\mew\bin\wget
 %WGET% %URL_PROJ%
 %WGET% %URL_GDAL%
 
-echo OK all source packages downloaded
+echo SUCCESS source packages downloaded
 pause
