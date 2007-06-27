@@ -14,14 +14,17 @@ pause
 exit
 )
 
-copy %DIR_PNG%\projects\visualc80\Win32_DLL_Release\ZLib\zlib1.dll %BIN_DIR%
-copy %DIR_PNG%\projects\visualc80\Win32_DLL_Debug\ZLib\zlib1d.dll %BIN_DIR%
+echo copying products to %INSTALL_ROOT%
+echo on
 
-copy %DIR_PNG%\projects\visualc80\Win32_DLL_Release\ZLib\zlib1.lib %LIB_DIR%
-copy %DIR_PNG%\projects\visualc80\Win32_DLL_Debug\ZLib\zlib1d.lib %LIB_DIR%
+copy %DIR_PNG%\projects\visualc80\Win32_DLL_Release\ZLib\zlib1.dll %INSTALL_BIN%
+copy %DIR_PNG%\projects\visualc80\Win32_DLL_Debug\ZLib\zlib1d.dll %INSTALL_BIN%
 
-copy %DIR_ZLIB%\zlib.h %INC_DIR%
-copy %DIR_ZLIB%\zconf.h %INC_DIR%
+copy %DIR_PNG%\projects\visualc80\Win32_DLL_Release\ZLib\zlib1.lib %INSTALL_LIB%
+copy %DIR_PNG%\projects\visualc80\Win32_DLL_Debug\ZLib\zlib1d.lib %INSTALL_LIB%
 
-echo OK zlib installed
-pause
+copy %DIR_ZLIB%\zlib.h %INSTALL_INC%
+copy %DIR_ZLIB%\zconf.h %INSTALL_INC%
+
+@echo SUCCESS zlib installed
+@pause

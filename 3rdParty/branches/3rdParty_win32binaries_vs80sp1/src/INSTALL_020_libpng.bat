@@ -1,7 +1,7 @@
 @echo off
 call PACKAGE_VERSIONS.bat
 
-if NOT EXIST %DIR_PNG%\projects\visualc71\libpng.sln (
+if NOT EXIST %DIR_PNG%\png.h (
 echo ERROR %PKG_PNG% must be unpacked to %DIR_PNG%
 pause
 exit
@@ -21,15 +21,18 @@ pause
 exit
 )
 
-copy %DIR_PNG%\projects\visualc80\Win32_DLL_Release\libpng13.dll %BIN_DIR%
-copy %DIR_PNG%\projects\visualc80\Win32_DLL_Debug\libpng13d.dll %BIN_DIR%
+echo copying products to %INSTALL_ROOT%
+echo on
 
-copy %DIR_PNG%\projects\visualc80\Win32_DLL_Release\libpng13.lib %LIB_DIR%
-copy %DIR_PNG%\projects\visualc80\Win32_DLL_Debug\libpng13d.lib %LIB_DIR%
+copy %DIR_PNG%\projects\visualc80\Win32_DLL_Release\libpng13.dll %INSTALL_BIN%
+copy %DIR_PNG%\projects\visualc80\Win32_DLL_Debug\libpng13d.dll %INSTALL_BIN%
 
-copy %DIR_PNG%\png.h %INC_DIR%
-copy %DIR_PNG%\pngconf.h %INC_DIR%
+copy %DIR_PNG%\projects\visualc80\Win32_DLL_Release\libpng13.lib %INSTALL_LIB%
+copy %DIR_PNG%\projects\visualc80\Win32_DLL_Debug\libpng13d.lib %INSTALL_LIB%
 
-echo OK libpng installed
-echo be sure to install zlib too
-pause
+copy %DIR_PNG%\png.h %INSTALL_INC%
+copy %DIR_PNG%\pngconf.h %INSTALL_INC%
+
+@echo SUCCESS libpng installed
+@echo be sure to install zlib too
+@pause

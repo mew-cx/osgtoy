@@ -7,8 +7,11 @@ pause
 exit
 )
 
-copy "%DIR_REDIST_CRT%\*" %BIN_DIR%
-copy "%DIR_REDIST_MFC%\*" %BIN_DIR%
+echo copying products to %INSTALL_ROOT%
+echo on
 
-echo OK vs80_redist installed
-pause
+copy "%DIR_REDIST_CRT%\*.dll" %INSTALL_BIN%
+copy "%DIR_REDIST_MFC%\*.dll" %INSTALL_BIN%
+
+@echo SUCCESS vs80_redist installed
+@pause
