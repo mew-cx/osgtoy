@@ -16,17 +16,20 @@ copy jconfig.vc jconfig.h
 del *.obj
 nmake clean
 nmake DFLAG= NODEBUG=1
-copy libjpeg.lib %LIB_DIR%
+copy libjpeg.lib %INSTALL_LIB%
 
 del *.obj
 nmake clean
 nmake DFLAG=D 
-copy libjpegD.lib %LIB_DIR%
+copy libjpegD.lib %INSTALL_LIB%
 
-copy jpeglib.h %INC_DIR%
-copy jerror.h %INC_DIR%
-copy jconfig.h %INC_DIR%
-copy jmorecfg.h %INC_DIR%
+echo copying products to %INSTALL_ROOT%
+echo on
 
-echo OK libjpeg installed
-pause
+copy jpeglib.h %INSTALL_INC%
+copy jerror.h %INSTALL_INC%
+copy jconfig.h %INSTALL_INC%
+copy jmorecfg.h %INSTALL_INC%
+
+@echo SUCCESS libjpeg installed
+@pause
