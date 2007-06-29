@@ -13,12 +13,10 @@ cd %DIR_JPEG%
 
 copy jconfig.vc jconfig.h
 
-del *.obj
 nmake clean
 nmake DFLAG= NODEBUG=1
 copy libjpeg.lib %INSTALL_LIB%
 
-del *.obj
 nmake clean
 nmake DFLAG=D 
 copy libjpegD.lib %INSTALL_LIB%
