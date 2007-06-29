@@ -3,7 +3,6 @@
 	ProjectType="Visual C++"
 	Version="7.00"
 	Name="Tests - StandAlone"
-	ProjectGUID="{660D0A05-69A9-4F09-9664-02FBEB08FAE2}">
 	<Platforms>
 		<Platform
 			Name="Win32"/>

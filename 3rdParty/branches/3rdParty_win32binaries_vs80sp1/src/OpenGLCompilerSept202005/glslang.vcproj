@@ -3,7 +3,6 @@
 	ProjectType="Visual C++"
 	Version="7.00"
 	Name="Targets - glslang (generic)"
-	ProjectGUID="{3B146CC5-B2B8-4573-9D46-6139E2EDFEA3}">
 	<Platforms>
 		<Platform
 			Name="Win32"/>
