@@ -35,7 +35,7 @@ TARGETS	=	bmp2tiff.exe tiffcp.exe tiffinfo.exe tiffdump.exe \
 		tiffcmp.exe tiffdither.exe tiffmedian.exe tiffsplit.exe 
 
 INCL		= 	-I..\libtiff
-LIBS		=	$(LIBS) ..\port\libport.lib ..\libtiff\libtiff.lib
+LIBS		=	$(LIBS) ..\port\libport.lib ..\libtiff\$(LIBNAME)
 
 default:	$(TARGETS)
 
