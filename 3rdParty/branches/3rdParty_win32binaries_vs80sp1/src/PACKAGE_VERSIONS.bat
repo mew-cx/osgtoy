@@ -42,18 +42,18 @@ set DIR_GLUT=glut-3.7.6
 set PKG_GLUT=%DIR_GLUT%-src.zip
 set URL_GLUT=http://www.xmission.com/~nate/glut/%PKG_GLUT%
 
-REM ------------------------------
-
 set DIR_TIFF=tiff-3.8.2
 set PKG_TIFF=%DIR_TIFF%.zip
 set URL_TIFF=ftp://ftp.remotesensing.org/pub/libtiff/%PKG_TIFF%
 
-set DIR_VRPN=
-set PKG_VRPN=vrpn_07_09.zip
+set DIR_VRPN=vrpn_07_09
+set PKG_VRPN=%DIR_VRPN%.zip
 set URL_VRPN=ftp://ftp.cs.unc.edu/pub/packages/GRIP/vrpn/%PKG_VRPN%
 
-set DIR_GLSLFE=
-set PKG_GLSLFE=OpenGLCompilerSept202005.zip
+REM ------------------------------
+
+set DIR_GLSLFE=OpenGLCompilerSept202005
+set PKG_GLSLFE=%DIR_GLSLFE%.zip
 set URL_GLSLFE=http://developer.3dlabs.com/downloads/glslcompiler/%PKG_GLSLFE%
 
 set DIR_PROJ=
