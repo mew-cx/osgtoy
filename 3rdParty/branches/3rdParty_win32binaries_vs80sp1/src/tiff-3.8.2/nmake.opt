@@ -114,7 +114,7 @@ CHECK_JPEG_YCBCR_SUBSAMPLING = 1
 # NOTE: /GX option required if you want to build the C++ stream API
 #
 !IFDEF NODEBUG
-OPTFLAGS =	/Ox /MD /GX /W3
+OPTFLAGS =	/Ox /MD /EHsc /W3
 !ELSE
 OPTFLAGS = 	/Zi /MDd /EHsc
 !ENDIF
