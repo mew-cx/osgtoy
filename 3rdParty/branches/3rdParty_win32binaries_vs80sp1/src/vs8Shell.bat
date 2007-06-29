@@ -1,4 +1,4 @@
 @echo off
-call "C:\Program Files\Microsoft Visual Studio 8\VC\bin\vcvars32.bat"
-TITLE vs8Shell %DEBUG%
+call "%VS80COMNTOOLS%vsvars32.bat"
+TITLE vs80Shell %DEBUG%
 %COMSPEC% /K
