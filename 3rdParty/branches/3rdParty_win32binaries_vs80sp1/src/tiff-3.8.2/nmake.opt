@@ -1,4 +1,5 @@
-# $Id: nmake.opt,v 1.16 2006/03/23 14:54:01 dron Exp $
+#  derived from
+#  Id: nmake.opt,v 1.16 2006/03/23 14:54:01 dron Exp  
 #
 # Copyright (C) 2004, Andrey Kiselev <dron@ak4719.spb.edu>
 #
@@ -112,8 +113,11 @@ CHECK_JPEG_YCBCR_SUBSAMPLING = 1
 # with no debugging information.
 # NOTE: /GX option required if you want to build the C++ stream API
 #
+!IFDEF NODEBUG
 OPTFLAGS =	/Ox /MD /GX /W3
-#OPTFLAGS = 	/Zi 
+!ELSE
+OPTFLAGS = 	/Zi /MDd /EHsc
+!ENDIF
 
 #
 # Uncomment following line to enable using Windows Common RunTime Library
@@ -138,7 +142,15 @@ EXTRAFLAGS =
 LIBS	=
 
 # Name of the output shared library
+!IFDEF NODEBUG
+LIBNAME	= libtiff.lib
 DLLNAME	= libtiff.dll
+IMPNAME	= libtiff_i.lib
+!ELSE
+LIBNAME	= libtiffD.lib
+DLLNAME	= libtiffD.dll
+IMPNAME	= libtiff_iD.lib
+!ENDIF
 
 #
 ########### There is nothing to edit below this line normally. ###########

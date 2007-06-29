@@ -1,4 +1,5 @@
-# $Id: Makefile.vc,v 1.15 2006/03/23 14:54:02 dron Exp $
+#  derived from
+#  Id: Makefile.vc,v 1.15 2006/03/23 14:54:02 dron Exp  
 #
 # Copyright (C) 2004, Andrey Kiselev <dron@ak4719.spb.edu>
 #
@@ -76,7 +77,7 @@ OBJ	= \
 	tif_zip.obj \
 	$(OBJ_SYSDEP_MODULE)
 
-all:	libtiff.lib $(DLLNAME)
+all:	$(LIBNAME) $(DLLNAME)
 
 tif_config.h:	tif_config.h.vc
 	copy tif_config.h.vc tif_config.h
@@ -84,12 +85,12 @@ tif_config.h:	tif_config.h.vc
 tiffconf.h:	tiffconf.h.vc
 	copy tiffconf.h.vc tiffconf.h
 
-libtiff.lib:	tif_config.h tiffconf.h $(OBJ)
-	$(AR) /out:libtiff.lib $(OBJ) $(LIBS)
+$(LIBNAME):	tif_config.h tiffconf.h $(OBJ)
+	$(AR) /out:$(LIBNAME) $(OBJ) $(LIBS)
 
 $(DLLNAME):	tif_config.h tiffconf.h libtiff.def $(OBJ)
 	$(LD) /debug /dll /def:libtiff.def /out:$(DLLNAME) \
-	/implib:libtiff_i.lib $(OBJ) $(LIBS)
+	/implib:$(IMPNAME) $(OBJ) $(LIBS)
 	
 clean:
 	-del *.obj
