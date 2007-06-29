@@ -7,7 +7,7 @@ pause
 exit
 )
 
-call "C:\Program Files\Microsoft Visual Studio 8\VC\bin\vcvars32.bat"
+call "%VS80COMNTOOLS%vsvars32.bat"
 
 cd %DIR_JPEG%
 
