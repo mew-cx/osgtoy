@@ -44,12 +44,12 @@ set URL_GLUT=http://www.xmission.com/~nate/glut/%PKG_GLUT%
 
 REM ------------------------------
 
-set DIR_TIFF=
-set PKG_TIFF=tiff-3.8.2.zip
+set DIR_TIFF=tiff-3.8.2
+set PKG_TIFF=%DIR_TIFF%.zip
 set URL_TIFF=ftp://ftp.remotesensing.org/pub/libtiff/%PKG_TIFF%
 
 set DIR_VRPN=
-set PKG_VRPN=vrpn_07_08.zip
+set PKG_VRPN=vrpn_07_09.zip
 set URL_VRPN=ftp://ftp.cs.unc.edu/pub/packages/GRIP/vrpn/%PKG_VRPN%
 
 set DIR_GLSLFE=
