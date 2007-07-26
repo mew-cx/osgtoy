@@ -1,5 +1,5 @@
 REM list of exact 3rdParty source packages
-REM mew 2007-06-27
+REM mew 2007-07-26
 
 REM where products will be installed...
 set INSTALL_ROOT=%CD%\..
@@ -46,7 +46,7 @@ set DIR_TIFF=tiff-3.8.2
 set PKG_TIFF=%DIR_TIFF%.zip
 set URL_TIFF=ftp://ftp.remotesensing.org/pub/libtiff/%PKG_TIFF%
 
-set DIR_VRPN=vrpn_07_09
+set DIR_VRPN=vrpn_07_11
 set PKG_VRPN=%DIR_VRPN%.zip
 set URL_VRPN=ftp://ftp.cs.unc.edu/pub/packages/GRIP/vrpn/%PKG_VRPN%
 
@@ -61,6 +61,6 @@ set PKG_PROJ=proj-4.5.0.zip
 set URL_PROJ=ftp://ftp.remotesensing.org/proj/%PKG_PROJ%
 
 set DIR_GDAL=
-set PKG_GDAL=gdal141.zip
+set PKG_GDAL=gdal142.zip
 set URL_GDAL=http://download.osgeo.org/gdal/%PKG_GDAL%
 
