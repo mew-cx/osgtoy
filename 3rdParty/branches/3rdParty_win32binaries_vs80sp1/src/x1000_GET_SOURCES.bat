@@ -1,7 +1,9 @@
 @echo off
 call PACKAGE_VERSIONS.bat
 
-set WGET=c:\mew\bin\wget
+set WGET=c:\mew\bin\wget.exe
+
+cd UPSTREAM_SOURCES
 
 %WGET% %URL_ZLIB%
 %WGET% %URL_PNG%
