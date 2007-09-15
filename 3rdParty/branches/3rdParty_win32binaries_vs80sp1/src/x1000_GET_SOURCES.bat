@@ -1,7 +1,7 @@
 @echo off
 call PACKAGE_VERSIONS.bat
 
-set WGET=c:\mew\bin\wget.exe
+set WGET=e:\mew\bin\wget.exe
 
 cd UPSTREAM_SOURCES
 
