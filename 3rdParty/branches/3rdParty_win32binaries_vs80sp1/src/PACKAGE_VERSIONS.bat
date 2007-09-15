@@ -1,5 +1,4 @@
 REM list of exact 3rdParty source packages
-REM mew 2007-07-26
 
 REM where products will be installed...
 set INSTALL_ROOT=%CD%\..
@@ -46,7 +45,7 @@ set DIR_TIFF=tiff-3.8.2
 set PKG_TIFF=%DIR_TIFF%.zip
 set URL_TIFF=ftp://ftp.remotesensing.org/pub/libtiff/%PKG_TIFF%
 
-set DIR_VRPN=vrpn_07_11
+set DIR_VRPN=vrpn_07_13
 set PKG_VRPN=%DIR_VRPN%.zip
 set URL_VRPN=ftp://ftp.cs.unc.edu/pub/packages/GRIP/vrpn/%PKG_VRPN%
 
