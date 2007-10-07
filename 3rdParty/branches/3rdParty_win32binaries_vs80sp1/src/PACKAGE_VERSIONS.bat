@@ -63,3 +63,7 @@ set DIR_GDAL=
 set PKG_GDAL=gdal142.zip
 set URL_GDAL=http://download.osgeo.org/gdal/%PKG_GDAL%
 
+set DIR_GEOTIFF=
+set PKG_GEOTIFF=libgeotiff124.zip
+set URL_GEOTIFF=ftp://ftp.remotesensing.org/pub/geotiff/libgeotiff/%PKG_GEOTIFF%
+
