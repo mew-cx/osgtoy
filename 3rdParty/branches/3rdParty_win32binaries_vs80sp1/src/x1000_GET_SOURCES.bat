@@ -17,6 +17,7 @@ cd UPSTREAM_SOURCES
 %WGET% %URL_GLSLFE%
 %WGET% %URL_PROJ%
 %WGET% %URL_GDAL%
+%WGET% %URL_GEOTIFF%
 
 echo SUCCESS source packages downloaded
 pause
