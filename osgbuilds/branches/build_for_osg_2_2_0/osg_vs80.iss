@@ -1,12 +1,12 @@
-; Inno Setup 5.1.12 configuration http://www.innosetup.com/
+; Inno Setup 5.2.0 configuration http://www.innosetup.com/
 ; for OpenSceneGraph x.x http://openscenegraph.org/
 ; by Mike Weiblen http://mew.cx/
 
 [Setup]
 AppName=OpenSceneGraph
-AppVerName=OpenSceneGraph 2.2.0 vs7.1 2007-10-08
-OutputBaseFilename=osg2.2.0_vs71_setup_2007-10-08
-VersionInfoTextVersion=2.2.0-r7569_vs71
+AppVerName=OpenSceneGraph 2.2.0 vs8.0 2007-10-08
+OutputBaseFilename=osg2.2.0_vs80_setup_2007-10-08
+VersionInfoTextVersion=2.2.0-r7569_vs80
 VersionInfoVersion=2.2.0.7569
 AppPublisher=http://mew.cx/
 AppPublisherURL=http://mew.cx/osg/
@@ -42,7 +42,7 @@ Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environmen
 
 [Files]
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: "win32\README_vs71.txt"; DestDir: "{app}"; Flags: isreadme ignoreversion
+Source: "win32\README_vs80.txt"; DestDir: "{app}"; Flags: isreadme ignoreversion
 Source: "OpenSceneGraph\VisualStudio\icons\osg.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: "osgsrc.zip"; DestDir: "{app}"; Flags: ignoreversion
 
@@ -147,7 +147,7 @@ Source: "data\osgtoy-data\xyz100.osg"; Excludes: "CVS"; DestDir: "{app}\data"; F
 Name: "{userdesktop}\osgLogo";  Filename: "{app}\bin\osglogo.exe";  IconFilename: "{app}\osg.ico"; WorkingDir: "{app}\bin"; Tasks: desktopicon
 Name: "{userdesktop}\osgShell"; Filename: "{app}\bin\osgShell.bat"; IconFilename: "{app}\osg.ico"; WorkingDir: "%OSG_ROOT%\bin"; Tasks: desktopicon
 
-Name: "{group}\Uninstall OpenSceneGraph 2.2.0 vs7.1 2007-10-08" ; Filename: "{uninstallexe}"
+Name: "{group}\Uninstall OpenSceneGraph 2.2.0 vs8.0 2007-10-08" ; Filename: "{uninstallexe}"
 Name: "{group}\View README.txt"; Filename: "{app}\README.txt";
 Name: "{group}\View OSG Program Files folder"; Filename: "{app}"
 Name: "{group}\View OSG Start Menu folder"; Filename: "{group}"
