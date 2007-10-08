@@ -49,21 +49,21 @@ set DIR_VRPN=vrpn_07_13
 set PKG_VRPN=%DIR_VRPN%.zip
 set URL_VRPN=ftp://ftp.cs.unc.edu/pub/packages/GRIP/vrpn/%PKG_VRPN%
 
-REM ------------------------------
+REM TODO -------------------------
+
+set DIR_PROJ=proj-4.5.0
+set PKG_PROJ=%DIR_PROJ%.zip
+set URL_PROJ=ftp://ftp.remotesensing.org/proj/%PKG_PROJ%
+
+set DIR_GDAL=gdal-1.4.2
+set PKG_GDAL=gdal142.zip
+set URL_GDAL=http://download.osgeo.org/gdal/%PKG_GDAL%
+
+set DIR_GEOTIFF=libgeotiff-1.2.4
+set PKG_GEOTIFF=libgeotiff124.zip
+set URL_GEOTIFF=ftp://ftp.remotesensing.org/pub/geotiff/libgeotiff/%PKG_GEOTIFF%
 
 set DIR_GLSLFE=OpenGLCompilerSept202005
 set PKG_GLSLFE=%DIR_GLSLFE%.zip
 set URL_GLSLFE=http://developer.3dlabs.com/downloads/glslcompiler/%PKG_GLSLFE%
-
-set DIR_PROJ=
-set PKG_PROJ=proj-4.5.0.zip
-set URL_PROJ=ftp://ftp.remotesensing.org/proj/%PKG_PROJ%
-
-set DIR_GDAL=
-set PKG_GDAL=gdal142.zip
-set URL_GDAL=http://download.osgeo.org/gdal/%PKG_GDAL%
-
-set DIR_GEOTIFF=
-set PKG_GEOTIFF=libgeotiff124.zip
-set URL_GEOTIFF=ftp://ftp.remotesensing.org/pub/geotiff/libgeotiff/%PKG_GEOTIFF%
 
