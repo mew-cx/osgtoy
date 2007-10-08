@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="vrpn_server"
-	ProjectGUID="{87E26751-CD7D-4E5F-8A44-95B7302F63EE}"
+	ProjectGUID="{F595542E-64EC-4F32-A09A-4545540B3C43}"
 	>
 	<Platforms>
 		<Platform

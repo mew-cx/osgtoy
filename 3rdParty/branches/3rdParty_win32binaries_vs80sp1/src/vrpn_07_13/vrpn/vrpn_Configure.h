@@ -187,6 +187,11 @@
 // Linux releases included this library.
 //#define VRPN_USE_GPM_MOUSE
 
+//------------------------
+// Instructs VRPN to compile the HID device code and servers for
+// HID devices.
+#define VRPN_USE_HID
+
 //------------------------------------------------------------------//
 // SYSTEM CONFIGURATION SECTION                                     //
 // EDIT THESE DEFINITIONS TO POINT TO OPTIONAL LIBRARIES.  THEY ARE //
