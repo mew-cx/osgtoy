@@ -10,8 +10,8 @@ exit
 echo copying products to %INSTALL_ROOT%
 echo on
 
-copy "%DIR_REDIST_CRT%\*.dll" %INSTALL_BIN%
-copy "%DIR_REDIST_MFC%\*.dll" %INSTALL_BIN%
+REM xcopy "%DIR_REDIST_CRT%" %INSTALL_BIN%
+REM xcopy "%DIR_REDIST_MFC%" %INSTALL_BIN%
 
-@echo SUCCESS vs80_redist installed
+@echo TODO see script for details
 @pause
