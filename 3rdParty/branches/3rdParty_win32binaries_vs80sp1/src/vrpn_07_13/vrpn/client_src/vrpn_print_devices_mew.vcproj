@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="vrpn_print_devices"
-	ProjectGUID="{AC26DC34-64EA-442B-93A6-8CEC0724E350}"
+	ProjectGUID="{38ADCE04-73FF-43D8-B2D0-D937663E061D}"
 	>
 	<Platforms>
 		<Platform

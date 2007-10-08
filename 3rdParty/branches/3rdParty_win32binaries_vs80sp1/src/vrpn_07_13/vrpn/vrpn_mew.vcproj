@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="vrpn"
-	ProjectGUID="{ECCEDDE3-84C3-44CA-9D9F-A86093630CF2}"
+	ProjectGUID="{9E8D6918-03D5-45DD-8A2E-67E9414FFFB4}"
 	>
 	<Platforms>
 		<Platform
@@ -169,6 +169,26 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
+			<File
+				RelativePath=".\vrpn_3DConnexion.C"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+			</File>
 			<File
 				RelativePath="vrpn_3DMicroscribe.C"
 				>
@@ -363,6 +383,26 @@
 			</File>
 			<File
 				RelativePath=".\vrpn_Analog_USDigital_A2.C"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\vrpn_Auxilliary_Logger.C"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -896,6 +936,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\vrpn_HumanInterface.C"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath="vrpn_Imager.C"
 				>
 				<FileConfiguration
@@ -915,6 +975,26 @@
 						Name="VCCLCompilerTool"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\vrpn_Imager_Stream_Buffer.C"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
 						CompileAs="2"
 					/>
 				</FileConfiguration>
@@ -1250,10 +1330,6 @@
 						CompileAs="2"
 					/>
 				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="vrpn_Poser_Tek4662.h"
-				>
 			</File>
 			<File
 				RelativePath="vrpn_raw_sgibox.C"
@@ -1780,6 +1856,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\vrpn_Xkeys.C"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath="vrpn_Zaber.C"
 				>
 				<FileConfiguration
@@ -1810,6 +1906,10 @@
 			>
 			<File
 				RelativePath="..\isense\isense.h"
+				>
+			</File>
+			<File
+				RelativePath=".\vrpn_3DConnexion.h"
 				>
 			</File>
 			<File
@@ -1846,6 +1946,10 @@
 			</File>
 			<File
 				RelativePath=".\vrpn_Analog_USDigital_A2.h"
+				>
+			</File>
+			<File
+				RelativePath=".\vrpn_Auxilliary_Logger.h"
 				>
 			</File>
 			<File
@@ -1949,7 +2053,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\vrpn_HumanInterface.h"
+				>
+			</File>
+			<File
 				RelativePath="vrpn_Imager.h"
+				>
+			</File>
+			<File
+				RelativePath=".\vrpn_Imager_Stream_Buffer.h"
 				>
 			</File>
 			<File
@@ -2002,6 +2114,10 @@
 			</File>
 			<File
 				RelativePath="vrpn_Poser_Analog.h"
+				>
+			</File>
+			<File
+				RelativePath=".\vrpn_Poser_Tek4662.h"
 				>
 			</File>
 			<File
@@ -2094,6 +2210,10 @@
 			</File>
 			<File
 				RelativePath="vrpn_Wanda.h"
+				>
+			</File>
+			<File
+				RelativePath=".\vrpn_Xkeys.h"
 				>
 			</File>
 			<File

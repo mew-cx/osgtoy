@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="quatlib"
-	ProjectGUID="{6F654C86-2DBD-4343-807D-71B72D305B30}"
+	ProjectGUID="{08BD1EB8-5F13-492B-88DB-AB3F8F73DF57}"
 	>
 	<Platforms>
 		<Platform
