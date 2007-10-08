@@ -33,8 +33,8 @@ set DIR_UNGIF=libungif-4.1.4
 set PKG_UNGIF=%DIR_UNGIF%.tar.gz
 set URL_UNGIF=http://downloads.sourceforge.net/libungif/%PKG_UNGIF%
 
-set DIR_FREETYPE=freetype-2.3.4
-set PKG_FREETYPE=ft234.zip
+set DIR_FREETYPE=freetype-2.3.5
+set PKG_FREETYPE=ft235.zip
 set URL_FREETYPE=http://downloads.sourceforge.net/freetype/%PKG_FREETYPE%
 
 set DIR_GLUT=glut-3.7.6
