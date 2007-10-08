@@ -15,7 +15,8 @@ exit
 )
 
 if NOT EXIST %DIR_PNG%\projects\visualc80\Win32_DLL_Release\libpng13.dll (
-echo ERROR first must build libpng using %DIR_PNG%\projects\visualc80\libpng.sln
+echo ERROR first must build libpng for "DLL Release" and "DLL Debug"
+echo using %DIR_PNG%\projects\visualc80\libpng.sln
 echo then rerun this script.
 pause
 exit
