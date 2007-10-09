@@ -4,7 +4,7 @@ REM mew 2005-11-22
 
 title %0
 
-set PATH=%OSG_ROOT%\bin;%PATH%
+set PATH=%OSG_ROOT%\bin;%OSG_ROOT%\share\OpenSceneGraph\bin;%PATH%
 
 REM where to find the source data
 set SRC_DIR=C:\mew\data\bluemarble
