@@ -23,6 +23,7 @@ echo copying products to %INSTALL_ROOT%
 echo on
 
 copy libtiff\tiff.h %INSTALL_INC%
+copy libtiff\tiffconf.h %INSTALL_INC%
 copy libtiff\tiffio.h %INSTALL_INC%
 copy libtiff\tiffvers.h %INSTALL_INC%
 
