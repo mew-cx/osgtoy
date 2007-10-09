@@ -1,7 +1,7 @@
 @echo off
 title osg_examples
 
-set PATH=%OSG_ROOT%\bin;%PATH%
+set PATH=%OSG_ROOT%\bin;%OSG_ROOT%\share\OpenSceneGraph\bin;%PATH%
 
 echo This script runs a series of OpenSceneGraph example applications.
 echo Press ESCAPE to terminate one example and proceed to the next.

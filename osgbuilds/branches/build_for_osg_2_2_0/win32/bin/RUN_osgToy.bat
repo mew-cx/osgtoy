@@ -1,6 +1,6 @@
 @echo off
 @title %0
-@set PATH=%OSG_ROOT%\bin;%PATH%
+@set PATH=%OSG_ROOT%\bin;%OSG_ROOT%\share\OpenSceneGraph\bin;%PATH%
 @cls
 @echo Some examples from osgToy
 @echo Press ESCAPE to advance to the next demo
@@ -32,4 +32,3 @@ osgviewer cessna.osg.10.simplifier
 
 @echo earth in the celestial sphere...
 osgviewer SolarSystem/earth_clouds256128.jpg.1.globe starsphere.osg
-
