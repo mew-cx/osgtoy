@@ -1,9 +1,9 @@
-README_vs71.txt - mew 2006-07-06
+README_vs71.txt - mew 2007-10-08
 $Id$
 
 This is a development package for the OpenSceneGraph.
 
-This package is intended for use with VisualStudio.NET v7.1 2003, although
+This package is intended for use with VisualStudio v8.0 2005 SP1, although
 all the workspaces and projects are expressed in the older but very flexible
 VC6 .dsw/.dsp project format.  When loaded into VS7.1, at startup you will be
 asked to convert the projects to the newer format; say yes.

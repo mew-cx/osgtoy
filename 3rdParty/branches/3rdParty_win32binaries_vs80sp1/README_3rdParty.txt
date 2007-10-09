@@ -1,4 +1,4 @@
-README_3rdParty.txt - Mike Weiblen http://mew.cx/ 2007-06-23
+README_3rdParty.txt - Mike Weiblen http://mew.cx/ 2007-10-08
 
 This is a package of prebuilt 3rd party dependency libraries for use
 with the OpenSceneGraph http://openscenegraph.org/
