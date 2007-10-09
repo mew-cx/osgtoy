@@ -1,0 +1,3 @@
+IMPORTANT - PLEASE READ:
+
+If Setup installed the OSG environment variables in the Windows Registry, you must either LOGOUT or REBOOT for those changes to take effect.  These applications WILL NOT WORK until you do.  Please do not report this as a bug.
