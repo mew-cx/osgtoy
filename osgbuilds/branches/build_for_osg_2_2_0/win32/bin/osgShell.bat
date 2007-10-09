@@ -3,7 +3,7 @@
 REM Config section ========================================================
 REM Adjust these settings to taste...
 
-set PATH=%OSG_ROOT%\bin;%OSG_ROOT%\share\OpenSceneGraph\bin;%PATH%
+set PATH=%OSG_PATH%;%PATH%
 
 REM set OSG_NOTIFY_LEVEL=ALWAYS
 REM set OSG_NOTIFY_LEVEL=FATAL

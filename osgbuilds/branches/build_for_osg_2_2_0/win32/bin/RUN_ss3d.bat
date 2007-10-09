@@ -1,5 +1,5 @@
 title %0
-set PATH=%OSG_ROOT%\bin;%OSG_ROOT%\share\OpenSceneGraph\bin;%PATH%
+set PATH=%OSG_PATH%;%PATH%
 
 osgviewer ss3d_5star.lua
 osgviewer ss3d_cube.lua
