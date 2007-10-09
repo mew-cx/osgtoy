@@ -124,7 +124,7 @@ Source: "3rdParty\README_3rdParty.txt";  DestDir: "{app}\doc"; Flags: ignorevers
 
 ; include
 Source: "3rdParty\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
+Source: "_osg_INSTALL\OpenSceneGraph\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
 Source: "osgToy\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
 Source: "osgVRPN\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
 
@@ -132,17 +132,17 @@ Source: "osgVRPN\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: 
 ; bin
 Source: "win32\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
 Source: "3rdParty\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
-Source: "_osg_INSTALL\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
-Source: "_osg_INSTALL\share\*"; DestDir: "{app}\share"; Flags: ignoreversion recursesubdirs
-Source: "osgToy\bin\win32\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
-Source: "osgVRPN\bin\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
+Source: "_osg_INSTALL\OpenSceneGraph\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
+Source: "_osg_INSTALL\OpenSceneGraph\share\*"; DestDir: "{app}\share"; Flags: ignoreversion recursesubdirs
+;Source: "osgToy\bin\win32\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
+;Source: "osgVRPN\bin\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 
 
 ; lib
 Source: "3rdParty\lib\*"; Excludes: ".svn"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
-Source: "_osg_INSTALL\lib\*"; Excludes: ".svn"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
-Source: "osgToy\lib\win32\*.lib"; DestDir: "{app}\lib"; Flags: ignoreversion
-Source: "osgVRPN\lib\*.lib"; DestDir: "{app}\lib"; Flags: ignoreversion
+Source: "_osg_INSTALL\OpenSceneGraph\lib\*"; Excludes: ".svn"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
+;Source: "osgToy\lib\win32\*.lib"; DestDir: "{app}\lib"; Flags: ignoreversion
+;Source: "osgVRPN\lib\*.lib"; DestDir: "{app}\lib"; Flags: ignoreversion
 
 
 ; data
