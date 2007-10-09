@@ -49,98 +49,86 @@ Source: "osgsrc.zip"; DestDir: "{app}"; Flags: ignoreversion
 ; URLs
 Source: "win32\URLs\*"; DestDir: "{app}\URLs"; Flags: ignoreversion recursesubdirs
 
+
 ; doc
-Source: "OpenSceneGraph\AUTHORS.txt";            DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
-Source: "OpenSceneGraph\LICENSE.txt";            DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
-Source: "OpenSceneGraph\NEWS.txt";               DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
-Source: "OpenSceneGraph\README.txt";             DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
-;Source: "OpenSceneGraph\doc\ProgrammingGuide\*"; DestDir: "{app}\doc\OpenSceneGraph\ProgrammingGuide"; Flags: ignoreversion
+Source: "OpenSceneGraph\AUTHORS.txt";    DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
+Source: "OpenSceneGraph\LICENSE.txt";    DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
+Source: "OpenSceneGraph\NEWS.txt";       DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
+Source: "OpenSceneGraph\README.txt";     DestDir: "{app}\doc\OpenSceneGraph"; Flags: ignoreversion
 Source: "osgToy\README_osgToy.txt";      DestDir: "{app}\doc\osgToy"; Flags: ignoreversion
 Source: "osgToy\3Dlabs_license.txt";     DestDir: "{app}\doc\osgToy"; Flags: ignoreversion
-Source: "3rdParty\README_3rdParty.txt";          DestDir: "{app}\doc"; Flags: ignoreversion
+Source: "3rdParty\README_3rdParty.txt";  DestDir: "{app}\doc"; Flags: ignoreversion
+
 
 ; include
-Source: "3rdParty\include\*"; Excludes: "CVS"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\OpenThreads\*"; Excludes: "CVS"; DestDir: "{app}\include\OpenThreads"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osg\*"; Excludes: "CVS"; DestDir: "{app}\include\osg"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgDB\*"; Excludes: "CVS"; DestDir: "{app}\include\osgDB"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgFX\*"; Excludes: "CVS"; DestDir: "{app}\include\osgFX"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgGA\*"; Excludes: "CVS"; DestDir: "{app}\include\osgGA"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgIntrospection\*"; Excludes: "CVS"; DestDir: "{app}\include\osgIntrospection"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgManipulator\*"; Excludes: "CVS"; DestDir: "{app}\include\osgManipulator"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgParticle\*"; Excludes: "CVS"; DestDir: "{app}\include\osgParticle"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgSim\*"; Excludes: "CVS"; DestDir: "{app}\include\osgSim"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgTerrain\*"; Excludes: "CVS"; DestDir: "{app}\include\osgTerrain"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgText\*"; Excludes: "CVS"; DestDir: "{app}\include\osgText"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgUtil\*"; Excludes: "CVS"; DestDir: "{app}\include\osgUtil"; Flags: ignoreversion recursesubdirs
-Source: "OpenSceneGraph\include\osgViewer\*"; Excludes: "CVS"; DestDir: "{app}\include\osgViewer"; Flags: ignoreversion recursesubdirs
-Source: "osgToy\include\osgToy\*"; Excludes: "CVS"; DestDir: "{app}\include\osgToy"; Flags: ignoreversion recursesubdirs
-Source: "osgVRPN\include\osgVRPN\*"; Excludes: "CVS"; DestDir: "{app}\include\osgVRPN"; Flags: ignoreversion recursesubdirs
+Source: "3rdParty\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
+Source: "OpenSceneGraph\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
+Source: "osgToy\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
+Source: "osgVRPN\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: ignoreversion recursesubdirs
 
 
 ; bin
-Source: "win32\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion
-Source: "3rdParty\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion
-Source: "_osg_INSTALL_Release\bin\*.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
-Source: "_osg_INSTALL_Release\bin\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
-Source: "_osg_INSTALL_Release\share\OpenSceneGraph\bin\*.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
+Source: "win32\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
+Source: "3rdParty\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
+Source: "_osg_INSTALL\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
+Source: "_osg_INSTALL\share\*"; DestDir: "{app}\share"; Flags: ignoreversion recursesubdirs
 Source: "osgToy\bin\win32\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 Source: "osgVRPN\bin\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 
 
 ; lib
-Source: "3rdParty\lib\*.lib"; Excludes: "CVS"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
-Source: "_osg_INSTALL_Release\lib\*.lib"; Excludes: "CVS"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
-Source: "osgToy\lib\win32\*.lib"; DestDir: "{app}\bin"; Flags: ignoreversion
-Source: "osgVRPN\lib\*.lib"; DestDir: "{app}\bin"; Flags: ignoreversion
+Source: "3rdParty\lib\*"; Excludes: ".svn"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
+Source: "_osg_INSTALL\lib\*"; Excludes: ".svn"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs
+Source: "osgToy\lib\win32\*.lib"; DestDir: "{app}\lib"; Flags: ignoreversion
+Source: "osgVRPN\lib\*.lib"; DestDir: "{app}\lib"; Flags: ignoreversion
 
 
 ; data
-Source: "3rdParty\data\*"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\OpenSceneGraph-Data\*"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "3rdParty\data\*"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\OpenSceneGraph-Data\*"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
 
-Source: "data\osgtoy-data\cubemap_test\*"; Excludes: "CVS"; DestDir: "{app}\data\cubemap_test"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\Images\colorbars.png"; Excludes: "CVS"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\Images\stars2048_yalecyl1.png"; Excludes: "CVS"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\Images\stars2048_yalecyl1.txt"; Excludes: "CVS"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\Images\verasansmono.png"; Excludes: "CVS"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\Images\R64.png"; Excludes: "CVS"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\Images\X32.png"; Excludes: "CVS"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\shaders\drawtext.frag"; Excludes: "CVS"; DestDir: "{app}\data\shaders"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\shaders\drawtext4.frag"; Excludes: "CVS"; DestDir: "{app}\data\shaders"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\4shapes.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\box_grn.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\colorbars.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\compactdisc.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\cone_red.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\cylinder_blu.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\dodecahedron.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\glsl_dataflag.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\glsllint_errors.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\grid_xy.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\grid_xz.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\grid_yz.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\icosahedron.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\no_normals.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\octahedron.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\octostrip.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\penrose_triangle.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\rhombic_dodecahedron.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\ss3d_5star.lua"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\ss3d_cube.lua"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\ss3d_default.lua"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\ss3d_trillium.lua"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\ss3d_umbrella.lua"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\ss3d_urchin.lua"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\starsphere.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\tetrahedron.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\tet6.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\tet7.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\tet8.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\xyz1.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\xyz3.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\xyz6.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
-Source: "data\osgtoy-data\xyz100.osg"; Excludes: "CVS"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\cubemap_test\*"; Excludes: ".svn"; DestDir: "{app}\data\cubemap_test"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\Images\colorbars.png"; Excludes: ".svn"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\Images\stars2048_yalecyl1.png"; Excludes: ".svn"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\Images\stars2048_yalecyl1.txt"; Excludes: ".svn"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\Images\verasansmono.png"; Excludes: ".svn"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\Images\R64.png"; Excludes: ".svn"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\Images\X32.png"; Excludes: ".svn"; DestDir: "{app}\data\Images"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\shaders\drawtext.frag"; Excludes: ".svn"; DestDir: "{app}\data\shaders"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\shaders\drawtext4.frag"; Excludes: ".svn"; DestDir: "{app}\data\shaders"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\4shapes.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\box_grn.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\colorbars.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\compactdisc.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\cone_red.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\cylinder_blu.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\dodecahedron.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\glsl_dataflag.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\glsllint_errors.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\grid_xy.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\grid_xz.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\grid_yz.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\icosahedron.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\no_normals.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\octahedron.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\octostrip.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\penrose_triangle.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\rhombic_dodecahedron.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\ss3d_5star.lua"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\ss3d_cube.lua"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\ss3d_default.lua"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\ss3d_trillium.lua"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\ss3d_umbrella.lua"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\ss3d_urchin.lua"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\starsphere.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\tetrahedron.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\tet6.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\tet7.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\tet8.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\xyz1.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\xyz3.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\xyz6.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
+Source: "data\osgtoy-data\xyz100.osg"; Excludes: ".svn"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs
 
 
 [Icons]
@@ -148,19 +136,18 @@ Name: "{userdesktop}\osgLogo";  Filename: "{app}\bin\osglogo.exe";  IconFilename
 Name: "{userdesktop}\osgShell"; Filename: "{app}\bin\osgShell.bat"; IconFilename: "{app}\osg.ico"; WorkingDir: "%OSG_ROOT%\bin"; Tasks: desktopicon
 
 Name: "{group}\Uninstall OpenSceneGraph 2.2.0 vs8.0 2007-10-08" ; Filename: "{uninstallexe}"
-Name: "{group}\View README.txt"; Filename: "{app}\README.txt";
+Name: "{group}\View README"; Filename: "{app}\README_vs80.txt";
 Name: "{group}\View OSG Program Files folder"; Filename: "{app}"
 Name: "{group}\View OSG Start Menu folder"; Filename: "{group}"
 Name: "{group}\osgShell"; Filename: "{app}\bin\osgShell.bat"; IconFilename: "{app}\osg.ico"; WorkingDir: "%OSG_ROOT%\bin"
 
-Name: "{group}\URLs\Browse SVN"; Filename: "{app}\URLs\browse_svn.url"
-Name: "{group}\URLs\mew.cx"; Filename: "{app}\URLs\mew_cx_osg.url"
-Name: "{group}\URLs\OpenSceneGraph"; Filename: "{app}\URLs\openscenegraph.url"
-Name: "{group}\URLs\OpenThreads"; Filename: "{app}\URLs\openthreads.url"
-Name: "{group}\URLs\osgToy"; Filename: "{app}\URLs\osgtoy.url"
-Name: "{group}\URLs\osg-users archives"; Filename: "{app}\URLs\osg-users_archives.url"
-Name: "{group}\URLs\osg-users mailing list"; Filename: "{app}\URLs\osg-users_info.url"
-Name: "{group}\URLs\VRPN"; Filename: "{app}\URLs\vrpn.url"
+Name: "{group}\URLs\Browse SVN"; Filename: "{app}\URLs\OSG svn browser.URL"
+Name: "{group}\URLs\mew.cx"; Filename: "{app}\URLs\mew.cx OSG website.URL"
+Name: "{group}\URLs\OpenSceneGraph"; Filename: "{app}\URLs\OSG website.URL"
+Name: "{group}\URLs\osgToy"; Filename: "{app}\URLs\osgToy website.URL"
+Name: "{group}\URLs\osg-users mailing list"; Filename: "{app}\URLs\osg-users mailing list.URL"
+Name: "{group}\URLs\osg-submissions mailing list"; Filename: "{app}\URLs\osg-submissions mailing list.URL"
+Name: "{group}\URLs\VRPN"; Filename: "{app}\URLs\VRPN website.URL"
 
 Name: "{group}\Demos\osganimate"; Filename: "{app}\bin\osganimate.exe"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgautotransform"; Filename: "{app}\bin\osgautotransform.exe"; WorkingDir: "{app}\bin"
