@@ -1,0 +1,1 @@
+"%OSG_ROOT%\bin\osgconv.exe" "%1" "%~n1.osg"
