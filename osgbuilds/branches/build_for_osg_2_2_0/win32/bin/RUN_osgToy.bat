@@ -1,6 +1,6 @@
 @echo off
 @title %0
-@set PATH=%OSG_ROOT%\bin;%OSG_ROOT%\share\OpenSceneGraph\bin;%PATH%
+@set PATH=%OSG_PATH%;%PATH%
 @cls
 @echo Some examples from osgToy
 @echo Press ESCAPE to advance to the next demo
