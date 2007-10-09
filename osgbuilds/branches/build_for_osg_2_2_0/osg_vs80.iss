@@ -39,6 +39,7 @@ Name: "associateFlt"; Description: "    Associate OpenFlight (*.flt) files with 
 
 [Registry]
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: string; ValueName: "OSG_ROOT"; ValueData: "{app}"; Flags: uninsdeletevalue; Tasks: setenvars
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: string; ValueName: "OSG_PATH"; ValueData: "{app}\bin;{app}\bin\Microsoft.VC80.CRT;{app}\bin\Microsoft.VC80.MFC"; Flags: uninsdeletevalue; Tasks: setenvars
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: string; ValueName: "OSG_FILE_PATH"; ValueData: "{app}\data;{app}\data\Images;{app}\data\fonts"; Flags: uninsdeletevalue; Tasks: setenvars
 
 Root: HKCR; Subkey: ".osg"; ValueType: string; ValueData: "osgfile"; Flags: uninsdeletevalue createvalueifdoesntexist
@@ -82,13 +83,13 @@ Root: HKCR; Subkey: ".rgb"; ValueType: string; ValueData: "rgbfile"; Tasks: asso
 Root: HKCR; Subkey: "rgbfile"; ValueType: string; ValueData: "Rgb Image File"; Flags: uninsdeletekey; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbfile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbfile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateRgb
-Root: HKCR; Subkey: "rgbfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1.image"""; Flags: uninsdeletevalue; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" --image ""%1"""; Flags: uninsdeletevalue; Tasks: associateRgb
 
 Root: HKCR; Subkey: ".rgba"; ValueType: string; ValueData: "rgbafile"; Flags: uninsdeletekey; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbafile"; ValueType: string; ValueData: "Rgb Image File"; Flags: uninsdeletekey; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbafile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbafile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateRgb
-Root: HKCR; Subkey: "rgbafile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1.image"""; Flags: uninsdeletevalue; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbafile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" --image ""%1"""; Flags: uninsdeletevalue; Tasks: associateRgb
 
 Root: HKCR; Subkey: ".dae"; ValueType: string; ValueData: "daefile"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "daefile"; ValueType: string; ValueData: "Collada File"; Flags: uninsdeletekey
@@ -133,7 +134,7 @@ Source: "osgVRPN\include\*"; Excludes: ".svn"; DestDir: "{app}\include"; Flags: 
 Source: "win32\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
 Source: "3rdParty\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
 Source: "_osg_INSTALL\OpenSceneGraph\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
-Source: "_osg_INSTALL\OpenSceneGraph\share\*"; DestDir: "{app}\share"; Flags: ignoreversion recursesubdirs
+Source: "_osg_INSTALL\OpenSceneGraph\share\OpenSceneGraph\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs
 ;Source: "osgToy\bin\win32\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 ;Source: "osgVRPN\bin\*.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 
