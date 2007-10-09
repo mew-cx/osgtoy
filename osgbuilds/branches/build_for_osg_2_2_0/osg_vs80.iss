@@ -31,13 +31,75 @@ BeveledLabel=Inno Setup
 
 
 [Tasks]
-Name: "setenvars"; Description: "Set OSG environment variables in Registry"; GroupDescription: "Environment variables:"
-Name: "desktopicon"; Description: "Create &desktop icons"; GroupDescription: "Additional icons:"
+Name: "setenvars";    Description: "Set OSG environment variables in Registry"; GroupDescription: "Environment variables:"
+Name: "desktopicon";  Description: "Create &desktop icons"; GroupDescription: "Additional icons:"
+Name: "associateRgb"; Description: "    Associate RGB files with viewer"; GroupDescription: "File Associations:"
+Name: "associateFlt"; Description: "    Associate OpenFlight (*.flt) files with viewer"; GroupDescription: "File Associations:"
 
 
 [Registry]
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: string; ValueName: "OSG_ROOT"; ValueData: "{app}"; Flags: uninsdeletevalue; Tasks: setenvars
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: string; ValueName: "OSG_FILE_PATH"; ValueData: "{app}\data;{app}\data\Images;{app}\data\fonts"; Flags: uninsdeletevalue; Tasks: setenvars
+
+Root: HKCR; Subkey: ".osg"; ValueType: string; ValueData: "osgfile"; Flags: uninsdeletevalue createvalueifdoesntexist
+Root: HKCR; Subkey: "osgfile"; ValueType: string; ValueData: "OpenSceneGraph Textual File"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "osgfile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"
+Root: HKCR; Subkey: "osgfile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "osgfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""
+Root: HKCR; Subkey: "osgfile\shell\Edit\command"; ValueType: string; ValueData: """{pf}\Windows NT\Accessories\wordpad.exe"" ""%1"""
+Root: HKCR; Subkey: "osgfile\shell\Convert_to_IveDxt5"; ValueType: string; ValueData: "Convert to IveDxt5"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "osgfile\shell\Convert_to_Ive\command"; ValueType: string; ValueData: """{app}\bin\osgconv2ive.bat"" ""%1"""
+Root: HKCR; Subkey: "osgfile\shell\Convert_to_IveDxt5"; ValueType: string; ValueData: "Convert to IveDxt5"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "osgfile\shell\Convert_to_IveDxt5\command"; ValueType: string; ValueData: """{app}\bin\osgconv2iveDxt5.bat"" ""%1"""
+
+Root: HKCR; Subkey: ".ive"; ValueType: string; ValueData: "ivefile"; Flags: uninsdeletevalue createvalueifdoesntexist
+Root: HKCR; Subkey: "ivefile"; ValueType: string; ValueData: "OpenSceneGraph Binary File"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "ivefile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"
+Root: HKCR; Subkey: "ivefile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "ivefile\shell\open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""
+Root: HKCR; Subkey: "ivefile\shell\Convert_to_Osg"; ValueType: string; ValueData: "Convert to Osg"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "ivefile\shell\Convert_to_Osg\command"; ValueType: string; ValueData: """{app}\bin\osgconv2osg.bat"" ""%1"""
+
+Root: HKCR; Subkey: ".flt"; ValueType: string; ValueData: "fltfile"; Tasks: associateFlt; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "fltfile"; ValueType: string; ValueData: "OpenFlight File"; Flags: uninsdeletekey; Tasks: associateFlt
+Root: HKCR; Subkey: "fltfile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateFlt
+Root: HKCR; Subkey: "fltfile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateFlt
+Root: HKCR; Subkey: "fltfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""; Flags: uninsdeletevalue; Tasks: associateFlt
+Root: HKCR; Subkey: "fltfile\shell\Convert_to_Ive"; ValueType: string; ValueData: "Convert to Ive"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "fltfile\shell\Convert_to_Ive\command"; ValueType: string; ValueData: """{app}\bin\osgconv2iveDxt5.bat"" ""%1"""; Flags: uninsdeletevalue; Tasks: associateFlt
+Root: HKCR; Subkey: "fltfile\shell\Convert_to_IveDxt5"; ValueType: string; ValueData: "Convert to IveDxt5"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "fltfile\shell\Convert_to_IveDxt5\command"; ValueType: string; ValueData: """{app}\bin\osgconv2ive.bat"" ""%1"""; Flags: uninsdeletevalue; Tasks: associateFlt
+Root: HKCR; Subkey: "fltfile\shell\Convert_to_Osg"; ValueType: string; ValueData: "Convert to Osg"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "fltfile\shell\Convert_to_Osg\command"; ValueType: string; ValueData: """{app}\bin\osgconv2osg.bat"" ""%1"""; Flags: uninsdeletevalue; Tasks: associateFlt
+
+Root: HKCR; Subkey: ".osga"; ValueType: string; ValueData: "osgafile"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "osgafile"; ValueType: string; ValueData: "OpenSceneGraph Archive"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "osgafile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "osgafile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "osgafile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"""" ""%1"""; Flags: uninsdeletevalue
+
+Root: HKCR; Subkey: ".rgb"; ValueType: string; ValueData: "rgbfile"; Tasks: associateRgb; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "rgbfile"; ValueType: string; ValueData: "Rgb Image File"; Flags: uninsdeletekey; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbfile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbfile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1.image"""; Flags: uninsdeletevalue; Tasks: associateRgb
+
+Root: HKCR; Subkey: ".rgba"; ValueType: string; ValueData: "rgbafile"; Flags: uninsdeletekey; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbafile"; ValueType: string; ValueData: "Rgb Image File"; Flags: uninsdeletekey; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbafile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbafile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbafile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1.image"""; Flags: uninsdeletevalue; Tasks: associateRgb
+
+Root: HKCR; Subkey: ".dae"; ValueType: string; ValueData: "daefile"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "daefile"; ValueType: string; ValueData: "Collada File"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "daefile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "daefile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "daefile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "daefile\shell\Convert_to_Ive"; ValueType: string; ValueData: "Convert to Ive"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "daefile\shell\Convert_to_Ive\command"; ValueType: string; ValueData: """{app}\bin\conv2ive.bat"" ""%1"""; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "daefile\shell\Convert_to_IveDxt5"; ValueType: string; ValueData: "Convert to IveDxt5"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "daefile\shell\Convert_to_IveDxt5\command"; ValueType: string; ValueData: """{app}\bin\conv2iveDxt5.bat"" ""%1"""; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "daefile\shell\Edit\command"; ValueType: string; ValueData: """{pf}\Windows NT\Accessories\wordpad.exe"" ""%1"""; Flags: uninsdeletevalue
 
 
 [Files]
