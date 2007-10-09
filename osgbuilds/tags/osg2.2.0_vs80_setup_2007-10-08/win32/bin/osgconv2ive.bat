@@ -1,0 +1,1 @@
+"%OSG_ROOT%\bin\osgconv.exe" --smooth "%1" "%~n1.ive"
