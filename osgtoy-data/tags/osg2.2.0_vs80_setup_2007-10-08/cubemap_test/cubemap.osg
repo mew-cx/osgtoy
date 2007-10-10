@@ -1,0 +1,89 @@
+COMMENT {
+  "$Id: cubemap.osg,v 1.4 2007/03/18 05:12:49 mew Exp $"
+}
+
+Group {
+  DataVariance STATIC
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_children 1
+  Geode {
+    DataVariance STATIC
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    num_drawables 1
+    Geometry {
+      DataVariance STATIC
+      StateSet {
+        DataVariance STATIC
+        rendering_hint DEFAULT_BIN
+        renderBinMode INHERIT
+        textureUnit 0 {
+          GL_TEXTURE_CUBE_MAP ON
+          TextureCubeMap {
+            DataVariance STATIC
+            image POSITIVE_X posx.png
+            image NEGATIVE_X negx.png
+            image POSITIVE_Y posy.png
+            image NEGATIVE_Y negy.png
+            image POSITIVE_Z posz.png
+            image NEGATIVE_Z negz.png
+            wrap_s CLAMP_TO_EDGE
+            wrap_t CLAMP_TO_EDGE
+            wrap_r CLAMP_TO_EDGE
+            min_filter LINEAR_MIPMAP_LINEAR
+            mag_filter LINEAR
+            maxAnisotropy 1
+            borderColor 0 0 0 0
+            borderWidth 0
+            useHardwareMipMapGeneration FALSE
+            unRefImageDataAfterApply TRUE
+            internalFormatMode USE_IMAGE_DATA_FORMAT
+            resizeNonPowerOfTwo FALSE
+          }
+        }
+      }
+      useDisplayList TRUE
+      useVertexBufferObjects FALSE
+      PrimitiveSets 1
+      {
+        DrawArrays TRIANGLES 0 24
+      }
+      VertexArray UniqueID verts1 Vec3Array 24
+      {
+        1 0 0
+        0 1 0
+        0 0 1
+        0 -1 0
+        1 0 0
+        0 0 1
+        0 1 0
+        -1 0 0
+        0 0 1
+        -1 0 0
+        0 -1 0
+        0 0 1
+        1 0 0
+        0 1 0
+        0 0 -1
+        0 -1 0
+        1 0 0
+        0 0 -1
+        0 1 0
+        -1 0 0
+        0 0 -1
+        -1 0 0
+        0 -1 0
+        0 0 -1
+      }
+      NormalBinding PER_VERTEX
+      NormalArray Use verts1
+      ColorBinding OVERALL
+      ColorArray Vec4Array 1
+      {
+        1 1 1 1
+      }
+      TexCoordArray 0 Use verts1
+    }
+  }
+}

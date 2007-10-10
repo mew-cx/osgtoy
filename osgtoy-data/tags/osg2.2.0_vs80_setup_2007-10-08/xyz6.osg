@@ -1,0 +1,48 @@
+COMMENT {
+  "$Id: xyz6.osg,v 1.2 2007/03/18 05:00:45 mew Exp $"
+}
+
+Geode {
+  DataVariance DYNAMIC
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_drawables 1
+  Geometry {
+    DataVariance DYNAMIC
+    StateSet {
+      DataVariance STATIC
+      rendering_hint DEFAULT_BIN
+      renderBinMode INHERIT
+      GL_LIGHTING OFF
+      LineWidth {
+        DataVariance STATIC
+        width 4
+      }
+    }
+    useDisplayList TRUE
+    useVertexBufferObjects FALSE
+    PrimitiveSets 1
+    {
+      DrawArrays LINES 0 6
+    }
+    VertexArray Vec3Array 6
+    {
+      -1 0 0
+      1 0 0
+      0 -1 0
+      0 1 0
+      0 0 -1
+      0 0 1
+    }
+    ColorBinding PER_VERTEX
+    ColorArray Vec4Array 6
+    {
+      0 1 1 1
+      1 0 0 1
+      1 0 1 1
+      0 1 0 1
+      1 1 0 1
+      0 0 1 1
+    }
+  }
+}
