@@ -6,7 +6,7 @@ REM mew 2005-11-21
 
 title %0
 
-set PATH=%OSG_ROOT%\bin;%PATH%
+set PATH=%OSG_PATH%;%PATH%
 
 REM where to find the source data
 set SRC_DIR=C:\mew\data\www.cc.gatech.edu\data_files\large_models\ps

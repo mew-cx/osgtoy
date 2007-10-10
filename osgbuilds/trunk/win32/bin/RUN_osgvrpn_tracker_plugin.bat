@@ -1,3 +1,3 @@
 title %0
-set PATH=%OSG_ROOT%\bin;%PATH%
+set PATH=%OSG_PATH%;%PATH%
 osgviewer cessna.osg cow.osg.Tracker0@localhost.tracker

@@ -4,9 +4,7 @@ REM We assume these two envars are already defined by package installation:
 REM set OSG_ROOT=C:\Program Files\OpenSceneGraph
 REM set OSG_FILE_PATH=%OSG_ROOT%\data;%OSG_ROOT%\data\Images;%OSG_ROOT%\data\fonts
 
-set PATH=%OSG_ROOT%\bin;%PATH%
-
-set PRODUCER_CAMERA_CONFIG_FILE=%OSG_ROOT%\data\Producer\1win.cfg
+set PATH=%OSG_PATH%;%PATH%
 
 REM Choose a default notify level if desired:
 REM set OSG_NOTIFY_LEVEL=ALWAYS

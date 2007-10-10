@@ -1,6 +1,6 @@
 @echo off
 title %0
-set PATH=%OSG_ROOT%\bin;%PATH%
+set PATH=%OSG_PATH%;%PATH%
 
 REM Each glsl_dataflag displays the contents of its modelview matrix.
 REM However, optimization can rearrange the scene, thus affecting the results:

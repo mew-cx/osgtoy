@@ -1,0 +1,1 @@
+"%OSG_ROOT%\bin\osgconv.exe" --compressed-dxt5 "%1" "%~n1.ive"
