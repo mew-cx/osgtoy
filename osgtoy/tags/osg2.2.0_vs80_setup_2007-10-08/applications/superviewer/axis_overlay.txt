@@ -1,0 +1,44 @@
+
+overlay an XYZ axis object on the rendered scene
+
+orientation of axis could be attached to anything,
+but initial use is to attach to camera|manipulator orientation.
+
+need to specify where on screen to render, and what size
+(basically viewport-type parameters)
+
+
+axis could be a simple wire triad created by code, with
+optional loading of a model file.
+
+
+toggle to enable/disable rendering of of the axis model
+
+optional contrasting color background|frame|border
+
+===========================================================================
+
+similarly, an overlay "plan-view display" (PVD):
+
+basically an axis-aligned wireframe quad to put a cursor, for very simple
+positional awareness.
+
+API to set range of the quad, and which axes the quad maps to.
+
+could optionally be instanced multiple times, so an app could decide to
+display all axis orientations (xy, xz, yz) at the same time
+
+The PVD could be a wireframe of the extent volume, or perhaps an orthographic
+render of the actual main scene (world in miniature)
+
+optional contrasting color background|frame|border
+
+===========================================================================
+Use RenderBin or postdraw callback?
+How does osghud, on-screen help, osgdb_logo do it?
+
+intended primarily for attaching these to a cameraview|viewmanipulator
+
+(BTW, is this connection related to the osgVRPN view manipulator?)
+
+

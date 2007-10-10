@@ -1,0 +1,77 @@
+/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2005 Robert Osfield 
+ *
+ * This library is open source and may be redistributed and/or modified under  
+ * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
+ * (at your option) any later version.  The full license is in LICENSE file
+ * included with this distribution, and on the openscenegraph.org website.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ * OpenSceneGraph Public License for more details.
+*/
+
+/* file:        include/osgToy/GlslLint
+ * author:      Mike Weiblen
+ * copyright:   (C) 2005 3Dlabs Inc. Ltd.
+ * license:     3Dlabs_license.txt
+ * $Id: GlslLint,v 1.6 2006/09/11 06:24:04 mew Exp $
+*/
+
+#ifndef OSGTOY_GLSLLINT
+#define OSGTOY_GLSLLINT 1
+
+#include <string>
+#include <vector>
+
+#include <osg/Referenced>
+#include <osg/Shader>
+#include <osgToy/Export>
+
+// This code written to OpenGLCompilerJune082005.zip from
+// http://developer.3dlabs.com/downloads/glslcompiler/index.htm
+typedef void* ShHandle;   // from glslang/Public/ShaderLang.h
+
+
+namespace osgToy {
+
+class OSGTOY_EXPORT GlslLint : public osg::Referenced
+{
+public:
+    enum Options {
+        NONE = 0x00,
+        VERBOSE = 0x01
+    };
+
+    enum Status {
+        SUCCESS = 0,
+        ERR_COMPILER_CTOR,
+        ERR_COMPILE,
+        ERR_LINKER_CTOR,
+        ERR_LINK,
+        ERR_UNIFORM_MAP
+    };
+
+    GlslLint( Options options = NONE );
+    virtual ~GlslLint();
+
+    Status compile( osg::Shader::Type type, const std::string& sourceText );
+    Status link();
+
+    const std::string& getInfoLog() const { return _infoLog; }
+
+protected:
+    Options _options;
+    std::string _infoLog;
+
+    typedef std::vector<ShHandle> CompilerList;
+    CompilerList _compilerList;
+    ShHandle _linker;
+    ShHandle _uniformMap;
+};
+
+}
+
+#endif
+
+// vim: set sw=4 ts=8 et ic ai:
