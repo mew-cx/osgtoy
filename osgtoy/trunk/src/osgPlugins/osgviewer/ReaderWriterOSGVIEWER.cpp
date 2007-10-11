@@ -10,11 +10,11 @@
  *
 */
 
-/* file:      src/osgPlugins/image/ReaderWriterIMAGE.cpp
+/* file:      src/osgPlugins/osgviewer/ReaderWriterOSGVIEWER.cpp
  * author:    Mike Weiblen
- * copyright: (C) 2005-2006 Michael Weiblen http://mew.cx/
+ * copyright: (C) 2005-2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterIMAGE.cpp,v 1.2 2006/07/15 23:57:43 mew Exp $
+ * $Id$
 */
 
 #include <osg/Notify>
@@ -25,25 +25,31 @@
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 
-#define EXTENSION_NAME "image"
+#define EXTENSION_NAME "osgviewer"
 
 ///////////////////////////////////////////////////////////////////////////
 
 /**
- * An OSG reader plugin for the ".image" pseudo-loader, which loads an
- * image file and renders it on a quad.
+ * An OSG reader plugin for the ".osgviewer" pseudo-loader.
+ * This pseudo-loader is a hack for Windows: it simply strips off its
+ * extension, then tries to load the subfilename as osg::Node or
+ * osg::Image.
+ * The idea is that the Windows Explorer file association can be bound
+ * to the ".osgviewer" extension, which will view the file in the
+ * standard osgviewer.exe application.
  *
- * Usage: <file.ext>.image
+ * Usage: <file.ext>.osgviewer
  *
- * example: osgviewer horsetooth.png.image
+ * example: start cow.osg.osgviewer
+ * example: start abasin.png.osgviewer
  */
 
-class ReaderWriterIMAGE : public osgDB::ReaderWriter
+class ReaderWriterOSGVIEWER : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterIMAGE() { }
+    ReaderWriterOSGVIEWER() { }
     
-    const char* className() const { return "image pseudo-loader"; }
+    const char* className() const { return "osgviewer pseudo-loader"; }
 
     bool acceptsExtension(const std::string& extension) const
     { 
@@ -56,7 +62,7 @@ public:
         if( !acceptsExtension(ext) )
             return ReadResult::FILE_NOT_HANDLED;
 
-        osg::notify(osg::INFO) << "ReaderWriterIMAGE( \"" << fileName << "\" )" << std::endl;
+        osg::notify(osg::INFO) << "ReaderWriterOSGVIEWER( \"" << fileName << "\" )" << std::endl;
 
         // strip the pseudo-loader extension, which must leave a sub-filename.
         std::string subFileName( osgDB::getNameLessExtension( fileName ) );
@@ -67,19 +73,27 @@ public:
         }
 
         // recursively load the subfile.
-        osg::Image* image( readImageFile(subFileName.c_str(), options) );
-        if (!image)
+        // first try to load as osg::Node
+        osg::Node* node( osgDB::readNodeFile( subFileName, options ) );
+        if( node )
         {
-            // propagate the read failure upwards
-            osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
-            return ReadResult::FILE_NOT_HANDLED;
+            return node;
         }
 
-        return osg::createGeodeForImage(image);
+        // else try to load as osg::Image, which will be applied to a quad.
+        osg::Image* image( readImageFile(subFileName.c_str(), options) );
+        if( image )
+        {
+            return osg::createGeodeForImage(image);
+        }
+
+        // propagate the read failure upwards
+        osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
+        return ReadResult::FILE_NOT_HANDLED;
     }
 };
 
 // Add ourself to the Registry to instantiate the reader/writer.
-osgDB::RegisterReaderWriterProxy<ReaderWriterIMAGE> g_readerWriter_IMAGE_Proxy;
+osgDB::RegisterReaderWriterProxy<ReaderWriterOSGVIEWER> g_readerWriter_OSGVIEWER_Proxy;
 
 // vim: set sw=4 ts=8 et ic ai:
