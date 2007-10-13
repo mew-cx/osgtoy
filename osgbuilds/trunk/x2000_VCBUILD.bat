@@ -1,15 +1,11 @@
 @echo off
-title %0
+title running vcbuild...
 call SETENV.bat
+REM call "C:\Program Files\Microsoft Visual Studio 8\VC\bin\vcvars32.bat"
+call "%VS80COMNTOOLS%vsvars32.bat"
 
-date /t
-time /t
-echo RUNNING: %VSIDE% /build %BUILDCFG% /project INSTALL %SOLUTION%
-echo (any idea how to make VisualStudio show some visual progress??)
-
-%VSIDE% /build %BUILDCFG% /project INSTALL %SOLUTION%
-
-echo DONE
-date /t
-time /t
+cd %BUILDDIR%
+vcbuild /time %VC_SLN% "%VC_CFG%|Win32"
+REM vcbuild /time /logcommands opengl32_shim.sln "Release|Win32"
+REM %VSIDE% /build %BUILDCFG% /project INSTALL %SOLUTION%
 pause
