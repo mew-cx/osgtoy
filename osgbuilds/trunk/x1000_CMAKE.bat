@@ -1,16 +1,13 @@
 @echo off
-title %0
+title running cmake...
 call SETENV.bat
 
-date /t
-time /t
-echo Running CMake, please wait...
+set F1=-DCMAKE_CONFIGURATION_TYPES:STRING=%VC_CFG%
+set F2=-DCMAKE_INSTALL_PREFIX=%INSTALLDIR% 
+set F3=-DBUILD_OSG_EXAMPLES=ON 
+set F4=-DBUILD_OSG_WRAPPERS=ON 
 
 if not exist %BUILDDIR% mkdir %BUILDDIR%
 cd %BUILDDIR%
-%CMAKE% -DCMAKE_INSTALL_PREFIX=%INSTALLDIR% -DBUILD_OSG_EXAMPLES=ON -DBUILD_OSG_WRAPPERS=ON %ROOTDIR%
-
-echo DONE
-date /t
-time /t
+%CMAKE% %CM_GEN% %F1% %F2% %F3% %F4% %SOURCEDIR%
 pause
