@@ -5,11 +5,11 @@ REM project ===============================================================
 
 set PROJECT=osg
 
-REM set VC_CFG=Debug
-REM set DEBUG=D
+set VC_CFG=Debug
+set DEBUG=D
 
-set VC_CFG=Release
-set DEBUG=
+REM set VC_CFG=Release
+REM set DEBUG=
 
 set VC_SLN=%PROJECT%.sln
 REM set SOLUTION=%BUILDDIR%\%PROJECT%.sln
@@ -50,7 +50,7 @@ REM set OSG_OPTIMIZER="FLATTEN_STATIC_TRANSFORMS CHECK_GEOMETRY"
 REM executable paths ======================================================
 
 REM pre-built binaries
-set PATH=%SOURCEDIR%\3rdParty\bin;%PATH%
+set PATH=%SOURCEDIR%\externals\3rdParty\bin;%PATH%
 
 REM built binaries
 REM set PATH=%BUILDDIR%\OpenSceneGraph\bin\%VC_CFG%;%PATH%
