@@ -9,5 +9,5 @@ set F4=-DBUILD_OSG_WRAPPERS=ON
 
 if not exist %BUILDDIR% mkdir %BUILDDIR%
 cd %BUILDDIR%
-%CMAKE% %CM_GEN% %F1% %F2% %F3% %F4% %SOURCEDIR%
+"%CMAKEDIR%\cmake" %CM_GEN% %F1% %F2% %F3% %F4% %SOURCEDIR%
 pause
