@@ -21,14 +21,14 @@ set INSTALLDIR=%SOURCEDIR%\_INSTALL_%PROJECT%_%VC_CFG%
 REM tools =================================================================
 
 set VSIDE="%VS80COMNTOOLS%..\IDE\devenv.exe"
-set CMAKE="C:\Program Files\CMake 2.4\bin\cmake.exe"
+set CMAKEDIR=C:\Program Files\CMake 2.4\bin
 set CM_GEN=-G "Visual Studio 8 2005"
 
 REM glow.mew.cx
 if %COMPUTERNAME%==GLOW (
     set VSIDE="%VS71COMNTOOLS%..\IDE\devenv.exe"
-    set CMAKE="E:\progfiles\CMake_2.4.6\bin\cmake.exe"
-    set CM_GEN=-G "Visual Studio.NET 7.1"
+    set CMAKEDIR=E:\progfiles\cmake247\bin
+    set CM_GEN=-G "Visual Studio 7 .NET 2003"
 )
 
 REM OSG runtime settings ==================================================
