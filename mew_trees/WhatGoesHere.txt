@@ -1,0 +1,2 @@
+This directory contains "svn:externals" properties pointing to various
+Subversion repositories that I find interesting.
