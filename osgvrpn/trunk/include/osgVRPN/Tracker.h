@@ -15,7 +15,8 @@
 
 #include <osgVRPN/Export>
 
-// fwd declarations so OSG app code doesn't need the VRPN headers
+#include <vrpn_Configure.h>
+// fwd declarations to reduce need for VRPN headers
 class vrpn_Tracker_Remote;
 typedef struct _vrpn_TRACKERCB vrpn_TRACKERCB;
 
@@ -38,7 +39,7 @@ public:
 protected:      // methods
     ~Tracker();
 
-    static void s_ChangeHandler( void* userdata, const vrpn_TRACKERCB info );
+    static void VRPN_CALLBACK s_ChangeHandler( void* userdata, const vrpn_TRACKERCB info );
     void changeHandler( const vrpn_TRACKERCB& info );
 
 protected:      // data

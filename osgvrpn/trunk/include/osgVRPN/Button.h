@@ -1,8 +1,8 @@
 /* file:        include/osgVRPN/Button.h
  * author:      Mike Weiblen
- * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
+ * copyright:   (C) 2006-2007 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Button.h,v 1.2 2006/07/15 17:28:35 mew Exp $
+ * $Id$
 */
 
 #ifndef OSGVRPN_BUTTON
@@ -13,7 +13,8 @@
 
 #include <osgVRPN/Export>
 
-// fwd declarations so OSG app code doesn't need the VRPN headers
+#include <vrpn_Configure.h>
+// fwd declarations to reduce need for VRPN headers
 class vrpn_Button_Remote;
 typedef struct _vrpn_BUTTONCB vrpn_BUTTONCB;
 
@@ -42,7 +43,7 @@ public:
 protected:      // methods
     ~Button();
 
-    static void s_ChangeHandler( void* userdata, const vrpn_BUTTONCB info );
+    static void VRPN_CALLBACK s_ChangeHandler( void* userdata, const vrpn_BUTTONCB info );
     void changeHandler( const vrpn_BUTTONCB& info );
 
 protected:      // data
