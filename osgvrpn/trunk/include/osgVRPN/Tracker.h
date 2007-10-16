@@ -1,8 +1,8 @@
 /* file:        include/osgVRPN/Tracker.h
  * author:      Mike Weiblen
- * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
+ * copyright:   (C) 2003-2007 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Tracker.h,v 1.7 2006/07/15 17:28:35 mew Exp $
+ * $Id$
 */
 
 #ifndef OSGVRPN_TRACKER
@@ -26,7 +26,7 @@ namespace osgVRPN {
 class OSGVRPN_EXPORT Tracker : public TrackerBase
 {
 public:
-    Tracker( const char* deviceName );
+    Tracker( const std::string& deviceName, int sensorID = -1 );
 
     /** Update our state from the device. */
     void update();
@@ -45,6 +45,7 @@ protected:      // data
     vrpn_Tracker_Remote* const  _vrpnTracker;
     osg::Vec3 _position;
     osg::Quat _rotation;
+    const int _sensorID;
 
 private:        // uncopyable
     Tracker(const Tracker&);
