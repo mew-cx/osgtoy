@@ -1,5 +1,6 @@
-patch from Hartmut Seichter:
+https://sourceforge.net/tracker/index.php?func=detail&aid=1798429&group_id=139833&atid=744686
 
+patch from Hartmut Seichter:
 - patch for casting (needed on Win32 using VS 2003)
 
 
