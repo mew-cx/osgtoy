@@ -1,8 +1,8 @@
 /* file:        include/osgVRPN/Analog.h
  * author:      Mike Weiblen
- * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
+ * copyright:   (C) 2003-2007 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Analog.h,v 1.5 2006/07/15 17:28:35 mew Exp $
+ * $Id$
 */
 
 #ifndef OSGVRPN_ANALOG
@@ -14,7 +14,8 @@
 
 #include <osgVRPN/Export>
 
-// fwd declarations so OSG app code doesn't need the VRPN headers
+#include <vrpn_Configure.h>
+// fwd declarations to reduce need for VRPN headers
 class vrpn_Analog_Remote;
 typedef struct _vrpn_ANALOGCB vrpn_ANALOGCB;
 
@@ -44,7 +45,7 @@ public:
 protected:      // methods
     ~Analog();
 
-    static void s_ChangeHandler( void* userdata, const vrpn_ANALOGCB info );
+    static void VRPN_CALLBACK s_ChangeHandler( void* userdata, const vrpn_ANALOGCB info );
     void changeHandler( const vrpn_ANALOGCB& info );
 
 protected:      // data
