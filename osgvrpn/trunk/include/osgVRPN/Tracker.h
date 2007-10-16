@@ -26,7 +26,7 @@ namespace osgVRPN {
 class OSGVRPN_EXPORT Tracker : public TrackerBase
 {
 public:
-    Tracker( const std::string& deviceName, int sensorID = -1 );
+    Tracker( const char* deviceName, int sensorID = -1 );
 
     /** Update our state from the device. */
     void update();
