@@ -1,0 +1,60 @@
+patch from Hartmut Seichter:
+
+- patch for casting (needed on Win32 using VS 2003)
+
+
+Index: src/osgVRPN/Analog.cpp
+===================================================================
+--- src/osgVRPN/Analog.cpp	(revision 359)
++++ src/osgVRPN/Analog.cpp	(working copy)
+@@ -19,12 +19,12 @@
+         _vrpnAnalog( new vrpn_Analog_Remote(deviceName) ),
+         _data( new osg::FloatArray )
+ {
+-    _vrpnAnalog->register_change_handler( this, s_ChangeHandler );
++    _vrpnAnalog->register_change_handler( this, reinterpret_cast<vrpn_ANALOGCHANGEHANDLER>(Analog::s_ChangeHandler) );
+ }
+ 
+ Analog::~Analog()
+ {
+-    _vrpnAnalog->unregister_change_handler( this, s_ChangeHandler );
++    _vrpnAnalog->unregister_change_handler( this, reinterpret_cast<vrpn_ANALOGCHANGEHANDLER>(Analog::s_ChangeHandler) );
+     delete _vrpnAnalog;
+ }
+ 
+Index: src/osgVRPN/Button.cpp
+===================================================================
+--- src/osgVRPN/Button.cpp	(revision 359)
++++ src/osgVRPN/Button.cpp	(working copy)
+@@ -18,12 +18,12 @@
+         _enabled(true), _eventCounter(0),
+         _vrpnButton( new vrpn_Button_Remote(deviceName) )
+ {
+-    _vrpnButton->register_change_handler( this, s_ChangeHandler );
++	_vrpnButton->register_change_handler( this, reinterpret_cast<vrpn_BUTTONCHANGEHANDLER>(Button::s_ChangeHandler) );
+ }
+ 
+ Button::~Button()
+ {
+-    _vrpnButton->unregister_change_handler( this, s_ChangeHandler );
++    _vrpnButton->unregister_change_handler( this, reinterpret_cast<vrpn_BUTTONCHANGEHANDLER>(Button::s_ChangeHandler) );
+     delete _vrpnButton;
+ }
+
+Index: src/osgVRPN/Tracker.cpp
+===================================================================
+--- src/osgVRPN/Tracker.cpp	(revision 359)
++++ src/osgVRPN/Tracker.cpp	(working copy)
+@@ -14,15 +14,16 @@
+ {
+-    _vrpnTracker->register_change_handler( this, s_ChangeHandler );
++	_vrpnTracker->register_change_handler( this, reinterpret_cast<vrpn_TRACKERCHANGEHANDLER>(Tracker::s_ChangeHandler) );
+ }
+ 
+ Tracker::~Tracker()
+ {
+-    _vrpnTracker->unregister_change_handler( this, s_ChangeHandler );
++    _vrpnTracker->unregister_change_handler( this, reinterpret_cast<vrpn_TRACKERCHANGEHANDLER>(Tracker::s_ChangeHandler)  );
+     delete _vrpnTracker;
+ }
+ 
