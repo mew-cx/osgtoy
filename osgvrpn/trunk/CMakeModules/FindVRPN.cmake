@@ -1,18 +1,17 @@
 
 FIND_PATH( VRPN_INCLUDE_DIR "vrpn_Types.h"
     $ENV{OSG_ROOT}/include
+    ${osgVRPN_SOURCE_DIR}/../3rdParty/include
 )
 
 FIND_LIBRARY( VRPN_LIBRARY "vrpn"
-    PATHS
     $ENV{OSG_ROOT}/lib
-    # 3rdParty/lib
+    ${osgVRPN_SOURCE_DIR}/../3rdParty/lib
 )
 
 FIND_LIBRARY( VRPN_LIBRARY_DEBUG "vrpn${CMAKE_DEBUG_POSTFIX}"
-    PATHS
     $ENV{OSG_ROOT}/lib
-    # 3rdParty/lib
+    ${osgVRPN_SOURCE_DIR}/../3rdParty/lib
 )
 
 IF( NOT VRPN_LIBRARY_DEBUG )
