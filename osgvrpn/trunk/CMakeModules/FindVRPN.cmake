@@ -1,5 +1,5 @@
 
-FIND_PATH( VRPN_INCLUDE_DIR "vrpn_Types.h"
+FIND_PATH( VRPN_INCLUDE_DIR "vrpn_Configure.h"
     $ENV{OSG_ROOT}/include
     ${osgVRPN_SOURCE_DIR}/../3rdParty/include
 )
