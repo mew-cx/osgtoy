@@ -1,8 +1,8 @@
 /* file:        include/osgVRPN/TrackerManipulator.h
  * author:      Mike Weiblen
- * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
+ * copyright:   (C) 2003-2007 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerManipulator.h,v 1.8 2006/07/15 23:54:58 mew Exp $
+ * $Id$
 */
 
 #ifndef OSGVRPN_TRACKERMANIPULATOR
@@ -20,7 +20,7 @@
 namespace osgVRPN {
 
 /** a MatrixManipulator controlled by an osgVRPN::TrackerBase.
-It may be attached to an osgProducer::Viewer as a CameraManipulator
+It may be attached to an osgViewer::Viewer as a CameraManipulator
 to control the position of the camera.
 */
 
