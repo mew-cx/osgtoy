@@ -11,10 +11,12 @@
 
 /* file:      examples/osgVRPNviewer/osgVRPNviewer.cpp
  * author:    Mike Weiblen
- * copyright: (C) 2003-2006 Michael Weiblen http://mew.cx/
+ * copyright: (C) 2003-2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: osgVRPNviewer.cpp,v 1.11 2006/08/09 02:10:58 mew Exp $
+ * $Id$
 */
+
+#include <iostream>
 
 #include <osg/ShapeDrawable>
 #include <osg/Geode>
@@ -23,8 +25,9 @@
 #include <osg/io_utils>
 #include <osg/Texture2D>
 #include <osgDB/ReadFile>
-#include <osgProducer/Viewer>
 #include <osgUtil/Optimizer>
+#include <osgViewer/Viewer>
+#include <osgViewer/ViewerEventHandlers>
 
 #include <osgVRPN/TrackerBase.h>
 #include <osgVRPN/Tracker.h>
@@ -36,7 +39,7 @@
 
 static bool gUseAnalogTracker(false);
 
-static osgVRPN::TrackerBase* myTrackerFactory( osgProducer::Viewer* viewer )
+static osgVRPN::TrackerBase* myTrackerFactory( osgViewer::Viewer* viewer )
 {
     if( ! gUseAnalogTracker )
         return new osgVRPN::Tracker( "Tracker0@localhost" );
@@ -150,8 +153,7 @@ int main( int argc, char *argv[] )
     args.getApplicationUsage()->addKeyboardMouseBinding( "upArrow", "increase tracker scale" );
     args.getApplicationUsage()->addKeyboardMouseBinding( "downArrow", "decrease tracker scale" );
 
-    osgProducer::Viewer viewer(args);
-    viewer.setUpViewer( osgProducer::Viewer::STANDARD_SETTINGS );
+    osgViewer::Viewer viewer;
 
     viewer.getUsage( *args.getApplicationUsage() );
     if (args.read("-h") || args.read("--help"))

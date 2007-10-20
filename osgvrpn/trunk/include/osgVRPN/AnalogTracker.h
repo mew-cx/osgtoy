@@ -1,8 +1,8 @@
 /* file:        include/osgVRPN/AnalogTracker.h
  * author:      Mike Weiblen
- * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
+ * copyright:   (C) 2006-2007 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: AnalogTracker.h,v 1.5 2006/07/15 23:54:58 mew Exp $
+ * $Id$
 */
 
 #ifndef OSGVRPN_ANALOGTRACKER
@@ -11,8 +11,7 @@
 #include <osg/ref_ptr>
 #include <osg/Vec3>
 #include <osg/Matrixd>
-//#include <osgProducer/Viewer>
-namespace osgProducer {
+namespace osgViewer {
 class Viewer;
 }
 
@@ -56,7 +55,7 @@ public:
     const osg::Vec3& getRotationScale() const { return _rotScale; }
 
     /** Set the viewer that this Tracker will be relative to */
-    void setViewer( osgProducer::Viewer* viewer ) { _viewer = viewer; }
+    void setViewer( osgViewer::Viewer* viewer ) { _viewer = viewer; }
 
 protected:      // methods
     ~AnalogTracker() {}
@@ -73,7 +72,7 @@ protected:      // data
 
     osg::Matrixd _matrix;
 
-    osgProducer::Viewer* _viewer;
+    osgViewer::Viewer* _viewer;
 
 private:        // uncopyable
     AnalogTracker(const AnalogTracker&);
