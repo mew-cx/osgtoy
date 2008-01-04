@@ -4,8 +4,8 @@
 
 [Setup]
 AppName=OpenSceneGraph
-AppVerName=OpenSceneGraph 2.2.0 vs8.0 2007-10-08
-OutputBaseFilename=osg2.2.0_vs80_setup_2007-10-08
+AppVerName=OpenSceneGraph 2.2.0 vs8.0 2008-01-03
+OutputBaseFilename=osg2.2.0_vs80_setup_2008-01-03
 VersionInfoTextVersion=2.2.0-r7569_vs80
 VersionInfoVersion=2.2.0.7569
 AppPublisher=http://mew.cx/
@@ -33,9 +33,9 @@ BeveledLabel=Inno Setup
 [Tasks]
 Name: "setenvars";    Description: "Set OSG environment variables in Registry"; GroupDescription: "Environment variables:"
 Name: "desktopicon";  Description: "Create &desktop icons"; GroupDescription: "Additional icons:"
-Name: "associateRgb"; Description: "Associate .rgb/.rgba (IRIS image) files with osgviewer"; GroupDescription: "File Associations:"
-Name: "associateFlt"; Description: "Associate .flt (OpenFlight) files with osgviewer"; GroupDescription: "File Associations:"
-Name: "associateDae"; Description: "Associate .dae (COLLADA) files with osgviewer"; GroupDescription: "File Associations:"
+Name: "associateRgb"; Description: "Associate SGI .rgb/.rgba image files with osgviewer"; GroupDescription: "File Associations:"
+Name: "associateFlt"; Description: "Associate OpenFlight .flt files with osgviewer"; GroupDescription: "File Associations:"
+Name: "associateDae"; Description: "Associate COLLADA .dae files with osgviewer"; GroupDescription: "File Associations:"
 
 
 [Registry]
@@ -44,7 +44,7 @@ Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environmen
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: string; ValueName: "OSG_FILE_PATH"; ValueData: "{app}\data;{app}\data\Images;{app}\data\fonts"; Flags: uninsdeletevalue; Tasks: setenvars
 
 Root: HKCR; Subkey: ".osg"; ValueType: string; ValueData: "osgfile"; Flags: uninsdeletevalue createvalueifdoesntexist
-Root: HKCR; Subkey: "osgfile"; ValueType: string; ValueData: "OpenSceneGraph Textual File"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "osgfile"; ValueType: string; ValueData: "OpenSceneGraph text data"; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "osgfile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"
 Root: HKCR; Subkey: "osgfile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "osgfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""
@@ -55,13 +55,13 @@ Root: HKCR; Subkey: "osgfile\shell\Convert_to_IveDxt5"; ValueType: string; Value
 Root: HKCR; Subkey: "osgfile\shell\Convert_to_IveDxt5\command"; ValueType: string; ValueData: """{app}\bin\osgconv2iveDxt5.bat"" ""%1"""
 
 Root: HKCR; Subkey: ".osga"; ValueType: string; ValueData: "osgafile"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "osgafile"; ValueType: string; ValueData: "OpenSceneGraph Archive"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "osgafile"; ValueType: string; ValueData: "OpenSceneGraph data archive"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "osgafile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "osgafile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "osgafile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"""" ""%1"""; Flags: uninsdeletevalue
 
 Root: HKCR; Subkey: ".ive"; ValueType: string; ValueData: "ivefile"; Flags: uninsdeletevalue createvalueifdoesntexist
-Root: HKCR; Subkey: "ivefile"; ValueType: string; ValueData: "OpenSceneGraph Binary File"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "ivefile"; ValueType: string; ValueData: "OpenSceneGraph binary data"; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "ivefile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"
 Root: HKCR; Subkey: "ivefile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "ivefile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""
@@ -69,7 +69,7 @@ Root: HKCR; Subkey: "ivefile\shell\Convert_to_Osg"; ValueType: string; ValueData
 Root: HKCR; Subkey: "ivefile\shell\Convert_to_Osg\command"; ValueType: string; ValueData: """{app}\bin\osgconv2osg.bat"" ""%1"""
 
 Root: HKCR; Subkey: ".flt"; ValueType: string; ValueData: "fltfile"; Flags: uninsdeletevalue; Tasks: associateFlt
-Root: HKCR; Subkey: "fltfile"; ValueType: string; ValueData: "OpenFlight File"; Flags: uninsdeletekey; Tasks: associateFlt
+Root: HKCR; Subkey: "fltfile"; ValueType: string; ValueData: "OpenFlight data"; Flags: uninsdeletekey; Tasks: associateFlt
 Root: HKCR; Subkey: "fltfile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateFlt
 Root: HKCR; Subkey: "fltfile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateFlt
 Root: HKCR; Subkey: "fltfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""; Flags: uninsdeletevalue; Tasks: associateFlt
@@ -81,18 +81,18 @@ Root: HKCR; Subkey: "fltfile\shell\Convert_to_Osg"; ValueType: string; ValueData
 Root: HKCR; Subkey: "fltfile\shell\Convert_to_Osg\command"; ValueType: string; ValueData: """{app}\bin\osgconv2osg.bat"" ""%1"""; Flags: uninsdeletevalue; Tasks: associateFlt
 
 Root: HKCR; Subkey: ".rgb"; ValueType: string; ValueData: "rgbfile"; Flags: uninsdeletevalue; Tasks: associateRgb
-Root: HKCR; Subkey: "rgbfile"; ValueType: string; ValueData: "Rgb Image File"; Flags: uninsdeletekey; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbfile"; ValueType: string; ValueData: "SGI RGB image"; Flags: uninsdeletekey; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbfile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbfile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" --image ""%1"""; Flags: uninsdeletevalue; Tasks: associateRgb
 Root: HKCR; Subkey: ".rgba"; ValueType: string; ValueData: "rgbafile"; Flags: uninsdeletekey; Tasks: associateRgb
-Root: HKCR; Subkey: "rgbafile"; ValueType: string; ValueData: "Rgb Image File"; Flags: uninsdeletekey; Tasks: associateRgb
+Root: HKCR; Subkey: "rgbafile"; ValueType: string; ValueData: "SGI RGBA image"; Flags: uninsdeletekey; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbafile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbafile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateRgb
 Root: HKCR; Subkey: "rgbafile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" --image ""%1"""; Flags: uninsdeletevalue; Tasks: associateRgb
 
 Root: HKCR; Subkey: ".dae"; ValueType: string; ValueData: "daefile"; Flags: uninsdeletekey; Tasks: associateDae
-Root: HKCR; Subkey: "daefile"; ValueType: string; ValueData: "Collada File"; Flags: uninsdeletekey; Tasks: associateDae
+Root: HKCR; Subkey: "daefile"; ValueType: string; ValueData: "COLLADA data"; Flags: uninsdeletekey; Tasks: associateDae
 Root: HKCR; Subkey: "daefile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateDae
 Root: HKCR; Subkey: "daefile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateDae
 Root: HKCR; Subkey: "daefile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""; Flags: uninsdeletevalue; Tasks: associateDae
@@ -198,7 +198,7 @@ Source: "data\osgtoy-data\xyz100.osg"; Excludes: ".svn"; DestDir: "{app}\data"; 
 Name: "{userdesktop}\osgLogo";  Filename: "{app}\bin\osglogo.exe";  IconFilename: "{app}\osg.ico"; WorkingDir: "{app}\bin"; Tasks: desktopicon
 Name: "{userdesktop}\osgShell"; Filename: "{app}\bin\osgShell.bat"; IconFilename: "{app}\osg.ico"; WorkingDir: "%OSG_ROOT%\bin"; Tasks: desktopicon
 
-Name: "{group}\Uninstall OpenSceneGraph 2.2.0 vs8.0 2007-10-08" ; Filename: "{uninstallexe}"
+Name: "{group}\Uninstall OpenSceneGraph 2.2.0 vs8.0 2008-01-03" ; Filename: "{uninstallexe}"
 Name: "{group}\View README"; Filename: "{app}\README_vs80.txt";
 Name: "{group}\View OSG Program Files folder"; Filename: "{app}"
 Name: "{group}\View OSG Start Menu folder"; Filename: "{group}"
