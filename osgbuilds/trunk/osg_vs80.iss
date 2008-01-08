@@ -35,7 +35,7 @@ Name: "setenvars";    Description: "Set OSG environment variables in Registry"; 
 Name: "desktopicon";  Description: "Create &desktop icons"; GroupDescription: "Additional icons:"
 Name: "associateRgb"; Description: "Associate SGI .rgb/.rgba image files with osgviewer"; GroupDescription: "File Associations:"
 Name: "associateFlt"; Description: "Associate OpenFlight .flt files with osgviewer"; GroupDescription: "File Associations:"
-Name: "associateDae"; Description: "Associate COLLADA .dae files with osgviewer"; GroupDescription: "File Associations:"
+Name: "associateDae"; Description: "Associate COLLADA .dae documents with osgviewer"; GroupDescription: "File Associations:"
 
 
 [Registry]
@@ -44,7 +44,7 @@ Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environmen
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: string; ValueName: "OSG_FILE_PATH"; ValueData: "{app}\data;{app}\data\Images;{app}\data\fonts"; Flags: uninsdeletevalue; Tasks: setenvars
 
 Root: HKCR; Subkey: ".osg"; ValueType: string; ValueData: "osgfile"; Flags: uninsdeletevalue createvalueifdoesntexist
-Root: HKCR; Subkey: "osgfile"; ValueType: string; ValueData: "OpenSceneGraph text data"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "osgfile"; ValueType: string; ValueData: "OpenSceneGraph text scene"; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "osgfile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"
 Root: HKCR; Subkey: "osgfile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "osgfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""
@@ -55,13 +55,13 @@ Root: HKCR; Subkey: "osgfile\shell\Convert_to_IveDxt5"; ValueType: string; Value
 Root: HKCR; Subkey: "osgfile\shell\Convert_to_IveDxt5\command"; ValueType: string; ValueData: """{app}\bin\osgconv2iveDxt5.bat"" ""%1"""
 
 Root: HKCR; Subkey: ".osga"; ValueType: string; ValueData: "osgafile"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "osgafile"; ValueType: string; ValueData: "OpenSceneGraph data archive"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "osgafile"; ValueType: string; ValueData: "OpenSceneGraph scene archive"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "osgafile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "osgafile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "osgafile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"""" ""%1"""; Flags: uninsdeletevalue
 
 Root: HKCR; Subkey: ".ive"; ValueType: string; ValueData: "ivefile"; Flags: uninsdeletevalue createvalueifdoesntexist
-Root: HKCR; Subkey: "ivefile"; ValueType: string; ValueData: "OpenSceneGraph binary data"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "ivefile"; ValueType: string; ValueData: "OpenSceneGraph binary scene"; Flags: uninsdeletevalue
 Root: HKCR; Subkey: "ivefile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"
 Root: HKCR; Subkey: "ivefile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "ivefile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""
@@ -69,7 +69,7 @@ Root: HKCR; Subkey: "ivefile\shell\Convert_to_Osg"; ValueType: string; ValueData
 Root: HKCR; Subkey: "ivefile\shell\Convert_to_Osg\command"; ValueType: string; ValueData: """{app}\bin\osgconv2osg.bat"" ""%1"""
 
 Root: HKCR; Subkey: ".flt"; ValueType: string; ValueData: "fltfile"; Flags: uninsdeletevalue; Tasks: associateFlt
-Root: HKCR; Subkey: "fltfile"; ValueType: string; ValueData: "OpenFlight data"; Flags: uninsdeletekey; Tasks: associateFlt
+Root: HKCR; Subkey: "fltfile"; ValueType: string; ValueData: "OpenFlight model"; Flags: uninsdeletekey; Tasks: associateFlt
 Root: HKCR; Subkey: "fltfile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateFlt
 Root: HKCR; Subkey: "fltfile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateFlt
 Root: HKCR; Subkey: "fltfile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""; Flags: uninsdeletevalue; Tasks: associateFlt
@@ -92,7 +92,7 @@ Root: HKCR; Subkey: "rgbafile\shell"; ValueType: string; ValueData: "Open"; Flag
 Root: HKCR; Subkey: "rgbafile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" --image ""%1"""; Flags: uninsdeletevalue; Tasks: associateRgb
 
 Root: HKCR; Subkey: ".dae"; ValueType: string; ValueData: "daefile"; Flags: uninsdeletekey; Tasks: associateDae
-Root: HKCR; Subkey: "daefile"; ValueType: string; ValueData: "COLLADA data"; Flags: uninsdeletekey; Tasks: associateDae
+Root: HKCR; Subkey: "daefile"; ValueType: string; ValueData: "COLLADA document"; Flags: uninsdeletekey; Tasks: associateDae
 Root: HKCR; Subkey: "daefile\DefaultIcon"; ValueType: string; ValueData: "{app}\osg.ico,0"; Flags: uninsdeletevalue; Tasks: associateDae
 Root: HKCR; Subkey: "daefile\shell"; ValueType: string; ValueData: "Open"; Flags: uninsdeletekey; Tasks: associateDae
 Root: HKCR; Subkey: "daefile\shell\Open\command"; ValueType: string; ValueData: """{app}\bin\osgviewer.exe"" ""%1"""; Flags: uninsdeletevalue; Tasks: associateDae
