@@ -45,18 +45,18 @@ set DIR_TIFF=tiff-3.8.2
 set PKG_TIFF=%DIR_TIFF%.zip
 set URL_TIFF=ftp://ftp.remotesensing.org/pub/libtiff/%PKG_TIFF%
 
-set DIR_VRPN=vrpn_07_13
+set DIR_VRPN=vrpn_07_15
 set PKG_VRPN=%DIR_VRPN%.zip
 set URL_VRPN=ftp://ftp.cs.unc.edu/pub/packages/GRIP/vrpn/%PKG_VRPN%
 
 REM TODO -------------------------
 
-set DIR_PROJ=proj-4.5.0
+set DIR_PROJ=proj-4.6.0
 set PKG_PROJ=%DIR_PROJ%.zip
 set URL_PROJ=ftp://ftp.remotesensing.org/proj/%PKG_PROJ%
 
-set DIR_GDAL=gdal-1.4.2
-set PKG_GDAL=gdal142.zip
+set DIR_GDAL=gdal-1.5.0
+set PKG_GDAL=gdal150.zip
 set URL_GDAL=http://download.osgeo.org/gdal/%PKG_GDAL%
 
 set DIR_GEOTIFF=libgeotiff-1.2.4
