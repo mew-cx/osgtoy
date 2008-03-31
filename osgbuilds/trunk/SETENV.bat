@@ -8,8 +8,8 @@ set PROJECT=osg
 set VC_CFG=Debug
 set DEBUG=D
 
-REM set VC_CFG=Release
-REM set DEBUG=
+set VC_CFG=Release
+set DEBUG=
 
 set VC_SLN=%PROJECT%.sln
 REM set SOLUTION=%BUILDDIR%\%PROJECT%.sln
