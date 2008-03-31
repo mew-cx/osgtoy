@@ -9,7 +9,8 @@ exit
 
 if NOT EXIST %DIR_VRPN%\vrpn\pc_win32\Release\vrpn.lib (
 echo ERROR first must build vrpn_server and vrpn_print_devices
-echo using %DIR_VRPN%\vrpn_mew.sln echo then rerun this script.
+echo using %DIR_VRPN%\vrpn_mew.sln
+echo then rerun this script.
 pause
 exit
 )
