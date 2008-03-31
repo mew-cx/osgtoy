@@ -17,7 +17,7 @@ set DIR_ZLIB=zlib
 set PKG_ZLIB=%DIR_ZLIB%123.zip
 set URL_ZLIB=http://www.zlib.net/%PKG_ZLIB%
 
-set DIR_PNG=lpng1218
+set DIR_PNG=lpng1225
 set PKG_PNG=%DIR_PNG%.zip
 set URL_PNG=http://downloads.sourceforge.net/libpng/%PKG_PNG%
 
@@ -25,13 +25,14 @@ set DIR_JPEG=jpeg-6b
 set PKG_JPEG=jpegsr6.zip
 set URL_JPEG=ftp://ftp.simtel.net/pub/simtelnet/msdos/graphics/%PKG_JPEG%
 
-set DIR_LUA=lua-5.1.2
+set DIR_LUA=lua-5.1.3
 set PKG_LUA=%DIR_LUA%.tar.gz
 set URL_LUA=http://www.lua.org/ftp/%PKG_LUA%
 
-set DIR_UNGIF=libungif-4.1.4
-set PKG_UNGIF=%DIR_UNGIF%.tar.gz
-set URL_UNGIF=http://downloads.sourceforge.net/libungif/%PKG_UNGIF%
+REM upstream project renamed from libungif to giflib
+REM set DIR_UNGIF=libungif-4.1.4
+REM set PKG_UNGIF=%DIR_UNGIF%.tar.gz
+REM set URL_UNGIF=http://downloads.sourceforge.net/libungif/%PKG_UNGIF%
 
 set DIR_FREETYPE=freetype-2.3.5
 set PKG_FREETYPE=ft235.zip
@@ -51,19 +52,29 @@ set URL_VRPN=ftp://ftp.cs.unc.edu/pub/packages/GRIP/vrpn/%PKG_VRPN%
 
 REM TODO -------------------------
 
+set DIR_CURL=curl-7.18.1
+set PKG_CURL=%DIR_CURL%.zip
+set URL_CURL=http://curl.haxx.se/download/%PKG_CURL%
+
+set DIR_GIFLIB=giflib-4.1.6
+set PKG_GIFLIB=%DIR_GIFLIB%.tar.gz
+set URL_GIFLIB=http://downloads.sourceforge.net/giflib/%PKG_GIFLIB%
+
 set DIR_PROJ=proj-4.6.0
 set PKG_PROJ=%DIR_PROJ%.zip
 set URL_PROJ=ftp://ftp.remotesensing.org/proj/%PKG_PROJ%
 
-set DIR_GDAL=gdal-1.5.0
-set PKG_GDAL=gdal150.zip
+set DIR_GDAL=gdal-1.5.1
+set PKG_GDAL=gdal151.zip
 set URL_GDAL=http://download.osgeo.org/gdal/%PKG_GDAL%
 
 set DIR_GEOTIFF=libgeotiff-1.2.4
 set PKG_GEOTIFF=libgeotiff124.zip
 set URL_GEOTIFF=ftp://ftp.remotesensing.org/pub/geotiff/libgeotiff/%PKG_GEOTIFF%
 
-set DIR_GLSLFE=OpenGLCompilerSept202005
-set PKG_GLSLFE=%DIR_GLSLFE%.zip
-set URL_GLSLFE=http://developer.3dlabs.com/downloads/glslcompiler/%PKG_GLSLFE%
+REM the GLSL site at developer.3dlabs.com is no more
+REM set DIR_GLSLFE=OpenGLCompilerSept202005
+REM set PKG_GLSLFE=%DIR_GLSLFE%.zip
+REM set URL_GLSLFE=http://developer.3dlabs.com/downloads/glslcompiler/%PKG_GLSLFE%
 
+REM EOF
