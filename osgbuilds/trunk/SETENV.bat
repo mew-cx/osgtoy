@@ -4,15 +4,15 @@ REM envars to define OpenSceneGraph development environment
 REM project ===============================================================
 
 set PROJECT=osg
+set VC_SLN=%PROJECT%.sln
 
+REM select for "Debug" configuration
 set VC_CFG=Debug
 set DEBUG=D
 
+REM select for "Release" configuration
 set VC_CFG=Release
 set DEBUG=
-
-set VC_SLN=%PROJECT%.sln
-REM set SOLUTION=%BUILDDIR%\%PROJECT%.sln
 
 set SOURCEDIR=%CD%
 set BUILDDIR=%SOURCEDIR%\_BUILD_%PROJECT%_%VC_CFG%
@@ -23,13 +23,6 @@ REM tools =================================================================
 set VSIDE="%VS80COMNTOOLS%..\IDE\devenv.exe"
 set CMAKEDIR=C:\Program Files\CMake 2.4\bin
 set CM_GEN=-G "Visual Studio 8 2005"
-
-REM glow.mew.cx
-if %COMPUTERNAME%==GLOW (
-    set VSIDE="%VS71COMNTOOLS%..\IDE\devenv.exe"
-    set CMAKEDIR=E:\progfiles\cmake247\bin
-    set CM_GEN=-G "Visual Studio 7 .NET 2003"
-)
 
 REM OSG runtime settings ==================================================
 
@@ -86,8 +79,5 @@ set X=
 REM show current configuration for review =================================
 REM set
 REM pause
-
-
-
 
 REM vim: set sw=4 ts=8 et ic ai:
