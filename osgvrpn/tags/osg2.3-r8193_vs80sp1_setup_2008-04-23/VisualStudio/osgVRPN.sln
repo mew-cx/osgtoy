@@ -1,0 +1,55 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core osgVRPN", "osgVRPN\osgVRPN.vcproj", "{363E6FB6-1BC0-44C6-854D-3D53B89C7042}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example osgVRPNviewer", "examples\osgVRPNviewer\osgVRPNviewer.vcproj", "{1A6F93E9-698C-4C47-AFC6-F3E5DDF1A17F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042} = {363E6FB6-1BC0-44C6-854D-3D53B89C7042}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "osgPlugin tracker", "osgPlugins\tracker\tracker.vcproj", "{39E32C05-4544-46F0-9FD2-407A5FD4E7C8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042} = {363E6FB6-1BC0-44C6-854D-3D53B89C7042}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Debug Static = Debug Static
+		Release = Release
+		Release Static = Release Static
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042}.Debug.ActiveCfg = Debug|Win32
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042}.Debug.Build.0 = Debug|Win32
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042}.Debug Static.ActiveCfg = Debug Static|Win32
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042}.Debug Static.Build.0 = Debug Static|Win32
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042}.Release.ActiveCfg = Release|Win32
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042}.Release.Build.0 = Release|Win32
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042}.Release Static.ActiveCfg = Release Static|Win32
+		{363E6FB6-1BC0-44C6-854D-3D53B89C7042}.Release Static.Build.0 = Release Static|Win32
+		{1A6F93E9-698C-4C47-AFC6-F3E5DDF1A17F}.Debug.ActiveCfg = Debug|Win32
+		{1A6F93E9-698C-4C47-AFC6-F3E5DDF1A17F}.Debug.Build.0 = Debug|Win32
+		{1A6F93E9-698C-4C47-AFC6-F3E5DDF1A17F}.Debug Static.ActiveCfg = Debug|Win32
+		{1A6F93E9-698C-4C47-AFC6-F3E5DDF1A17F}.Debug Static.Build.0 = Debug|Win32
+		{1A6F93E9-698C-4C47-AFC6-F3E5DDF1A17F}.Release.ActiveCfg = Release|Win32
+		{1A6F93E9-698C-4C47-AFC6-F3E5DDF1A17F}.Release.Build.0 = Release|Win32
+		{1A6F93E9-698C-4C47-AFC6-F3E5DDF1A17F}.Release Static.ActiveCfg = Release|Win32
+		{1A6F93E9-698C-4C47-AFC6-F3E5DDF1A17F}.Release Static.Build.0 = Release|Win32
+		{39E32C05-4544-46F0-9FD2-407A5FD4E7C8}.Debug.ActiveCfg = Debug|Win32
+		{39E32C05-4544-46F0-9FD2-407A5FD4E7C8}.Debug.Build.0 = Debug|Win32
+		{39E32C05-4544-46F0-9FD2-407A5FD4E7C8}.Debug Static.ActiveCfg = Debug Static|Win32
+		{39E32C05-4544-46F0-9FD2-407A5FD4E7C8}.Debug Static.Build.0 = Debug Static|Win32
+		{39E32C05-4544-46F0-9FD2-407A5FD4E7C8}.Release.ActiveCfg = Release|Win32
+		{39E32C05-4544-46F0-9FD2-407A5FD4E7C8}.Release.Build.0 = Release|Win32
+		{39E32C05-4544-46F0-9FD2-407A5FD4E7C8}.Release Static.ActiveCfg = Release Static|Win32
+		{39E32C05-4544-46F0-9FD2-407A5FD4E7C8}.Release Static.Build.0 = Release Static|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

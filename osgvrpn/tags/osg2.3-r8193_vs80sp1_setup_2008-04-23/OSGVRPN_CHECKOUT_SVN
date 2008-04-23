@@ -1,0 +1,2 @@
+#! /bin/sh -x
+svn co https://osgtoy.svn.sourceforge.net/svnroot/osgtoy/osgvrpn/trunk osgvrpn
