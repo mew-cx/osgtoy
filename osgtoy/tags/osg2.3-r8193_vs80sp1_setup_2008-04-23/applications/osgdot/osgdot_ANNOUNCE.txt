@@ -1,0 +1,52 @@
+From:  	"Paul Melis"
+Subject:  	[osg-users] osgdot - a tool to generate a picture of a scenegraph's structure
+Date:  	Thu, November 15, 2007 02:26
+To:  	osg-users@lists.openscenegraph.org
+
+Hello,
+
+Somebody (McKay Davis) asked me some time ago about a small tool I made
+to generate a Graphviz .dot file from a scenegraph. This tool allows you
+to generate a picture of node and drawable relationships (and some other
+stuff as well) for a given model file readable by OSG. I hereby post
+this tool to the list. I don't have time nor any work relation a.t.m.
+with OSG to make it into something more advanced. The code is in the
+public domain, so if this is deemed interesting enough it could be included
+in the OSG distribution.
+
+I've succesfully used it on some projects to gain insight into the contents 
+of OSG files. Mostly to verify output written by other tools  
+and to check how the 3D Studio MAX exporter writes a scene.
+It should work on small and large models (in number of nodes) as the 
+limiting factor is most likely the dot tool, which has to layout the graph 
+nodes to generate the actual picture. Attached are example output when run 
+on the cessnafire.osg model distributed with OSG and for a model exported 
+from 3D Studio MAX. See the source for the meaning of the grey color, line 
+thickness, etc.
+
+It consists of only a single C++ file. There's some comments on how to
+use it and what it outputs, at the beginning of the file. You need the
+graphviz package to convert the .dot file to a PNG or JPEG. And lastly,
+it's pretty primitive at the moment, so a lot of things could be added.
+
+Have fun with it,
+Paul
+
+
+
+_______________________________________________
+osg-users mailing list
+osg-users@lists.openscenegraph.org
+http://lists.openscenegraph.org/listinfo.cgi/osg-users-openscenegraph.org
+
+Attachments:
+cessnafire.png
+	Size: 	42 k
+	Type: 	image/png
+osgdot.cpp
+	Size: 	8.4 k
+	Type: 	text/x-c++src
+max.png
+	Size: 	224 k
+	Type: 	image/png
+
