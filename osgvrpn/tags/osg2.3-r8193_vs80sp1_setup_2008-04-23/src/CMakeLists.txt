@@ -1,0 +1,2 @@
+ADD_SUBDIRECTORY( osgVRPN )
+#ADD_SUBDIRECTORY( osgPlugins )

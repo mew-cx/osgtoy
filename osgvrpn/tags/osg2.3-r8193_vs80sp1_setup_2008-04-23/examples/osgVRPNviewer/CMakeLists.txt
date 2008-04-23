@@ -1,0 +1,20 @@
+FILE( GLOB TARGET_SOURCES *.cpp )
+FILE( GLOB TARGET_HEADERS *.h )
+
+ADD_EXECUTABLE( osgVRPNviewer ${TARGET_SOURCES} ${TARGET_HEADERS} )
+
+INCLUDE_DIRECTORIES( ${osgVRPN_SOURCE_DIR}/include ${OSG_INCLUDE_DIR} )
+
+TARGET_LINK_LIBRARIES( osgVRPNviewer osgVRPN )
+LINK_WITH_VARIABLES( osgVRPNviewer OSGVIEWER_LIBRARY OSGGA_LIBRARY )
+
+# append "D" to debug product names
+SET_TARGET_PROPERTIES( osgVRPNviewer PROPERTIES DEBUG_POSTFIX "D" )
+
+# hack to put .dll's in "bin", and .lib's in "lib"
+IF (MSVC)
+    SET_TARGET_PROPERTIES( osgVRPNviewer PROPERTIES PREFIX "../../bin/" )
+    SET_TARGET_PROPERTIES( osgVRPNviewer PROPERTIES IMPORT_PREFIX "../" )
+ENDIF (MSVC)
+
+# vim: set sw=4 ts=8 et ic ai:
