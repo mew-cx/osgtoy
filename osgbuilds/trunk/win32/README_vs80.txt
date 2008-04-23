@@ -12,6 +12,7 @@ To keep this installer compact, only Release binaries are included.
 The OSG website is http://www.openscenegraph.org/
 
 The verbatim source tree used to create these binaries is in osgsrc.zip.
+(NOTE: osgsrc.zip is intentionally blank for this beta build)
 
 The packaging tools used to build this installer are available from:
 https://osgtoy.svn.sourceforge.net/svnroot/osgtoy/osgbuilds/branches/
