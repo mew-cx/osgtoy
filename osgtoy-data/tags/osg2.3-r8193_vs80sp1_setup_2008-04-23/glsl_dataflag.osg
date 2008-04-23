@@ -1,0 +1,118 @@
+COMMENT {
+  "$Id: glsl_dataflag.osg,v 1.12 2007/03/18 04:56:15 mew Exp $"
+  "A demonstration of the drawtext GLSL fragment shader."
+  "The dataflag renders glUniform values as text using GLSL."
+  "Because the text is computed in the fragment shader, the display"
+  "can update automatically without support from the application."
+}
+
+Group {
+  DataVariance DYNAMIC
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_children 1
+  Geode {
+    DataVariance DYNAMIC
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    StateSet {
+      DataVariance STATIC
+      rendering_hint DEFAULT_BIN
+      renderBinMode INHERIT
+      GL_LIGHTING OFF
+      Uniform {
+        DataVariance DYNAMIC
+        name "Word"
+        type vec4 1 FloatArray 4
+        {
+          79 83 71 33
+        }
+      }
+      Uniform {
+        DataVariance DYNAMIC
+        name "CellSpan"
+        type vec2 1 FloatArray 2
+        {
+          6 4 
+        }
+      }
+      Uniform {
+        DataVariance DYNAMIC
+        name "GlyphTexSampler"
+        type int 1 IntArray 1
+        {
+          0 
+        }
+      }
+      Program {
+        DataVariance STATIC
+        name "drawtext program"
+        num_shaders 1
+        Shader {
+          DataVariance DYNAMIC
+          name "drawtext fragment"
+          type FRAGMENT
+          file "shaders/drawtext4.frag"
+        }
+      }
+      textureUnit 0 {
+        GL_TEXTURE_2D ON
+        Texture2D {
+          DataVariance STATIC
+          file "verasansmono.png"
+          wrap_s CLAMP
+          wrap_t CLAMP
+          wrap_r CLAMP
+          min_filter LINEAR_MIPMAP_LINEAR
+          mag_filter LINEAR
+          maxAnisotropy 1
+          borderColor 0 0 0 0
+          borderWidth 0
+          useHardwareMipMapGeneration TRUE
+          unRefImageDataAfterApply TRUE
+          internalFormatMode USE_IMAGE_DATA_FORMAT
+          resizeNonPowerOfTwo FALSE
+        }
+      }
+    }
+    num_drawables 1
+    Geometry {
+      DataVariance DYNAMIC
+      useDisplayList TRUE
+      useVertexBufferObjects FALSE
+      PrimitiveSets 1
+      {
+        DrawArrays TRIANGLES 0 9
+      }
+      VertexArray Vec3Array 9
+      {
+        1 0 2
+        -1 0 2
+        1 0 1
+        -1 0 1
+        1 0 1
+        -1 0 2
+        0 0 0
+        1 0 1
+        -1 0 1
+      }
+      ColorBinding OVERALL
+      ColorArray Vec4Array 1
+      {
+        1 1 1 1
+      }
+      TexCoordArray 0 Vec2Array 9
+      {
+        1 1
+        0 1
+        1 0
+        0 0
+        1 0
+        0 1
+        0 0
+        0 0
+        0 0
+      }
+    }
+  }
+}
