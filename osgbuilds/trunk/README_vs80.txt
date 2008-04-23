@@ -1,5 +1,4 @@
-README_vs80.txt - mew 2008-03-31
-$Id$
+README_vs80.txt - mew 2008-04-23
 
 This is a development package for the OpenSceneGraph.
 

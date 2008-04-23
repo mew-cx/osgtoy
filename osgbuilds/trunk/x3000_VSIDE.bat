@@ -1,7 +1,4 @@
-@echo off
-title running vcbuild...
+REM launch Visual Studio IDE
 call SETENV.bat
-call "%VS80COMNTOOLS%vsvars32.bat"
-
 cd %BUILDDIR%
 start %VSIDE% %VC_SLN%
