@@ -1,0 +1,1 @@
+vrpn_print_devices Spaceball0@localhost
