@@ -7,12 +7,14 @@ set PROJECT=osg
 set VC_SLN=%PROJECT%.sln
 
 REM select for "Debug" configuration
-set VC_CFG=Debug
 set DEBUG=D
+set VC_CFG=Debug
 
 REM select for "Release" configuration
-set VC_CFG=Release
 set DEBUG=
+set VC_CFG=Release
+REM set VC_CFG=MinSizeRel
+REM set VC_CFG=RelWithDebInfo
 
 set SOURCEDIR=%CD%
 set BUILDDIR=%SOURCEDIR%\_BUILD_%PROJECT%_%VC_CFG%
@@ -21,6 +23,8 @@ set INSTALLDIR=%SOURCEDIR%\_INSTALL_%PROJECT%_%VC_CFG%
 REM tools =================================================================
 
 set VSIDE="%VS80COMNTOOLS%..\IDE\devenv.exe"
+call "%VS80COMNTOOLS%vsvars32.bat"
+
 set CMAKEDIR=C:\Program Files\CMake 2.4\bin
 set CM_GEN=-G "Visual Studio 8 2005"
 
@@ -33,7 +37,7 @@ set OSG_NOTIFY_LEVEL=NOTICE
 REM set OSG_NOTIFY_LEVEL=DEBUG
 REM set OSG_NOTIFY_LEVEL=INFO
 
-set OSG_WINDOW=100 100 640 480
+set OSG_WINDOW=50 50 640 480
 
 REM set OSG_GL_EXTENSION_DISABLE=GL_SGIS_generate_mipmap
 
