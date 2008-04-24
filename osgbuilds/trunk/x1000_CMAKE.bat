@@ -1,16 +1,16 @@
-@echo off
+REM launch CMake in noninteractive/batch build mode.
 title running cmake...
 call SETENV.bat
 
 REM mew's overrides to the default CMake configuration...
-set F1=-DCMAKE_CONFIGURATION_TYPES:STRING=%VC_CFG%
+REM set F1=-DCMAKE_CONFIGURATION_TYPES:STRING=%VC_CFG%
 set F2=-DCMAKE_INSTALL_PREFIX=%INSTALLDIR% 
 set F3=-DBUILD_OSG_EXAMPLES=ON 
 set F4=-DBUILD_OSG_WRAPPERS=ON 
 set F5=-DBUILD_MFC_EXAMPLE=ON 
 set F6=-DWIN32_USE_MP=ON
-set F7=-DCURL_LIBRARY=%SOURCEDIR%\externals\3rdParty\lib\curllib.lib
-set F8=-DCURL_LIBRARY_DEBUG=%SOURCEDIR%\externals\3rdParty\lib\curllibD.lib
+REM set F7=-DCURL_LIBRARY=%SOURCEDIR%\externals\3rdParty\lib\curllib.lib
+REM set F8=-DCURL_LIBRARY_DEBUG=%SOURCEDIR%\externals\3rdParty\lib\curllibD.lib
 
 if not exist %BUILDDIR% mkdir %BUILDDIR%
 cd %BUILDDIR%
