@@ -1,0 +1,2 @@
+PROJECT( $ENV{PROJECT} )
+ADD_SUBDIRECTORY( externals )
