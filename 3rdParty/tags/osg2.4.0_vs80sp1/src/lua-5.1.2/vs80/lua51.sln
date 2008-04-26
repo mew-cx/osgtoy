@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "liblua51", "liblua51\liblua.vcproj", "{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "lua\lua.vcproj", "{99EC56F7-0911-4A3E-BDE1-4E42132B2293}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7} = {CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_dynamic|Win32 = Debug_dynamic|Win32
+		Debug_static|Win32 = Debug_static|Win32
+		Release_dynamic|Win32 = Release_dynamic|Win32
+		Release_static|Win32 = Release_static|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}.Debug_dynamic|Win32.ActiveCfg = Debug_dynamic|Win32
+		{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}.Debug_dynamic|Win32.Build.0 = Debug_dynamic|Win32
+		{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}.Debug_static|Win32.ActiveCfg = Debug_static|Win32
+		{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}.Debug_static|Win32.Build.0 = Debug_static|Win32
+		{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}.Release_dynamic|Win32.ActiveCfg = Release_dynamic|Win32
+		{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}.Release_dynamic|Win32.Build.0 = Release_dynamic|Win32
+		{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}.Release_static|Win32.ActiveCfg = Release_static|Win32
+		{CFE5297E-BBE9-4D23-AE72-C23E99F7AAB7}.Release_static|Win32.Build.0 = Release_static|Win32
+		{99EC56F7-0911-4A3E-BDE1-4E42132B2293}.Debug_dynamic|Win32.ActiveCfg = Debug_dynamic|Win32
+		{99EC56F7-0911-4A3E-BDE1-4E42132B2293}.Debug_dynamic|Win32.Build.0 = Debug_dynamic|Win32
+		{99EC56F7-0911-4A3E-BDE1-4E42132B2293}.Debug_static|Win32.ActiveCfg = Debug_static|Win32
+		{99EC56F7-0911-4A3E-BDE1-4E42132B2293}.Debug_static|Win32.Build.0 = Debug_static|Win32
+		{99EC56F7-0911-4A3E-BDE1-4E42132B2293}.Release_dynamic|Win32.ActiveCfg = Release_dynamic|Win32
+		{99EC56F7-0911-4A3E-BDE1-4E42132B2293}.Release_dynamic|Win32.Build.0 = Release_dynamic|Win32
+		{99EC56F7-0911-4A3E-BDE1-4E42132B2293}.Release_static|Win32.ActiveCfg = Release_static|Win32
+		{99EC56F7-0911-4A3E-BDE1-4E42132B2293}.Release_static|Win32.Build.0 = Release_static|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
