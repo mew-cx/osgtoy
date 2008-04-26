@@ -4,10 +4,10 @@
 
 [Setup]
 AppName=OpenSceneGraph
-AppVerName=OpenSceneGraph 2.3-r8193 BETA TEST vs8.0sp1 2008-04-23
-OutputBaseFilename=osg2.3-r8193_vs80sp1_setup_2008-04-23
-VersionInfoTextVersion=2.3-r8193_vs80sp1
-VersionInfoVersion=2.3.0.8193
+AppVerName=OpenSceneGraph 2.4.0 BETA TEST vs8.0sp1 2008-04-26
+OutputBaseFilename=osg2.4.0_vs80sp1_setup_2008-04-26
+VersionInfoTextVersion=2.4.0_vs80sp1
+VersionInfoVersion=2.4.0.8193
 AppPublisher=http://mew.cx/
 AppPublisherURL=http://mew.cx/osg/
 DefaultDirName={pf}\OpenSceneGraph
@@ -195,10 +195,10 @@ Source: "externals\osgToy-Data\xyz100.osg"; Excludes: ".svn"; DestDir: "{app}\da
 
 
 [Icons]
-Name: "{userdesktop}\osgLogo";  Filename: "{app}\bin\osglogo.exe";  IconFilename: "{app}\osg.ico"; WorkingDir: "{app}\bin"; Tasks: desktopicon
+Name: "{userdesktop}\osgLogo";  Filename: "{app}\bin\osglogo.exe";  Parameters: "--version"; IconFilename: "{app}\osg.ico"; WorkingDir: "{app}\bin"; Tasks: desktopicon
 Name: "{userdesktop}\osgShell"; Filename: "{app}\bin\osgShell.bat"; IconFilename: "{app}\osg.ico"; WorkingDir: "%OSG_ROOT%\bin"; Tasks: desktopicon
 
-Name: "{group}\Uninstall OpenSceneGraph 2.3-r8193 BETA TEST vs8.0sp1 2008-04-23" ; Filename: "{uninstallexe}"
+Name: "{group}\Uninstall OpenSceneGraph 2.4.0 vs8.0sp1 2008-04-26" ; Filename: "{uninstallexe}"
 Name: "{group}\View README"; Filename: "{app}\README_vs80.txt";
 Name: "{group}\View OSG Program Files folder"; Filename: "{app}"
 Name: "{group}\View OSG Start Menu folder"; Filename: "{group}"
@@ -236,7 +236,7 @@ Name: "{group}\Demos\osglauncher"; Filename: "{app}\bin\osglauncher.exe"; Workin
 Name: "{group}\Demos\osglight"; Filename: "{app}\bin\osglight.exe"; Parameters: "glider.osg"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osglightpoint"; Filename: "{app}\bin\osglightpoint.exe"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osglogicop"; Filename: "{app}\bin\osglogicop.exe"; Parameters: "glider.osg"; WorkingDir: "{app}\bin"
-Name: "{group}\Demos\osglogo"; Filename: "{app}\bin\osglogo.exe"; WorkingDir: "{app}\bin"
+Name: "{group}\Demos\osglogo"; Filename: "{app}\bin\osglogo.exe"; Parameters: "--version"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgmotionblur"; Filename: "{app}\bin\osgmotionblur.exe"; Parameters: "cow.osg"; WorkingDir: "{app}\bin"
 ;Name: "{group}\Demos\osgmultiplecameras"; Filename: "{app}\bin\osgmultiplecameras.exe"; Parameters: "cessna.osg"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgmultitexture"; Filename: "{app}\bin\osgmultitexture.exe"; Parameters: "cessnafire.osg"; WorkingDir: "{app}\bin"
