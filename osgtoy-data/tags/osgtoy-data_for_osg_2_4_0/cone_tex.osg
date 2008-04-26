@@ -1,0 +1,41 @@
+Geode {
+  DataVariance DYNAMIC
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  StateSet {
+    DataVariance STATIC
+    rendering_hint DEFAULT_BIN
+    renderBinMode INHERIT
+    textureUnit 0 {
+      GL_TEXTURE_2D ON
+      Texture2D {
+        DataVariance STATIC
+        file "X32.png"
+        wrap_s CLAMP
+        wrap_t CLAMP
+        wrap_r CLAMP
+        min_filter LINEAR_MIPMAP_LINEAR
+        mag_filter LINEAR
+        maxAnisotropy 1
+        useHardwareMipMapGeneration TRUE
+        unRefImageDataAfterApply FALSE
+        internalFormatMode USE_IMAGE_DATA_FORMAT
+      }
+    }
+  }
+
+  num_drawables 1
+
+  ShapeDrawable {
+    DataVariance DYNAMIC
+    Cone {
+      DataVariance DYNAMIC
+      Center 0 0 0
+      Radius 0.5
+      Height 1
+      Rotation 0 0 0 1
+    }
+    useDisplayList TRUE
+    color 1 1 1 1
+  }
+}

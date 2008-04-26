@@ -1,0 +1,59 @@
+Geode {
+  UniqueID Geode_0
+  DataVariance DYNAMIC
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_drawables 1
+  Geometry {
+    DataVariance DYNAMIC
+    useDisplayList TRUE
+    useVertexBufferObjects FALSE
+    PrimitiveSets 1
+    {
+      DrawElementsUInt TRIANGLES 12
+      {
+        0 1 2 3 4 5 6 7 8 9
+        10 11 
+      }
+    }
+    VertexArray Vec3Array 12
+    {
+      1 0 0
+      0 1 0
+      0 0 1
+      0 0 0
+      0 0 1
+      0 1 0
+      0 0 0
+      1 0 0
+      0 0 1
+      0 0 0
+      0 1 0
+      1 0 0
+    }
+    NormalBinding PER_VERTEX
+    NormalArray Vec3Array 4
+    {
+      0.57735 0.57735 0.57735
+      -1 0 0
+      0 -1 0
+      0 0 -1
+    }
+    NormalIndices UIntArray 12     {
+      0 0 0 1 1 1 2 2 2 3
+      3 3 
+    }
+    ColorBinding PER_VERTEX
+    ColorArray Vec4Array 4
+    {
+      1 1 1 1
+      1 0 0 1
+      0 1 0 1
+      0 0 1 1
+    }
+    ColorIndices UIntArray 12     {
+      0 0 0 1 1 1 2 2 2 3
+      3 3 
+    }
+  }
+}

@@ -1,0 +1,43 @@
+Geode {
+  UniqueID Geode_0
+  DataVariance DYNAMIC
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_drawables 1
+  Geometry {
+    DataVariance DYNAMIC
+    useDisplayList TRUE
+    useVertexBufferObjects FALSE
+    PrimitiveSets 1
+    {
+      DrawArrays TRIANGLES 0 24
+    }
+    VertexArray Vec3Array 24
+    {
+      -1 0 0
+      0 0 -1
+      0 -1 0
+      1 0 0
+      0 -1 0
+      0 0 -1
+      -1 0 0
+      0 1 0
+      0 0 -1
+      1 0 0
+      0 0 -1
+      0 1 0
+      -1 0 0
+      0 -1 0
+      0 0 1
+      1 0 0
+      0 0 1
+      0 -1 0
+      -1 0 0
+      0 0 1
+      0 1 0
+      1 0 0
+      0 1 0
+      0 0 1
+    }
+  }
+}
