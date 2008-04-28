@@ -1,0 +1,1 @@
+This directory should only contain a Subversion "svn:externals" property.
