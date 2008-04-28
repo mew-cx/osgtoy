@@ -4,10 +4,10 @@
 
 [Setup]
 AppName=OpenSceneGraph
-AppVerName=OpenSceneGraph 2.4.0 BETA TEST vs8.0sp1 2008-04-26
-OutputBaseFilename=osg2.4.0_vs80sp1_setup_2008-04-26
+AppVerName=OpenSceneGraph 2.4.0 vs8.0sp1 2008-04-28
+OutputBaseFilename=osg2.4.0_vs80sp1_setup_2008-04-28
 VersionInfoTextVersion=2.4.0_vs80sp1
-VersionInfoVersion=2.4.0.8193
+VersionInfoVersion=2.4.0.8251
 AppPublisher=http://mew.cx/
 AppPublisherURL=http://mew.cx/osg/
 DefaultDirName={pf}\OpenSceneGraph
@@ -198,7 +198,7 @@ Source: "externals\osgToy-Data\xyz100.osg"; Excludes: ".svn"; DestDir: "{app}\da
 Name: "{userdesktop}\osgLogo";  Filename: "{app}\bin\osglogo.exe";  Parameters: "--version"; IconFilename: "{app}\osg.ico"; WorkingDir: "{app}\bin"; Tasks: desktopicon
 Name: "{userdesktop}\osgShell"; Filename: "{app}\bin\osgShell.bat"; IconFilename: "{app}\osg.ico"; WorkingDir: "%OSG_ROOT%\bin"; Tasks: desktopicon
 
-Name: "{group}\Uninstall OpenSceneGraph 2.4.0 vs8.0sp1 2008-04-26" ; Filename: "{uninstallexe}"
+Name: "{group}\Uninstall OpenSceneGraph 2.4.0 vs8.0sp1 2008-04-28" ; Filename: "{uninstallexe}"
 Name: "{group}\View README"; Filename: "{app}\README_vs80.txt";
 Name: "{group}\View OSG Program Files folder"; Filename: "{app}"
 Name: "{group}\View OSG Start Menu folder"; Filename: "{group}"
@@ -272,6 +272,7 @@ Name: "{group}\Demos\osgtexture1D"; Filename: "{app}\bin\osgtexture1D.exe"; Para
 Name: "{group}\Demos\osgtexture2D"; Filename: "{app}\bin\osgtexture2D.exe"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgtexture3D"; Filename: "{app}\bin\osgtexture3D.exe"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgtexturerectangle"; Filename: "{app}\bin\osgtexturerectangle.exe"; WorkingDir: "{app}\bin"
+Name: "{group}\Demos\osgthirdpersonview"; Filename: "{app}\bin\osgthirdpersonview.exe"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgvertexprogram"; Filename: "{app}\bin\osgvertexprogram.exe"; WorkingDir: "{app}\bin"
 ;Name: "{group}\Demos\osgviewer 2cows+logo"; Filename: "{app}\bin\osgviewer.exe"; Parameters: "cow.osg cow.osg.3.scale.0,0,225.rot.15,0,0.trans osg64.logo"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgviewer cow"; Filename: "{app}\bin\osgviewer.exe"; Parameters: "cow.osg"; WorkingDir: "{app}\bin"
