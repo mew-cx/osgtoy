@@ -1,6 +1,6 @@
 README.txt for OpenSceneGraph win32 installer
 Mike Weiblen - http://mew.cx/  mew-AT-mew-DOT-cx
-2008-04-23
+2008-04-28
 
 This is a full-featured runtime package of OpenSceneGraph binaries, 3rdParty
 dependency libraries, sample data, plus several additional extensions beyond
@@ -15,7 +15,7 @@ The verbatim source tree used to create these binaries is in osgsrc.zip.
 (NOTE: osgsrc.zip is intentionally blank for this beta build)
 
 The packaging tools used to build this installer are available from:
-https://osgtoy.svn.sourceforge.net/svnroot/osgtoy/osgbuilds/branches/
+https://osgtoy.svn.sourceforge.net/svnroot/osgtoy/osgbuilds/tags/osg2.4.0_vs80sp1_setup_2008-04-28
 
 The 3rdParty dependency libraries are available from:
 https://osgtoy.svn.sourceforge.net/svnroot/osgtoy/3rdParty/branches/3rdParty_win32binaries_vs80sp1
