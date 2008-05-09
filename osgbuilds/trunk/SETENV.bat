@@ -25,7 +25,7 @@ REM tools =================================================================
 set VSIDE="%VS80COMNTOOLS%..\IDE\devenv.exe"
 call "%VS80COMNTOOLS%vsvars32.bat"
 
-set CMAKEDIR=C:\Program Files\CMake 2.4\bin
+set CMAKEDIR=%ProgramFiles%\CMake 2.4\bin
 set CM_GEN=-G "Visual Studio 8 2005"
 
 REM OSG runtime settings ==================================================
