@@ -195,7 +195,7 @@ Source: "externals\osgToy-Data\xyz100.osg"; Excludes: ".svn"; DestDir: "{app}\da
 
 
 [Icons]
-Name: "{userdesktop}\osgLogo";  Filename: "{app}\bin\osglogo.exe";  IconFilename: "{app}\osg.ico"; WorkingDir: "{app}\bin"; Tasks: desktopicon
+Name: "{userdesktop}\osgLogo";  Filename: "{app}\bin\osglogo.exe";  Parameters: "--version"; IconFilename: "{app}\osg.ico"; WorkingDir: "{app}\bin"; Tasks: desktopicon
 Name: "{userdesktop}\osgShell"; Filename: "{app}\bin\osgShell.bat"; IconFilename: "{app}\osg.ico"; WorkingDir: "%OSG_ROOT%\bin"; Tasks: desktopicon
 
 Name: "{group}\Uninstall OpenSceneGraph 2.5-r8318 BETA TEST vs8.0sp1 2008-05-13" ; Filename: "{uninstallexe}"
@@ -236,7 +236,7 @@ Name: "{group}\Demos\osglauncher"; Filename: "{app}\bin\osglauncher.exe"; Workin
 Name: "{group}\Demos\osglight"; Filename: "{app}\bin\osglight.exe"; Parameters: "glider.osg"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osglightpoint"; Filename: "{app}\bin\osglightpoint.exe"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osglogicop"; Filename: "{app}\bin\osglogicop.exe"; Parameters: "glider.osg"; WorkingDir: "{app}\bin"
-Name: "{group}\Demos\osglogo"; Filename: "{app}\bin\osglogo.exe"; WorkingDir: "{app}\bin"
+Name: "{group}\Demos\osglogo"; Filename: "{app}\bin\osglogo.exe"; Parameters: "--version"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgmotionblur"; Filename: "{app}\bin\osgmotionblur.exe"; Parameters: "cow.osg"; WorkingDir: "{app}\bin"
 ;Name: "{group}\Demos\osgmultiplecameras"; Filename: "{app}\bin\osgmultiplecameras.exe"; Parameters: "cessna.osg"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgmultitexture"; Filename: "{app}\bin\osgmultitexture.exe"; Parameters: "cessnafire.osg"; WorkingDir: "{app}\bin"
@@ -272,6 +272,7 @@ Name: "{group}\Demos\osgtexture1D"; Filename: "{app}\bin\osgtexture1D.exe"; Para
 Name: "{group}\Demos\osgtexture2D"; Filename: "{app}\bin\osgtexture2D.exe"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgtexture3D"; Filename: "{app}\bin\osgtexture3D.exe"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgtexturerectangle"; Filename: "{app}\bin\osgtexturerectangle.exe"; WorkingDir: "{app}\bin"
+Name: "{group}\Demos\osgthirdpersonview"; Filename: "{app}\bin\osgthirdpersonview.exe"; Parameters: "cessnafire.osg"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgvertexprogram"; Filename: "{app}\bin\osgvertexprogram.exe"; WorkingDir: "{app}\bin"
 ;Name: "{group}\Demos\osgviewer 2cows+logo"; Filename: "{app}\bin\osgviewer.exe"; Parameters: "cow.osg cow.osg.3.scale.0,0,225.rot.15,0,0.trans osg64.logo"; WorkingDir: "{app}\bin"
 Name: "{group}\Demos\osgviewer cow"; Filename: "{app}\bin\osgviewer.exe"; Parameters: "cow.osg"; WorkingDir: "{app}\bin"
