@@ -11,8 +11,8 @@ set DEBUG=D
 set VC_CFG=Debug
 
 REM select for "Release" configuration
-set DEBUG=
-set VC_CFG=Release
+REM     set DEBUG=
+REM     set VC_CFG=Release
 REM set VC_CFG=MinSizeRel
 REM set VC_CFG=RelWithDebInfo
 
@@ -27,6 +27,13 @@ call "%VS80COMNTOOLS%vsvars32.bat"
 
 set CMAKEDIR=%ProgramFiles%\CMake 2.4\bin
 set CM_GEN=-G "Visual Studio 8 2005"
+
+REM Inno Setup settings ===================================================
+
+REM put .iss project clues here
+
+
+
 
 REM OSG runtime settings ==================================================
 

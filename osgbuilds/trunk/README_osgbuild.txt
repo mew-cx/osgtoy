@@ -27,7 +27,9 @@ the external project trees.
 
 2) edit %MY_OSG_TREE%\SETENV.bat to your liking
 You should review and decide if/what needs adjusting.  
-Note that Release v. Debug is specified here.
+Note that this file specifies:
+- Type of VisualStudio build (Release v. Debug)
+- location of CMake product directories (build & install)
 (NB SETENV is a centralized container for specifying common environment
 variable definitions.  It is never executed by itself; rather it is
 CALLed by other .bat files to establish the common global environment)
