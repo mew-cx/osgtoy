@@ -1,6 +1,5 @@
 short-term todos
-mew 2008-04-15
-
+mew 2008-06-19
 
 rebuild/freshen:
 - gdal
@@ -8,14 +7,7 @@ rebuild/freshen:
 - curl (static or dynamic?  issues w/ Vista v. XP?)
 - vrpn
 
-Paul reported problems linking release/debug w/:
-- jpeg
-- freetype
-
 port to OSG 2.x and CMake:
 - osgtoy
 - osgVRPN
-
-
-get osgtoy and osgvrpn update to OSG 2.x and CMake
 

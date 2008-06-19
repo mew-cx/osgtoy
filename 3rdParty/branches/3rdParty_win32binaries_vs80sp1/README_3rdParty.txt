@@ -8,6 +8,9 @@ Visual Studio 2005 (8.0) SP1, with minimal modifications to the
 makefiles/projectfiles for consistent use of the "multi-threaded DLL"
 (i.e.: /MD and /MDd) versions of the Visual Studio runtime libraries.
 
+NOTE: You must have Visual Studio 2005 Service Pack 1 installed to use
+these prebuilt binaries.
+
 The list of exact upstream source packages can be found in the
 src\PACKAGE_VERSIONS.bat script.
 
