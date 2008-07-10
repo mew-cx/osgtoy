@@ -17,7 +17,7 @@ set DIR_ZLIB=zlib
 set PKG_ZLIB=%DIR_ZLIB%123.zip
 set URL_ZLIB=http://www.zlib.net/%PKG_ZLIB%
 
-set DIR_PNG=lpng1225
+set DIR_PNG=lpng1229
 set PKG_PNG=%DIR_PNG%.zip
 set URL_PNG=http://downloads.sourceforge.net/libpng/%PKG_PNG%
 
@@ -34,8 +34,8 @@ REM set DIR_UNGIF=libungif-4.1.4
 REM set PKG_UNGIF=%DIR_UNGIF%.tar.gz
 REM set URL_UNGIF=http://downloads.sourceforge.net/libungif/%PKG_UNGIF%
 
-set DIR_FREETYPE=freetype-2.3.5
-set PKG_FREETYPE=ft235.zip
+set DIR_FREETYPE=freetype-2.3.7
+set PKG_FREETYPE=ft237.zip
 set URL_FREETYPE=http://downloads.sourceforge.net/freetype/%PKG_FREETYPE%
 
 set DIR_GLUT=glut-3.7.6
@@ -46,13 +46,13 @@ set DIR_TIFF=tiff-3.8.2
 set PKG_TIFF=%DIR_TIFF%.zip
 set URL_TIFF=ftp://ftp.remotesensing.org/pub/libtiff/%PKG_TIFF%
 
-set DIR_VRPN=vrpn_07_15
+set DIR_VRPN=vrpn_07_16
 set PKG_VRPN=%DIR_VRPN%.zip
 set URL_VRPN=ftp://ftp.cs.unc.edu/pub/packages/GRIP/vrpn/%PKG_VRPN%
 
 REM TODO -------------------------
 
-set DIR_CURL=curl-7.18.1
+set DIR_CURL=curl-7.18.2
 set PKG_CURL=%DIR_CURL%.zip
 set URL_CURL=http://curl.haxx.se/download/%PKG_CURL%
 
@@ -64,17 +64,16 @@ set DIR_PROJ=proj-4.6.0
 set PKG_PROJ=%DIR_PROJ%.zip
 set URL_PROJ=ftp://ftp.remotesensing.org/proj/%PKG_PROJ%
 
-set DIR_GDAL=gdal-1.5.1
-set PKG_GDAL=gdal151.zip
+set DIR_GDAL=gdal-1.5.2
+set PKG_GDAL=gdal152.zip
 set URL_GDAL=http://download.osgeo.org/gdal/%PKG_GDAL%
 
 set DIR_GEOTIFF=libgeotiff-1.2.4
 set PKG_GEOTIFF=libgeotiff124.zip
 set URL_GEOTIFF=ftp://ftp.remotesensing.org/pub/geotiff/libgeotiff/%PKG_GEOTIFF%
 
-REM the GLSL site at developer.3dlabs.com is no more
-REM set DIR_GLSLFE=OpenGLCompilerSept202005
-REM set PKG_GLSLFE=%DIR_GLSLFE%.zip
-REM set URL_GLSLFE=http://developer.3dlabs.com/downloads/glslcompiler/%PKG_GLSLFE%
+set DIR_GLSLFE=OpenGLCompilerSept202005
+set PKG_GLSLFE=%DIR_GLSLFE%.zip
+set URL_GLSLFE=http://mew.cx/glsl/%PKG_GLSLFE%
 
 REM EOF
