@@ -47,15 +47,12 @@ extern "C"
 class ReaderWriterLUA : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterLUA() {}
-    ~ReaderWriterLUA() {}
+    ReaderWriterLUA()
+    {
+        supportsExtension( EXTENSION_NAME, "lua script loader" );
+    }
     
     const char* className() const { return "lua script loader"; };
-
-    bool acceptsExtension(const std::string& extension) const
-    {
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode( const std::string& fileStr, const osgDB::ReaderWriter::Options* options ) const
     {

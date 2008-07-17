@@ -48,13 +48,11 @@ class ReaderWriterOSGVIEWER : public osgDB::ReaderWriter
 {
 public:
     ReaderWriterOSGVIEWER() { }
+    {
+        supportsExtension( EXTENSION_NAME, "osgviewer pseudo-loader" );
+    }
     
     const char* className() const { return "osgviewer pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
     {

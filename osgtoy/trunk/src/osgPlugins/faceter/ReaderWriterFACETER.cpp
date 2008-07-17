@@ -46,14 +46,12 @@
 class ReaderWriterFACETER : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterFACETER() { }
+    ReaderWriterFACETER()
+    {
+        supportsExtension( EXTENSION_NAME, "FacetingVisitor pseudo-loader" );
+    }
     
     const char* className() const { return "FacetingVisitor pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* /*options*/) const
     {

@@ -41,14 +41,12 @@
 class ReaderWriterIMAGE : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterIMAGE() { }
+    ReaderWriterIMAGE()
+    {
+        supportsExtension( EXTENSION_NAME, "image pseudo-loader" );
+    }
     
     const char* className() const { return "image pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
     {

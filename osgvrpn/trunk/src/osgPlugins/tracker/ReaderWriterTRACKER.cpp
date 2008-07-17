@@ -38,14 +38,12 @@
 class ReaderWriterTRACKER : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterTRACKER() { }
-    
-    const char* className() const { return "osgVRPN tracker pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
+    ReaderWriterTRACKER()
+    {
+        supportsExtension( EXTENSION_NAME, "osgVRPN tracker pseudo-loader" );
     }
+
+    const char* className() const { return "osgVRPN tracker pseudo-loader"; }
 
     ReadResult readNode(const std::string& fileName,
                 const osgDB::ReaderWriter::Options* /*options*/) const

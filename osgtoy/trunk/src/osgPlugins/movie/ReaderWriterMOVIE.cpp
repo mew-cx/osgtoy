@@ -42,14 +42,12 @@
 class ReaderWriterMOVIE : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterMOVIE() { }
+    ReaderWriterMOVIE()
+    {
+        supportsExtension( EXTENSION_NAME, "movie pseudo-loader" );
+    }
     
     const char* className() const { return "movie pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
     {

@@ -50,14 +50,12 @@
 class ReaderWriterGLSLLINT : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterGLSLLINT() {}
+    ReaderWriterGLSLLINT()
+    {
+        supportsExtension( EXTENSION_NAME, "GlslLintVisitor pseudo-loader" );
+    }
     
     const char* className() const { return "GlslLintVisitor pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* rw_options) const
     {
