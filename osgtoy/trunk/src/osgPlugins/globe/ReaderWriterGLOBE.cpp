@@ -52,14 +52,12 @@
 class ReaderWriterGLOBE : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterGLOBE() { }
+    ReaderWriterGLOBE()
+    {
+        supportsExtension( EXTENSION_NAME, "globe pseudo-loader" );
+    }
     
     const char* className() const { return "globe pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* /*options*/) const
     {

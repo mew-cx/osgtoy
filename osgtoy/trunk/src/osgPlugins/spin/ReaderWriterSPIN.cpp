@@ -43,14 +43,12 @@
 class ReaderWriterSPIN : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterSPIN() { }
+    ReaderWriterSPIN()
+    {
+        supportsExtension( EXTENSION_NAME, "spin animation pseudo-loader" );
+    }
     
     const char* className() const { return "spin animation pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
     {

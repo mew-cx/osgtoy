@@ -40,14 +40,12 @@
 class ReaderWriterDEM : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterDEM() { }
-    
-    virtual const char* className() const { return "dem HeightField pseudo-loader"; }
-
-    virtual bool acceptsExtension(const std::string& extension) const
-    { 
-	return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
+    ReaderWriterDEM()
+    {
+        supportsExtension( EXTENSION_NAME, "dem HeightField pseudo-loader" );
     }
+
+    virtual const char* className() const { return "dem HeightField pseudo-loader"; }
 
     virtual ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
     {

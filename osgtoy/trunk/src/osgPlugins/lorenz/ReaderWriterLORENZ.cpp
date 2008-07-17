@@ -46,15 +46,12 @@
 class ReaderWriterLORENZ : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterLORENZ() {}
-    ~ReaderWriterLORENZ() {}
+    ReaderWriterLORENZ()
+    {
+        supportsExtension( EXTENSION_NAME, "Lorenz attractor pseudo-loader" );
+    }
     
     const char* className() const { return "Lorenz attractor pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    {
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode( const std::string&, const osgDB::ReaderWriter::Options* ) const;
 };

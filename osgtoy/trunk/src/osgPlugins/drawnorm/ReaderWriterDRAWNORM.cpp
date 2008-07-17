@@ -40,14 +40,12 @@
 class ReaderWriterDRAWNORM : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterDRAWNORM() { }
+    ReaderWriterDRAWNORM()
+    {
+        supportsExtension( EXTENSION_NAME, "drawnorm pseudo-loader" );
+    }
     
     const char* className() const { return "drawnorm pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
     {

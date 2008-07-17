@@ -46,15 +46,12 @@
 class ReaderWriterSPONGE : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterSPONGE() {}
-    ~ReaderWriterSPONGE() {}
-    
-    const char* className() const { return "Menger sponge pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
+    ReaderWriterSPONGE()
     {
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
+        supportsExtension( EXTENSION_NAME, "Menger sponge pseudo-loader" );
     }
+
+    const char* className() const { return "Menger sponge pseudo-loader"; }
 
     ReadResult readNode( const std::string&, const osgDB::ReaderWriter::Options* ) const;
 };

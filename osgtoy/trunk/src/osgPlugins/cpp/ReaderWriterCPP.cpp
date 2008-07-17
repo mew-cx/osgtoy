@@ -30,14 +30,12 @@ using namespace hpp;
 class ReaderWriterHPP : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterHPP() {}
-    
-    virtual const char* className() const { return "HPP source writer"; }
-
-    virtual bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
+    ReaderWriterHPP()
+    {
+        supportsExtension( EXTENSION_NAME, "HPP source writer" );
     }
+
+    virtual const char* className() const { return "HPP source writer"; }
 
     virtual WriteResult writeImage( const osg::Image& image, std::ostream& fout, const osgDB::ReaderWriter::Options* options ) const
     {

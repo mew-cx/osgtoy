@@ -49,14 +49,12 @@
 class ReaderWriterSIMPLIFIER : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterSIMPLIFIER() { }
+    ReaderWriterSIMPLIFIER()
+    {
+        supportsExtension( EXTENSION_NAME, "osgUtil::Simplifier pseudo-loader" );
+    }
     
     const char* className() const { return "osgUtil::Simplifier pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
     {

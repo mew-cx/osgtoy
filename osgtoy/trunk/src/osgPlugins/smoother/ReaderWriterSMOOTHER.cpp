@@ -46,14 +46,12 @@
 class ReaderWriterSMOOTHER : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterSMOOTHER() { }
+    ReaderWriterSMOOTHER()
+    {
+        supportsExtension( EXTENSION_NAME, "SmoothingVisitor pseudo-loader" );
+    }
     
     const char* className() const { return "SmoothingVisitor pseudo-loader"; }
-
-    bool acceptsExtension(const std::string& extension) const
-    { 
-        return osgDB::equalCaseInsensitive( extension, EXTENSION_NAME );
-    }
 
     ReadResult readNode(const std::string& fileName,
                 const osgDB::ReaderWriter::Options* /*options*/) const
