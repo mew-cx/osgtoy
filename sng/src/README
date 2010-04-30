@@ -1,0 +1,38 @@
+		sng -- a compiler for an editable PNG representation
+
+SNG (Scriptable Network Graphics) is a minilanguage designed to
+reflect the data and structure of PNG (Portable Network Graphics)
+files in an editable form.  
+
+The sng program translates between SNG and PNG.  It can be useful
+especially for viewing and editing data in obscure ancillary chanks
+that graphics editors won't handle.  Also, since SNG is easy to
+generate from scripts, sng may be useful at the end of a pipeline that
+programmatically generates PNG images.
+
+This program requires libpng-1.0.9beta7 or later.  All these should be
+handled correctly with 1.0.9 final; however the default build of 1.0.9
+doesn't support the iTXT chunk correctly, so sng won't either.  With
+the 1.1.x version of libpng, all chunks including iTXT are handled
+correctly.
+
+For more details, consult the manual page.  Files in this distribution:
+
+README		this file
+Makefile	Makefile for building sng
+sng.h		common declarations for compiler and decompiler
+main.c		handle options
+sng.1		the manual page 
+sngc.c		SNG to PNG compiler
+sngd.c		PNG to SNG decompiler
+test.sng	Test file exercising all chunk types
+TODO		unfinished business
+sng_regress	regression-test harness for sng
+
+The sng code has been tested on all 155 of the non-broken images in the PNG 
+test suite at <http://www.cdrom.com/pub/png/pngsuite.html> using sng_regress.
+
+						Eric S. Raymond
+						esr@thyrsus.com
+						http://www.catb.org
+

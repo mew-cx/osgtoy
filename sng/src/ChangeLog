@@ -1,0 +1,111 @@
+2003-11-15  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* configure.in: ersion bump.
+2003-06-09  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* Ready to upgrade to Edition 2 of the PNG spec.
+	* Ready to upgrade to Edition 2 of the PNG spec.
+2002-09-18  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* configure.in: Change png signature function.
+
+2002-07-30  Eric S. Raymond  <esr@golux.thyrsus.com>
+
+	* configure.in: Version bump.
+	* sng.xml: XML conversion and repackaging.
+	* Makefile.am: XML conversion and repackaging.
+	* indexgen.sh: XML conversion and repackaging.
+
+2002-07-12  Eric S. Raymond  <esr@golux.thyrsus.com>
+
+	* sng.sgml: bsol elimination.
+	* Makefile.am: SGML conversion.
+	* sng.1: SGML conversion.
+	* sngd.c: 8-bit character fixes.
+	* sngc.c: 8-bit character fixes.
+2001-07-07  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* sngc.c: Regression test passed.
+	* sng.1: Regression test passed.
+	* main.c: Regression test passed.
+	* indexgen.sh: Regression test passed.
+	* configure.in: Regression test passed.
+
+2001-02-28  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* sng.1: Corrected home page.
+	* sng.1: Update the PNG website.
+	* configure.in: Version bump.
+	* sngc.c: Fixed core dump reported by Eduardo Santiago.
+
+2001-02-18  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* indexgen.sh: Markup fix.
+	* indexgen.sh: Correct the download location.
+
+2000-12-28  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* test.sng: Make iCCP work.
+	* test.sng: Make sure the iCCP profiler has a length.
+	* configure.in: Version bump.
+	* Makefile.am: Add test.sng.
+	* indexgen.sh: 1.0.9beta7 is out.
+	* README: 1.0.9beta7 is out.
+	* Makefile.am: Nasty hacks to make RPMS.
+	* README: Passes regression with both versions.
+
+2000-12-27  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* main.c, sng.1: Add -V option.
+	* configure.in: Version bump.
+	* sng_regress: Make eyeball-test viewer configurable.
+	* indexgen.sh: Update PNG website.
+	* sngc.c: Now it passes all its regression tests.
+	* sngd.c: Properly conditionalize handling of iTXT.
+	* sngc.c: We finally seem to have gotten the size check right.
+	* sng_regress: Don't do extra work when a test stage fails.
+
+2000-12-19  Eric S. Raymond  <esr@golux.thyrsus.com>
+
+	* sngc.c: Be explicit about color_type default.
+
+2000-12-17  Eric S. Raymond  <esr@golux.thyrsus.com>
+
+	* indexgen.sh: We need 1.1.0f.
+	* indexgen.sh: Get these locally.
+	* sngd.c: This version builds with 1.1.0f.
+	* sngc.c: This version builds with 1.1.0f.
+	* main.c: This version builds with 1.1.0f.
+
+2000-02-06  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* Release 0.92.
+	* sngd.c, sngc.c, main.c: forward port to 1.1.0c.
+
+2000-01-13  Eric S. Raymond  <esr@golux.thyrsus.com>
+
+	* sngd.c: Fix for new interface.
+	* sngc.c: Fix for new interface.
+	* Makefile.am: Fix regression.
+
+2000-01-10  Eric S. Raymond  <esr@golux.thyrsus.com>
+
+	* sngd.c: Handle either old or new interface.
+	* test.sng: New IMAGE syntax.
+
+2000-01-09  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* Release 0.91
+
+2000-01-07  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* sngc.c, sngd.c: Can use the new high-level interface to libpng now.
+	* sng_regress: Don't remove tempfiles when you exit on error.
+
+1999-12-28  Eric S. Raymond  <esr@snark.thyrsus.com>
+
+	* sngc.c: Various small compiler fixes.
+	* Makefile.am: Use the test harness.
+	* TODO: Updated TODO list.
+	* Autoconf/automake now rule...
+

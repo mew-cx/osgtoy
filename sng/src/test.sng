@@ -1,0 +1,181 @@
+#SNG: This is a synthetic SNG test file
+
+# Our first test is a paletted (type 3) image.
+IHDR: {
+	width: 16;
+	height: 19;
+	bitdepth: 8;
+	using color: palette; 
+	with interlace;
+}
+
+# Standard gamma
+gAMA: {0.45}
+
+# The parameters are the standard values in the Specification section 4.2.2.3.
+cHRM {
+   white: (0.31270, 0.32900);
+   red:   (0.6400,  0.3300);
+   green: (0.3000,  0.6000);
+   blue:  (0.1500,  0.600);
+}
+
+# This cannot coexist with the iCCP chunk.
+# sRGB {1}	# This value conveys `relative colorimetric' intent.
+
+# This cannot coexist with the sRGB chunk.
+# First four bytes of profile must be the big-endian length of the remainder. 
+# Real profiles at <http://pmt.sourceforge.net/iccp/>.
+iCCP {
+   name: "dummy profile";
+   profile: hex 00 00 00 05 01 02 03 04 05;
+}
+
+# Sample bit depth chunk
+sBIT: {
+  red: 8;
+  green: 8;
+  blue: 8;
+  # gray: 8;	# for non-color images
+  # alpha: 8;	# for images with alpha
+}
+
+# An example palette -- three colors, one of which we will render transparent 
+PLTE: {
+   (0,     0, 255)
+   (255,   0,   0)
+   "dark slate gray",
+}
+
+# Set a background color
+bKGD: {
+  # red: 127;
+  # green: 127;
+  # blue: 127;
+  # gray: 127;	# for non-color images
+  index: 0;	# for paletted images
+}
+
+# Frequencies, for rendering by viewers with small palettes
+hIST: {23, 55, 10}
+
+# Set transparency (for some reason this triggers a libpng CRC error)
+tRNS: {
+  255;		# Render the first color in the palette fully transparent
+   # red: 70;
+   # green: 70;
+   # blue: 70;
+}
+
+# Test the pHYs chunk; this data isn't really meaningful for the image
+pHYs: {
+   xpixels: 500;
+   ypixels: 400;
+   per meter;
+}
+
+# Dummy timestamp
+tIME {
+   year: 1999;
+   month: 11;
+   day: 22;
+   hour: 16;
+   minute: 23;
+   second: 17;
+}
+
+# Dummy offset
+oFFs {
+   xoffset: 23;
+   yoffset: 17;
+   unit: micrometers
+}
+
+# Dummy physical calibration data
+pCAL {
+   name: "dummy physical calibration data";
+   x0: 1234;
+   x1: 5678;
+   mapping: linear;
+   unit: "BTU";
+   parameters: 55 99;
+}
+
+# Dummy screen calibration data
+sCAL {
+   unit: meter;
+   width: 0.002;
+   height: 0.001;
+}
+
+# Suggested palette
+sPLT {
+   name: "A random suggested palette";
+   depth: 8;
+   (0,     0, 255), 255, 7;
+   (255,   0,   0), 255, 5;
+   ( 70,  70,  70), 255, 3;
+}
+
+# The viewer will actually use this...
+IMAGE: {
+   pixels base64
+2222222222222222
+2222222222222222
+0000001111100000
+0000011111110000
+0000111001111000
+0001110000111100
+0001110000111100
+0000110001111000
+0000000011110000
+0000000111100000
+0000001111000000
+0000001111000000
+0000000000000000
+0000000110000000
+0000001111000000
+0000001111000000
+0000000110000000
+2222222222222222
+2222222222222222
+}
+
+tEXt: {				# Ordinary text chunk
+  keyword: "Title";
+  text: "Sample SNG script";
+}
+
+zTXt: {				# Compressed text chunk
+  keyword: "Author";
+  text: "Eric S. Raymond";
+}
+
+# The production releases of libpng don't support this yet.
+#
+#iTXt: {				# International UTF-8 keyword
+#  language: "en";
+#  keyword: "Description";
+#  translated: "Description:"
+#  text: "SNG demo, illustrating the language syntax";
+#}
+
+gIFg {				# GIF Graphic Extension chunk
+   disposal: 23;
+   input: 17;
+   delay: 55;
+}
+
+gIFx {				# GIF Application Extension chunk
+   identifier: "SNGCOMPI";
+   code: "SNG";
+   data: "Dummy application data\n" 
+		"illustrating assembly of multiple strings\n";
+}
+
+private prIv {
+   "Test data for the private chunk";
+}
+
+# Test file ends here
+

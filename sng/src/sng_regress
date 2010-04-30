@@ -1,0 +1,120 @@
+#!/bin/sh
+#
+# sng_regress -- regression test harness for sng
+#
+#viewer="xv -cmap"
+viewer=display
+
+stop_on_error=0
+eyeball_test=0
+for file in $*
+do
+    case $file in
+    -s)			# Stop on any regression failure
+	stop_on_error=1
+    ;;
+    -e)			# Test that decompilation/compilation gives same image
+	eyeball_test=1
+    ;;
+    *.png)
+        if [ "$stop_on_error" = "0" ]
+	then
+		trap "rm -f /tmp/*$$.[ps]ng" 0 1 2 15 
+	else
+		trap "ls /tmp/*$$.[ps]ng" 0 1 2 15 
+	fi
+
+	if [ "$eyeball_test" = "1" ]
+	then
+	    echo $file.
+	    sng <$file | sng >/tmp/recompiled$$.png && $viewer $file /tmp/recompiled$$.png
+	fi
+
+        # echo "Regression-testing against PNG file \`$file'"
+        if sng <${file} >/tmp/decompiled$$.sng
+        then
+	    :
+	else
+            echo "$file: decompilation of the test PNG failed.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+        if sng </tmp/decompiled$$.sng >/tmp/decompiled$$.png
+        then
+	    :
+	else
+            echo "$file: recompilation of the decompiled form failed.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+        if sng </tmp/decompiled$$.png >/tmp/canonicalized$$.sng
+        then
+	    :
+	else
+            echo "$file: generation of the canonicalized form failed.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+        if sng </tmp/canonicalized$$.sng >/tmp/canonicalized$$.png
+        then
+	    :
+	else
+            echo "$file: recompilation of the canonicalized form failed.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+        if cmp -s /tmp/decompiled$$.png /tmp/canonicalized$$.png
+        then
+	    echo "$file: regression test passed."
+	else
+            echo "$file: decompiled and canonicalized versions differ.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+    ;;
+    *.sng)
+        # echo "Regression-testing against SNG file \`$file'"
+        # Make a canonicalized version of the test file
+        # Regenerate canonicalized version from its PNG
+        # Diff the two
+        if sng <${file} >/tmp/test$$.png
+        then
+	    :
+	else
+            echo "$file: compilation of the test SNG failed.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+        if sng </tmp/test$$.png >/tmp/canonicalized$$.sng
+        then
+	    :
+	else
+            echo "$file: generation of the canonicalized form failed.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+        if sng </tmp/canonicalized$$.sng >/tmp/canonicalized$$.png
+        then
+	    :
+	else
+            echo "$file: recompilation of the canonicalized form failed.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+        if sng </tmp/canonicalized$$.png >/tmp/decompiled$$.sng
+        then
+	    :
+	else
+            echo "$file: decompilation of the canonicalized form failed.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+        if diff -c /tmp/canonicalized$$.sng /tmp/decompiled$$.sng
+        then
+	    echo "$file: regression test passed."
+	else
+            echo "$file: decompiled and canonicalized versions differ.";
+            case $stop_on_error in 1) exit 1;; 0) continue;; esac
+        fi
+    ;;
+    *)
+        echo "Non-PNG, non-SNG file \`$file' ignored"
+    ;;
+    esac
+done
+
+trap '' 0 12 2 15
+rm -f /tmp/*$$.[ps]ng
+
+# sng_regress ends here
