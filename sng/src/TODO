@@ -1,0 +1,169 @@
+			To-do list:
+
+Author's tasks:
+
+* Make the -i option work (once the library can support suppressing
+  normal IDAT processing).
+
+* MNG support?  (May mean an MNG library has to be written first...)
+  MNG test images are at ftp://swrinde.nde.swri.edu/pub/mng/images. 
+  Glenn adds:
+
+Also you can make all the test images you want by capturing animated   
+GIF ad banners and converting them with ImageMagick's "convert".  I've
+made about 450 of them and haven't yet found one that wouldn't convert.
+Can't post them though because they don't belong to me.  Use "-quality 90"
+to get the best compression of typical GIF banners.
+
+Blue-sky stuff:
+
+Structured syntax for ICC profiles.  See <http://www.color.org/>.
+
+The following is a plausible XML syntax.  Would it be an improvement?
+
+<IHDR
+   height={long}
+   width={long}
+   bitdepth={byte} 
+   [using=color+palette+alpha]	# PNG color type information
+   [interlace=none|adam7]	# Adam7 assumed if interlacing on
+/>
+
+<PLTE>
+   [<rgb r={byte} g={byte} b={byte}/>|<rgb name={string}>]*
+</PLTE>
+
+<IDAT>
+   {data}
+</IDAT>
+
+<gAMA gamma={float}/>
+
+<cHRM
+   white=({float},{float})      # White point x and y
+   red=({float},{float})
+   green=({float},{float})
+   blue=({float},{float})
+/>
+
+<sRGB intent={byte}/>           # Colorimetry intent, range 0-3
+
+<iCCP name={keyword}>           # International Color Consortium profile
+   <pixels>{data}</pixels>               
+</iCCP>
+
+<sBIT
+   red={byte}                   # Color images only
+   blue={byte}                  # Color images only
+   green={byte}                 # Color images only
+   gray={byte}                  # Grayscale images only
+   alpha={byte}                 # Images with alpha only
+/>
+
+<bKGD
+   red={short}                  # Color images only
+   blue={short}                 # Color images only
+   green={short}                # Color images only
+   gray={short}                 # Grayscale images only
+   index={byte}                 # Paletted images only
+/>
+
+<hIST>
+   {short} [, {short}]*         # Count must match palette size
+</hIST>
+
+<tRNS
+   [gray={short}]               # Grayscale images only
+   [red={short}]                # True-color images only
+   [green={short}]              # True-color images only
+   [blue={short}]               # True-color images only
+/>
+
+or
+
+<tRNS>
+   [{byte}]*                    # Paletted images only
+</tRNS>
+
+<pHYs
+   xpixels={long}
+   ypixels={long}
+   [per meter]
+/>
+
+<tIME
+   year={short}
+   month={byte}
+   day={byte}
+   hour={byte}
+   minute={byte}
+   second={byte}
+/>
+
+<tEXt keyword={keyword}>        # Ordinary text chunk
+  {data}
+</tEXt>
+
+<zTXt keyword={keyword}>        # Compressed text chunk
+  {data}
+</zTXt>
+
+<iTXt                           # International UTF-8 keywo
+  language={keyword}
+  keyword={keyword}
+  translated={keyword}          # Translation of the keyword
+  [compressed=yes|no]		# Defaults to "no"
+>{data}</iTXt>
+
+
+<oFFs
+  xoffset={slong}
+  yoffset={slong} 
+  [unit=pixels|micrometers]*
+/>
+
+<sPLT name={keyword} depth={byte}>
+   [<rgbaf r={short}, g={short}, b={short}, a={short}, f={short}>]*
+</sPLT>
+
+<pCAL
+   name={keyword}
+   x0={slong}
+   x1={slong}
+   mapping linear|euler|exponential|hyperbolic
+   unit={string}
+   [parameters={string}] 
+>
+
+<sCAL
+   unit=meter|radian
+   width={string}
+   height={string}
+/>
+
+<IMAGE>
+   {data}
+</IMAGE>
+
+<gIFg
+   disposal={byte}
+   input={byte}
+   delay={short}
+/>
+
+<gIFx
+   identifier={string}                # Must be 8 characters
+   code={string}>                     # Must be 3 characters
+>{data}</gIFx>
+
+<private name={string}>               # Private chunk declaration
+   {data}
+</private>
+
+In data, remember we have to escape any '<' or  '&' characters. Or use a
+CDATA marked section, then you only have to escape ]]> which is unlikely
+(but possible) to occur.
+
+An XML parser is required to halt on well formedness errors, deal with
+entities, and so on.
+
