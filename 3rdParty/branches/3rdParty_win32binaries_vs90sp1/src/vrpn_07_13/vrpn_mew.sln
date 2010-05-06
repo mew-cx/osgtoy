@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vrpn", "vrpn\vrpn_mew.vcproj", "{9E8D6918-03D5-45DD-8A2E-67E9414FFFB4}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{08BD1EB8-5F13-492B-88DB-AB3F8F73DF57} = {08BD1EB8-5F13-492B-88DB-AB3F8F73DF57}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vrpn_print_devices", "vrpn\client_src\vrpn_print_devices_mew.vcproj", "{38ADCE04-73FF-43D8-B2D0-D937663E061D}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{9E8D6918-03D5-45DD-8A2E-67E9414FFFB4} = {9E8D6918-03D5-45DD-8A2E-67E9414FFFB4}
+		{08BD1EB8-5F13-492B-88DB-AB3F8F73DF57} = {08BD1EB8-5F13-492B-88DB-AB3F8F73DF57}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vrpn_server", "vrpn\server_src\vrpn_server_mew.vcproj", "{F595542E-64EC-4F32-A09A-4545540B3C43}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{9E8D6918-03D5-45DD-8A2E-67E9414FFFB4} = {9E8D6918-03D5-45DD-8A2E-67E9414FFFB4}
+		{08BD1EB8-5F13-492B-88DB-AB3F8F73DF57} = {08BD1EB8-5F13-492B-88DB-AB3F8F73DF57}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quatlib", "quat\quatlib_mew.vcproj", "{08BD1EB8-5F13-492B-88DB-AB3F8F73DF57}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E8D6918-03D5-45DD-8A2E-67E9414FFFB4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9E8D6918-03D5-45DD-8A2E-67E9414FFFB4}.Debug|Win32.Build.0 = Debug|Win32
+		{9E8D6918-03D5-45DD-8A2E-67E9414FFFB4}.Release|Win32.ActiveCfg = Release|Win32
+		{9E8D6918-03D5-45DD-8A2E-67E9414FFFB4}.Release|Win32.Build.0 = Release|Win32
+		{38ADCE04-73FF-43D8-B2D0-D937663E061D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{38ADCE04-73FF-43D8-B2D0-D937663E061D}.Debug|Win32.Build.0 = Debug|Win32
+		{38ADCE04-73FF-43D8-B2D0-D937663E061D}.Release|Win32.ActiveCfg = Release|Win32
+		{38ADCE04-73FF-43D8-B2D0-D937663E061D}.Release|Win32.Build.0 = Release|Win32
+		{F595542E-64EC-4F32-A09A-4545540B3C43}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F595542E-64EC-4F32-A09A-4545540B3C43}.Debug|Win32.Build.0 = Debug|Win32
+		{F595542E-64EC-4F32-A09A-4545540B3C43}.Release|Win32.ActiveCfg = Release|Win32
+		{F595542E-64EC-4F32-A09A-4545540B3C43}.Release|Win32.Build.0 = Release|Win32
+		{08BD1EB8-5F13-492B-88DB-AB3F8F73DF57}.Debug|Win32.ActiveCfg = Debug|Win32
+		{08BD1EB8-5F13-492B-88DB-AB3F8F73DF57}.Debug|Win32.Build.0 = Debug|Win32
+		{08BD1EB8-5F13-492B-88DB-AB3F8F73DF57}.Release|Win32.ActiveCfg = Release|Win32
+		{08BD1EB8-5F13-492B-88DB-AB3F8F73DF57}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
