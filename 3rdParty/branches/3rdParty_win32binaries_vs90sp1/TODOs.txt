@@ -1,0 +1,13 @@
+short-term todos
+mew 2008-06-19
+
+rebuild/freshen:
+- gdal
+- proj
+- curl (static or dynamic?  issues w/ Vista v. XP?)
+- vrpn
+
+port to OSG 2.x and CMake:
+- osgtoy
+- osgVRPN
+
