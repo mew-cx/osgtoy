@@ -1,3 +1,5 @@
 add_subdirectory( osgdot )
 add_subdirectory( osgimgconv )
-add_subdirectory( superviewer )
+if( PRODUCER_FOUND )
+    add_subdirectory( superviewer )
+endif()
