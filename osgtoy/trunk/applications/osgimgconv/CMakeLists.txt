@@ -1,6 +1,4 @@
-SET( TARGET_H
-)
-SET( TARGET_SRC
+SET( CATEGORY App )
+MAKE_EXECUTABLE( osgimgconv
     osgimgconv.cpp
 )
-SETUP_APPLICATION(osgimgconv)

@@ -1,19 +1,40 @@
+SET( LIB_NAME osgToy )
 
-IF   (DYNAMIC_OPENSCENEGRAPH)
-    ADD_DEFINITIONS(-DOSGTOY_LIBRARY)
-ELSE (DYNAMIC_OPENSCENEGRAPH)
-    ADD_DEFINITIONS(-DOSG_LIBRARY_STATIC)
-ENDIF(DYNAMIC_OPENSCENEGRAPH)
+ADD_DEFINITIONS( -DOSGTOY_LIBRARY )
+SET( HEADER_PATH ${PROJECT_SOURCE_DIR}/include/${LIB_NAME} )
 
-SET(LIB_NAME osgToy)
-SET(HEADER_PATH ${osgToy_SOURCE_DIR}/include/${LIB_NAME})
-SET(LIB_PUBLIC_HEADERS
+if( LUA_FOUND )
+    set( _luaHeaders 
+        ${HEADER_PATH}/LuaState
+    )
+    set( _luaSource
+        LuaState.cpp
+        lua_osg.cpp
+        lua_osgToy.cpp
+    )
+else()
+    set( _luaHeaders "" )
+    set( _luaSource "" )
+endif()
+
+if( GLSL_FOUND )
+    set( _glslHeaders 
+        ${HEADER_PATH}/GlslLint
+        ${HEADER_PATH}/GlslLintVisitor
+    )
+    set( _glslSource 
+        GlslLint.cpp
+        GlslLintVisitor.cpp
+    )
+else()
+    set( _glslHeaders "" )
+    set( _glslSource "" )
+endif()
+
+SET( LIB_PUBLIC_HEADERS
     ${HEADER_PATH}/Export
     ${HEADER_PATH}/FacetingVisitor
-    ${HEADER_PATH}/GlslLint
-    ${HEADER_PATH}/GlslLintVisitor
     ${HEADER_PATH}/LorenzAttractor
-    ${HEADER_PATH}/LuaState
     ${HEADER_PATH}/MengerSponge
     ${HEADER_PATH}/MipmapTestImage
     ${HEADER_PATH}/Normals
@@ -21,39 +42,28 @@ SET(LIB_PUBLIC_HEADERS
     ${HEADER_PATH}/RungeKutta4
     ${HEADER_PATH}/SuperShape3D
     ${HEADER_PATH}/Version
+    ${_luaHeaders}
+    ${_glslHeaders}
 )
 
-
-# FIXME: For OS X, need flag for Framework or dylib
-ADD_LIBRARY(${LIB_NAME}
-    ${OPENSCENEGRAPH_USER_DEFINED_DYNAMIC_OR_STATIC}
+ADD_SHARED_LIBRARY_INTERNAL( ${LIB_NAME}
     ${LIB_PUBLIC_HEADERS}
     FacetingVisitor.cpp
-    LuaState.cpp
-    Version.cpp
-    lua_osgToy.cpp
-    MipmapTestImage.cpp
-    SuperShape3D.cpp
-    Polyhedra.cpp
-    GlslLint.cpp
-    GlslLintVisitor.cpp
-    MengerSponge.cpp
-    lua_osg.cpp
-    Normals.cpp
-    Makefile
     LorenzAttractor.cpp
+    MengerSponge.cpp
+    MipmapTestImage.cpp
+    Normals.cpp
+    Polyhedra.cpp
     RungeKutta4.cpp
+    SuperShape3D.cpp
+    Version.cpp
+    ${_luaSource}
+    ${_glslSource}
 )
 
-
-LINK_INTERNAL(${LIB_NAME}
-    #    osgDB
-    #    osgText
-    osg
-    OpenThreads
+TARGET_LINK_LIBRARIES(
+    ${LIB_NAME}
+    ${OSG_LIBRARIES}
 )
-LINK_CORELIB_DEFAULT(${LIB_NAME})
 
 INCLUDE(ModuleInstall OPTIONAL)
-
-# vim: set sw=4 ts=8 et ic ai:

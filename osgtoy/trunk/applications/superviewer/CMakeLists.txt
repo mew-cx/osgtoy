@@ -1,7 +1,6 @@
-SET( TARGET_H
+SET( CATEGORY App )
+MAKE_EXECUTABLE( superviewer
     svUtil.h
-)
-SET( TARGET_SRC
     CompactDisc.cpp
     confetti.cpp
     Jack.cpp
@@ -19,4 +18,3 @@ SET( TARGET_SRC
     TODO_skybox.cpp
     VrpnManip.cpp
 )
-SETUP_APPLICATION(superviewer)
