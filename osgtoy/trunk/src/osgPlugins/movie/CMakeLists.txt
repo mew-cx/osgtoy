@@ -1,7 +1,7 @@
-SET( LIB_NAME osgdb_dem )
+SET( LIB_NAME osgdb_movie )
 
 ADD_OSGPLUGIN( ${LIB_NAME}
-    ReaderWriterDEM.cpp
+    ReaderWriterMOVIE.cpp
 )
 
 INCLUDE(ModuleInstall OPTIONAL)

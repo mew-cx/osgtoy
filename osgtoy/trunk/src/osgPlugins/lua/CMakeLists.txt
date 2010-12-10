@@ -1,7 +1,7 @@
-SET( LIB_NAME osgdb_dem )
+SET( LIB_NAME osgdb_lua )
 
 ADD_OSGPLUGIN( ${LIB_NAME}
-    ReaderWriterDEM.cpp
+    ReaderWriterLUA.cpp
 )
 
 INCLUDE(ModuleInstall OPTIONAL)

@@ -1,7 +1,7 @@
-SET( LIB_NAME osgdb_dem )
+SET( LIB_NAME osgdb_spin )
 
 ADD_OSGPLUGIN( ${LIB_NAME}
-    ReaderWriterDEM.cpp
+    ReaderWriterSPIN.cpp
 )
 
 INCLUDE(ModuleInstall OPTIONAL)
