@@ -25,12 +25,14 @@ include( CMakeMacros )
 
 include( FindOSGHelper )
 
+find_package( Lua51 )
 
 
 # Add OSG for entire project for include & lib paths
 INCLUDE_DIRECTORIES( 
     ${PROJECT_SOURCE_DIR}/include
     ${OSG_INCLUDE_DIRS}
+    ${LUA_INCLUDE_DIR}
 )
 # HACK: Not sure why this is necessary, but linker can't find osgToyd.lib without it.
 LINK_DIRECTORIES(
