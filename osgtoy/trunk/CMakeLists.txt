@@ -23,9 +23,12 @@ ENDIF( WIN32 AND MSVC )
 
 include( CMakeMacros )
 
-include( FindOSGHelper )
 
+include( FindOSGHelper )
 find_package( Lua51 )
+find_package( GLSL )
+find_package( PRODUCER )
+
 
 
 # Add OSG for entire project for include & lib paths
@@ -46,5 +49,5 @@ if( OSGTOY_BUILD_APPLICATIONS )
 endif()
 
 add_subdirectory( src/osgToy )
-# add_subdirectory( src/plugins )
+add_subdirectory( src/osgPlugins )
 
