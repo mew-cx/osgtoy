@@ -1,7 +1,7 @@
-SET( LIB_NAME osgdb_dem )
+SET( LIB_NAME osgdb_faceter )
 
 ADD_OSGPLUGIN( ${LIB_NAME}
-    ReaderWriterDEM.cpp
+    ReaderWriterFACETER.cpp
 )
 
 INCLUDE(ModuleInstall OPTIONAL)

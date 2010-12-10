@@ -1,7 +1,7 @@
-SET( LIB_NAME osgdb_dem )
+SET( LIB_NAME osgdb_sponge )
 
 ADD_OSGPLUGIN( ${LIB_NAME}
-    ReaderWriterDEM.cpp
+    ReaderWriterSPONGE.cpp
 )
 
 INCLUDE(ModuleInstall OPTIONAL)

@@ -47,7 +47,7 @@
 class ReaderWriterOSGVIEWER : public osgDB::ReaderWriter
 {
 public:
-    ReaderWriterOSGVIEWER() { }
+    ReaderWriterOSGVIEWER()
     {
         supportsExtension( EXTENSION_NAME, "osgviewer pseudo-loader" );
     }

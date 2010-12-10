@@ -1,8 +1,9 @@
-SET( TARGET_H
+SET( LIB_NAME osgdb_cpp )
+
+ADD_OSGPLUGIN( ${LIB_NAME}
+    ReaderWriterCPP.cpp
+    Image.cpp
     Image.h
 )
-SET( TARGET_SRC
-    Image.cpp
-    ReaderWriterCPP.cpp
-)
-SETUP_PLUGIN(cpp)
+
+INCLUDE(ModuleInstall OPTIONAL)
