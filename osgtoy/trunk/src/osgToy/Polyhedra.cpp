@@ -18,7 +18,7 @@ osgToy::Polyhedron::Polyhedron()
     setColorArray(  new osg::Vec4Array );
 }
 
-void osgToy::Polyhedron::setOverallColor( osg::Vec4& color )
+void osgToy::Polyhedron::setOverallColor( const osg::Vec4& color )
 {
     osg::Vec4Array* cAry = dynamic_cast<osg::Vec4Array*>( getColorArray() );
     if( cAry )
