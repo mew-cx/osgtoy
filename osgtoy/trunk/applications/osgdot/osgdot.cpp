@@ -80,7 +80,7 @@ public:
 
         has_stateset = node->getStateSet() != NULL;
 
-        sprintf(s, "%s_%08x", osg_class.c_str(), mem_location);
+        sprintf(s, "%s_%p", osg_class.c_str(), mem_location);
                 dot_id = std::string(s);
 
         type = "node";
@@ -99,7 +99,7 @@ public:
 
         has_stateset = drawable->getStateSet() != NULL;
 
-        sprintf(s, "%s_%08x", osg_class.c_str(), mem_location);
+        sprintf(s, "%s_%p", osg_class.c_str(), mem_location);
                 dot_id = std::string(s);
 
         type = "drawable";
