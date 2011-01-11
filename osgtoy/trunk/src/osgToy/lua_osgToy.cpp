@@ -8,9 +8,9 @@
 
 #include <osg/Node>
 #include <osg/Geode>
-#include <osgToy/LuaState>
-#include <osgToy/SuperShape3D>
-#include <osgToy/LorenzAttractor>
+#include <osgToy/LuaState.h>
+#include <osgToy/SuperShape3D.h>
+#include <osgToy/LorenzAttractor.h>
 
 extern "C"
 {

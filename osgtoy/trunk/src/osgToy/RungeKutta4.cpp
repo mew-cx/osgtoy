@@ -6,7 +6,7 @@
  * $Id: RungeKutta4.cpp,v 1.2 2006/09/11 06:24:05 mew Exp $
 */
 
-#include <osgToy/RungeKutta4>
+#include <osgToy/RungeKutta4.h>
 
 void osgToy::RungeKutta4::advance( float h )
 {

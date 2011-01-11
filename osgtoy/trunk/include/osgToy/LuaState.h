@@ -11,7 +11,7 @@
 #ifndef OSGTOY_LUASTATE
 #define OSGTOY_LUASTATE 1
 
-#include <osgToy/Export>
+#include <osgToy/Export.h>
 
 extern "C" struct lua_State;
 

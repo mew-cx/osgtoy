@@ -5,7 +5,7 @@ SET( HEADER_PATH ${PROJECT_SOURCE_DIR}/include/${LIB_NAME} )
 
 if( LUA51_FOUND )
     set( _luaHeaders 
-        ${HEADER_PATH}/LuaState
+        ${HEADER_PATH}/LuaState.h
     )
     set( _luaSource
         LuaState.cpp
@@ -19,8 +19,8 @@ endif()
 
 if( GLSL_FOUND )
     set( _glslHeaders 
-        ${HEADER_PATH}/GlslLint
-        ${HEADER_PATH}/GlslLintVisitor
+        ${HEADER_PATH}/GlslLint.h
+        ${HEADER_PATH}/GlslLintVisitor.h
     )
     set( _glslSource 
         GlslLint.cpp
@@ -32,16 +32,16 @@ else()
 endif()
 
 SET( LIB_PUBLIC_HEADERS
-    ${HEADER_PATH}/Export
-    ${HEADER_PATH}/FacetingVisitor
-    ${HEADER_PATH}/LorenzAttractor
-    ${HEADER_PATH}/MengerSponge
-    ${HEADER_PATH}/MipmapTestImage
-    ${HEADER_PATH}/Normals
-    ${HEADER_PATH}/Polyhedra
-    ${HEADER_PATH}/RungeKutta4
-    ${HEADER_PATH}/SuperShape3D
-    ${HEADER_PATH}/Version
+    ${HEADER_PATH}/Export.h
+    ${HEADER_PATH}/FacetingVisitor.h
+    ${HEADER_PATH}/LorenzAttractor.h
+    ${HEADER_PATH}/MengerSponge.h
+    ${HEADER_PATH}/MipmapTestImage.h
+    ${HEADER_PATH}/Normals.h
+    ${HEADER_PATH}/Polyhedra.h
+    ${HEADER_PATH}/RungeKutta4.h
+    ${HEADER_PATH}/SuperShape3D.h
+    ${HEADER_PATH}/Version.h
     ${_luaHeaders}
     ${_glslHeaders}
 )

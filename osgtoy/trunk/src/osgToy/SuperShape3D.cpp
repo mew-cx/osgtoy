@@ -16,8 +16,8 @@
 #include <limits>
 #include <osg/Notify>
 #include <osg/Math>
-#include <osgToy/SuperShape3D>
-#include <osgToy/FacetingVisitor>
+#include <osgToy/SuperShape3D.h>
+#include <osgToy/FacetingVisitor.h>
 
 ///////////////////////////////////////////////////////////////////////////
 

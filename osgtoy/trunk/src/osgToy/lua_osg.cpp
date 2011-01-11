@@ -8,7 +8,7 @@
 
 #include <osg/Node>
 #include <osg/Geode>
-#include <osgToy/LuaState>
+#include <osgToy/LuaState.h>
 
 extern "C"
 {

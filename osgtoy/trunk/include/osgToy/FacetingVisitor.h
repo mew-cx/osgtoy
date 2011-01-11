@@ -20,7 +20,7 @@
 #include <osg/Geode>
 #include <osg/Geometry>
 
-#include <osgToy/Export>
+#include <osgToy/Export.h>
 
 namespace osgToy {
 

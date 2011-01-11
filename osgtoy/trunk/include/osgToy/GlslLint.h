@@ -26,7 +26,7 @@
 
 #include <osg/Referenced>
 #include <osg/Shader>
-#include <osgToy/Export>
+#include <osgToy/Export.h>
 
 // This code written to OpenGLCompilerJune082005.zip from
 // http://developer.3dlabs.com/downloads/glslcompiler/index.htm

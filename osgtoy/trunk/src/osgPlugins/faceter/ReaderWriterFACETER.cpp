@@ -26,7 +26,7 @@
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 
-#include <osgToy/FacetingVisitor>
+#include <osgToy/FacetingVisitor.h>
 
 #define EXTENSION_NAME "faceter"
 

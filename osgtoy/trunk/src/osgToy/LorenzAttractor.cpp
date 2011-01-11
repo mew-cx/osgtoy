@@ -9,8 +9,8 @@
 #include <osg/Notify>
 #include <osg/Vec3>
 
-#include <osgToy/RungeKutta4>
-#include <osgToy/LorenzAttractor>
+#include <osgToy/RungeKutta4.h>
+#include <osgToy/LorenzAttractor.h>
 
 ///////////////////////////////////////////////////////////////////////////
 

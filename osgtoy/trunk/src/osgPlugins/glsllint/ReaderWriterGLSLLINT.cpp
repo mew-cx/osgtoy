@@ -29,8 +29,8 @@
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 
-#include <osgToy/GlslLint>
-#include <osgToy/GlslLintVisitor>
+#include <osgToy/GlslLint.h>
+#include <osgToy/GlslLintVisitor.h>
 
 #define EXTENSION_NAME "glsllint"
 

@@ -1,8 +1,8 @@
-#include <osgToy/Version>
+#include <osgToy/Version.h>
 
 const char* osgToyGetVersion()
 {
-    return "0.2.7";
+    return "0.3.0";
 }
 
 

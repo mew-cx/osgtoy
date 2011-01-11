@@ -28,7 +28,7 @@
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 
-#include <osgToy/Normals>
+#include <osgToy/Normals.h>
 
 #define EXTENSION_NAME "drawnorm"
 
