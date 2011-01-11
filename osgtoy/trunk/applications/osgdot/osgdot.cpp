@@ -50,6 +50,9 @@ Version used during development: OSG 2.1.1, graphviz 2.12
 
 */
 
+// mew@mew.cx 2011-01-10 : replace unsigned int and many casts with osg::Object*
+
+
 #include <cstdio>
 #include <string>
 #include <map>
@@ -70,7 +73,7 @@ public:
         char s[1024];
 
         _node = node;
-        mem_location = (unsigned int) node;
+        mem_location =  node;
 
         osg_class = node->className();
         name = node->getName();
@@ -78,10 +81,10 @@ public:
         has_stateset = node->getStateSet() != NULL;
 
         sprintf(s, "%s_%08x", osg_class.c_str(), mem_location);
-		dot_id = std::string(s);
+                dot_id = std::string(s);
 
         type = "node";
-		extra_label = "";
+                extra_label = "";
     }
 
     GraphNode(osg::Drawable *drawable)
@@ -89,7 +92,7 @@ public:
         char s[1024];
 
         _drawable = drawable;
-        mem_location = (unsigned int) drawable;
+        mem_location =  drawable;
 
         osg_class = drawable->className();
         name = drawable->getName();
@@ -97,7 +100,7 @@ public:
         has_stateset = drawable->getStateSet() != NULL;
 
         sprintf(s, "%s_%08x", osg_class.c_str(), mem_location);
-		dot_id = std::string(s);
+                dot_id = std::string(s);
 
         type = "drawable";
 
@@ -111,8 +114,8 @@ public:
     }
 
     void
-    add_target(unsigned int t)
-	{
+    add_target( osg::Object* t )
+        {
         target_mem_locations.push_back(t);
     }
 
@@ -121,7 +124,7 @@ protected:
     osg::ref_ptr<osg::Drawable>     _drawable;
 
 public:
-    unsigned int                mem_location;
+    osg::Object*                mem_location;
 
     std::string                 osg_class;
     std::string                 name;
@@ -134,21 +137,21 @@ public:
 
     // stores nodes (mem locations) that this node references
     // (i.e. other nodes)
-    std::vector<unsigned int>   target_mem_locations;
+    std::vector<osg::Object*>   target_mem_locations;
 };
 
-typedef std::map<unsigned int, GraphNode*>    GraphNodeMap;
+typedef std::map<osg::Object*, GraphNode*>    GraphNodeMap;
 
 void
 traverse(GraphNodeMap& graphnodemap, osg::Node *node)
 {
     GraphNode       *gn;
-    unsigned int    memloc;
+    osg::Object*    memloc;
     osg::Group      *group;
     osg::Geode      *geode;
     osg::Drawable   *drawable;
 
-    memloc = (unsigned int)node;
+    memloc = node;
 
     if (graphnodemap.find(memloc) == graphnodemap.end())
     {
@@ -157,12 +160,12 @@ traverse(GraphNodeMap& graphnodemap, osg::Node *node)
         group = dynamic_cast<osg::Group*>(node);
         if (group)
         {
-			// visit any children if Group (or descendant)
+                        // visit any children if Group (or descendant)
             for (unsigned int c=0; c < group->getNumChildren(); c++)
             {
                 // store that the current node points to its child
-				gn->add_target((unsigned int)group->getChild(c));
-				traverse(graphnodemap, group->getChild(c));
+                                gn->add_target(group->getChild(c));
+                                traverse(graphnodemap, group->getChild(c));
             }
         }
         else
@@ -172,15 +175,15 @@ traverse(GraphNodeMap& graphnodemap, osg::Node *node)
             {
                 for (unsigned int di=0; di < geode->getNumDrawables(); di++)
                 {
-					drawable = geode->getDrawable(di);
+                                        drawable = geode->getDrawable(di);
 
-					GraphNode *gn2 = new GraphNode(drawable);
-                    unsigned int memloc2 = (unsigned int) drawable;
+                                        GraphNode *gn2 = new GraphNode(drawable);
+                    osg::Object* memloc2 = drawable;
 
                     if (graphnodemap.find(memloc2) == graphnodemap.end())
-						graphnodemap[memloc2] = gn2;
+                                                graphnodemap[memloc2] = gn2;
 
-					gn->add_target(memloc2);
+                                        gn->add_target(memloc2);
                 }
             }
         }
@@ -196,7 +199,7 @@ main(int argc, char *argv[])
     GraphNodeMap            graph_nodes;
     GraphNodeMap::iterator  it;
     FILE                    *f;
-    unsigned int            memloc;
+    osg::Object*            memloc;
     GraphNode               *graphnode, *targetnode;
     char                    s[1024];
     std::string             shape, color, fillcolor, style, label;
@@ -257,8 +260,8 @@ main(int argc, char *argv[])
     }
 
     // next, output connections
-    std::vector<unsigned int>::iterator memlocit;
-    unsigned int target_memloc;
+    std::vector<osg::Object*>::iterator memlocit;
+    osg::Object* target_memloc;
 
     for (it = graph_nodes.begin(); it != graph_nodes.end(); ++it)
     {
