@@ -14,7 +14,7 @@
 #ifndef OSGTOY_VERSION
 #define OSGTOY_VERSION 1
 
-#include <osgToy/Export>
+#include <osgToy/Export.h>
 
 
 extern "C" {

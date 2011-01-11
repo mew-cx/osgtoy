@@ -7,7 +7,7 @@
 */
 
 #include <osg/Notify>
-#include <osgToy/MengerSponge>
+#include <osgToy/MengerSponge.h>
 
 enum {  // face flags (e.g. "NX" = negative X axis orientation)
     NX = 0x01,

@@ -23,7 +23,7 @@
 #include <glslang/Include/ShHandle.h>
 #include <glslang/Public/ShaderLang.h>
 
-#include <osgToy/GlslLint>
+#include <osgToy/GlslLint.h>
 
 ///////////////////////////////////////////////////////////////////////////
 // TBuiltInResource represents the OpenGL implementation-dependent limits

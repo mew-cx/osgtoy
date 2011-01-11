@@ -34,7 +34,7 @@ extern "C"
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 
-#include <osgToy/LuaState>
+#include <osgToy/LuaState.h>
 
 #define EXTENSION_NAME "lua"
 

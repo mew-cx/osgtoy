@@ -6,7 +6,7 @@
  * $Id: LuaState.cpp,v 1.3 2006/09/11 06:24:05 mew Exp $
 */
 
-#include <osgToy/LuaState>
+#include <osgToy/LuaState.h>
 
 extern "C"
 {

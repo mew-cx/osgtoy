@@ -16,7 +16,7 @@
 #ifndef OSGTOY_SUPERSHAPE3D
 #define OSGTOY_SUPERSHAPE3D 1
 
-#include <osgToy/Export>
+#include <osgToy/Export.h>
 #include <osg/Geometry>
 #include <osg/Vec3>
 

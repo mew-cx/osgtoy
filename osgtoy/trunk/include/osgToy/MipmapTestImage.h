@@ -11,7 +11,7 @@
 
 #include <osg/Image>
 #include <osg/Vec4>
-#include <osgToy/Export>
+#include <osgToy/Export.h>
 
 namespace osgToy {
 

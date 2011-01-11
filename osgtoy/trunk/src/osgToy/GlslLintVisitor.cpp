@@ -20,7 +20,7 @@
 
 #include <iostream>
 
-#include <osgToy/GlslLintVisitor>
+#include <osgToy/GlslLintVisitor.h>
 
 ///////////////////////////////////////////////////////////////////////////
 

@@ -29,8 +29,8 @@
 #include <osg/Shader>
 #include <osg/Uniform>
 
-#include <osgToy/Export>
-#include <osgToy/GlslLint>
+#include <osgToy/Export.h>
+#include <osgToy/GlslLint.h>
 
 namespace osgToy {
 

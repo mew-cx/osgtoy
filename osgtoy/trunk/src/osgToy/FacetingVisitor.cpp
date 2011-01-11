@@ -17,7 +17,7 @@
 
 #include <osg/TriangleIndexFunctor>
 
-#include <osgToy/FacetingVisitor>
+#include <osgToy/FacetingVisitor.h>
 
 ///////////////////////////////////////////////////////////////////////////
 

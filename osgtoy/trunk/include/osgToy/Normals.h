@@ -10,7 +10,7 @@
 #include <osg/Geometry>
 #include <osg/NodeVisitor>
 
-#include <osgToy/Export>
+#include <osgToy/Export.h>
 
 namespace osgToy {
 

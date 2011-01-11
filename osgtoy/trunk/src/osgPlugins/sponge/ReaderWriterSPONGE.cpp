@@ -27,7 +27,7 @@
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 
-#include <osgToy/MengerSponge>
+#include <osgToy/MengerSponge.h>
 
 #define EXTENSION_NAME "sponge"
 

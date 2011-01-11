@@ -15,7 +15,7 @@
 #include <osg/Geometry>
 #include <osg/Vec3>
 
-#include <osgToy/Export>
+#include <osgToy/Export.h>
 
 namespace osgToy {
 

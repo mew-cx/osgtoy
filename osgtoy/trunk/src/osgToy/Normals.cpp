@@ -5,7 +5,7 @@
 // $Id: Normals.cpp,v 1.2 2006/09/11 06:24:05 mew Exp $
 
 
-#include "osgToy/Normals"
+#include "osgToy/Normals.h"
 
 osgToy::Normals::Normals( Node *node, float scale, Mode mode )
 {

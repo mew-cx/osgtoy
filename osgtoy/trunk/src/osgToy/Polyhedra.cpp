@@ -6,8 +6,8 @@
  * $Id: Polyhedra.cpp,v 1.1 2005/11/22 09:18:30 mew Exp $
 */
 
-#include <osgToy/FacetingVisitor>
-#include <osgToy/Polyhedra>
+#include <osgToy/FacetingVisitor.h>
+#include <osgToy/Polyhedra.h>
 
 ///////////////////////////////////////////////////////////////////////////
 

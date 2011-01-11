@@ -27,7 +27,7 @@
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 
-#include <osgToy/LorenzAttractor>
+#include <osgToy/LorenzAttractor.h>
 
 #define EXTENSION_NAME "lorenz"
 

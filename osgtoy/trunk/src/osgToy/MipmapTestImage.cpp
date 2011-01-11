@@ -6,7 +6,7 @@
  * $Id: MipmapTestImage.cpp,v 1.2 2005/11/27 02:40:51 mew Exp $
 */
 
-#include <osgToy/MipmapTestImage>
+#include <osgToy/MipmapTestImage.h>
 
 void
 osgToy::MipmapTestImage::setImageData( unsigned char* data, int mipLevel, int s, int t )
