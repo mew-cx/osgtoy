@@ -13,9 +13,7 @@
  * http://astronomy.swin.edu.au/~pbourke/surfaces/supershape3d/
 */
 
-#ifdef WIN32
 #include <limits>
-#endif
 #include <osg/Notify>
 #include <osg/Math>
 #include <osgToy/SuperShape3D>
