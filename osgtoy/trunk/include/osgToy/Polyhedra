@@ -22,7 +22,7 @@ public:
     Polyhedron();
 
 protected:
-    void setOverallColor( osg::Vec4& color );
+    void setOverallColor( const osg::Vec4& color );
     void addTristrip(
             const osg::Vec3& u0, const osg::Vec3& u1,
             const osg::Vec3& v0, const osg::Vec3& v1,
