@@ -26,8 +26,9 @@ include( CMakeMacros )
 
 include( FindOSGHelper )
 find_package( Lua51 )
-find_package( GLSL )
-find_package( PRODUCER )
+
+#DEPRECATED	find_package( GLSL )
+#DEPRECATED	find_package( PRODUCER )
 
 
 
