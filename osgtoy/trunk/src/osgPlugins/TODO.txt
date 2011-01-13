@@ -1,0 +1,42 @@
+::::::::::::::
+t2
+::::::::::::::
+mew 2011-01-12
+
+plugin features to perhaps exploit...
+
+supportsProtocol("http","HTTP Protocol");
+supportsExtension("net","Psuedo loader extension for selecting NET plugin");
+supportsExtension("*","Passes all file loading onto other plugins");
+supportsExtension("ogr","OGR file reader");
+supportsOption("useRandomColorByFeature", "Assign a random color to each feature.");
+supportsOption("addGroupPerFeature", "Places each feature in a seperate group.");
+supportsExtension("shp","Geospatial Shape file format");
+supportsOption("double","Read x,y,z data as double an stored as geometry in osg::Vec3dArray's.");
+
+
+
+-----------------------------------------------------------------------------
+
+mew 2008-10-18
+
+.info pseudo loader
+
+creates and invokes an osgToy::InfoVisitor
+
+
+InfoVisitor will display for nodes in the scene:
+	bounding box
+	stats on count/details about geometry, texture, shaders, etc
+
+-----------------------------------------------------------------------------
+
+.rot pseudoloader: a simple swizzle notation to transform coordinate frames
+eg:	"foo.osg.Yxz.rot" -> +Y to X, -x to Y, -z to Z
+
+
+-----------------------------------------------------------------------------
+
+.sponge : options to set face colors (all white v. RGB)
+
+

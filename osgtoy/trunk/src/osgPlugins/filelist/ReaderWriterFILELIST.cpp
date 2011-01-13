@@ -102,38 +102,3 @@ public:
 osgDB::RegisterReaderWriterProxy<ReaderWriterFILELIST> g_readerWriter_FILELIST_Proxy;
 
 /*EOF*/
-
-
-#if 0
-
-
-#include<iostream>
-#include<iomanip>
-#include<fstream>
-#include <string>
-
-
-int processLine( const std::string& line )
-{
-}
-
-
-
-
-std::ifstream infile("data.txt");
-string line;
-
-while( ! std::getline( infile, line ).eof() )
-{
-    char* cp = name.first();
-    // trim leading whitespace
-    if( *cp == '#' )   cp++;
-}
-
-
-// http://www.cplusplus.com/reference/string/string/find/
-size_t found( str.find('.') );
-if (found!=string::npos)
-    cout << "Period found at: " << int(found) << endl;
-
-#endif
