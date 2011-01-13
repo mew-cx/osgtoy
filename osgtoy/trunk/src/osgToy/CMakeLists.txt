@@ -34,6 +34,7 @@ endif()
 SET( LIB_PUBLIC_HEADERS
     ${HEADER_PATH}/Export.h
     ${HEADER_PATH}/FacetingVisitor.h
+    ${HEADER_PATH}/Geometry.h
     ${HEADER_PATH}/LorenzAttractor.h
     ${HEADER_PATH}/MengerSponge.h
     ${HEADER_PATH}/MipmapTestImage.h
@@ -41,14 +42,17 @@ SET( LIB_PUBLIC_HEADERS
     ${HEADER_PATH}/Polyhedra.h
     ${HEADER_PATH}/RungeKutta4.h
     ${HEADER_PATH}/SuperShape3D.h
+    ${HEADER_PATH}/Teapot.h
     ${HEADER_PATH}/Version.h
     ${_luaHeaders}
     ${_glslHeaders}
 )
+#    ${HEADER_PATH}/SceneHelpers.h
 
 ADD_SHARED_LIBRARY_INTERNAL( ${LIB_NAME}
     ${LIB_PUBLIC_HEADERS}
     FacetingVisitor.cpp
+    Geometry.cpp
     LorenzAttractor.cpp
     MengerSponge.cpp
     MipmapTestImage.cpp
@@ -56,10 +60,12 @@ ADD_SHARED_LIBRARY_INTERNAL( ${LIB_NAME}
     Polyhedra.cpp
     RungeKutta4.cpp
     SuperShape3D.cpp
+    Teapot.cpp
     Version.cpp
     ${_luaSource}
     ${_glslSource}
 )
+#    SceneHelpers.cpp
 
 TARGET_LINK_LIBRARIES(
     ${LIB_NAME}
@@ -68,3 +74,4 @@ TARGET_LINK_LIBRARIES(
 )
 
 INCLUDE(ModuleInstall OPTIONAL)
+
