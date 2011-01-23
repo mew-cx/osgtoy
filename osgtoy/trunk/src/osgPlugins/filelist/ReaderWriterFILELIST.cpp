@@ -47,6 +47,9 @@ public:
     ReaderWriterFILELIST()
     {
         supportsExtension( EXTENSION_NAME, "filelist pseudo-loader" );
+	// TODO:
+	// add "prefix" option
+	// add "suffix" option, ex ".bbox"
     }
 
     virtual const char* className() const { return "filelist pseudo-loader"; }

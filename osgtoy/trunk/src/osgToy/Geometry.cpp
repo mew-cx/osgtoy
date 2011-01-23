@@ -1,6 +1,6 @@
 // file:        src/osgToy/Geometry.cpp
-// author:      Mike Weiblen  http://mew.cx/  2008-11-06
-// copyright:   (C) 2008 Mike Weiblen
+// author:      Mike Weiblen  http://mew.cx/  2011-01-11
+// copyright:   (C) 2011 Mike Weiblen
 // license:     OpenSceneGraph Public License (OSGPL)
 
 #include <osgToy/Geometry.h>
@@ -95,21 +95,21 @@ void osgToy::Lines::addLine( const osg::Vec3& a, const osg::Vec3& b )
 
 /////////////////////////////////////////////////////////////////////////////
 
-void osgToy::WirePrismatoid::create( const osg::Vec3& nnn, const osg::Vec3& xxx )
+void osgToy::WireBox::create( const osg::Vec3& min, const osg::Vec3& max )
 {
-    const osg::Vec3 nnx( nnn.x(), nnn.y(), xxx.z() );
-    const osg::Vec3 nxn( nnn.x(), xxx.y(), nnn.z() );
-    const osg::Vec3 nxx( nnn.x(), xxx.y(), xxx.z() );
-    const osg::Vec3 xnn( xxx.x(), nnn.y(), nnn.z() );
-    const osg::Vec3 xnx( xxx.x(), nnn.y(), xxx.z() );
-    const osg::Vec3 xxn( xxx.x(), xxx.y(), nnn.z() );
+    const osg::Vec3 nnx( min.x(), min.y(), max.z() );
+    const osg::Vec3 nxn( min.x(), max.y(), min.z() );
+    const osg::Vec3 nxx( min.x(), max.y(), max.z() );
+    const osg::Vec3 xnn( max.x(), min.y(), min.z() );
+    const osg::Vec3 xnx( max.x(), min.y(), max.z() );
+    const osg::Vec3 xxn( max.x(), max.y(), min.z() );
 
-    addLine( nnn, xnn );
-    addLine( nnn, nxn );
-    addLine( nnn, nnx );
-    addLine( xxx, nxx );
-    addLine( xxx, xnx );
-    addLine( xxx, xxn );
+    addLine( min, xnn );
+    addLine( min, nxn );
+    addLine( min, nnx );
+    addLine( max, nxx );
+    addLine( max, xnx );
+    addLine( max, xxn );
     addLine( xnn, xxn );
     addLine( xnn, xnx );
     addLine( nxn, xxn );
@@ -119,7 +119,7 @@ void osgToy::WirePrismatoid::create( const osg::Vec3& nnn, const osg::Vec3& xxx 
 }
 
 
-osgToy::WirePrismatoid::WirePrismatoid( float fovy, float aspect, float zNear, float zFar )
+osgToy::WireFrustum::WireFrustum( float fovy, float aspect, float zNear, float zFar )
 {
     const double tanfovy( tan( osg::DegreesToRadians(fovy/2) ) );
     const double tanfovx( tanfovy * aspect );

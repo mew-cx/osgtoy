@@ -11,8 +11,8 @@
 */
 
 /* file:      src/osgPlugins/wirebox/ReaderWriterWIREBOX.cpp
- * author:    Mike Weiblen http://mew.cx/ 2008-11-06
- * copyright: (C) 2008 Michael Weiblen
+ * author:    Mike Weiblen http://mew.cx/ 2011-01-11
+ * copyright: (C) 2011 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
 */
 
@@ -70,13 +70,10 @@ static bool splitFilename( std::string& params, std::string& subfile )
  * An OSG reader plugin for the ".wirebox" pseudo-loader.
  *
  * Usage:
- *      <s>.wirebox
- * where:
- *      <modelfile.ext> = an model filename.
- *      <sx> = scale factor along the X axis.
- *      <sy> = scale factor along the Y axis.
- *      <sz> = scale factor along the Z axis.
- *      <su> = uniform scale factor applied to all axes.
+ *      <s>.wirebox = create centered cube.
+ *      <x>,<y>,<z>.wirebox = create centered box.
+ *      <fovy>,<aspect>,<znear>,<zfar>.wirebox = create frustum.
+ *      <x1>,<y1>,<z1>,<x2>,<y2>,<z2>.wirebox = create box.
  */
 
 class ReaderWriterWIREBOX : public osgDB::ReaderWriter
@@ -95,10 +92,10 @@ public:
     {
         osg::notify(osg::NOTICE)
             << "\nUsage for " << className() << ":\n"
-            << "<s>." EXTENSION_NAME "\n\tcreate symmetric cube\n"
-            << "<x>,<y>,<z>." EXTENSION_NAME "\n\tcreate symmetric parallelepiped\n"
-            << "<fovy>,<aspect>,<znear>,<zfar>." EXTENSION_NAME "\n\tcreate frustum\n"
-            << "<x1>,<y1>,<z1>,<x2>,<y2>,<z2>." EXTENSION_NAME "\n\tcreate arbitrary parallelepiped\n"
+            << "<s>." EXTENSION_NAME "\n\tcreate centered cube.\n"
+            << "<x>,<y>,<z>." EXTENSION_NAME "\n\tcreate centered box.\n"
+            << "<fovy>,<aspect>,<znear>,<zfar>." EXTENSION_NAME "\n\tcreate frustum.\n"
+            << "<x1>,<y1>,<z1>,<x2>,<y2>,<z2>." EXTENSION_NAME "\n\tcreate box.\n"
             << std::endl;
     }
 
@@ -134,36 +131,36 @@ public:
         {
             case 1:
             {
-                // symmetric cube
+                // axis-aligned cube centered at origin
                 const float s(x1/2);
                 osg::Vec3 vMax( s, s, s );
                 osg::Vec3 vMin( -vMax );
-                drawable = new osgToy::WirePrismatoid( vMin, vMax );
+                drawable = new osgToy::WireBox( vMin, vMax );
                 break;
             }
 
             case 3:
             {
-                // symmetric cuboid
+                // axis-aligned box centered at origin
                 osg::Vec3 vMax( x1/2, y1/2, z1/2 );
                 osg::Vec3 vMin( -vMax );
-                drawable = new osgToy::WirePrismatoid( vMin, vMax );
+                drawable = new osgToy::WireBox( vMin, vMax );
                 break;
             }
 
             case 4:
             {
                 // frustum( fovy, aspect, znear, zfar )
-                drawable = new osgToy::WirePrismatoid( x1, y1, z1, x2 );
+                drawable = new osgToy::WireFrustum( x1, y1, z1, x2 );
                 break;
             }
 
             case 6:
             {
-                // arbitrary cuboid
+                // axis-aligned box defined by min/max corners
                 osg::Vec3 vMin( x1, y1, z1 );
                 osg::Vec3 vMax( x2, y2, z2 );
-                drawable = new osgToy::WirePrismatoid( vMin, vMax );
+                drawable = new osgToy::WireBox( vMin, vMax );
                 break;
             }
 
