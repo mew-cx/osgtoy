@@ -39,4 +39,6 @@ eg:	"foo.osg.Yxz.rot" -> +Y to X, -x to Y, -z to Z
 
 .sponge : options to set face colors (all white v. RGB)
 
+.bsphere : like .bbox?
+
 

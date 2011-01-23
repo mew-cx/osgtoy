@@ -11,8 +11,8 @@
 */
 
 /* file:      src/osgPlugins/bbox/ReaderWriterBBOX.cpp
- * author:    Mike Weiblen http://mew.cx/ 2008-11-06
- * copyright: (C) 2008 Michael Weiblen
+ * author:    Mike Weiblen http://mew.cx/ 2011-01-11
+ * copyright: (C) 2011 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
 */
 
@@ -90,7 +90,7 @@ public:
             << std::endl;
 
         osg::Geode* geode( new osg::Geode );
-        geode->addDrawable( new osgToy::WirePrismatoid( bbox ) );
+        geode->addDrawable( new osgToy::WireBox( bbox ) );
 
         osg::Group* root( new osg::Group );
         root->addChild( scene );
@@ -103,78 +103,5 @@ public:
 
 // Add ourself to the Registry to instantiate the reader/writer.
 REGISTER_OSGPLUGIN( bbox, ReaderWriterBBOX )
-
-
-
-#if 0
-// |  usage example:  
-// |    CcalculateBoundingBox bbox ;
-// |    node->accept( bbox  );
-// |    osg::BoundingBox boxExtents = bboxCalc.bbox();
- 
-#include <osg/NodeVisitor> 
-#include <osg/BoundingBox> 
-#include <osg/BoundingSphere> 
-#include <osg/MatrixTransform> 
-#include <osg/Billboard> 
- 
- 
-class  CcalculateBoundingBox : public osg::NodeVisitor { 
- 
-public: 
- 
-     CcalculateBoundingBox() : NodeVisitor( NodeVisitor::TRAVERSE_ALL_CHILDREN ) {
-            m_transformMatrix.makeIdentity();
-     }
-
-    virtual ~CcalculateBoundingBox() {}
-
-
-    virtual void apply( osg::Geode &geode ) {
-
-        osg::BoundingBox bbox;
-
-        // update bounding box for each drawable
-        for(  unsigned int i = 0; i < geode.getNumDrawables(); ++i ){
-            // expand the overall bounding box
-            bbox.expandBy( geode.getDrawable( i )->getBound());
-
-        }
-
-        // transform corners by current matrix
-        osg::BoundingBox bboxTrans;
-        for( unsigned int i = 0; i < 8; ++i ) {
-            osg::Vec3 xvec = bbox.corner( i ) * m_transformMatrix;
-            bboxTrans.expandBy( xvec );
-        }
-
-        // update the overall bounding box size
-        m_boundingBox.expandBy( bboxTrans );
-
-        // continue traversing through the graph
-        traverse( geode );
-
-    }
-
-
-    virtual void apply( osg::MatrixTransform &node ) {
-        m_transformMatrix *= node.getMatrix();
-        traverse( node );
-    }
-
-    virtual void apply( osg::Billboard &node ){
-        // ignore billboard to avoid affecting bounding box.
-        traverse( node );
-    }
-
-    osg::BoundingBox &getBoundBox() { return m_boundingBox; }  
-
-protected :
-    osg::BoundingBox m_boundingBox;          // the overall resultant bounding box
-    osg::Matrix      m_transformMatrix;      // the current transform matrix
-
-};
-
-#endif
 
 // vim: set sw=4 ts=8 et ic ai:

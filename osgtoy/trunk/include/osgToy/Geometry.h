@@ -1,6 +1,6 @@
 // file:        include/osgToy/Geometry.h
-// author:      Mike Weiblen  http://mew.cx/  2008-11-06
-// copyright:   (C) 2008 Mike Weiblen
+// author:      Mike Weiblen  http://mew.cx/  2011-01-11
+// copyright:   (C) 2011 Mike Weiblen
 // license:     OpenSceneGraph Public License (OSGPL)
 
 
@@ -50,20 +50,31 @@ protected:
 };
 
 
-// http://en.wikipedia.org/wiki/Prismatoid
-class OSGTOY_EXPORT WirePrismatoid : public osgToy::Lines
+class OSGTOY_EXPORT WireBox : public osgToy::Lines
 {
 public:
-    WirePrismatoid( const osg::Vec3& vMin, const osg::Vec3& vMax ) { create( vMin, vMax ); }
-    WirePrismatoid( const osg::BoundingBox& bb ) { create( bb._min, bb._max ); }
-    WirePrismatoid( float fov, float aspect, float zNear, float zFar );
+    WireBox( const osg::Vec3& vMin, const osg::Vec3& vMax ) { create( vMin, vMax ); }
+    WireBox( const osg::BoundingBox& bb ) { create( bb._min, bb._max ); }
 
 protected:
-    virtual ~WirePrismatoid() {}
-    void create( const osg::Vec3& nnn, const osg::Vec3& xxx );
+    void create( const osg::Vec3& min, const osg::Vec3& max );
+    virtual ~WireBox() {}
 
 private:
-    WirePrismatoid();          // disallowed
+    WireBox();       // disallowed
+};
+
+
+class OSGTOY_EXPORT WireFrustum : public osgToy::Lines
+{
+public:
+    WireFrustum( float fov, float aspect, float zNear, float zFar );
+
+protected:
+    virtual ~WireFrustum() {}
+
+private:
+    WireFrustum();       // disallowed
 };
 
 
