@@ -1,4 +1,5 @@
 /* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2004 Robert Osfield 
+ * $Id$
  *
  * This library is open source and may be redistributed and/or modified under  
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
@@ -10,8 +11,6 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
  * OpenSceneGraph Public License for more details.
 */
-
-// $Id: FacetingVisitor,v 1.2 2006/09/11 06:24:04 mew Exp $
 
 #ifndef OSGTOY_FACETINGVISITOR
 #define OSGTOY_FACETINGVISITOR 1

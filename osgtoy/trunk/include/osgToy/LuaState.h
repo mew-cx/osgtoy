@@ -3,7 +3,7 @@
  * copyright:   (C) 2005-2006 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/osg/
- * $Id: LuaState,v 1.2 2006/09/11 06:24:04 mew Exp $
+ * $Id$
  *
  * see: http://lua.org/
 */

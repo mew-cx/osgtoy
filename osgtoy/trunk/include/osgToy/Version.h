@@ -1,5 +1,5 @@
 /* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2005 Robert Osfield 
- * $Id: SvnKeywords.h 573 2011-01-29 17:11:21Z mew $
+ * $Id$
  *
  * This library is open source and may be redistributed and/or modified under  
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 

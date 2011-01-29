@@ -3,7 +3,7 @@
  * copyright:   (C) 2004-2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/
- * $Id: LorenzAttractor,v 1.2 2005/10/16 01:50:44 mew Exp $
+ * $Id$
  *
  * see: http://en.wikipedia.org/wiki/Lorenz_attractor
  *      http://mathworld.wolfram.com/LorenzAttractor.html

@@ -1,4 +1,5 @@
 /* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2005 Robert Osfield 
+ * $Id$
  *
  * This library is open source and may be redistributed and/or modified under  
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
@@ -15,7 +16,6 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2005 3Dlabs Inc. Ltd.
  * license:     3Dlabs_license.txt
- * $Id: GlslLintVisitor,v 1.4 2006/09/11 06:24:04 mew Exp $
 */
 
 #ifndef OSGTOY_GLSLLINTVISITOR
