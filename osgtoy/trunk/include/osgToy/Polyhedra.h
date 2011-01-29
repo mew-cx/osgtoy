@@ -3,7 +3,7 @@
  * copyright:   (C) 2005 Mike Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/
- * $Id: Polyhedra,v 1.1 2005/11/22 09:18:30 mew Exp $
+ * $Id$
 */
 
 #ifndef OSGTOY_POLYHEDRA

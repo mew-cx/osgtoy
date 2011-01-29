@@ -1,5 +1,4 @@
-// textfilereader.h
-// mew 2011-01-28
+// $Id$
 // A super-simple 1-line-at-a-time textfile reader.
 // Trims out "#"-prefixed comments and prefix/suffix whitespace cruft
 // from each line of text before calling your evaluate() method.

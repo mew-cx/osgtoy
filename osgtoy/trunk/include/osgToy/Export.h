@@ -1,4 +1,5 @@
 /* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2004 Robert Osfield 
+ * $Id$
  *
  * This library is open source and may be redistributed and/or modified under  
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
@@ -12,6 +13,7 @@
 */
 
 // The following symbol has a underscore suffix for compatibility.
+// (with what? - mew)
 #ifndef OSGTOY_EXPORT_
 #define OSGTOY_EXPORT_ 1
 

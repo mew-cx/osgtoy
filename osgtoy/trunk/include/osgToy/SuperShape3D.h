@@ -3,7 +3,7 @@
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/
- * $Id: SuperShape3D,v 1.2 2005/11/22 09:19:00 mew Exp $
+ * $Id$
  *
  * OSG code derived from Jason McVeigh's OpenSceneGraph Tutorials:
  * http://www.tersesolutions.net/osgt/
