@@ -1,5 +1,8 @@
 // textfilereader.h
-// mew 2011-01-09
+// mew 2011-01-28
+// A super-simple 1-line-at-a-time textfile reader.
+// Trims out "#"-prefixed comments and prefix/suffix whitespace cruft
+// from each line of text before calling your evaluate() method.
 
 #ifndef TEXTFILEREADER_H
 #define TEXTFILEREADER_H
@@ -16,8 +19,8 @@ public:
     bool readFile( const char* fileName );
 
 protected:        // methods
-    virtual void stripComment( std::string& line );
-    virtual void processLine( const std::string& line );
+    virtual void trim( std::string& text );
+    virtual void evaluate( std::string& text ) = 0;
 
 private:        // disallowed
     TextFileReader( const TextFileReader& );

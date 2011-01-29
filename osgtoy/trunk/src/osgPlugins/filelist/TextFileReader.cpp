@@ -1,5 +1,9 @@
 // TextFileReader.cpp
-// mew 2011-01-09
+// mew 2011-01-28
+// A super-simple 1-line-at-a-time textfile reader.
+// Trims out "#"-prefixed comments and prefix/suffix whitespace cruft
+// from each line of text before calling your evaluate() method.
+
 
 #include "TextFileReader.h"      // our interface definition
 
@@ -30,10 +34,10 @@ bool TextFileReader::readFile( const char* fileName )
 
     while( configFile.good() )
     {
-        std::string line;
-        std::getline( configFile, line );
-        stripComment( line );
-        processLine( line );
+        std::string text;
+        std::getline( configFile, text );
+        trim( text );
+        evaluate( text );
     }
 
     configFile.close();
@@ -43,33 +47,39 @@ bool TextFileReader::readFile( const char* fileName )
 
 // protected ////////////////////////////////////////////////////////////////
 
-// Remove comments or other inert matter from the text string.
-void TextFileReader::stripComment( std::string& line )
+// Trim comments, whitespace and other inert matter from the text string.
+void TextFileReader::trim( std::string& text )
 {
-    // Simply truncate line at first comment-prefix character occurance.
+    // Truncate text at first comment-prefix character occurance.
     // IMPORTANT: This implementation completely ignores any quote or escape
     // protection of the comment-prefix character!!
-
-    size_t commentPos( line.find( '#', 0 ) );
+    size_t commentPos( text.find( '#', 0 ) );
     if ( commentPos != std::string::npos )
     {
-        line.erase( commentPos );
+        text.erase( commentPos );
     }
+
+    // trim leading/trailing whitespace from text.
+    std::stringstream trimmer;
+    trimmer << text;
+    text.clear();
+    trimmer >> text;
 }
 
 
-void TextFileReader::processLine( const std::string& line )
+#if 1
+// do something with the line of text.
+void TextFileReader::evaluate( std::string& text )
 {
-    if( ! line.empty() )
-    {
-        std::cout << "read line \"" << line << "\"" << std::endl;
-    }
+    if( text.empty() )
+        return;
 
-#if 0
-    // possible tokenization approach:
-    std::istringstream lineStream( line );
-    std::string token0;
-    lineStream >> token0;
+    // tokenization example:
+    std::istringstream textStream( text );
+    std::string token0, token1;
+    textStream >> token0 >> token1;
+    std::cout << "token0 = \"" << token0 << "\"" << std::endl;
+    std::cout << "token1 = \"" << token1 << "\"" << std::endl;
 #endif
 
 }
