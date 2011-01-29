@@ -10,7 +10,7 @@
 #define SVN_KEYWORD_STR_AUTHOR  "$Author$"
 #define SVN_KEYWORD_STR_URL     "$URL$"
 #define SVN_KEYWORD_STR_REV     "$Rev$"
-#define SVN_KEYWORD_INT_REV     ($Rev$)
+//#define SVN_KEYWORD_INT_REV     ($Rev$)
 
 #endif
 
