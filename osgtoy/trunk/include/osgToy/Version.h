@@ -1,4 +1,5 @@
 /* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2005 Robert Osfield 
+ * $Id: SvnKeywords.h 573 2011-01-29 17:11:21Z mew $
  *
  * This library is open source and may be redistributed and/or modified under  
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
@@ -16,31 +17,16 @@
 
 #include <osgToy/Export.h>
 
-
 extern "C" {
 
-/**
- * osgToyGetVersion() returns the library version number.
- * Numbering convention : osg_src-0.8.31 will return 0.8.31.
- *
- * This C function can be also used to check for the existence of the OpenSceneGraph
- * library using autoconf and its m4 macro AC_CHECK_LIB.
- *
- * Here is the code to add to your configure.in:
- \verbatim
- #
- # Check for the OpenSceneGraph (OSG) Toy library
- #
- AC_CHECK_LIB(osg, osgToyGetVersion, ,
-    [AC_MSG_ERROR(OpenSceneGraph Toy library not found. See http://www.openscenegraph.org)],)
- \endverbatim
-*/
 extern OSGTOY_EXPORT const char* osgToyGetVersion();
-
-/**
- * getLibraryName_osgToy() returns the library name in human friendly form.
-*/
 extern OSGTOY_EXPORT const char* osgToyGetLibraryName();
+
+extern OSGTOY_EXPORT const char* osgToySvnKeywordId();
+extern OSGTOY_EXPORT const char* osgToySvnKeywordDate();
+extern OSGTOY_EXPORT const char* osgToySvnKeywordAuthor();
+extern OSGTOY_EXPORT const char* osgToySvnKeywordUrl();
+extern OSGTOY_EXPORT const char* osgToySvnKeywordRevision();
 
 }
 
