@@ -11,7 +11,7 @@
 */
 
 /* file:	src/osgPlugins/filelist/ReaderWriterFILELIST.cpp
- * author:	Mike Weiblen http://mew.cx/ 2011-01-10
+ * author:	Mike Weiblen http://mew.cx/ 2011-01-30
  * copyright:	(C) 2011 Michael Weiblen
  * license:	OpenSceneGraph Public License (OSGPL)
 */
@@ -24,8 +24,9 @@
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 
-#define EXTENSION_NAME "filelist"
-// and "txt"
+#include <osgToy/TextFileReader.h>
+
+#define EXTENSION_NAME "filelist"	// and "txt"?
 
 ///////////////////////////////////////////////////////////////////////////
 

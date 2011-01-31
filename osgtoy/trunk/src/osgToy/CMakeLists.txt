@@ -43,6 +43,7 @@ SET( LIB_PUBLIC_HEADERS
     ${HEADER_PATH}/RungeKutta4.h
     ${HEADER_PATH}/SuperShape3D.h
     ${HEADER_PATH}/Teapot.h
+    ${HEADER_PATH}/TextFileReader.h
     ${HEADER_PATH}/Version.h
     ${_luaHeaders}
     ${_glslHeaders}
@@ -61,6 +62,7 @@ ADD_SHARED_LIBRARY_INTERNAL( ${LIB_NAME}
     RungeKutta4.cpp
     SuperShape3D.cpp
     Teapot.cpp
+    TextFileReader.cpp
     Version.cpp
     ${_luaSource}
     ${_glslSource}

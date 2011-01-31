@@ -2,7 +2,7 @@
 // also create .teapot pseudoloader with given image filename:
 //	osgviewer reflect.rgb.teapot
 
-
+#if 0
 
 /* OpenSceneGraph example, osgteapot.
 *
@@ -335,3 +335,5 @@ osg::Geode* createTeapot()
    
     return geode;
 }
+
+#endif

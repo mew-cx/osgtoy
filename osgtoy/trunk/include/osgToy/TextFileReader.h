@@ -3,12 +3,15 @@
 // Trims out "#"-prefixed comments and prefix/suffix whitespace cruft
 // from each line of text before calling your evaluate() method.
 
-#ifndef TEXTFILEREADER_H
-#define TEXTFILEREADER_H
+#ifndef OSGTOY_TEXTFILEREADER_H
+#define OSGTOY_TEXTFILEREADER_H
 
 #include <string>
+#include <osgToy/Export.h>
 
-class TextFileReader
+namespace osgToy {
+
+class OSGTOY_EXPORT TextFileReader
 {
 public:
     TextFileReader();
@@ -25,6 +28,8 @@ private:        // disallowed
     TextFileReader( const TextFileReader& );
     TextFileReader& operator=( const TextFileReader& );
 };
+
+}
 
 #endif
 
