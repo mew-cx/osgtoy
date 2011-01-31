@@ -1,14 +1,46 @@
-// $Id: Version.cpp,v 1.4 2006/07/10 06:20:34 mew Exp $
+// $Id$
+// Subversion's keyword substitution must be enabled to automatically update these values:
+//      svn propset svn:keywords "Id Date Author URL Revision" Version.cpp
 
-#include <osgVRPN/Version>
+#include <osgVRPN/Version.h>
+
 
 const char* osgVRPNGetVersion()
 {
-    return "0.3.1";
+    return "0.4.0";
 }
-
 
 const char* osgVRPNGetLibraryName()
 {
-    return "Open Scene Graph VRPN Library";
+    return "Open Scene Graph VRPN Library from http://mew.cx/";
 }
+
+
+
+const char* osgVRPNSvnKeywordId()
+{
+    return "$Id$";
+}
+
+const char* osgVRPNSvnKeywordDate()
+{
+    return "$Date$";
+}
+
+const char* osgVRPNSvnKeywordAuthor()
+{
+    return "$Author$";
+}
+
+const char* osgVRPNSvnKeywordUrl()
+{
+    return "$URL$";
+}
+
+const char* osgVRPNSvnKeywordRevision()
+{
+    return "$Revision$";
+}
+
+
+// vim: set sw=4 ts=8 et ic ai:
