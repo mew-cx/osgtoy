@@ -1,4 +1,5 @@
-/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2003 Robert Osfield 
+/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2005 Robert Osfield 
+ * $Id$
  *
  * This library is open source and may be redistributed and/or modified under  
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
@@ -14,35 +15,21 @@
 #ifndef OSGVRPN_VERSION
 #define OSGVRPN_VERSION 1
 
-#include <osgVRPN/Export>
-
+#include <osgVRPN/Export.h>
 
 extern "C" {
 
-/**
- * osgVRPNGetVersion() returns the library version number.
- * Numbering convention : osg_src-0.8.31 will return 0.8.31.
- *
- * This C function can be also used to check for the existence of the OpenSceneGraph
- * library using autoconf and its m4 macro AC_CHECK_LIB.
- *
- * Here is the code to add to your configure.in:
- \verbatim
- #
- # Check for the OpenSceneGraph (OSG) VRPN library
- #
- AC_CHECK_LIB(osg, osgVRPNGetVersion, ,
-    [AC_MSG_ERROR(OpenSceneGraph VRPN library not found. See http://www.openscenegraph.org)],)
- \endverbatim
-*/
 extern OSGVRPN_EXPORT const char* osgVRPNGetVersion();
-
-/**
- * getLibraryName_osgVRPN() returns the library name in human friendly form.
-*/
 extern OSGVRPN_EXPORT const char* osgVRPNGetLibraryName();
+
+extern OSGVRPN_EXPORT const char* osgVRPNSvnKeywordId();
+extern OSGVRPN_EXPORT const char* osgVRPNSvnKeywordDate();
+extern OSGVRPN_EXPORT const char* osgVRPNSvnKeywordAuthor();
+extern OSGVRPN_EXPORT const char* osgVRPNSvnKeywordUrl();
+extern OSGVRPN_EXPORT const char* osgVRPNSvnKeywordRevision();
 
 }
 
 #endif
 
+// vim: set sw=4 ts=8 et ic ai:
