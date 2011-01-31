@@ -1,7 +1,7 @@
+// $Id$
 // This code originally developed and posted to the osg-users mailing list
 // by Don Burns on 2004-12-10; see:
 // http://openscenegraph.org/pipermail/osg-users/2004-December/048243.html
- * $Id$
 
 #ifndef OSGTOY_NORMALS_H
 #define OSGTOY_NORMALS_H

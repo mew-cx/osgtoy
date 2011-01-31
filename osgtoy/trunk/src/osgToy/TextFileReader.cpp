@@ -1,11 +1,11 @@
 // TextFileReader.cpp
-// mew 2011-01-28
+// mew 2011-01-30
 // A super-simple 1-line-at-a-time textfile reader.
 // Trims out "#"-prefixed comments and prefix/suffix whitespace cruft
 // from each line of text before calling your evaluate() method.
 
 
-#include "TextFileReader.h"      // our interface definition
+#include <osgToy/TextFileReader.h>      // our interface definition
 
 #include <fstream>
 #include <sstream>
@@ -15,16 +15,16 @@
 
 // public ///////////////////////////////////////////////////////////////////
 
-TextFileReader::TextFileReader()
+osgToy::TextFileReader::TextFileReader()
 {
 }
 
-bool TextFileReader::readFile( const std::string& fileName )
+bool osgToy::TextFileReader::readFile( const std::string& fileName )
 {
-    readFile( fileName.c_str() );
+    return readFile( fileName.c_str() );
 }
 
-bool TextFileReader::readFile( const char* fileName )
+bool osgToy::TextFileReader::readFile( const char* fileName )
 {
     std::ifstream configFile;
     configFile.open( fileName );
@@ -48,7 +48,7 @@ bool TextFileReader::readFile( const char* fileName )
 // protected ////////////////////////////////////////////////////////////////
 
 // Trim comments, whitespace and other inert matter from the text string.
-void TextFileReader::trim( std::string& text )
+void osgToy::TextFileReader::trim( std::string& text )
 {
     // Truncate text at first comment-prefix character occurance.
     // IMPORTANT: This implementation completely ignores any quote or escape
@@ -69,7 +69,7 @@ void TextFileReader::trim( std::string& text )
 
 #if 1
 // do something with the line of text.
-void TextFileReader::evaluate( std::string& text )
+void osgToy::TextFileReader::evaluate( std::string& text )
 {
     if( text.empty() )
         return;
