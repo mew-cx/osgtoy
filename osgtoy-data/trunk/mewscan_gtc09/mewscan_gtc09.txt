@@ -1,0 +1,18 @@
+Copyright 2009-2011 Michael Weiblen http://mew.cx/
+
+Scan of mew by Dimensional Imaging http://www.di3d.com/ at NVIDIA GPU
+Technology Conference, Oct 2009.
+
+Both mesh and image drastically downsampled for convenient size.
+Mesh downsampled to 5% of original with:
+    osgconv Mike_Weiblen_005.obj.5.simplifier mewscan_gtc09.osg
+Image downsampled from 6336x4752 original to 1024x1024.
+
+10/02/2009  02:49 AM        17,471,988 Mike_Weiblen_005.jpg
+10/02/2009  02:49 AM               232 Mike_Weiblen_005.mtl
+10/02/2009  02:50 AM        14,756,117 Mike_Weiblen_005.obj
+01/30/2011  03:04 PM        11,767,720 Mike_Weiblen_005.osg
+01/30/2011  03:04 PM           168,097 mewscan_gtc09.jpg
+01/30/2011  03:04 PM           730,584 mewscan_gtc09.osg
+
+#EOF
