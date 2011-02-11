@@ -1,7 +1,7 @@
 // $Id$
 // A super-simple 1-line-at-a-time textfile reader.
-// Trims out "#"-prefixed comments and prefix/suffix whitespace cruft
-// from each line of text before calling your evaluate() method.
+// By default, trims out "#"-prefixed comments and prefix/suffix whitespace
+// cruft from each line of text before calling your evaluate() method.
 
 #ifndef OSGTOY_TEXTFILEREADER_H
 #define OSGTOY_TEXTFILEREADER_H
