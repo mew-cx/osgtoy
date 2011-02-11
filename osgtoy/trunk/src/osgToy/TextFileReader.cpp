@@ -1,8 +1,7 @@
-// TextFileReader.cpp
-// mew 2011-01-30
+// $Id$
 // A super-simple 1-line-at-a-time textfile reader.
-// Trims out "#"-prefixed comments and prefix/suffix whitespace cruft
-// from each line of text before calling your evaluate() method.
+// By default, trims out "#"-prefixed comments and prefix/suffix whitespace
+// cruft from each line of text before calling your evaluate() method.
 
 
 #include <osgToy/TextFileReader.h>      // our interface definition
@@ -67,22 +66,21 @@ void osgToy::TextFileReader::trim( std::string& text )
 }
 
 
-#if 1
-// do something with the line of text.
+#if 0
+// an example evaluate() implementation
 void osgToy::TextFileReader::evaluate( std::string& text )
 {
     if( text.empty() )
         return;
 
-    // tokenization example:
+    // simple tokenization
     std::istringstream textStream( text );
     std::string token0, token1;
     textStream >> token0 >> token1;
     std::cout << "token0 = \"" << token0 << "\"" << std::endl;
     std::cout << "token1 = \"" << token1 << "\"" << std::endl;
-#endif
-
 }
+#endif
 
 
 // vim: set sw=4 ts=8 et ic ai:
