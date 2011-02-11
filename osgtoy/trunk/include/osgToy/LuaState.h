@@ -1,12 +1,9 @@
-/* file:        include/osgToy/LuaState
- * author:      Mike Weiblen 2005-05-08
- * copyright:   (C) 2005-2006 Michael Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/osg/
- * $Id$
- *
- * see: http://lua.org/
-*/
+// $Id$
+// $URL$
+// Copyright 2005-2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
+//
+// see: http://lua.org/
 
 #ifndef OSGTOY_LUASTATE
 #define OSGTOY_LUASTATE 1

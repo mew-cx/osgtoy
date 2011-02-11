@@ -1,10 +1,7 @@
-/* file:        include/osgToy/MipmapTestImage
- * author:      Mike Weiblen
- * copyright:   (C) 2005 Michael Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/
- * $Id$
-*/
+// $Id$
+// $URL$
+// Copyright 2005-2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
 
 #ifndef OSGTOY_MIPMAPTESTIMAGE
 #define OSGTOY_MIPMAPTESTIMAGE 1

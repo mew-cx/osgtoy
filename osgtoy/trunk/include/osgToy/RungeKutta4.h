@@ -1,10 +1,7 @@
-/* file:        include/osgToy/RungeKutta4
- * author:      Mike Weiblen 2004-12-22
- * copyright:   (C) 2004 Michael Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/osg/
- * $Id$
-*/
+// $Id$
+// $URL$
+// Copyright 2004-2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
 
 #ifndef OSGTOY_RUNGEKUTTA4
 #define OSGTOY_RUNGEKUTTA4 1
