@@ -1,7 +1,7 @@
-// file:        src/osgToy/Geometry.cpp
-// author:      Mike Weiblen  http://mew.cx/  2011-01-11
-// copyright:   (C) 2011 Mike Weiblen
-// license:     OpenSceneGraph Public License (OSGPL)
+// $Id$
+// $URL$
+// Copyright 2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
 
 #include <osgToy/Geometry.h>
 
@@ -33,10 +33,10 @@ void osgToy::Geometry::setOverallColor( const osg::Vec4& color )
 /////////////////////////////////////////////////////////////////////////////
 // Quad
 
-osgToy::Quad::Quad( float width, float height, int texUnit ) : Geometry(4)
+osgToy::Quad::Quad( float width, float height ) : Geometry(4)
 {
-    const float w( width / 2.0f );
-    const float h( height / 2.0f );
+    const float w( width / 2 );
+    const float h( height / 2 );
 
     osg::Vec3Array& v( * dynamic_cast<osg::Vec3Array*>(getVertexArray()) );
     v[0] = osg::Vec3( -w, -h, 0 );
@@ -44,18 +44,20 @@ osgToy::Quad::Quad( float width, float height, int texUnit ) : Geometry(4)
     v[2] = osg::Vec3(  w, -h, 0 );
     v[3] = osg::Vec3(  w,  h, 0 );
 
-    if( texUnit >= 0 )
-    {
-        setTexCoordArray( texUnit, new osg::Vec2Array(4) );
-        osg::Vec2Array& t( * dynamic_cast<osg::Vec2Array*>(getTexCoordArray( texUnit )) );
-        t[0] = osg::Vec2( 0,0 );
-        t[1] = osg::Vec2( 0,1 );
-        t[2] = osg::Vec2( 1,0 );
-        t[3] = osg::Vec2( 1,1 );
-    }
-
     addPrimitiveSet( new osg::DrawArrays(osg::PrimitiveSet::QUADS, 0, v.size()) );
 }
+
+osgToy::Quad::setTexture( int texUnit )
+{
+    osg::Vec2Array* t( new osg::Vec2Array(4) );
+    setTexCoordArray( texUnit, t );
+    t[0] = osg::Vec2( 0,0 );
+    t[1] = osg::Vec2( 0,1 );
+    t[2] = osg::Vec2( 1,0 );
+    t[3] = osg::Vec2( 1,1 );
+}
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -63,25 +65,11 @@ osgToy::Lines::Lines()
 {
     osg::StateSet* ss( getOrCreateStateSet() );
     ss->setMode( GL_LIGHTING, osg::StateAttribute::OFF );
+    addPrimitiveSet( new osg::DrawArrays( osg::PrimitiveSet::LINES, 0, 0 ) );
 }
 
 void osgToy::Lines::addLine( const osg::Vec3& a, const osg::Vec3& b )
 {
-    switch( getNumPrimitiveSets() )
-    {
-        case 0:
-            addPrimitiveSet( new osg::DrawArrays( GL_LINES, 0, 0 ) );
-            break;
-
-        case 1:
-            // no nothing: DrawArrays already exists
-            break;
-
-        default:
-            osg::notify(osg::FATAL) << "WTF?" << std::endl;
-            break;
-    }
-
     osg::Vec3Array& v( * dynamic_cast<osg::Vec3Array*>(getVertexArray()) );
     v.push_back( a );
     v.push_back( b );
