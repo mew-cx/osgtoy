@@ -1,4 +1,8 @@
 // $Id$
+// $URL$
+// Copyright 2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
+//
 // This code originally developed and posted to the osg-users mailing list
 // by Don Burns on 2004-12-10; see:
 // http://openscenegraph.org/pipermail/osg-users/2004-December/048243.html

@@ -1,10 +1,7 @@
-/* file:        include/osgToy/Polyhedra
- * author:      Mike Weiblen
- * copyright:   (C) 2005 Mike Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/
- * $Id$
-*/
+// $Id$
+// $URL$
+// Copyright 2005-2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
 
 #ifndef OSGTOY_POLYHEDRA
 #define OSGTOY_POLYHEDRA

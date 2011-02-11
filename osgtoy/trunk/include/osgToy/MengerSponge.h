@@ -1,13 +1,10 @@
-/* file:        include/osgToy/MengerSponge
- * author:      Mike Weiblen
- * copyright:   (C) 2004-2005 Michael Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/
- * $Id$
- *
- * see: http://en.wikipedia.org/wiki/Menger_sponge
- *      http://mathworld.wolfram.com/MengerSponge.html
-*/
+// $Id$
+// $URL$
+// Copyright 2004-2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
+//
+// see: http://en.wikipedia.org/wiki/Menger_sponge
+//      http://mathworld.wolfram.com/MengerSponge.html
 
 #ifndef OSGTOY_MENGERSPONGE
 #define OSGTOY_MENGERSPONGE 1

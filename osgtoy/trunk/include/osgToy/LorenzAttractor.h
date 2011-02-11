@@ -1,13 +1,10 @@
-/* file:        include/osgToy/LorenzAttractor
- * author:      Mike Weiblen 2005-05-05
- * copyright:   (C) 2004-2005 Michael Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/
- * $Id$
- *
- * see: http://en.wikipedia.org/wiki/Lorenz_attractor
- *      http://mathworld.wolfram.com/LorenzAttractor.html
-*/
+// $Id$
+// $URL$
+// Copyright 2004-2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
+//
+// see: http://en.wikipedia.org/wiki/Lorenz_attractor
+//      http://mathworld.wolfram.com/LorenzAttractor.html
 
 #ifndef OSGTOY_LORENZATTRACTOR
 #define OSGTOY_LORENZATTRACTOR 1

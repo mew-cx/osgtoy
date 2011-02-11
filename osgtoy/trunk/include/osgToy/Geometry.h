@@ -1,8 +1,7 @@
 // $Id$
-// file:        include/osgToy/Geometry.h
-// author:      Mike Weiblen  http://mew.cx/  2011-01-11
-// copyright:   (C) 2011 Mike Weiblen
-// license:     OpenSceneGraph Public License (OSGPL)
+// $URL$
+// Copyright 2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
 
 
 #ifndef OSGTOY_GEOMETRY
@@ -27,10 +26,11 @@ protected:
 };
 
 
-class OSGTOY_EXPORT Quad : public Geometry
+class OSGTOY_EXPORT Quad : public osgToy::Geometry
 {
 public:
-    Quad( float width, float height, int texUnit = -1 );
+    Quad( float width, float height );
+    setTexture( int texUnit );
 
 protected:
     virtual ~Quad() {}
@@ -40,7 +40,7 @@ private:
 };
 
 
-class OSGTOY_EXPORT Lines : public Geometry
+class OSGTOY_EXPORT Lines : public osgToy::Geometry
 {
 public:
     Lines();
@@ -54,8 +54,14 @@ protected:
 class OSGTOY_EXPORT WireBox : public osgToy::Lines
 {
 public:
-    WireBox( const osg::Vec3& vMin, const osg::Vec3& vMax ) { create( vMin, vMax ); }
-    WireBox( const osg::BoundingBox& bb ) { create( bb._min, bb._max ); }
+    WireBox( const osg::Vec3& vMin, const osg::Vec3& vMax )
+    {
+        create( vMin, vMax );
+    }
+    WireBox( const osg::BoundingBox& bb )
+    {
+        create( bb._min, bb._max );
+    }
 
 protected:
     void create( const osg::Vec3& min, const osg::Vec3& max );
@@ -79,9 +85,9 @@ private:
 };
 
 
-/////////////////////////////////////////////////////////////////////////////
+// FUTURE ///////////////////////////////////////////////////////////////////
 
-class OSGTOY_EXPORT Grid : public osgToy::Lines         // TODO
+class OSGTOY_EXPORT Grid : public osgToy::Lines
 {
 public:
     Grid( const osg::Vec3& position, const osg::Vec3& normal );
@@ -92,7 +98,7 @@ private:
 };
 
 
-class OSGTOY_EXPORT Vec3 : public Geometry    // TODO
+class OSGTOY_EXPORT Vec3 : public osgToy::Geometry
 {
 public:
     Vec3( const osg::Vec3& v );

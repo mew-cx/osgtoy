@@ -1,17 +1,13 @@
-/* file:        include/osgToy/SuperShape3D
- * author:      Mike Weiblen
- * copyright:   (C) 2005 Michael Weiblen
- * license:     OpenSceneGraph Public License (OSGPL)
- * website:     http://mew.cx/
- * $Id$
- *
- * OSG code derived from Jason McVeigh's OpenSceneGraph Tutorials:
- * http://www.tersesolutions.net/osgt/
- * http://www.tersesolutions.net/osgt/index.php?Tutorial=osgtSuperShape
- *
- * see also:
- * http://astronomy.swin.edu.au/~pbourke/surfaces/supershape3d/
-*/
+// $Id$
+// $URL$
+// Copyright 2005-2011 Mike Weiblen http://mew.cx/
+// OpenSceneGraph Public License (OSGPL)
+//
+// OSG code derived from Jason McVeigh's OpenSceneGraph Tutorials:
+//      http://www.tersesolutions.net/osgt/
+//      http://www.tersesolutions.net/osgt/index.php?Tutorial=osgtSuperShape
+// see also:
+//      http://astronomy.swin.edu.au/~pbourke/surfaces/supershape3d/
 
 #ifndef OSGTOY_SUPERSHAPE3D
 #define OSGTOY_SUPERSHAPE3D 1

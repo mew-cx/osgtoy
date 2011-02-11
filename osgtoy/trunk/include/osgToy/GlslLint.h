@@ -1,6 +1,9 @@
+// $Id$
+// $URL$
+// Copyright 2005-2011 Mike Weiblen http://mew.cx/
+// 3Dlabs_license.txt
+
 /* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2005 Robert Osfield 
- * $Id$
- *
  * This library is open source and may be redistributed and/or modified under  
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
  * (at your option) any later version.  The full license is in LICENSE file
@@ -12,11 +15,6 @@
  * OpenSceneGraph Public License for more details.
 */
 
-/* file:        include/osgToy/GlslLint
- * author:      Mike Weiblen
- * copyright:   (C) 2005 3Dlabs Inc. Ltd.
- * license:     3Dlabs_license.txt
-*/
 
 #ifndef OSGTOY_GLSLLINT
 #define OSGTOY_GLSLLINT 1
