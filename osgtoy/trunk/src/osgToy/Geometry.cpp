@@ -47,10 +47,11 @@ osgToy::Quad::Quad( float width, float height ) : Geometry(4)
     addPrimitiveSet( new osg::DrawArrays(osg::PrimitiveSet::QUADS, 0, v.size()) );
 }
 
-osgToy::Quad::setTexture( int texUnit )
+void osgToy::Quad::setTexture( int texUnit )
 {
-    osg::Vec2Array* t( new osg::Vec2Array(4) );
-    setTexCoordArray( texUnit, t );
+    setTexCoordArray( texUnit, new osg::Vec2Array(4) );
+
+    osg::Vec2Array& t( * dynamic_cast<osg::Vec2Array*>(getTexCoordArray(texUnit)) );
     t[0] = osg::Vec2( 0,0 );
     t[1] = osg::Vec2( 0,1 );
     t[2] = osg::Vec2( 1,0 );
