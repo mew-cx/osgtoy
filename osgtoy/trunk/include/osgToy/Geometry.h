@@ -30,7 +30,7 @@ class OSGTOY_EXPORT Quad : public osgToy::Geometry
 {
 public:
     Quad( float width, float height );
-    setTexture( int texUnit );
+    void setTexture( int texUnit );
 
 protected:
     virtual ~Quad() {}
