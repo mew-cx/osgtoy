@@ -1,7 +1,5 @@
-::::::::::::::
-t2
-::::::::::::::
-mew 2011-01-12
+$Id$
+$URL$
 
 plugin features to perhaps exploit...
 
@@ -14,31 +12,38 @@ supportsOption("addGroupPerFeature", "Places each feature in a seperate group.")
 supportsExtension("shp","Geospatial Shape file format");
 supportsOption("double","Read x,y,z data as double an stored as geometry in osg::Vec3dArray's.");
 
-
-
 -----------------------------------------------------------------------------
 
-mew 2008-10-18
+.info pseudo loader : creates and invokes an osgToy::InfoVisitor
 
-.info pseudo loader
+osgToy::InfoVisitor will display for nodes in the scene:
+    bounding box
+    stats on count/details about geometry, texture, shaders, etc
 
-creates and invokes an osgToy::InfoVisitor
-
-
-InfoVisitor will display for nodes in the scene:
-	bounding box
-	stats on count/details about geometry, texture, shaders, etc
-
------------------------------------------------------------------------------
-
-.rot pseudoloader: a simple swizzle notation to transform coordinate frames
-eg:	"foo.osg.Yxz.rot" -> +Y to X, -x to Y, -z to Z
-
-
------------------------------------------------------------------------------
+.rot pseudoloader: add a simple swizzle notation to transform coordinate frames
+    eg: "foo.osg.Yxz.rot" -> +Y to X, -x to Y, -z to Z
 
 .sponge : options to set face colors (all white v. RGB)
 
 .bsphere : like .bbox?
 
+.ktx : image reader/writer for the Khronos KTX format.
 
+.filelist : read a list of filenames from another file.
+
+.mipmap : load a stack of mipmap images from a multi-image fileformat like .dds or .ktx
+
+.cubmap : load a set of cubemap images from a multi-image fileformat like .dds or .ktx
+
+.icosphere : generate a sphere of specified tesselation (eg: 10.icosphere)
+    what about texcoords?  spheremap or environment map?
+
+.seamless : load a gridfloat heightfield array from seamless.usgs.gov
+
+.bbox:
+        are translations handled correctly?
+        option to display numeric tags in the scene?
+
+
+
+#EOF
