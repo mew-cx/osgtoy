@@ -10,8 +10,9 @@
  *
 */
 
-/* file:	src/osgPlugins/filelist/ReaderWriterFILELIST.cpp
- * author:	Mike Weiblen http://mew.cx/ 2011-01-30
+/* $Id$
+ * $URL$
+ * author:	Mike Weiblen http://mew.cx/ 2011-04-04
  * copyright:	(C) 2011 Michael Weiblen
  * license:	OpenSceneGraph Public License (OSGPL)
 */
@@ -24,23 +25,57 @@
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 
+#include <string>
+#include <iostream>
+#include <sstream>
 #include <osgToy/TextFileReader.h>
 
 #define EXTENSION_NAME "filelist"	// and "txt"?
 
+
 ///////////////////////////////////////////////////////////////////////////
 
-/**
- * An OSG reader plugin for the ".filelist" pseudo-loader, which reads a
- * list of filenames from a text file.  The files are loaded and added
- * as children to a osg::Group node.
- * Any portion of a line after a "#" commenting character is ignored.
- * Whitespace and blank lines are ignored.
- *
- * Usage: <file.ext>.filelist
- *
- * example: osgviewer myfiles.txt.filelist
- */
+namespace {
+
+class FilelistReader : public osgToy::TextFileReader
+{
+public:
+    FilelistReader( osg::Group* group ) : _group(group) {}
+    virtual ~FilelistReader() {}
+
+    osg::Group* getGroup() const { return _group; }
+
+protected:        // methods
+    virtual void evaluate( std::string& filename );
+
+private:
+    FilelistReader();   // disallowed
+    osg::Group* _group;
+
+};
+
+
+void FilelistReader::evaluate( std::string& filename )
+{
+    if( filename.empty() )
+        return;
+
+    osg::notify(osg::INFO) << "reading file \"" << filename << "\"" << std::endl;
+    osg::Node* node( osgDB::readNodeFile( filename /*, options */ ) );
+    if( node )
+    {
+        _group->addChild( node );
+    }
+    else
+    {
+        osg::notify(osg::WARN) << "file \"" << filename << "\" could not be loaded" << std::endl;
+    }
+}
+
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
 
 class ReaderWriterFILELIST : public osgDB::ReaderWriter
 {
@@ -55,7 +90,7 @@ public:
 
     virtual const char* className() const { return "filelist pseudo-loader"; }
 
-    virtual ReadResult readNode(const std::string& fileName, const osgDB::ReaderWriter::Options* options) const
+    virtual ReadResult readNode( const std::string& fileName, const osgDB::ReaderWriter::Options* options ) const
     {
 	std::string ext = osgDB::getLowerCaseFileExtension(fileName);
 	if( !acceptsExtension(ext) )
@@ -63,46 +98,18 @@ public:
 
 	osg::notify(osg::INFO) << "ReaderWriterFILELIST( \"" << fileName << "\" )" << std::endl;
 
-
-
-
-
-
-	// strip the pseudo-loader extension, which must leave a sub-filename.
-	std::string subFileName = osgDB::getNameLessExtension( fileName );
-	if( subFileName == fileName )
-	{
-	    osg::notify(osg::WARN) << "Missing subfilename for " EXTENSION_NAME " pseudo-loader" << std::endl;
-	    return ReadResult::FILE_NOT_HANDLED;
-	}
-
-
-
-
-
-
-	// recursively load the subfile.
-        osg::HeightField* hf = readHeightFieldFile(subFileName.c_str(), options);
-        if (!hf)
+        FilelistReader flr( new osg::Group );
+        if( ! flr.readFile( fileName ) )
 	{
 	    // propagate the read failure upwards
-	    osg::notify(osg::WARN) << "Subfile \"" << subFileName << "\" could not be loaded" << std::endl;
+	    osg::notify(osg::WARN) << "filelist \"" << fileName << "\" could not be loaded" << std::endl;
 	    return ReadResult::FILE_NOT_HANDLED;
 	}
-
-
-
-
-
-
-	osg::Geode* geode = new osg::Geode;
-	geode->addDrawable(new osg::ShapeDrawable(hf));
-	return geode;
+	return flr.getGroup();
     }
 };
-
 
 // Add ourself to the Registry to instantiate the reader/writer.
 osgDB::RegisterReaderWriterProxy<ReaderWriterFILELIST> g_readerWriter_FILELIST_Proxy;
 
-/*EOF*/
+// vim: set sw=4 ts=8 et ic ai:
