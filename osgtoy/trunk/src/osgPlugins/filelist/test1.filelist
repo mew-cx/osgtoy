@@ -1,0 +1,18 @@
+# a test file for the OSG .filelist reader.
+# invoke with:
+#    osgviewer test1.filelist
+
+
+axes.osg
+cessnafire.osg
+cow.osg
+cube_mapped_torus.osg.spin
+dumptruck.osg
+#example.osg
+missing.osg
+#fountain.osg
+glider.osg
+osgcool.osg
+spaceship.osg
+
+
