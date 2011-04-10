@@ -1,23 +1,25 @@
 #! /bin/sh
+# $Id: configure 765 2011-03-28 13:37:51Z weiblenm $
+# quick draft of a "no secrets" wrapper around cmake.
 
-ORIG_DIR=${PWD}
-PROJECT_DIR=`dirname $0`
+ORIG_DIR="${PWD}"
+PROJECT_DIR="`dirname $0`"
 
 # edit your configuration preferences here ##################################
 
-SOURCE_DIR=${PROJECT_DIR}
-BUILD_DIR=${SOURCE_DIR}/build
-INSTALL_DIR=${PROJECTS}/3rdParty
+SOURCE_DIR="${PROJECT_DIR}"
+BUILD_DIR="${SOURCE_DIR}/_BUILD_"
+INSTALL_DIR="${PROJECTS}/3rdParty"
 
-CMAKE_BUILD_TYPE=RelWithDebInfo
-#CMAKE_BUILD_TYPE=Debug
-#CMAKE_BUILD_TYPE=Release
-#CMAKE_BUILD_TYPE=MinSizeRel
 
-VAR_LIST=-L     # list simple variables
-#VAR_LIST=-LA   # list all variables
-#VAR_LIST=-LAH  # list all variables with help
+CMAKE_BUILD_TYPE="RelWithDebInfo"
+#CMAKE_BUILD_TYPE="Debug"
+#CMAKE_BUILD_TYPE="Release"
+#CMAKE_BUILD_TYPE="MinSizeRel"
 
+#VAR_LIST="-L"          # list simple variables
+#VAR_LIST="-LA"         # list all variables
+#VAR_LIST="-LAH"        # list all variables with help
 
 CMAKE_FLAGS="${VAR_LIST} \
     -DCMAKE_INSTALL_PREFIX:PATH=${INSTALL_DIR} \
