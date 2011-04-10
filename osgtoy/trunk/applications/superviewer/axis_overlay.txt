@@ -42,3 +42,8 @@ intended primarily for attaching these to a cameraview|viewmanipulator
 (BTW, is this connection related to the osgVRPN view manipulator?)
 
 
+===========================================================================
+Other TODO stuff:
+
+capture/restore "bookmarks": XYZHPR of viewpoint in scene.
+
