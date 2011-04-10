@@ -31,6 +31,8 @@ extern OSGTOY_EXPORT const char* osgToySvnKeywordAuthor();
 extern OSGTOY_EXPORT const char* osgToySvnKeywordUrl();
 extern OSGTOY_EXPORT const char* osgToySvnKeywordRevision();
 
+extern OSGTOY_EXPORT const unsigned int osgToySvnRevision();
+
 }
 
 #endif
