@@ -1,30 +1,36 @@
 SET( LIB_NAME osgVRPN )
 
-FILE( GLOB TARGET_SOURCES *.cpp )
-FILE( GLOB TARGET_HEADERS *.h )
-
-INCLUDE_DIRECTORIES( ${osgVRPN_SOURCE_DIR}/include ${OSG_INCLUDE_DIR} )
-
 ADD_DEFINITIONS( -DOSGVRPN_LIBRARY )
+SET( HEADER_PATH ${PROJECT_SOURCE_DIR}/include/${LIB_NAME} )
 
-ADD_LIBRARY( ${LIB_NAME} SHARED
-    ${TARGET_SOURCES}
-    ${TARGET_HEADERS}
+SET( LIB_PUBLIC_HEADERS
+    ${HEADER_PATH}/Analog.h
+    ${HEADER_PATH}/AnalogTracker.h
+    ${HEADER_PATH}/Button.h
+    ${HEADER_PATH}/Export.h
+    ${HEADER_PATH}/TrackerBase.h
+    ${HEADER_PATH}/Tracker.h
+    ${HEADER_PATH}/TrackerManipulator.h
+    ${HEADER_PATH}/TrackerTransform.h
+    ${HEADER_PATH}/Version.h
 )
 
-# append "D" to debug product names
-SET_TARGET_PROPERTIES( ${LIB_NAME} PROPERTIES DEBUG_POSTFIX "D" )
-
-# hack: put .dll in "bin", .lib in "lib"
-IF (MSVC)
-    SET_TARGET_PROPERTIES( ${LIB_NAME} PROPERTIES PREFIX "../../bin/" )
-    SET_TARGET_PROPERTIES( ${LIB_NAME} PROPERTIES IMPORT_PREFIX "../lib/" )
-ENDIF (MSVC)
-
-LINK_WITH_VARIABLES( ${LIB_NAME}
-    OSG_LIBRARY
-    OSGGA_LIBRARY
-    OSGVIEWER_LIBRARY
+ADD_SHARED_LIBRARY_INTERNAL( ${LIB_NAME}
+    ${LIB_PUBLIC_HEADERS}
+    Analog.cpp
+    AnalogTracker.cpp
+    Button.cpp
+    CMakeLists.txt
+    Tracker.cpp
+    TrackerManipulator.cpp
+    TrackerTransform.cpp
+    Version.cpp
+    Version.cpp
 )
 
-# vim: set sw=4 ts=8 et ic ai:
+TARGET_LINK_LIBRARIES( ${LIB_NAME}
+    ${OSG_LIBRARIES}
+)
+
+INCLUDE(ModuleInstall OPTIONAL)
+

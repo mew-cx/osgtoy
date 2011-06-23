@@ -1,4 +1,7 @@
-SET( TARGET_SRC
+SET( LIB_NAME osgdb_tracker )
+
+ADD_OSGPLUGIN( ${LIB_NAME}
     ReaderWriterTRACKER.cpp
 )
-SETUP_PLUGIN(tracker)
+
+INCLUDE(ModuleInstall OPTIONAL)
