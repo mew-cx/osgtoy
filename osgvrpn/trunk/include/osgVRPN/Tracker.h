@@ -13,7 +13,7 @@
 #include <osg/Matrixd>
 #include <osgVRPN/TrackerBase.h>
 
-#include <osgVRPN/Export>
+#include <osgVRPN/Export.h>
 
 #include <vrpn_Configure.h>
 // fwd declarations to reduce need for VRPN headers

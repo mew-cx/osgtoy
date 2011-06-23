@@ -12,7 +12,7 @@
 #include <osg/ref_ptr>
 #include <osg/Array>
 
-#include <osgVRPN/Export>
+#include <osgVRPN/Export.h>
 
 #include <vrpn_Configure.h>
 // fwd declarations to reduce need for VRPN headers
