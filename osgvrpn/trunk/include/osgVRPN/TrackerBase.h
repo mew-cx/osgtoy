@@ -12,7 +12,7 @@
 #include <osg/Matrixd>
 #include <osg/Referenced>
 
-#include <osgVRPN/Export>
+#include <osgVRPN/Export.h>
 
 namespace osgVRPN {
 

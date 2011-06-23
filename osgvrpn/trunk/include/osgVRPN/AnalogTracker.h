@@ -19,7 +19,7 @@ class Viewer;
 #include <osgVRPN/Analog.h>
 #include <osgVRPN/Button.h>
 
-#include <osgVRPN/Export>
+#include <osgVRPN/Export.h>
 
 namespace osgVRPN {
 

@@ -15,7 +15,7 @@
 #include <osgGA/GUIActionAdapter>
 #include <osgVRPN/TrackerBase.h>
 
-#include <osgVRPN/Export>
+#include <osgVRPN/Export.h>
 
 namespace osgVRPN {
 
