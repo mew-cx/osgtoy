@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: Button.cpp,v 1.2 2006/07/15 17:28:35 mew Exp $
+ * $Id$
 */
 
 #include <osgVRPN/Button.h>

@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: AnalogTracker.cpp,v 1.6 2006/07/17 11:20:58 mew Exp $
+ * $Id$
 */
 
 #include <osgVRPN/AnalogTracker.h>

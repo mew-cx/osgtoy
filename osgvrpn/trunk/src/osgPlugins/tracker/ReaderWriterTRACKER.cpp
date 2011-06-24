@@ -14,7 +14,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2004-2006  Mike Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterTRACKER.cpp,v 1.4 2006/07/16 00:00:06 mew Exp $
+ * $Id$
 */
 
 #include <osg/Notify>
