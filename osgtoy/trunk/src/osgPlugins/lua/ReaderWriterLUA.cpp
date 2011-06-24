@@ -14,7 +14,7 @@
  * author:    Mike Weiblen
  * copyright: (C) 2004-2006 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterLUA.cpp,v 1.2 2006/07/15 23:57:43 mew Exp $
+ * $Id$
 */
 
 #include <stdio.h>

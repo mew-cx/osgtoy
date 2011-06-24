@@ -13,7 +13,7 @@
 
 // mew 2004-12-21
 // derived from osgUtil::SmoothingVisitor.cpp
-// $Id: FacetingVisitor.cpp,v 1.2 2006/09/11 06:24:05 mew Exp $
+// $Id$
 
 #include <osg/TriangleIndexFunctor>
 

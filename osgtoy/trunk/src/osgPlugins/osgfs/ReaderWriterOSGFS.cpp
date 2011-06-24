@@ -14,7 +14,7 @@
  * author:    Mike Weiblen http://mew.cx/
  * copyright: (C) 2007 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterOSGFS.cpp,v 1.2 2007/02/19 15:15:45 mew Exp $
+ * $Id$
 */
 
 #include <sstream>

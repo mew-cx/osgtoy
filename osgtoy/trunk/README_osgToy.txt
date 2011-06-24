@@ -1,4 +1,4 @@
-$Id: README_osgToy.txt,v 1.2 2005/08/31 23:54:40 mew Exp $
+$Id$
 Mike Weiblen  http://mew.cx/
 
 My laboratory for OpenSceneGraph experimentation and prototyping,

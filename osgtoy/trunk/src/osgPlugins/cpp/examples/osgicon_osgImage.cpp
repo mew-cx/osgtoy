@@ -1,7 +1,7 @@
 /* file:      ${IMAGE_NAME}_osgImage.cpp
  * copyright: (C) 2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: osgicon_osgImage.cpp,v 1.1 2007/03/18 23:51:22 mew Exp $
+ * $Id$
 */
 
 #include <osg/Image>

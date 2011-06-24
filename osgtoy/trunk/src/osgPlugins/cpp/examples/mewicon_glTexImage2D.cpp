@@ -1,7 +1,7 @@
 /* file:      ${IMAGE_NAME}_glTexImage2D.cpp
  * copyright: (C) 2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: mewicon_glTexImage2D.cpp,v 1.1 2007/03/18 23:51:22 mew Exp $
+ * $Id$
 */
 
 #include <GL/gl.h>

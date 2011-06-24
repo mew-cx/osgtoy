@@ -1,6 +1,6 @@
 /* file:   applications/superviewer/SectorStar.cpp
  * author: Mike Weiblen
- * $Id: SectorStar.cpp,v 1.1 2007/02/17 05:00:57 mew Exp $
+ * $Id$
 */
 
 #include <map>

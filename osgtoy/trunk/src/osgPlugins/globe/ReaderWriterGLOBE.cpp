@@ -14,7 +14,7 @@
  * author:    Mike Weiblen
  * copyright: (C) 2004-2006 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterGLOBE.cpp,v 1.2 2006/07/15 23:57:42 mew Exp $
+ * $Id$
 */
 
 #include <osg/Notify>

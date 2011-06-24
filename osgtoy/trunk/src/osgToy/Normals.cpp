@@ -2,7 +2,7 @@
 // by Don Burns on 2004-12-10; see:
 // http://openscenegraph.org/pipermail/osg-users/2004-December/048243.html
 // mew 2004-12-22
-// $Id: Normals.cpp,v 1.2 2006/09/11 06:24:05 mew Exp $
+// $Id$
 
 
 #include "osgToy/Normals.h"
