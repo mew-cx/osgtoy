@@ -32,6 +32,7 @@ INCLUDE_DIRECTORIES(
 # HACK: Not sure why this is necessary to find debug library
 LINK_DIRECTORIES(
     ${EXECUTABLE_OUTPUT_PATH}/Debug
+    ${CMAKE_INSTALL_PREFIX}/lib         # hack to find libvrpn.a
 )
 
 add_subdirectory( src/osgVRPN )
