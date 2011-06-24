@@ -1,4 +1,4 @@
-$Id: README_osgtoy.txt,v 1.1 2006/06/28 08:46:36 mew Exp $
+$Id$
 
 Regarding the release policy of "Toys for the OpenSceneGraph" at
 http://sourceforge.net/projects/osgtoy/ ...

@@ -3,7 +3,7 @@
  * copyright:   (C) 2005 Michael Weiblen
  * license:     OpenSceneGraph Public License (OSGPL)
  * website:     http://mew.cx/
- * $Id: MipmapTestImage.cpp,v 1.2 2005/11/27 02:40:51 mew Exp $
+ * $Id$
 */
 
 #include <osgToy/MipmapTestImage.h>

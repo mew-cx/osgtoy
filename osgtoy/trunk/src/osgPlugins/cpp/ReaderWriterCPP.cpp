@@ -13,7 +13,7 @@
 /* file:      src/osgPlugins/hpp/ReaderWriterHPP.cpp
  * copyright: (C) 2007 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: ReaderWriterCPP.cpp,v 1.4 2007/03/18 23:51:04 mew Exp $
+ * $Id$
 */
 
 #include <osg/Notify>

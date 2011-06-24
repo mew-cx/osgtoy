@@ -15,7 +15,7 @@
  * copyright: (C) 2006 Michael Weiblen http://mew.cx/
  *            (C) 2005 3Dlabs Inc. Ltd.
  * license:   3Dlabs_license.txt
- * $Id: ReaderWriterGLSLLINT.cpp,v 1.4 2006/07/15 23:57:42 mew Exp $
+ * $Id$
 */
 
 #include <string>

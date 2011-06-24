@@ -14,7 +14,7 @@
  * author:    Mike Weiblen
  * copyright: (C) 2008 Michael Weiblen http://mew.cx/
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: 2008-10-10 $
+ * $Id$
 */
 
 // mew: quick hack to read XYZI comma-delimited vec4s from text file.

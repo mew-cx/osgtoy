@@ -15,7 +15,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2005 3Dlabs Inc. Ltd.
  * license:     3Dlabs_license.txt
- * $Id: GlslLint.cpp,v 1.6 2006/09/11 06:24:05 mew Exp $
+ * $Id$
 */
 
 // This code written to OpenGLCompilerJune082005.zip from

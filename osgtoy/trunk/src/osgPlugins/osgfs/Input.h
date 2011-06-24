@@ -15,7 +15,7 @@
  * author:    Mike Weiblen http://mew.cx/
  * copyright: (C) 2007 Michael Weiblen
  * license:   OpenSceneGraph Public License (OSGPL)
- * $Id: Input.h,v 1.1 2007/02/18 22:21:59 mew Exp $
+ * $Id$
 */
 
 #ifndef OSGFS_INPUT

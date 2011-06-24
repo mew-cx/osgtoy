@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2005-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: VrpnManip.cpp,v 1.1 2007/02/18 22:21:22 mew Exp $
+ * $Id$
 */
 
 #include <osg/Vec3>

@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2005-2007 Michael Weiblen  http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: superviewer.cpp,v 1.2 2007/04/15 13:27:51 mew Exp $
+ * $Id$
 */
 
 /* TODOs
