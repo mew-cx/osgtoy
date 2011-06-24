@@ -1,6 +1,6 @@
 /* file:        include/osgVRPN/AnalogTracker.h
  * author:      Mike Weiblen
- * copyright:   (C) 2006-2007 Michael Weiblen http://mew.cx/
+ * copyright:   (C) 2006-2011 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
  * $Id$
 */
@@ -51,7 +51,7 @@ public:
     void setResetButton( int button ) {_resetButton = button;}
 
     /** Set/get rotation scaling factor */
-    void setRotationScale( osg::Vec3& rs ) { _rotScale = rs; }
+    void setRotationScale( const osg::Vec3& rs ) { _rotScale = rs; }
     const osg::Vec3& getRotationScale() const { return _rotScale; }
 
     /** Set the viewer that this Tracker will be relative to */

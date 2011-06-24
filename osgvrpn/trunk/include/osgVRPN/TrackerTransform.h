@@ -1,8 +1,8 @@
 /* file:        include/osgVRPN/TrackerTransform.h
  * author:      Mike Weiblen
- * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
+ * copyright:   (C) 2003-2011 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerTransform.h,v 1.8 2006/07/17 11:20:22 mew Exp $
+ * $Id$
 */
 
 #ifndef OSG_TRACKERTRANSFORM

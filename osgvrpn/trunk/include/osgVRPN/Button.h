@@ -1,6 +1,6 @@
 /* file:        include/osgVRPN/Button.h
  * author:      Mike Weiblen
- * copyright:   (C) 2006-2007 Michael Weiblen http://mew.cx/
+ * copyright:   (C) 2006-2011 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
  * $Id$
 */

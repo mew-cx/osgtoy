@@ -1,8 +1,8 @@
 /* file:        include/osgVRPN/TrackerBase.h
  * author:      Mike Weiblen
- * copyright:   (C) 2006 Michael Weiblen http://mew.cx/
+ * copyright:   (C) 2006-2011 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerBase.h,v 1.4 2006/07/15 17:28:35 mew Exp $
+ * $Id$
 */
 
 #ifndef OSGVRPN_TRACKERBASE
@@ -38,7 +38,7 @@ public:
     virtual const osg::Matrixd getInverseMatrix() const = 0;
 
     /** Set/get translation scaling factor */
-    void setTranslationScale( osg::Vec3& ts ) { _transScale = ts; }
+    void setTranslationScale( const osg::Vec3& ts ) { _transScale = ts; }
     const osg::Vec3& getTranslationScale() const { return _transScale; }
 
 protected:      // methods
