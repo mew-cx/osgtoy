@@ -1,5 +1,5 @@
 #! /bin/sh
-# $Id: configure 765 2011-03-28 13:37:51Z weiblenm $
+# $Id$
 # quick draft of a "no secrets" wrapper around cmake.
 
 ORIG_DIR="${PWD}"
@@ -11,21 +11,20 @@ SOURCE_DIR="${PROJECT_DIR}"
 BUILD_DIR="${SOURCE_DIR}/_BUILD_"
 INSTALL_DIR="${PROJECTS}/3rdParty"
 
-
 CMAKE_BUILD_TYPE="RelWithDebInfo"
 #CMAKE_BUILD_TYPE="Debug"
 #CMAKE_BUILD_TYPE="Release"
 #CMAKE_BUILD_TYPE="MinSizeRel"
 
-#VAR_LIST="-L"          # list simple variables
+VAR_LIST="-L"          # list simple variables
 #VAR_LIST="-LA"         # list all variables
 #VAR_LIST="-LAH"        # list all variables with help
+
 
 CMAKE_FLAGS="${VAR_LIST} \
     -DCMAKE_INSTALL_PREFIX:PATH=${INSTALL_DIR} \
     -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE} \
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=TRUE"
-
 
 # probably won't need to edit below here ####################################
 
