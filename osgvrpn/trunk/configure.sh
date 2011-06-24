@@ -1,22 +1,24 @@
 #! /bin/sh
+# $Id$
+# quick draft of a "no secrets" wrapper around cmake.
 
-ORIG_DIR=${PWD}
-PROJECT_DIR=`dirname $0`
+ORIG_DIR="${PWD}"
+PROJECT_DIR="`dirname $0`"
 
 # edit your configuration preferences here ##################################
 
-SOURCE_DIR=${PROJECT_DIR}
-BUILD_DIR=${SOURCE_DIR}/_BUILD
-INSTALL_DIR=${SOURCE_DIR}/_INSTALL
+SOURCE_DIR="${PROJECT_DIR}"
+BUILD_DIR="${SOURCE_DIR}/_BUILD_"
+INSTALL_DIR="${PROJECTS}/3rdParty"
 
-CMAKE_BUILD_TYPE=RelWithDebInfo
-#CMAKE_BUILD_TYPE=Debug
-#CMAKE_BUILD_TYPE=Release
-#CMAKE_BUILD_TYPE=MinSizeRel
+CMAKE_BUILD_TYPE="RelWithDebInfo"
+#CMAKE_BUILD_TYPE="Debug"
+#CMAKE_BUILD_TYPE="Release"
+#CMAKE_BUILD_TYPE="MinSizeRel"
 
-VAR_LIST=-L     # list simple variables
-#VAR_LIST=-LA   # list all variables
-#VAR_LIST=-LAH  # list all variables with help
+VAR_LIST="-L"          # list simple variables
+#VAR_LIST="-LA"         # list all variables
+#VAR_LIST="-LAH"        # list all variables with help
 
 
 CMAKE_FLAGS="${VAR_LIST} \
@@ -24,13 +26,18 @@ CMAKE_FLAGS="${VAR_LIST} \
     -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE} \
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=TRUE"
 
-
 # probably won't need to edit below here ####################################
 
 if [ $# -gt 0 ]
 then
     echo "arguments are not accepted; edit \"$0\" to change preferences."
     echo "(the goal is to capture ALL preferences in the script.)"
+    exit 1
+fi
+
+if [ -z ${PROJECTS} ]
+then
+    echo "PROJECTS environment variable is not set."
     exit 1
 fi
 
