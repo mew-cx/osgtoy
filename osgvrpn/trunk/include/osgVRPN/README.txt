@@ -1,5 +1,8 @@
 osgVRPN/README.txt - Mike Weiblen mew@mew.cx
-$Id: README.txt,v 1.2 2006/07/10 06:20:33 mew Exp $
+$Id$
+$URL$
+
+2011-06-22 : updated for VRPN 07_29
 
 A library to integrate the Virtual Reality Peripheral Network with the
 OpenSceneGraph 3D graphics system.  VRPN is a library (with sample client
@@ -32,6 +35,6 @@ REFERENCES
 http://openscenegraph.org/
 http://vrpn.org/ or http://www.cs.unc.edu/Research/vrpn/
 http://mew.cx/osg/
-http://sourceforge.net/projects/osgtoy   <-- CVS tree is here
+http://sourceforge.net/projects/osgtoy   <-- SVN tree is here
 
 #EOF
