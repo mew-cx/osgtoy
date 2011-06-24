@@ -2,7 +2,7 @@
  * author:      Mike Weiblen
  * copyright:   (C) 2003-2006 Michael Weiblen http://mew.cx/
  * license:     OpenSceneGraph Public License (OSGPL)
- * $Id: TrackerManipulator.cpp,v 1.8 2006/07/15 23:54:58 mew Exp $
+ * $Id$
 */
 
 #include <osgVRPN/TrackerManipulator.h>
