@@ -1,0 +1,34 @@
+
+superviewer:
+- method for plugging-in manipulators on main camera
+
+
+osgVRPNviewer:
+- toggle what tracker is connected to: TrackerTransform or TrackerManipulator
+- add a way to connect tracker to Light.
+- add runtime adjustment of AnalogFly/AnalogTracker configuration parameters.
+
+mtv: mew's terrain viewer
+- 3 motionmodels / eyepoints
+        "bird"
+        "person" : ground clamped, always upright w/ gravity
+        "car" : constrained to roads, ground clamped
+- want 3rdperson views of each other eyepoint
+        jump between eyepoints
+- need manniquin model 
+- projected line-of-sight
+- stereo pair generation
+- OSM overlay
+- osgEarth: how?
+- HUD : compass rose, distance from waypoint
+- grab waypoints
+        recall waypoints
+        drop a "stake" at waypoint
+- adjust motionmodel scale factors
+
+make windows installers:
+        gdal
+        vrpn
+
+
+

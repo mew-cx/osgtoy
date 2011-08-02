@@ -26,6 +26,7 @@ CMAKE_FLAGS="${VAR_LIST} \
     -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE} \
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=TRUE"
 
+
 # probably won't need to edit below here ####################################
 
 if [ $# -gt 0 ]
@@ -50,7 +51,7 @@ fi
 # make it so
 mkdir -p ${BUILD_DIR}
 cd ${SOURCE_DIR}
-cmake -H${SOURCE_DIR} -B${BUILD_DIR} ${CMAKE_FLAGS}
+cmake -H${SOURCE_DIR} -B${BUILD_DIR} ${CMAKE_FLAGS} | tee $0.txt
 
 
 # vim: set sw=4 ts=8 et ic ai:
