@@ -28,9 +28,13 @@
 #include <osgUtil/Optimizer>
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
-#include <osgGA/GUIEventHandler>
+
 #include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/StateSetManipulator>
 #include <osgGA/TrackballManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
 
 #include <osgVRPN/TrackerBase.h>
 #include <osgVRPN/Tracker.h>
@@ -40,7 +44,7 @@
 
 static bool USE_ANALOG_TRACKER(false);
 static bool USE_TRACKER_MANIPULATOR(true);
-#define SERVERNAME      "glow"  // "localhost"
+#define SERVERNAME      "localhost"
 
 ///////////////////////////////////////////////////////////////////////////
 // set clearcolor based on view direction
@@ -64,6 +68,7 @@ static osgVRPN::TrackerBase* trackerFactory( osgViewer::Viewer* viewer = 0 )
 {
     if( USE_ANALOG_TRACKER )
     {
+        // instead of vrpn_AnalogFly
         const char* deviceName( "Spaceball0@" SERVERNAME );
         osgVRPN::AnalogTracker* trk( new osgVRPN::AnalogTracker() );
         trk->setViewer( viewer );
@@ -161,6 +166,11 @@ private:
     }
 
     osg::ref_ptr<osgVRPN::TrackerBase> _tracker;
+
+private:        // disallowed
+    AppKeyHandler();
+    AppKeyHandler( const AppKeyHandler& );
+    AppKeyHandler& operator=( const AppKeyHandler& );
 };
 
 ///////////////////////////////////////////////////////////////////////////
@@ -200,18 +210,31 @@ int main( int argc, char* argv[] )
         theScene = buildTestScene( tracker, ! USE_TRACKER_MANIPULATOR );
     }
 
-    osgGA::KeySwitchMatrixManipulator* ksm( new osgGA::KeySwitchMatrixManipulator );
-    viewer.setCameraManipulator( ksm );
+    osg::StateSet* ss( viewer.getCamera()->getOrCreateStateSet() );
+    viewer.addEventHandler( new osgGA::StateSetManipulator( ss ) );
+    viewer.addEventHandler( new osgViewer::HelpHandler( args.getApplicationUsage() ) );
+    viewer.addEventHandler( new osgViewer::ThreadingHandler );
+    viewer.addEventHandler( new osgViewer::WindowSizeHandler );
+    viewer.addEventHandler( new osgViewer::StatsHandler );
+    viewer.addEventHandler( new osgViewer::LODScaleHandler );
+    viewer.addEventHandler( new osgViewer::ScreenCaptureHandler );
     viewer.addEventHandler( new AppKeyHandler( tracker ) );
 
-    ksm->addMatrixManipulator( '1', "Trackball", new osgGA::TrackballManipulator() );
+    osgGA::KeySwitchMatrixManipulator* ksm( new osgGA::KeySwitchMatrixManipulator );
+    viewer.setCameraManipulator( ksm );
+
     if( USE_TRACKER_MANIPULATOR )
     {
         osgVRPN::TrackerManipulator* manip( new osgVRPN::TrackerManipulator(tracker) );
-        const osg::BoundingSphere& bs = theScene->getBound();
+        const osg::BoundingSphere& bs( theScene->getBound() );
         manip->setHomeMatrix( osg::Matrix::translate(0,0,1.5*bs._radius) * osg::Matrixd::rotate(1.2,1,0,0) );
         manip->setAutoComputeHomePosition(false);
-        ksm->addMatrixManipulator( '2', "Tracker", manip );
+        ksm->addMatrixManipulator( '1', "Tracker", manip );
+        ksm->addMatrixManipulator( '2', "Trackball", new osgGA::TrackballManipulator() );
+    }
+    else
+    {
+        ksm->addMatrixManipulator( '1', "Trackball", new osgGA::TrackballManipulator() );
     }
 
     //osgUtil::Optimizer optimizer;
